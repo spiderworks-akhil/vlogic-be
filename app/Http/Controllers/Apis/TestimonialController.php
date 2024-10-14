@@ -15,6 +15,7 @@ class TestimonialController extends Controller
     }
 
     public function index(){
+      
         $testimonials = Testimonial::where('status', 1)->orderBy('priority')->get();
         return new TestimonialCollection($testimonials);
     }

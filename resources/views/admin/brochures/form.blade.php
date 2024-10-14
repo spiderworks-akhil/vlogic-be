@@ -1,17 +1,4 @@
 @extends('admin._layouts.fileupload')
-
-@section('header')
-    @parent
-    <style type="text/css">
-        #video-div p a{
-            border: 1px solid #1761fd;
-            padding: 10px 20px;
-            background: #1761fd;
-            color: #fff;
-        }
-    </style>
-@endsection
-
 @section('content')
 <!-- Top Bar Start -->
             <div class="topbar">
@@ -42,14 +29,14 @@
                                 <div class="row">
                                     <div class="col">
                                         @if($obj->id)
-                                            <h4 class="page-title">Edit Testimonial</h4>
+                                            <h4 class="page-title">Edit Brochure</h4>
                                         @else
-                                            <h4 class="page-title">Create new Testimonial</h4>
+                                            <h4 class="page-title">Create new Brochure</h4>
                                         @endif
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Admin</a></li>
-                                            <li class="breadcrumb-item"><a href="{{ route($route.'.index') }}">All Testimonials</a></li>
-                                            <li class="breadcrumb-item active">@if($obj->id)Edit @else Create new @endif Testimonial</li>
+                                            <li class="breadcrumb-item"><a href="{{ route($route.'.index') }}">All Brochure</a></li>
+                                            <li class="breadcrumb-item active">@if($obj->id)Edit @else Create new @endif Brochurer</li>
                                         </ol>
                                     </div><!--end col-->
                                     @if(auth()->user()->can($permissions['create']))
@@ -82,43 +69,90 @@
                                                 <div class="card-body">
                                                     <div data-simplebar>
                                                         <div class="row m-0">
-                                                            <div class="form-group col-md-12">
+                                                            <div class="form-group col-md-6">
                                                                 <label>Name</label>
-                                                                <input type="text" name="name" class="form-control" value="{{$obj->name}}">
+                                                                <input type="text" name="name" class="form-control @if(!$obj->id) copy-name @endif" value="{{$obj->name}}" required="">
                                                             </div>
+
+                                                            <div class="form-group col-md-6">
+                                                                <label>Heading</label>
+                                                                <input type="text" name="title" class="form-control" value="{{$obj->title}}" required="">
+                                                            </div>
+
                                                             <div class="form-group col-md-12">
-                                                                <label>Designation</label>
-                                                                <textarea class="form-control" name="designation">{{$obj->designation}}</textarea>
+                                                                <label class="">Slug (for url)</label>
+                                                                <input type="text" name="slug" class="form-control" value="{{$obj->slug}}" id="slug">
+                                                                <small class="text-muted">The “slug” is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.</small>
                                                             </div>
+
+
+
+
+
                                                             <div class="form-group col-md-12">
-                                                                <label>Type</label>
-                                                                <select name="comment_type" class="w-100 webadmin-select2-input" id="type-select">
-                                                                    <option value="Text" @if($obj->comment_type == 'Text') selected="selected" @endif>Text</option>
-                                                                    @fieldshow(testimonials-has_video_testimonials)
-                                                                    <option value="Youtube Video" @if($obj->comment_type == 'Youtube Video') selected="selected" @endif>Youtube Video</option>
-                                                                    <option value="Video from Computer" @if($obj->comment_type == 'Video from Computer') selected="selected" @endif>Video from Computer</option>
-                                                                    @endfieldshow
-                                                                </select>
+                                                                <label>Short Description</label>
+                                                                <textarea name="short_description" class="form-control" rows="2" id="short_description">{{$obj->short_description}}</textarea>
                                                             </div>
-                                                            <div class="form-group col-md-12" id="text-div" @if($obj->comment_type == 'Youtube Video' || $obj->comment_type == 'Video from Computer') style="display:none;" @endif>
-                                                                <label>Comment</label>
-                                                                <textarea class="form-control" name="comment">{{$obj->comment}}</textarea>
+
+                                                            <div class="form-group col-md-12">
+                                                                <label>Content</label>
+                                                                <textarea name="content" class="form-control editor" id="content">{{$obj->content}}</textarea>
                                                             </div>
-                                                            @fieldshow(testimonials-has_video_testimonials)
-                                                            <div class="form-group col-md-12" id="youtube-div" @if(!$obj->id || $obj->comment_type == 'Text' || $obj->comment_type == 'Video from Computer') style="display:none;" @endif>
-                                                                <label>Youtube Link</label>
-                                                                <input type="text" name="youtube_link" class="form-control" value="{{$obj->youtube_link}}">
-                                                            </div>
-                                                            <div class="form-group col-md-12" id="video-div" @if(!$obj->id || $obj->comment_type == 'Text' || $obj->comment_type == 'Youtube Video') style="display:none;" @endif>
-                                                                <label>Youtube Link</label>
-                                                                @include('admin.media.set_file', ['file'=>$obj->video, 'title'=>'Videos', 'popup_type'=>'single_image', 'type'=>'Video', 'holder_attr'=>'video_link_id'])
-                                                            </div>
-                                                            @endfieldshow
+
                                                         </div>
                                                     </div>
                                                 </div><!--end card-body-->
-                                                
                                             </div><!--end card-->
+
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    SEO
+                                                </div>
+                                                <div class="card-body row">
+
+
+                                                    <div class="form-group col-md-12">
+                                                        <label>Browser title</label>
+                                                        <input type="text" class="form-control" name="browser_title" id="browser_title" value="{{$obj->browser_title}}">
+                                                    </div>
+
+                                                    <div class="form-group col-md-6">
+                                                        <label class="">Meta Keywords</label>
+                                                        <textarea name="meta_keywords" class="form-control" rows="3" id="meta_keywords">{{$obj->meta_keywords}}</textarea>
+                                                    </div>
+
+                                                    <div class="form-group col-md-6">
+                                                        <label class="">Meta description</label>
+                                                        <textarea name="meta_description" class="form-control" rows="3" id="meta_description">{{$obj->meta_description}}</textarea>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                            {{-- <div class="card">
+                                                <div class="card-header">
+                                                    Extra Data
+                                                </div>
+                                                <div class="card-body row">
+
+                                                    <div class="form-group col-md-12">
+                                                        <label>OG Title</label>
+                                                        <input type="text" class="form-control" name="og_title" id="og_title" value="{{$obj->og_title}}">
+                                                    </div>
+
+                                                    <div class="form-group col-md-6">
+                                                        <label class="">OG Description</label>
+                                                        <textarea name="og_description" class="form-control" rows="3" id="og_description">{{$obj->og_description}}</textarea>
+                                                    </div>
+
+                                                    <div class="form-group col-md-6">
+                                                        <label class="">Extra Js</label>
+                                                        <textarea name="extra_js" class="form-control" rows="3" id="extra_js">{{$obj->extra_js}}</textarea>
+                                                    </div>
+
+                                                </div>
+                                            </div> --}}
+
                                         </div>
                                         <div class="col-md-4">
                                             <div class="card">
@@ -132,12 +166,12 @@
                                                                 <input type="checkbox" class="custom-control-input" value="1" id="status" name="status" @if(!$obj->id || $obj->status == 1) checked="" @endif>
                                                                 <label class="custom-control-label" for="status">Status</label>
                                                             </div>
-                                                            @fieldshow(testimonials-is_featured)
+
                                                             <div class="custom-control custom-switch switch-primary float-right">
                                                                 <input type="checkbox" class="custom-control-input" value="1" id="is_featured" name="is_featured" @if($obj->is_featured == 1) checked="checked" @endif>
                                                                 <label class="custom-control-label" for="is_featured">Featured</label>
                                                             </div>
-                                                            @endfieldshow
+
                                                         </div>
                                                         <div class="form-group w-100 mb-1">
                                                             <label for="name">Created On: </label>
@@ -174,10 +208,10 @@
                                                     </div>
                                                 </div>
                                                 <div class="card-footer text-muted">
-                                                    <!-- <a href="" class="btn btn-sm btn-soft-primary">Preview</a> -->
                                                     <button class="btn btn-sm btn-primary float-right">Save</button>
                                                 </div>
                                             </div>
+
                                             <div class="card">
                                                 <div class="card-header">
                                                     Priority
@@ -189,14 +223,55 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="card">
+
+                                            {{-- <div class="card">
                                                 <div class="card-header">
-                                                    User Image
+                                                    Social Media Links
                                                 </div>
                                                 <div class="card-body">
-                                                    @include('admin.media.set_file', ['file'=>$obj->featured_image, 'title'=>'User Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'featured_image_id'])
+
+                                                    <div class="form-group col-md-12">
+                                                        <label>Facebook</label>
+                                                        <input type="text" name="facebook_link" class="form-control" value="{{$obj->facebook_link}}" id="facebook_link">
+                                                    </div>
+
+                                                    <div class="form-group col-md-12">
+                                                        <label>X (Twitter)</label>
+                                                        <input type="text" name="twitter_link" class="form-control" value="{{$obj->twitter_link}}" id="twitter_link">
+                                                    </div>
+
+                                                    <div class="form-group col-md-12">
+                                                        <label>Instagram</label>
+                                                        <input type="text" name="instagram_link" class="form-control" value="{{$obj->instagram_link}}" id="instagram_link">
+                                                    </div>
+
+                                                    <div class="form-group col-md-12">
+                                                        <label>LinkedIn</label>
+                                                        <input type="text" name="linkedin_link" class="form-control" value="{{$obj->linkedin_link}}" id="linkedin_link">
+                                                    </div>
+
+                                                    <div class="form-group col-md-12">
+                                                        <label>Youtube</label>
+                                                        <input type="text" name="youtube_link" class="form-control" value="{{$obj->youtube_link}}" id="youtube_link">
+                                                    </div>
+
+                                                </div>
+                                            </div> --}}
+
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    Brochure PDF
+                                                </div>
+                                                {{--'file'=>$obj->brochure,    the brochure is the function in the model--}}
+                                                <div class="card-body">
+                                                    @include('admin.media.set_file', ['file'=>$obj->brochure, 'title'=>'Brochure pdf', 'popup_type'=>'single_image', 'type'=>'pdf', 'holder_attr'=>'brochure_id'])
                                                 </div>
                                             </div>
+
+
+
+
+
                                         </div>
                                     </div>
                             </form>
@@ -212,38 +287,35 @@
 @section('footer')
     <script type="text/javascript">
         var validator = $('#InputFrm').validate({
-              rules:
-              {
+            ignore: [],
+            rules: {
                 "name": "required",
-                "designation": "required"
+                slug: {
+                  required: true,
+                  remote: {
+                      url: "{{route('admin.unique-slug')}}",
+                      data: {
+                        id: function() {
+                          return $( "#inputId" ).val();
+                        },
+                        table: 'brochures',
+                    }
+                  }
+                }
               },
-              messages:
-              {
+              messages: {
                 "name": "Name cannot be blank",
-                "designation": "Designation cannot be blank",
+                slug: {
+                  required: "Slug cannot be blank",
+                  remote: "Slug is already in use",
+                },
               },
-        });
+            });
 
-        $(document).ready(function(){
-            $('#type-select').change(function(){
-                if($(this).val() == 'Text')
-                {
-                    $('#text-div').show();
-                    $('#youtube-div').hide();
-                    $('#video-div').hide();
-                }
-                else if($(this).val() == 'Youtube Video')
-                {
-                    $('#text-div').hide();
-                    $('#video-div').hide();
-                    $('#youtube-div').show();
-                }
-                else{
-                    $('#text-div').hide();
-                    $('#video-div').show();
-                    $('#youtube-div').hide();
-                }
-            })
+        $(function(){
+            $(".js-location-tags").select2({
+              tags: true
+            });
         })
     </script>
 @parent

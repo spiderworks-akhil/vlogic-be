@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Apis\AdvisoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Apis\BlogController;
@@ -11,7 +12,7 @@ use App\Http\Controllers\Apis\JobController;
 use App\Http\Controllers\Apis\ServiceController;
 use App\Http\Controllers\Apis\TeamController;
 use App\Http\Controllers\Apis\PartnerController;
-
+use App\Http\Controllers\BrochuresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,12 +36,24 @@ Route::get('blogs', [BlogController::class, 'index'])->name('api.blogs.index');
 Route::get('blogs/categories', [BlogController::class, 'categories'])->name('api.blogs.categories');
 Route::get('blogs/{slug}', [BlogController::class, 'view'])->name('api.blogs.view');
 
+//videos
 Route::get('gallery', [GalleryController::class, 'index'])->name('api.gallery.index');
 Route::get('gallery/{slug}', [GalleryController::class, 'view'])->name('api.gallery.view');
 Route::get('gallery/medias/{slug}', [GalleryController::class, 'medias'])->name('api.gallery.medias');
 
+
+
+//story
 Route::get('testimonials/featured', [TestimonialController::class, 'featured'])->name('api.testimonials.featured');
 Route::get('testimonials', [TestimonialController::class, 'index'])->name('api.testimonials');
+
+//Brochures
+ Route::get('brochures', [BrochuresController::class, 'index'])->name('api.brochures.index');
+
+ //Advisory
+
+ Route::get('advisory',[AdvisoryController::class, 'index'])->name('api.advisory.index');
+
 
 Route::get('service', [ServiceController::class, 'index'])->name('api.service.index');
 Route::get('service/featured', [ServiceController::class, 'featured'])->name('api.service.featured');
@@ -69,3 +82,6 @@ Route::get('leads/{id}', [CommonController::class, 'leads_view'])->name('api.lea
 Route::get('list-urls/{page}', [CommonController::class, 'list_urls'])->name('api.list-urls');
 
 Route::post('contact/save', [CommonController::class, 'contact_save'])->name('contacts.save');
+
+//Story  index
+// Route::get('/stories', [StoryController::class, 'index'])->name('story.index');

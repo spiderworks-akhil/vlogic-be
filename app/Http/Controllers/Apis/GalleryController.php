@@ -20,12 +20,13 @@ class GalleryController extends Controller
                             $gallery->load('gallery')->take(8);
                         });
 
+
         return new GalleryCollection($gallery);
-        
+
     }
 
     public function view(Request $request, $slug){
-        
+
         $gallery = Gallery::where('status', 1)->where('slug', $slug)->first();
 
         if($gallery){
@@ -44,4 +45,6 @@ class GalleryController extends Controller
 
         return new GalleryMediaCollection($medias);
     }
+
+   
 }

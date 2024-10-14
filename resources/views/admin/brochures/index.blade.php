@@ -28,18 +28,15 @@
                             <div class="page-title-box">
                                 <div class="row">
                                     <div class="col">
-                                        <h4 class="page-title">@if($parent_data) Sub-categories of {{$parent_data->name}} @else All Categories @endif</h4>
+                                        <h4 class="page-title">All Brochures</h4>
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Admin</a></li>
-                                            @if($parent_data)
-                                            <li class="breadcrumb-item"><a href="{{ route($route.'.index', [$parent_data->parent_id]) }}">{{$parent_data->name}}</a></li>
-                                            @endif
-                                            <li class="breadcrumb-item active">List Categories</li>
+                                            <li class="breadcrumb-item active">All Brochures</li>
                                         </ol>
                                     </div><!--end col-->
                                     @if(auth()->user()->can($permissions['create']))
                                      <div class="col-auto align-self-center">
-                                        <a class=" btn btn-sm btn-primary" href="{{route($route.'.create', [$parent])}}" role="button"><i class="fas fa-plus mr-2"></i>Create New</a>
+                                        <a class=" btn btn-sm btn-primary" href="{{route($route.'.create')}}" role="button"><i class="fas fa-plus mr-2"></i>Create New</a>
                                     </div>
                                     @endif
                                 </div><!--end row-->
@@ -53,26 +50,18 @@
                             <div class="card">
                                 <div class="card-body">
                                     <table class="table table-hover demo-table-search table-responsive-block" id="datatable"
-                                           data-datatable-ajax-url="{{ route($route.'.index', [$parent]) }}" >
+                                           data-datatable-ajax-url="{{ route($route.'.index') }}" >
                                         <thead id="column-search">
                                         <tr>
                                             <th class="nodisplay"></th>
-                                            <th class="table-width-10">ID</th>
+                                            <th class="table-width-10 text-center">ID</th>
                                             <th class="table-width-120">Name</th>
-                                            @if(Config('admin.category_types'))
-                                                <th class="table-width-120 @fieldshow(categories-category_type) @else nodisplay @endfieldshow">Type</th>
-                                            @else
-                                                <th class="nodisplay"></th>
-                                            @endif
-                                            <th class="table-width-120">Last Updated On</th>
-                                            <th class="nosort nosearch table-width-10 @fieldshow(categories-parent_id) @else nodisplay @endfieldshow">Sub Categories</th>
-                                            <th class="nosort nosearch table-width-10 @fieldshow(categories-priority) @else nodisplay @endfieldshow">Priority</th>
-                                            <th class="nosort nosearch table-width-10">Status</th>
-                                            <th class="nosort nosearch table-width-10">Edit</th>
-                                            <th class="nosort nosearch table-width-10">Delete</th>
+                                            <th class="table-width-120">Slug</th>
+                                            <th class="nosearch table-width-10 text-center  ">Priority</th>
+                                            <th class="nosort nosearch table-width-10 text-center">Status</th>
+                                            <th class="nosort nosearch table-width-10 text-center">@if(auth()->user()->can($permissions['edit'])) Edit @else View @endif</th>
+                                            <th class="nosort nosearch table-width-10 text-center">Delete</th>
                                         </tr>
-
-
 
                                         </thead>
 
@@ -97,22 +86,14 @@
             {data: 'updated_at', name: 'updated_at'},
             {data: null, name: 'id'},
             {data: 'name', name: 'name'},
-            {data: 'category_type', name: 'category_type'},
-            {data: 'date', name: 'updated_at'},
-            {data: 'sub-categories', name: 'sub-categories'},
+            {data: 'slug', name: 'slug'},
             {data: 'priority', name: 'priority'},
             {data: 'status', name: 'status'},
             {data: 'action_edit', name: 'action_edit'},
-            {data: 'action_delete_category', name: 'action_delete_category'}
+            {data: 'action_delete', name: 'action_delete'}
         ];
         var slno_i = 0;
         var order = [0, 'desc'];
-
-        $(function(){
-            $(document).on('click', '.delete_have_child', function(){
-                $.alert('Sorry! You cannot delete this category, to delete it please delete all its sub categories.');
-            })
-        })
     </script>
     @parent
 @endsection
