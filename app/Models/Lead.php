@@ -12,9 +12,9 @@ class Lead extends Model
 	use ValidationTrait {
         ValidationTrait::validate as private parent_validate;
     }
-    
+
     public function __construct() {
-        
+
         parent::__construct();
         $this->__validationConstruct();
     }
@@ -22,7 +22,7 @@ class Lead extends Model
     protected $table = 'leads';
 
 
-    protected $fillable = array('name', 'email', 'phone_number', 'message', 'extra_data', 'lead_type', 'utm_source', 'source_url', 'ip_address', 'user_agent', 'referrer_link', 'remarks', 'status');
+    protected $fillable = array('name', 'email', 'phone_number', 'message', 'organization','country','extra_data', 'lead_type', 'utm_source', 'source_url', 'ip_address', 'user_agent', 'referrer_link', 'remarks', 'status');
 
     protected $dates = ['created_at','updated_at'];
 

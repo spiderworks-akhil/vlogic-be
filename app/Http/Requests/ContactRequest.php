@@ -26,17 +26,22 @@ class ContactRequest extends FormRequest
             'name' => 'required|max:255',
             'phone_number' => 'required|max:20',
             'email' => ['nullable', 'email', 'max:255'],
-            'message' => ['nullable', new Spam()]
+            'organization' => ['required'],
+            'country' => ['required'],
+            'message' => ['nullable', new Spam()],
         ];
     }
 
     public function messages()
     {
-        return[
+        return [
             'name.required' => 'Please enter your first name',
             'phone_number.required' => 'Please enter your phone number',
             'email.email' => 'Please enter a valid email address',
             'phone_number.required' => 'Please enter your phone number',
+            'organization.reruired' =>'Please enter your organization name',
+            'country.required' => 'please enter your country name',
+            
         ];
     }
 }

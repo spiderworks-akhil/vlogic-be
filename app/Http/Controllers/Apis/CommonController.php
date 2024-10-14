@@ -47,10 +47,16 @@ class CommonController extends Controller
     }
 
     public function contact_save(ContactRequest $request){
+
+
         $request->validated();
         $contact = new Lead;
         $contact->fill($request->all());
         $contact->save();
+
+        $page_details = FrontendPage::where('slug','contact')->first();
+
+
 
         $notif_emails = Setting::where('code', 'contact_notification_email_ids')->first();
 
@@ -58,17 +64,20 @@ class CommonController extends Controller
         {
             $mail = new MailSettings;
             $email_array = explode(',', $notif_emails->value_text);
-            array_filter($email_array, function($value){ 
+            array_filter($email_array, function($value){
                 return !is_null($value) && $value !== '';
             });
             $email_array = array_map('trim', $email_array);
             $mail->to($email_array)->send(new \App\Mail\Contact($contact));
-        } 
+        }
         if($contact->email){
                 $thank_mail = new MailSettings;
                 $thank_mail->to($contact->email)->send(new \App\Mail\ContactThankyou($contact));
         }
-        return response()->json(['success' => true]);
+        return response()->json([
+            'success' => true,
+            'page_details' => $page_details
+        ]);
     }
 
     public function list_urls($page){
@@ -96,14 +105,14 @@ class CommonController extends Controller
         }
         $faqs = $faqs->paginate($limit);
         return new FaqCollection($faqs);
-        
+
     }
 
     public function leads(Request $request){
 
         $limit = ($request->limit)?$request->limit:12;
         $leads = Lead::where('status', 1);
-        
+
         if($search = $request->search){
             $leads->where(function($query) use($search){
                 $query->whereRaw("MATCH (name) AGAINST ('{$search}')")->orWhereRaw("MATCH (email) AGAINST ('{$search}')")->orWhere('phone_number', 'LIKE', '%'.$search.'%')->orWhere('created_at', 'LIKE', '%'.$search.'%');
@@ -112,16 +121,16 @@ class CommonController extends Controller
         $leads = $leads->paginate($limit);
 
         return new LeadCollection($leads);
-        
+
     }
     public function leads_view($id){
 
         $lead = Lead::where('status', 1)->find($id);
-        
+
         if (!$lead)
             return response()->json(['error' => 'Page not Found!'], 404);
 
         return new LeadResource($lead);
-        
+
     }
 }

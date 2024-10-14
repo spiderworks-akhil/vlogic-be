@@ -1,18 +1,28 @@
 <?php
 
-use App\Http\Controllers\Apis\AdvisoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Apis\BlogController;
+use App\Http\Controllers\Apis\JobController;
 use App\Http\Controllers\Apis\AuthController;
+use App\Http\Controllers\Apis\BlogController;
+use App\Http\Controllers\Apis\TeamController;
+use App\Http\Controllers\Apis\BrochuresController;
 use App\Http\Controllers\Apis\CommonController;
 use App\Http\Controllers\Apis\GalleryController;
-use App\Http\Controllers\Apis\TestimonialController;
-use App\Http\Controllers\Apis\JobController;
-use App\Http\Controllers\Apis\ServiceController;
-use App\Http\Controllers\Apis\TeamController;
 use App\Http\Controllers\Apis\PartnerController;
-use App\Http\Controllers\BrochuresController;
+use App\Http\Controllers\Apis\ServiceController;
+use App\Http\Controllers\Apis\AdvisoryController;
+use App\Http\Controllers\Apis\TestimonialController;
+
+
+
+
+/*
+story
+Brochures
+Advisory
+contact_save
+*/
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +90,8 @@ Route::get('leads/{id}', [CommonController::class, 'leads_view'])->name('api.lea
 
 
 Route::get('list-urls/{page}', [CommonController::class, 'list_urls'])->name('api.list-urls');
+
+//Contact
 
 Route::post('contact/save', [CommonController::class, 'contact_save'])->name('contacts.save');
 
