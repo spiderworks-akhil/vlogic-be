@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\News;
 use Illuminate\Database\Eloquent\Model;
 
 class Media extends Model
@@ -18,4 +18,5 @@ class Media extends Model
         'media' => 'uploads/media/',
         'media_thumb' => 'uploads/media/thumb/',
     );
+
 }

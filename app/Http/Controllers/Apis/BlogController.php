@@ -31,7 +31,7 @@ class BlogController extends Controller
     public function categories(Request $request){
         try{
             $categories = Category::where('category_type', 'Blog')->where('status', 1)->orderBy('name')->get();
-        
+
             return new CategoryCollection($categories);
         }
         catch(\Exception $e){
@@ -54,4 +54,13 @@ class BlogController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+    public function blog_details(){
+        $page_details = Blog::with('media')->get();
+
+        return response()->json([
+            'success'=>true,
+            'page_details' => $page_details
+        ]);
+    }
+
 }

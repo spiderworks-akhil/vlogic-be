@@ -14,7 +14,9 @@ use App\Http\Resources\CommonPageResource;
 use App\Http\Resources\FaqCollection;
 use App\Http\Resources\LeadCollection;
 use App\Http\Resources\Lead as LeadResource;
+use App\Http\Resources\Media;
 use App\Models\Faq;
+use App\Models\News;
 use App\Models\Page;
 use DB;
 use Illuminate\Http\Request;
@@ -144,4 +146,23 @@ class CommonController extends Controller
                  ]);
 
     }
+    public function mission(){
+        $page_details = FrontendPage::where('slug','mission')->first();
+
+
+        return response()->json([
+            'success'=>true ,
+            'page_details' => $page_details
+        ]);
+    }
+    public function index()
+    {
+        $page_details = News::with('media')->orderBy('created_at', 'asc')->get();
+
+       return response()->json([
+        'success'=>true,
+       'page_details'=>$page_details
+    ]);
+    }
+
 }

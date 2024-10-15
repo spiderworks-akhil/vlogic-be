@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Models;
 
 use App\Models\BaseModel as Model;
@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ListingContent extends Model
 {
-    
+
     use SoftDeletes;
 
     protected $table = 'listing_contents';

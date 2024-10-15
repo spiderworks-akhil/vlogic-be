@@ -31,4 +31,8 @@ class Blog extends Model
     {
         return $this->belongsTo(Author::class, 'published_by_author_id');
     }
+    public function media():BelongsTo
+    {
+        return $this->belongsTo(Media::class,'featured_image_id');
+    }
 }

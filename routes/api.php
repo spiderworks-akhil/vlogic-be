@@ -25,6 +25,8 @@ contact_save
 privacy
 blog
 gallery
+mission
+news
 */
 
 /*
@@ -51,6 +53,9 @@ Route::get('blogs', [BlogController::class, 'index'])->name('api.blogs.index');
 Route::get('blogs/categories', [BlogController::class, 'categories'])->name('api.blogs.categories');
 Route::get('blogs/{slug}', [BlogController::class, 'view'])->name('api.blogs.view');
 
+//blog_details
+Route::get('blog_details',[BlogController::class,'blog_details'])->name('api.blog_details.index');
+
 //videos
 Route::get('gallery', [GalleryController::class, 'index'])->name('api.gallery.index');
 Route::get('gallery/{slug}', [GalleryController::class, 'view'])->name('api.gallery.view');
@@ -68,6 +73,9 @@ Route::get('testimonials', [TestimonialController::class, 'index'])->name('api.t
  //Advisory
 
  Route::get('advisory',[AdvisoryController::class, 'index'])->name('api.advisory.index');
+
+ //news
+ Route::get('news',[CommonController::class,'index'])->name('api.news.index');
 
 
 Route::get('service', [ServiceController::class, 'index'])->name('api.service.index');
@@ -103,5 +111,5 @@ Route::post('contact/save', [CommonController::class, 'contact_save'])->name('co
 //Privacy
 Route::get('privacy/policy',[CommonController::class,'privacy'])->name('privacy_policy');
 
-//Story  index
-// Route::get('/stories', [StoryController::class, 'index'])->name('story.index');
+//Mission
+Route::get('mission',[CommonController::class,'mission'])->name('api.mission');

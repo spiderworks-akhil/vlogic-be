@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\JobController;
 use App\Http\Controllers\Admin\LogController;
@@ -6,6 +7,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\LeadController;
 use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TeamController;
@@ -37,12 +39,12 @@ use App\Http\Controllers\Admin\PhotoGallaryController;
 use App\Http\Controllers\Admin\JobApplicationController;
 use App\Http\Controllers\Admin\Auth\AuthenticateSessionOtpController;
 
-$prefix = (config()->has('admin.url_prefix'))?config()->get('admin.url_prefix'):'admin';
-$middleware = (config()->has('admin.admin_middleware'))?config()->get('admin.admin_middleware'):'auth';
+$prefix = (config()->has('admin.url_prefix')) ? config()->get('admin.url_prefix') : 'admin';
+$middleware = (config()->has('admin.admin_middleware')) ? config()->get('admin.admin_middleware') : 'auth';
 
 Route::post('google/auth', [WebadminController::class, 'google_login'])->name('google.login');
 
-Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($middleware) {
+Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use ($middleware) {
 
 
     Route::post('/request-otp', [AuthenticateSessionOtpController::class, 'request_otp'])->name('admin.auth.request-otp');
@@ -56,10 +58,10 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
     Route::get('select2/listings', [WebadminController::class, 'select2_listings'])->name('admin.select2.listings');
     Route::get('select2/authors', [WebadminController::class, 'select2_authors'])->name('admin.select2.authors');
 
-	Route::group(['middleware' => $middleware], function(){
-		Route::get('/dashboard', [WebadminController::class, 'index'])->name('admin.dashboard');
+    Route::group(['middleware' => $middleware], function () {
+        Route::get('/dashboard', [WebadminController::class, 'index'])->name('admin.dashboard');
 
-        Route::get('change-password', array('as' => 'admin.change-password', function(){
+        Route::get('change-password', array('as' => 'admin.change-password', function () {
             return View::make('admin.change_password');
         }));
         Route::post('/changePassword', [WebadminController::class, 'changePassword'])->name('admin.update-password');
@@ -74,7 +76,7 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
         //users
         Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit');
         Route::get('/users/show/{id}', [UserController::class, 'show'])->name('admin.users.show');
-        Route::get('/users/destroy/{id}', [UserController::class, 'destroy'] )->name('admin.users.destroy');
+        Route::get('/users/destroy/{id}', [UserController::class, 'destroy'])->name('admin.users.destroy');
         Route::get('/users/create', [UserController::class, 'create'])->name('admin.users.create');
         Route::post('/users/update', [UserController::class, 'update'])->name('admin.users.update');
         Route::get('/users/change-status/{id}', [UserController::class, 'changeStatus'])->name('admin.users.change-status');
@@ -84,19 +86,20 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
         //permissions
         Route::get('/permissions/edit/{id}', [PermissionController::class, 'edit'])->name('admin.permissions.edit');
         Route::get('/permissions/show/{id}', [PermissionController::class, 'show'])->name('admin.permissions.show');
-        Route::get('/permissions/destroy/{id}', [PermissionController::class, 'destroy'] )->name('admin.permissions.destroy');
+        Route::get('/permissions/destroy/{id}', [PermissionController::class, 'destroy'])->name('admin.permissions.destroy');
         Route::get('/permissions/create', [PermissionController::class, 'create'])->name('admin.permissions.create');
         Route::post('/permissions/update', [PermissionController::class, 'update'])->name('admin.permissions.update');
         Route::post('/permissions/store', [PermissionController::class, 'store'])->name('admin.permissions.store');
         Route::get('/permissions', [PermissionController::class, 'index'])->name('admin.permissions.index');
-        Route::get('/permissions/change-status/{id}', function(){
-            echo "Permission Denied"; exit;
+        Route::get('/permissions/change-status/{id}', function () {
+            echo "Permission Denied";
+            exit;
         })->name('admin.permissions.change-status');
 
         //roles
         Route::get('/roles/edit/{id}', [RoleController::class, 'edit'])->name('admin.roles.edit');
         Route::get('/roles/show/{id}', [RoleController::class, 'show'])->name('admin.roles.show');
-        Route::get('/roles/destroy/{id}', [RoleController::class, 'destroy'] )->name('admin.roles.destroy');
+        Route::get('/roles/destroy/{id}', [RoleController::class, 'destroy'])->name('admin.roles.destroy');
         Route::get('/roles/create', [RoleController::class, 'create'])->name('admin.roles.create');
         Route::post('/roles/update', [RoleController::class, 'update'])->name('admin.roles.update');
         Route::get('/roles/change-status/{id}', [RoleController::class, 'changeStatus'])->name('admin.roles.change-status');
@@ -105,19 +108,20 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
 
         //admin links
         Route::get('/admin-links/edit/{id}', [AdminLinkController::class, 'edit'])->name('admin.admin-links.edit');
-        Route::get('/admin-links/destroy/{id}', [AdminLinkController::class, 'destroy'] )->name('admin.admin-links.destroy');
+        Route::get('/admin-links/destroy/{id}', [AdminLinkController::class, 'destroy'])->name('admin.admin-links.destroy');
         Route::get('/admin-links/create', [AdminLinkController::class, 'create'])->name('admin.admin-links.create');
         Route::post('/admin-links/update', [AdminLinkController::class, 'update'])->name('admin.admin-links.update');
         Route::post('/admin-links/store', [AdminLinkController::class, 'store'])->name('admin.admin-links.store');
         Route::get('/admin-links/{id?}', [AdminLinkController::class, 'index'])->name('admin.admin-links.index');
-        Route::get('/admin-links/change-status/{id}', function(){
-            echo "Permission Denied"; exit;
+        Route::get('/admin-links/change-status/{id}', function () {
+            echo "Permission Denied";
+            exit;
         })->name('admin.admin-links.change-status');
         Route::post('/admin-links/order-store', [AdminLinkController::class, 'order_store'])->name('admin.admin-links.order-store');
 
         //media
         Route::get('/media', [MediaController::class, 'index'])->name('admin.media.index');
-        Route::post('/media/destroy', [MediaController::class, 'destroy'] )->name('admin.media.destroy');
+        Route::post('/media/destroy', [MediaController::class, 'destroy'])->name('admin.media.destroy');
         Route::post('/media', [MediaController::class, 'index'])->name('admin.media.index.post');
         Route::get('/media/popup/{popup_type?}/{type?}/{holder_attr?}/{title?}/{related_id?}/{media_id?}/{display?}', [MediaController::class, 'popup'])->name('admin.media.popup');
         Route::post('/media/save', [MediaController::class, 'save'])->name('admin.media.save');
@@ -159,8 +163,9 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
         Route::get('sliders/photo-delete/{slider_id}/{id}/{type}', [SliderController::class, 'photo_delete'])->name('admin.sliders.photo-delete');
         Route::get('sliders', [SliderController::class, 'index'])->name('admin.sliders.index');
         Route::get('sliders/validation/unique-name', [SliderController::class, 'validate_name'])->name('admin.sliders.unique-name');
-        Route::get('sliders/change-status/{id}', function(){
-            echo "Not possible";exit;
+        Route::get('sliders/change-status/{id}', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.sliders.change-status');
         Route::post('sliders/update-order', [SliderController::class, 'update_order'])->name('admin.sliders.update-order');
 
@@ -199,21 +204,26 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
 
         //user_activities
         Route::get('logs', [LogController::class, 'index'])->name('admin.logs.index');
-        Route::get('logs/create', function(){
-            echo "No access permission";exit;
+        Route::get('logs/create', function () {
+            echo "No access permission";
+            exit;
         })->name('admin.logs.create');
-        Route::get('logs/edit/{id}', function(){
-            echo "No access permission";exit;
+        Route::get('logs/edit/{id}', function () {
+            echo "No access permission";
+            exit;
         })->name('admin.logs.edit');
         Route::get('logs/destroy/{id}', [LogController::class, 'destroy'])->name('admin.logs.destroy');
-        Route::post('logs/store', function(){
-            echo "No access permission";exit;
+        Route::post('logs/store', function () {
+            echo "No access permission";
+            exit;
         })->name('admin.logs.store');
-        Route::post('logs/update', function(){
-            echo "No access permission";exit;
+        Route::post('logs/update', function () {
+            echo "No access permission";
+            exit;
         })->name('admin.logs.update');
-        Route::get('logs/change-status/{id}', function(){
-            echo "No access permission";exit;
+        Route::get('logs/change-status/{id}', function () {
+            echo "No access permission";
+            exit;
         })->name('admin.logs.change-status');
         Route::get('logs/show/{id}', [LogController::class, 'show'])->name('admin.logs.show');
 
@@ -244,8 +254,9 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
         Route::get('photo-galleries/photo-delete/{gallery_id}/{id}/{type}', [PhotoGallaryController::class, 'photo_delete'])->name('admin.photo-galleries.photo-delete');
         Route::get('photo-galleries', [PhotoGallaryController::class, 'index'])->name('admin.photo-galleries.index');
         Route::get('photo-galleries/validation/unique-name', [PhotoGallaryController::class, 'validate_name'])->name('admin.photo-galleries.unique-name');
-        Route::get('photo-galleries/change-status/{id}', function(){
-            echo "Not possible";exit;
+        Route::get('photo-galleries/change-status/{id}', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.photo-galleries.change-status');
 
         //team
@@ -258,7 +269,7 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
         Route::post('team/update', [TeamController::class, 'update'])->name('admin.team.update');
         Route::get('team/show/{id}', [TeamController::class, 'show'])->name('admin.team.show');
 
-                    //Brochures
+        //Brochures
         Route::get('brochures', [BrochureController::class, 'index'])->name('admin.brochures.index');
         Route::get('brochures/create', [BrochureController::class, 'create'])->name('admin.brochures.create');
         Route::get('brochures/edit/{id}/{tab?}', [BrochureController::class, 'edit'])->name('admin.brochures.edit');
@@ -289,35 +300,41 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
 
         //leads
         Route::get('leads', [LeadController::class, 'index'])->name('admin.leads.index');
-        Route::get('leads/create', function(){
-            echo "Not possible";exit;
+        Route::get('leads/create', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.leads.create');
         Route::get('leads/edit/{id}', [LeadController::class, 'edit'])->name('admin.leads.edit');
         Route::get('leads/destroy/{id}', [LeadController::class, 'destroy'])->name('admin.leads.destroy');
-        Route::post('leads/store', function(){
-            echo "Not possible";exit;
+        Route::post('leads/store', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.leads.store');
         Route::post('leads/update', [LeadController::class, 'update'])->name('admin.leads.update');
         Route::get('leads/change-status/{id}', [LeadController::class, 'changeStatus'])->name('admin.leads.change-status');
         Route::get('leads/show/{id}', [LeadController::class, 'show'])->name('admin.leads.show');
-        Route::get('leads/export',[LeadController::class,'export'])->name('admin.leads.export');
+        Route::get('leads/export', [LeadController::class, 'export'])->name('admin.leads.export');
 
         //redirects
         Route::get('redirects', [RedirectController::class, 'index'])->name('admin.redirects.index');
         Route::get('redirects/create', [RedirectController::class, 'create'])->name('admin.redirects.create');
-        Route::get('redirects/edit/{id}/{tab?}', function(){
-            echo "Not possible";exit;
+        Route::get('redirects/edit/{id}/{tab?}', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.redirects.edit');
         Route::get('redirects/destroy/{id}', [RedirectController::class, 'destroy'])->name('admin.redirects.destroy');
-        Route::get('redirects/change-status/{id}', function(){
-            echo "No access";exit;
+        Route::get('redirects/change-status/{id}', function () {
+            echo "No access";
+            exit;
         })->name('admin.redirects.change-status');
         Route::post('redirects/store', [RedirectController::class, 'store'])->name('admin.redirects.store');
-        Route::post('redirects/update', function(){
-            echo "Not possible";exit;
+        Route::post('redirects/update', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.redirects.update');
-        Route::get('redirects/show/{id}', function(){
-            echo "Not possible";exit;
+        Route::get('redirects/show/{id}', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.redirects.show');
 
         //quick tasks
@@ -342,24 +359,30 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
 
         //login history
         Route::get('login-history', [LoginHistoryController::class, 'index'])->name('admin.login-history.index');
-        Route::get('login-history/create', function(){
-            echo "Not possible";exit;
+        Route::get('login-history/create', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.login-history.create');
-        Route::get('login-history/edit/{id}', function(){
-            echo "Not possible";exit;
+        Route::get('login-history/edit/{id}', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.login-history.edit');
         Route::get('login-history/destroy/{id}', [LoginHistoryController::class, 'destroy'])->name('admin.login-history.destroy');
-        Route::post('login-history/store', function(){
-            echo "Not possible";exit;
+        Route::post('login-history/store', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.login-history.store');
-        Route::post('login-history/update', function(){
-            echo "Not possible";exit;
+        Route::post('login-history/update', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.login-history.update');
-        Route::get('login-history/change-status/{id}', function(){
-            echo "Not possible";exit;
+        Route::get('login-history/change-status/{id}', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.login-history.change-status');
-        Route::get('login-history/show/{id}', function(){
-            echo "Not possible";exit;
+        Route::get('login-history/show/{id}', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.login-history.show');
 
         //comments
@@ -372,20 +395,20 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
         Route::post('comments/update', [CommentController::class, 'update'])->name('admin.comments.update');
         Route::get('comments/show/{id}', [CommentController::class, 'show'])->name('admin.comments.show');
 
-         //events
-         Route::get('events', [EventController::class, 'index'])->name('admin.events.index');
-         Route::get('events/create', [EventController::class, 'create'])->name('admin.events.create');
-         Route::get('events/edit/{id}', [EventController::class, 'edit'])->name('admin.events.edit');
-         Route::get('events/destroy/{id}', [EventController::class, 'destroy'])->name('admin.events.destroy');
-         Route::get('events/change-status/{id}', [EventController::class, 'changeStatus'])->name('admin.events.change-status');
-         Route::post('events/store', [EventController::class, 'store'])->name('admin.events.store');
-         Route::post('events/update', [EventController::class, 'update'])->name('admin.events.update');
-         Route::get('events/show/{id}', [EventController::class, 'show'])->name('admin.events.show');
-         Route::get('events/media/edit/{id}/{type}', [EventController::class, 'media_edit'])->name('admin.events.media.edit');
-         Route::post('events/media/update', [EventController::class, 'media_update'])->name('admin.events.media.update');
-         Route::get('events/media/destroy/{id}', [EventController::class, 'media_destroy'])->name('admin.events.media.destroy');
+        //events
+        Route::get('events', [EventController::class, 'index'])->name('admin.events.index');
+        Route::get('events/create', [EventController::class, 'create'])->name('admin.events.create');
+        Route::get('events/edit/{id}', [EventController::class, 'edit'])->name('admin.events.edit');
+        Route::get('events/destroy/{id}', [EventController::class, 'destroy'])->name('admin.events.destroy');
+        Route::get('events/change-status/{id}', [EventController::class, 'changeStatus'])->name('admin.events.change-status');
+        Route::post('events/store', [EventController::class, 'store'])->name('admin.events.store');
+        Route::post('events/update', [EventController::class, 'update'])->name('admin.events.update');
+        Route::get('events/show/{id}', [EventController::class, 'show'])->name('admin.events.show');
+        Route::get('events/media/edit/{id}/{type}', [EventController::class, 'media_edit'])->name('admin.events.media.edit');
+        Route::post('events/media/update', [EventController::class, 'media_update'])->name('admin.events.media.update');
+        Route::get('events/media/destroy/{id}', [EventController::class, 'media_destroy'])->name('admin.events.media.destroy');
 
-         //partners
+        //partners
         Route::get('partners', [PartnerController::class, 'index'])->name('admin.partners.index');
         Route::get('partners/create', [PartnerController::class, 'create'])->name('admin.partners.create');
         Route::get('partners/edit/{id}', [PartnerController::class, 'edit'])->name('admin.partners.edit');
@@ -397,13 +420,15 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
 
         //job applications
         Route::get('job-applications', [JobApplicationController::class, 'index'])->name('admin.job-applications.index');
-        Route::get('job-applications/create', function(){
-            echo "Not possible";exit;
+        Route::get('job-applications/create', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.job-applications.create');
         Route::get('job-applications/edit/{id}', [JobApplicationController::class, 'edit'])->name('admin.job-applications.edit');
         Route::get('job-applications/destroy/{id}', [JobApplicationController::class, 'destroy'])->name('admin.job-applications.destroy');
-        Route::post('job-applications/store', function(){
-            echo "Not possible";exit;
+        Route::post('job-applications/store', function () {
+            echo "Not possible";
+            exit;
         })->name('admin.job-applications.store');
         Route::post('job-applications/update', [JobApplicationController::class, 'update'])->name('admin.job-applications.update');
         Route::get('job-applications/change-status/{id}', [JobApplicationController::class, 'changeStatus'])->name('admin.job-applications.change-status');
@@ -422,7 +447,7 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
 
         //Listing items
         Route::get('/listing-items/edit/{id}', [ListigItemController::class, 'edit'])->name('admin.listing-items.edit');
-        Route::get('/listing-items/destroy/{id}', [ListigItemController::class, 'destroy'] )->name('admin.listing-items.destroy');
+        Route::get('/listing-items/destroy/{id}', [ListigItemController::class, 'destroy'])->name('admin.listing-items.destroy');
         Route::get('/listing-items/create/{listing_id}', [ListigItemController::class, 'create'])->name('admin.listing-items.create');
         Route::post('/listing-items/update', [ListigItemController::class, 'update'])->name('admin.listing-items.update');
         Route::get('/listing-items/change-status/{id}', [ListigItemController::class, 'changeStatus'])->name('admin.listing-items.change-status');
@@ -430,31 +455,38 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
         Route::post('/listing-items/store', [ListigItemController::class, 'store'])->name('admin.listing-items.store');
         Route::get('/listing-items/{listing_id}', [ListigItemController::class, 'index'])->name('admin.listing-items.index');
 
-         //tags
-         Route::get('tags', [TagController::class, 'index'])->name('admin.tags.index');
-         Route::get('tags/create', [TagController::class, 'create'])->name('admin.tags.create');
-         Route::get('tags/edit/{id}', [TagController::class, 'edit'])->name('admin.tags.edit');
-         Route::get('tags/destroy/{id}', [TagController::class, 'destroy'])->name('admin.tags.destroy');
-         Route::get('tags/change-status/{id}', [TagController::class, 'changeStatus'])->name('admin.tags.change-status');
-         Route::post('tags/store', [TagController::class, 'store'])->name('admin.tags.store');
-         Route::post('tags/update', [TagController::class, 'update'])->name('admin.tags.update');
-         Route::get('tags/show/{id}', [TagController::class, 'show'])->name('admin.tags.show');
+        //tags
+        Route::get('tags', [TagController::class, 'index'])->name('admin.tags.index');
+        Route::get('tags/create', [TagController::class, 'create'])->name('admin.tags.create');
+        Route::get('tags/edit/{id}', [TagController::class, 'edit'])->name('admin.tags.edit');
+        Route::get('tags/destroy/{id}', [TagController::class, 'destroy'])->name('admin.tags.destroy');
+        Route::get('tags/change-status/{id}', [TagController::class, 'changeStatus'])->name('admin.tags.change-status');
+        Route::post('tags/store', [TagController::class, 'store'])->name('admin.tags.store');
+        Route::post('tags/update', [TagController::class, 'update'])->name('admin.tags.update');
+        Route::get('tags/show/{id}', [TagController::class, 'show'])->name('admin.tags.show');
 
 
-         //gallery
-         Route::get('galleries', [GalleryController::class, 'index'])->name('admin.galleries.index');
-         Route::get('galleries/create', [GalleryController::class, 'create'])->name('admin.galleries.create');
-         Route::get('galleries/edit/{id}', [GalleryController::class, 'edit'])->name('admin.galleries.edit');
-         Route::get('galleries/destroy/{id}', [GalleryController::class, 'destroy'])->name('admin.galleries.destroy');
-         Route::get('galleries/change-status/{id}', [GalleryController::class, 'changeStatus'])->name('admin.galleries.change-status');
-         Route::post('galleries/store', [GalleryController::class, 'store'])->name('admin.galleries.store');
-         Route::post('galleries/update', [GalleryController::class, 'update'])->name('admin.galleries.update');
-         Route::get('galleries/show/{id}', [GalleryController::class, 'show'])->name('admin.galleries.show');
-         Route::get('galleries/media/edit/{id}/{type}', [GalleryController::class, 'media_edit'])->name('admin.galleries.media.edit');
-         Route::post('galleries/media/update', [GalleryController::class, 'media_update'])->name('admin.galleries.media.update');
-         Route::get('galleries/media/destroy/{id}', [GalleryController::class, 'media_destroy'])->name('admin.galleries.media.destroy');
+        Route::get('news', [NewsController::class, 'index'])->name('admin.news.index');
+        Route::get('news/create', [NewsController::class, 'create'])->name('admin.news.create');
+        Route::get('news/edit/{id}/{tab?}', [NewsController::class, 'edit'])->name('admin.news.edit');
+        Route::get('news/destroy/{id}', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+        Route::post('news/store', [NewsController::class, 'store'])->name('admin.news.store');
+        Route::post('news/update', [NewsController::class, 'update'])->name('admin.news.update');
+        Route::get('news/show/{id}', [NewsController::class, 'show'])->name('admin.news.show');
+        //gallery
+        Route::get('galleries', [GalleryController::class, 'index'])->name('admin.galleries.index');
+        Route::get('galleries/create', [GalleryController::class, 'create'])->name('admin.galleries.create');
+        Route::get('galleries/edit/{id}', [GalleryController::class, 'edit'])->name('admin.galleries.edit');
+        Route::get('galleries/destroy/{id}', [GalleryController::class, 'destroy'])->name('admin.galleries.destroy');
+        Route::get('galleries/change-status/{id}', [GalleryController::class, 'changeStatus'])->name('admin.galleries.change-status');
+        Route::post('galleries/store', [GalleryController::class, 'store'])->name('admin.galleries.store');
+        Route::post('galleries/update', [GalleryController::class, 'update'])->name('admin.galleries.update');
+        Route::get('galleries/show/{id}', [GalleryController::class, 'show'])->name('admin.galleries.show');
+        Route::get('galleries/media/edit/{id}/{type}', [GalleryController::class, 'media_edit'])->name('admin.galleries.media.edit');
+        Route::post('galleries/media/update', [GalleryController::class, 'media_update'])->name('admin.galleries.media.update');
+        Route::get('galleries/media/destroy/{id}', [GalleryController::class, 'media_destroy'])->name('admin.galleries.media.destroy');
 
-         //authors
+        //authors
         Route::get('authors', [AuthorController::class, 'index'])->name('admin.authors.index');
         Route::get('authors/create', [AuthorController::class, 'create'])->name('admin.authors.create');
         Route::get('authors/edit/{id}/{tab?}', [AuthorController::class, 'edit'])->name('admin.authors.edit');
@@ -463,9 +495,13 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use($mi
         Route::post('authors/store', [AuthorController::class, 'store'])->name('admin.authors.store');
         Route::post('authors/update', [AuthorController::class, 'update'])->name('admin.authors.update');
         Route::get('authors/show/{id}', [AuthorController::class, 'show'])->name('admin.authors.show');
-	});
+    });
 
     Route::get('/{id?}', [AuthenticateSessionOtpController::class, 'create'])->name('admin.auth.login');
+
+
+
+
 
 
 });

@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class FrontendPage extends Model
 {
     use SoftDeletes;
-    
+
     protected $table = 'frontend_pages';
 
     protected $guarded = ['id', 'created_by', 'updated_by', 'created_at', 'updated_at', 'deleted_at'];
@@ -34,7 +34,7 @@ class FrontendPage extends Model
         {
             $content = json_decode($value);
             $output = collect($content)->map(function($item, $key){
-                
+
                 if (strpos($key, 'media_id') !== false) {
                     if($item)
                         return Media::find((int)$item);
@@ -53,7 +53,7 @@ class FrontendPage extends Model
             });
 
             return $output;
-            
+
         }
         return $value;
     }
