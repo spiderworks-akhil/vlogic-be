@@ -13,6 +13,7 @@ class ServiceController extends Controller
     public function index(Request $request){
         try{
             $data = $request->all();
+          
             $limit = !empty($data['limit'])?(int)$data['limit']:10;
             $services = Service::where('status', 1);
             $services = $services->orderBy('priority', 'DESC')->paginate($limit);

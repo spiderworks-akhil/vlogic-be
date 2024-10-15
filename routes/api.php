@@ -22,6 +22,9 @@ story
 Brochures
 Advisory
 contact_save
+privacy
+blog
+gallery
 */
 
 /*
@@ -41,6 +44,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('login', [AuthController::class, 'login'])->name('app.login');
 Route::post('verify-otp', [AuthController::class, 'verify_otp'])->name('app.verify-otp');
+
+//Blog
 
 Route::get('blogs', [BlogController::class, 'index'])->name('api.blogs.index');
 Route::get('blogs/categories', [BlogController::class, 'categories'])->name('api.blogs.categories');
@@ -94,6 +99,9 @@ Route::get('list-urls/{page}', [CommonController::class, 'list_urls'])->name('ap
 //Contact
 
 Route::post('contact/save', [CommonController::class, 'contact_save'])->name('contacts.save');
+
+//Privacy
+Route::get('privacy/policy',[CommonController::class,'privacy'])->name('privacy_policy');
 
 //Story  index
 // Route::get('/stories', [StoryController::class, 'index'])->name('story.index');

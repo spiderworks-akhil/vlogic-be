@@ -31,6 +31,7 @@ class BlogController extends Controller
     public function categories(Request $request){
         try{
             $categories = Category::where('category_type', 'Blog')->where('status', 1)->orderBy('name')->get();
+        
             return new CategoryCollection($categories);
         }
         catch(\Exception $e){

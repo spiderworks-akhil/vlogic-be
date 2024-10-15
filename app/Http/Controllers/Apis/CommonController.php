@@ -133,4 +133,15 @@ class CommonController extends Controller
         return new LeadResource($lead);
 
     }
+
+    public function privacy(){
+
+            $page_details = FrontendPage::where('slug','privacy')->first();
+
+            return response()->json([
+            'success'=> true ,
+            'page_details'=>$page_details
+                 ]);
+
+    }
 }
