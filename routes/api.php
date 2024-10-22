@@ -13,6 +13,8 @@ use App\Http\Controllers\Apis\PartnerController;
 use App\Http\Controllers\Apis\ServiceController;
 use App\Http\Controllers\Apis\AdvisoryController;
 use App\Http\Controllers\Apis\TestimonialController;
+use App\Http\Controllers\Apis\WebinarController;
+
 
 
 
@@ -77,6 +79,8 @@ Route::get('testimonials', [TestimonialController::class, 'index'])->name('api.t
  //news
  Route::get('news',[CommonController::class,'index'])->name('api.news.index');
 
+ //webinar
+ Route::get('webinar',[WebinarController::class,'webinar'])->name('api.webinar.index');
 
 Route::get('service', [ServiceController::class, 'index'])->name('api.service.index');
 Route::get('service/featured', [ServiceController::class, 'featured'])->name('api.service.featured');

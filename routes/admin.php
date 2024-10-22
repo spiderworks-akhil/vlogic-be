@@ -37,7 +37,9 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\LoginHistoryController;
 use App\Http\Controllers\Admin\PhotoGallaryController;
 use App\Http\Controllers\Admin\JobApplicationController;
+use App\Http\Controllers\Admin\WebinarController;
 use App\Http\Controllers\Admin\Auth\AuthenticateSessionOtpController;
+use App\Models\Webinar;
 
 $prefix = (config()->has('admin.url_prefix')) ? config()->get('admin.url_prefix') : 'admin';
 $middleware = (config()->has('admin.admin_middleware')) ? config()->get('admin.admin_middleware') : 'auth';
@@ -268,6 +270,16 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use ($m
         Route::post('team/store', [TeamController::class, 'store'])->name('admin.team.store');
         Route::post('team/update', [TeamController::class, 'update'])->name('admin.team.update');
         Route::get('team/show/{id}', [TeamController::class, 'show'])->name('admin.team.show');
+
+        //Webinar
+        Route::get('webinar', [WebinarController::class, 'index'])->name('admin.webinar.index');
+        Route::get('webinar/create', [WebinarController::class, 'create'])->name('admin.webinar.create');
+        Route::get('webinar/edit/{id}/{tab?}', [WebinarController::class, 'edit'])->name('admin.webinar.edit');
+        Route::get('webinar/destroy/{id}', [WebinarController::class, 'destroy'])->name('admin.webinar.destroy');
+        Route::get('webinar/change-status/{id}', [WebinarController::class, 'changeStatus'])->name('admin.webinar.change-status');
+        Route::post('webinar/store', [WebinarController::class, 'store'])->name('admin.webinar.store');
+        Route::post('webinar/update', [WebinarController::class, 'update'])->name('admin.webinar.update');
+        Route::get('webinar/show/{id}', [WebinarController::class, 'show'])->name('admin.webinar.show');
 
         //Brochures
         Route::get('brochures', [BrochureController::class, 'index'])->name('admin.brochures.index');

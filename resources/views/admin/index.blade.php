@@ -1,22 +1,22 @@
 @extends('admin._layouts.default')
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
+                        </li>
                         <!-- <li class="creat-btn">
                             <div class="nav-link">
                                 <a class=" btn btn-sm btn-soft-primary" href="#" role="button"><i class="fas fa-plus mr-2"></i>New Task</a>
-                            </div>                                
-                        </li> -->                           
+                            </div>
+                        </li> -->
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -35,13 +35,13 @@
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item active">Admin</li>
                                         </ol>
-                                    </div><!--end col-->                                    
-                                </div><!--end row-->                                                              
+                                    </div><!--end col-->
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
                     <div class="row">
-                        <div class="col-12">        
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="text-center">
@@ -50,10 +50,10 @@
                                         <div id="animationSandbox">
                                             <div class="p-4 d-inline-block">
                                                 <x-logo></x-logo>
-                                            </div>                                                
+                                            </div>
                                         </div>
                                     </div>
-                                    
+
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div><!--end col-->

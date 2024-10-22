@@ -4,7 +4,6 @@
         <div class="col-12">
             <div data-simplebar>
                 <div class="tab-content chat-list" id="pills-tabContent" >
-                    <h1>reached</h1>
                     <div class="tab-pane fade show active" id="tab1">
                         <div class="row m-0">
                             @php
@@ -22,5 +21,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>              
 </div>

@@ -3,6 +3,7 @@
 namespace App\Models;
 use App\Models\News;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Media extends Model
 {
@@ -18,5 +19,14 @@ class Media extends Model
         'media' => 'uploads/media/',
         'media_thumb' => 'uploads/media/thumb/',
     );
+
+
+    public function webinar(): BelongsTo
+    {
+        return $this->belongsTo(Webinar::class, 'id');
+    }
+
+
+
 
 }

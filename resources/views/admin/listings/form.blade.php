@@ -26,6 +26,11 @@
                 <option value="Yes" @if($obj->short_description == "Yes") selected="selected" @endif>Yes</option>
               </select>
           </div>
+          
+          <div class="form-group mb-2">
+            <label for="exampleInputPassword1">Url</label>
+            <input type="text" name="custom_url" class="form-control" id="inputCustomUrl">
+          </div>
           <div class="form-group col-md-6">
               <label for="name">Detailed Description</label>
               <select class="form-control" name="detailed_description">

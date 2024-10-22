@@ -14,18 +14,18 @@
 
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                          
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -47,6 +47,7 @@
                                             <h4 class="page-title">Create new Listing Item</h4>
                                         @endif
                                         <ol class="breadcrumb">
+
                                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Admin</a></li>
                                             <li class="breadcrumb-item"><a href="{{route('admin.listings.index')}}">Listings</a></li>
                                             <li class="breadcrumb-item"><a href="{{ route($route.'.index', [$listing->id]) }}">All Listing Items of {{$listing->name}}</a></li>
@@ -58,12 +59,12 @@
                                         <a class=" btn btn-sm btn-primary" href="{{route($route.'.create', [$listing->id])}}" role="button"><i class="fas fa-plus mr-2"></i>Create New</a>
                                     </div>
                                     @endif
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             @include('admin._partials.notifications')
@@ -101,6 +102,10 @@
                                                                 <label>Image</label>
                                                                 @include('admin.media.set_file', ['file'=>$obj->media, 'title'=>'Media Files', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'media_id'])
                                                             </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Description heading  </label>
+                                                                <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
+                                                            </div>
                                                             @endif
                                                             @if($listing->short_description == "Yes")
                                                             <div class="form-group col-md-12">
@@ -108,6 +113,10 @@
                                                                 <textarea class="form-control" name="short_description">{{$obj->short_description}}</textarea>
                                                             </div>
                                                             @endif
+                                                            <div class="form-group mb-2">
+                                                                <label for="exampleInputPassword1">Url</label>
+                                                                <input type="text" name="custom_url" class="form-control" id="inputCustomUrl">
+                                                              </div>
                                                             @if($listing->detailed_description == "Yes")
                                                             <div class="form-group col-md-12">
                                                                 <label>Detailed Description</label>
@@ -115,7 +124,8 @@
                                                             </div>
                                                             @endif
                                                         </div>
-                                                    </div>                                           
+
+                                                    </div>
                                                 </div><!--end card-body-->
                                             </div><!--end card-->
                                         </div>
@@ -182,9 +192,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
-                            </form> 
+                            </form>
                         </div><!--end col-->
                     </div><!--end row-->
 
