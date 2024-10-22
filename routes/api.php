@@ -12,6 +12,7 @@ use App\Http\Controllers\Apis\GalleryController;
 use App\Http\Controllers\Apis\PartnerController;
 use App\Http\Controllers\Apis\ServiceController;
 use App\Http\Controllers\Apis\AdvisoryController;
+use App\Http\Controllers\Apis\GovernmentController;
 use App\Http\Controllers\Apis\TestimonialController;
 use App\Http\Controllers\Apis\WebinarController;
 
@@ -29,6 +30,8 @@ blog
 gallery
 mission
 news
+Government
+webinar
 */
 
 /*
@@ -81,6 +84,12 @@ Route::get('testimonials', [TestimonialController::class, 'index'])->name('api.t
 
  //webinar
  Route::get('webinar',[WebinarController::class,'webinar'])->name('api.webinar.index');
+
+//Government
+
+Route::get('government',[GovernmentController::class,'index'])->name('api.government.index');
+
+//services
 
 Route::get('service', [ServiceController::class, 'index'])->name('api.service.index');
 Route::get('service/featured', [ServiceController::class, 'featured'])->name('api.service.featured');

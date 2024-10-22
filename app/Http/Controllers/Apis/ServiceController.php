@@ -13,10 +13,13 @@ class ServiceController extends Controller
     public function index(Request $request){
         try{
             $data = $request->all();
-          
+
             $limit = !empty($data['limit'])?(int)$data['limit']:10;
-            $services = Service::where('status', 1);
+            $services = Service::where('status', 1)->get();
+
             $services = $services->orderBy('priority', 'DESC')->paginate($limit);
+
+
             return new ServiceCollection($services);
         }
         catch(\Exception $e){
@@ -25,7 +28,13 @@ class ServiceController extends Controller
     }
 
     public function featured(){
-        $services = Service::select('name','title','short_description','id','slug','featured_image_id','banner_image_id')->with(['featured_image','banner_image'])->where('status', 1)->where('is_featured', 1)->orderBy('priority','DESC')->get();
+
+
+
+        $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->with(['featured_image','banner_image'])->where('status', 1)->orderBy('priority','DESC')->get();
+
+        // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
+
         return new ServiceCollection($services);
     }
 

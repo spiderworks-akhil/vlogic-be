@@ -47,28 +47,6 @@
         </fieldset>
 
 
-        <h3>Third Section</h3>
-        <fieldset>
-            <div class="form-group col-md-12">
-                <label>Third Head Title  </label>
-                <input type="text" name="content[banner_title3]" class="form-control" @if($obj->content && isset($obj->content['banner_title3'])) value="{{$obj->content['banner_title3']}}" @endif >
-            </div>
-            <div class="form-group col-md-12">
-                <label>Third Short Description  </label>
-                <input type="text" name="content[banner_title4]" class="form-control" @if($obj->content && isset($obj->content['banner_title4'])) value="{{$obj->content['banner_title4']}}" @endif >
-            </div>
-
-
-            <div class="form-group col-md-12">
-                <label>Fourth Head Title  </label>
-                <input type="text" name="content[banner_title5]" class="form-control" @if($obj->content && isset($obj->content['banner_title5'])) value="{{$obj->content['banner_title5']}}" @endif >
-            </div>
-            <div class="form-group col-md-12">
-                <label> Fourth Description  </label>
-                <input type="text" name="content[banner_title6]" class="form-control" @if($obj->content && isset($obj->content['banner_title6'])) value="{{$obj->content['banner_title6']}}" @endif >
-            </div>
-
-        </fieldset>
 
 
 
@@ -85,6 +63,29 @@
                 <input type="hidden" name="content[government_listing]" value="1">  
 
              </div>
+
+    </fieldset>
+
+    <h3>Third Section</h3>
+    <fieldset>
+        <div class="form-group col-md-12">
+            <label>Third Head Title  </label>
+            <input type="text" name="content[banner_title3]" class="form-control" @if($obj->content && isset($obj->content['banner_title3'])) value="{{$obj->content['banner_title3']}}" @endif >
+        </div>
+        <div class="form-group col-md-12">
+            <label>Third Short Description  </label>
+            <input type="text" name="content[banner_title4]" class="form-control" @if($obj->content && isset($obj->content['banner_title4'])) value="{{$obj->content['banner_title4']}}" @endif >
+        </div>
+
+
+        <div class="form-group col-md-12">
+            <label>Fourth Head Title  </label>
+            <input type="text" name="content[banner_title5]" class="form-control" @if($obj->content && isset($obj->content['banner_title5'])) value="{{$obj->content['banner_title5']}}" @endif >
+        </div>
+        <div class="form-group col-md-12">
+            <label> Fourth Description  </label>
+            <input type="text" name="content[banner_title6]" class="form-control" @if($obj->content && isset($obj->content['banner_title6'])) value="{{$obj->content['banner_title6']}}" @endif >
+        </div>
 
     </fieldset>
 

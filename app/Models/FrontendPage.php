@@ -23,7 +23,7 @@ class FrontendPage extends Model
         return $this->morphMany(Faq::class, 'linkable')->orderBy('display_order', 'DESC')->orderBy('created_at', 'DESC');
     }
 
-    public function menu(): MorphOne
+    public function menu(): MorphOne    
     {
         return $this->morphOne(MenuItem::class, 'linkable');
     }

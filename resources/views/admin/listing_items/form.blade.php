@@ -85,6 +85,10 @@
                                                 <div class="card-body">
                                                     <div data-simplebar>
                                                         <div class="row m-0">
+                                                            <div class="form-group col-md-12">
+                                                                <label>Description heading  </label>
+                                                                <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
+                                                            </div>
                                                             @if($listing->title == "Yes")
                                                             <div class="form-group col-md-12">
                                                                 <label>Title</label>
@@ -102,11 +106,10 @@
                                                                 <label>Image</label>
                                                                 @include('admin.media.set_file', ['file'=>$obj->media, 'title'=>'Media Files', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'media_id'])
                                                             </div>
-                                                            <div class="form-group col-md-12">
-                                                                <label>Description heading  </label>
-                                                                <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
-                                                            </div>
+
+
                                                             @endif
+
                                                             @if($listing->short_description == "Yes")
                                                             <div class="form-group col-md-12">
                                                                 <label>Short Description</label>
@@ -115,7 +118,7 @@
                                                             @endif
                                                             <div class="form-group mb-2">
                                                                 <label for="exampleInputPassword1">Url</label>
-                                                                <input type="text" name="custom_url" class="form-control" id="inputCustomUrl">
+                                                                <input type="text" name="custom_url" class="form-control" id="inputCustomUrl" value="{{$obj->custom_url}}">
                                                               </div>
                                                             @if($listing->detailed_description == "Yes")
                                                             <div class="form-group col-md-12">

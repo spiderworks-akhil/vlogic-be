@@ -30,6 +30,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('listing_id');
             $table->bigInteger('media_id')->nullable();
+            $table->integer('custom_url')->nullable();
             $table->string('icon')->nullable();
             $table->string('title')->nullable();
             $table->mediumText('short_description')->nullable();

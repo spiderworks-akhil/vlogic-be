@@ -1,18 +1,19 @@
 @extends('admin._layouts.fileupload')
 @section('content')
+
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                          
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -44,12 +45,12 @@
                                         <a class=" btn btn-sm btn-primary" href="{{route($route.'.create')}}" role="button"><i class="fas fa-plus mr-2"></i>Create New</a>
                                     </div>
                                     @endif
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             @include('admin._partials.notifications')
@@ -89,7 +90,7 @@
                                                                     <input type="text" class="form-control" id="title" name="title" value="{{$obj->title}}">
                                                                 </div>
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -97,7 +98,7 @@
                                         </div>
                                         <hr/>
                                         <div class="row">
-                                            <div class="col-md-5"> 
+                                            <div class="col-md-5">
                                               <div class="custom-accordion" style="background-color: #fff !important">
                                                 @php
                                                     $menu = Config('admin.menu.items');
@@ -153,7 +154,7 @@
                                                       <button type="button" id="add-custom-links" class="btn btn-primary btn-sm">Add to Menu</button>
                                                   </div>
                                                 </div>
-                                              </div> 
+                                              </div>
                                             </div>
                                             <div class="col-md-7">
                                               <div class="dd">
@@ -174,7 +175,7 @@
                                                 <button type="button" id="save-btn" class="btn btn-primary px-4">Submit</button>
                                             </div>
                                         </div>
-                                    </form>                                                                   
+                                    </form>
                                 </div><!--end card-body-->
                             </div><!--end card-->
                         </div><!--end col-->
@@ -187,10 +188,10 @@
             <!-- end page content -->
 @endsection
 @section('footer')
-    <script src="{{ asset('admin/assets/js/jquery.nestable.js')}}"></script> 
+    <script src="{{ asset('admin/assets/js/jquery.nestable.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.dd').nestable({ 
+            $('.dd').nestable({
                 expandBtnHTML: '',
                 collapseBtnHTML: ''
               });
@@ -272,7 +273,7 @@
                     var name = $(this).attr('data-name');
                     var popup_url = "{{route('admin.media.popup')}}/set_url/Image/inputCustomLinkImageUrl"+id;
 
-                   
+
                     var inner_html = '<div class="dd-handle accord-header"><span class="menu-title">'+name+'</span><span class="float-right fa fa-angle-down toggle-arraow dd-nodrag"></span></div><div class="accord-content"><div class="form-group required"><label class="control-label" for="inputCode">Navigation Label</label><input type="text" name="menu['+id+'][text]" class="form-control menu-title-input" value="'+name+'"/><input type="hidden" name="menu['+id+'][id]" value="'+$(this).attr('data-id')+'"/><input type="hidden" name="menu['+id+'][menu_nextable_id]" value="'+id+'"/></div><p class="menu-original-text"> Original: '+name+'</p><div class="form-group mb-2"><label for="exampleInputPassword1">Image Link</label><div class="input-group"><div class="input-group-prepend"><span class="input-group-text">'+asset_link+'</span></div><input type="text" class="form-control" name="menu['+id+'][image_url]"  id="inputCustomLinkImageUrl'+id+'"><a href="'+popup_url+'" class="webadmin-open-ajax-popup w-100 text-right" title="Media Images" data-popup-size="xlarge">Get from media</a></div></div><div class="form-group mb-2"><label for="exampleInputPassword1">Icon Class</label><input type="text" name="menu['+id+'][icon]" class="form-control"></div><p><a href="javascript:void(0)" class="remove-menu">Remove</a></p></div>';
                     var html = '<li class="dd-item" data-id="'+id+'">'+inner_html+'</li>';
                     $('.dd > .dd-list').append(html);
@@ -317,7 +318,7 @@
             $(document).on('keyup', '.menu-title-input', function(){
               $(this).parents('.accord-content').siblings('.accord-header').find('.menu-title').html($(this).val());
             })
-        
+
           });
     </script>
 @parent
