@@ -15,6 +15,10 @@ class WebinarController extends Controller
 {
     public function webinar (){
         $page_details = Webinar::with('media')->get();
+        if (is_null($page_details)) {
+            return response()->json(['message' => 'Government page not found'], 400);
+        }
+
 
         dd($page_details);
     }

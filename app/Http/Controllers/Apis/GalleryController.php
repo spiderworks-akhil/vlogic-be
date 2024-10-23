@@ -19,7 +19,9 @@ class GalleryController extends Controller
                         ->each(function ($gallery) {
                             $gallery->load('gallery')->take(8);
                         });
-
+                        if(!isset($gallery)){
+                            return response()->json(['message' => 'No video found'],400);
+                        }
 
         return new GalleryCollection($gallery);
 
@@ -46,5 +48,5 @@ class GalleryController extends Controller
         return new GalleryMediaCollection($medias);
     }
 
-   
+
 }

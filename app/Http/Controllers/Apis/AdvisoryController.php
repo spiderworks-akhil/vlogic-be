@@ -12,7 +12,11 @@ class AdvisoryController extends Controller
 
     public function index(){
         $advisory = FrontendPage::where('slug','advisoryboard')->get();
-     return json_encode(["messege" => "successfully loaded"]);
+
+        if($advisory->isEmpty()){
+            return response()->json(['message'=>"Advisory not found"],400);
+        }
+     return json_encode(["messege" => "successfully loaded"],200);
 
     }
 

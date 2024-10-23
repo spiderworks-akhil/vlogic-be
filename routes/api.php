@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Apis\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Apis\JobController;
@@ -21,17 +22,20 @@ use App\Http\Controllers\Apis\WebinarController;
 
 
 /*
-story
-Brochures
-Advisory
+home if
+story if
+Brochures if
+Advisory if
 contact_save
-privacy
-blog
-gallery
-mission
-news
-Government
-webinar
+privacy if
+blog if
+gallery if
+mission if
+news if
+Government if
+webinar if
+service if
+video if
 */
 
 /*
@@ -90,10 +94,15 @@ Route::get('testimonials', [TestimonialController::class, 'index'])->name('api.t
 Route::get('government',[GovernmentController::class,'index'])->name('api.government.index');
 
 //services
-
 Route::get('service', [ServiceController::class, 'index'])->name('api.service.index');
 Route::get('service/featured', [ServiceController::class, 'featured'])->name('api.service.featured');
 Route::get('service/{slug}', [ServiceController::class, 'view'])->name('api.service.view');
+
+//Home
+Route::get('home',[HomeController::class,'index'])->name('api.home.index');
+
+
+
 
 Route::get('team', [TeamController::class, 'index'])->name('api.team.index');
 Route::get('team/featured', [TeamController::class, 'featured'])->name('api.team.featured');

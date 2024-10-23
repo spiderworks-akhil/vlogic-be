@@ -54,7 +54,10 @@ class CommonController extends Controller
         $request->validated();
         $contact = new Lead;
         $contact->fill($request->all());
+
         $contact->save();
+
+
 
         $page_details = FrontendPage::where('slug','contact')->first();
 
@@ -139,7 +142,9 @@ class CommonController extends Controller
     public function privacy(){
 
             $page_details = FrontendPage::where('slug','privacy')->first();
-
+            if(is_null($page_details)){
+                return response()->json(['message'=>"Privacy Policy page not found"],400);
+            }
             return response()->json([
             'success'=> true ,
             'page_details'=>$page_details
@@ -150,6 +155,10 @@ class CommonController extends Controller
         $page_details = FrontendPage::where('slug','mission')->first();
 
 
+        if (is_null($page_details)){
+            return response()->json(['message' => "Privacy Policy page not found"], 400);
+         }
+
         return response()->json([
             'success'=>true ,
             'page_details' => $page_details
@@ -158,7 +167,8 @@ class CommonController extends Controller
     public function index()
     {
         $page_details = News::with('media')->orderBy('created_at', 'asc')->get();
-
+        return response()->json(['message' => "Privacy Policy page not found"], 400);
+    
        return response()->json([
         'success'=>true,
        'page_details'=>$page_details

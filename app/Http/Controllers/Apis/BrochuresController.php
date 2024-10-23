@@ -20,7 +20,9 @@ class BrochuresController extends Controller
         ->get();
 
 
-
+            if(!empty($brochure)){
+                return response()->json(['message' => "Brouchure is not found"],400);
+            }
 
          foreach ($brochures as $brochure)
          if ($brochure->brochure) {

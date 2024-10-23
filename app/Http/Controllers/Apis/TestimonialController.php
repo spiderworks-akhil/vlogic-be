@@ -11,12 +11,20 @@ class TestimonialController extends Controller
 {
     public function featured(){
         $testimonials = Testimonial::where('status', 1)->where('is_featured', 1)->orderBy('priority')->get();
+
+        if ($testimonials->isEmpty()) {
+            return response()->json(['message' => 'Testimonials Not Found'], 404);
+        }
         return new TestimonialCollection($testimonials);
     }
 
     public function index(){
-      
+
         $testimonials = Testimonial::where('status', 1)->orderBy('priority')->get();
+
+        if ($testimonials->isEmpty()) {
+            return response()->json(['message' => 'Testimonials Not Found'], 404);
+        }
         return new TestimonialCollection($testimonials);
     }
 }

@@ -34,7 +34,8 @@ class Service extends JsonResource
             'extra_js' => $this->extra_js,
             'faq' => new FaqCollection($this->faq),
             // 'gallery' => new MediaCollection($this->gallery),
-            'children' => new ServiceCollection($this->whenLoaded('children'))
+            'children' => new ServiceCollection($this->whenLoaded('children')),
+            
         ];
     }
 }

@@ -32,7 +32,9 @@ class ServiceController extends Controller
 
 
         $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->with(['featured_image','banner_image'])->where('status', 1)->orderBy('priority','DESC')->get();
-
+        if (is_null($services)) {
+            return response()->json(['message' => 'Government page not found'], 400);
+        }
         // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
 
         return new ServiceCollection($services);
