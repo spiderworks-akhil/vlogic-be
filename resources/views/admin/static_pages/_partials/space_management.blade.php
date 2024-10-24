@@ -208,6 +208,11 @@ $media_id_works_first_featured_image9 = ($obj->content && isset($obj->content['m
         <label>Heading content </label>
           <input type="text" name="content[works_heading12]" class="form-control" @if($obj->content && isset($obj->content['works_heading12'])) value="{{$obj->content['works_heading12']}}" @endif>
     </div>
+    <div class="form-group col-md-12">
+        <label>Bottom content</label>
+        <textarea name="bottom_description2" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
+    </div>
+
 </fieldset>
 </div>
 
