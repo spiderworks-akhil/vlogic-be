@@ -201,5 +201,19 @@ $media_id_works_first_featured_image9 = ($obj->content && isset($obj->content['m
         @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image10, 'title'=>'Works Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image10]', 'id'=>'media_id_works_first_featured_image10', 'display'=> 'horizontal'])
         </div>
 </fieldset>
+<h3>Requirements Section 1</h3>
+<div class="form-group col-md-12">
+    <label>Heading content </label>
+      <input type="text" name="content[works_heading12]" class="form-control" @if($obj->content && isset($obj->content['works_heading12'])) value="{{$obj->content['works_heading12']}}" @endif>
+</div>
+
+    <div class="form-group col-md-12">
+        <label>Bottom content</label>
+        <textarea name="bottom_description2" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
+    </div>
+
+
+</div>
+</div>
 
 </div>
