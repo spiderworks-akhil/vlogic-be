@@ -204,7 +204,10 @@ $media_id_works_first_featured_image9 = ($obj->content && isset($obj->content['m
 
 <h3>Requirements Section 1</h3>
 <fieldset>
-    
+    <div class="form-group col-md-12">
+        <label>Heading content </label>
+          <input type="text" name="content[works_heading12]" class="form-control" @if($obj->content && isset($obj->content['works_heading12'])) value="{{$obj->content['works_heading12']}}" @endif>
+    </div>
 </fieldset>
 </div>
 
