@@ -228,7 +228,7 @@ h3>Requirements Section 2</h3>
 
 </fieldset>
 
-h3>Requirements Section 3</h3>
+<h3>Requirements Section 3</h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>Heading content </label>
@@ -242,7 +242,7 @@ h3>Requirements Section 3</h3>
 </fieldset>
 
 
-</fieldset>
+
 </div>
 
 
