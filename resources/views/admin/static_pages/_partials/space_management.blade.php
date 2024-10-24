@@ -190,56 +190,15 @@ $media_id_works_first_featured_image9 = ($obj->content && isset($obj->content['m
             <label>Bottom content</label>
             <textarea name="bottom_description" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
         </div>
-        <div class="form-group col-md-12">
-            <label>Browser title</label>
-            <input type="text" class="form-control" name="browser_title" id="browser_title" value="{{$obj->browser_title}}">
-        </div>
+
     <div class="form-group">
         @php
-        $media_id_works_first_featured_image10 = ($obj->content && isset($obj->content['media_id_works_first_featured_image10']))?$obj->content['media_id_works_first_featured_image10']:null;
+        $media_id_works_first_featured_image01 = ($obj->content && isset($obj->content['media_id_works_first_featured_image01']))?$obj->content['media_id_works_first_featured_image01']:null;
         @endphp
         @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image10, 'title'=>'Works Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image10]', 'id'=>'media_id_works_first_featured_image10', 'display'=> 'horizontal'])
         </div>
 </fieldset>
 
-<h3>Requirements Section 1</h3>
-<fieldset>
-    <div class="form-group col-md-12">
-        <label>Heading content </label>
-          <input type="text" name="content[works_heading12]" class="form-control" @if($obj->content && isset($obj->content['works_heading12'])) value="{{$obj->content['works_heading12']}}" @endif>
-    </div>
-    <div class="form-group col-md-12">
-        <label>Bottom content</label>
-        <textarea name="bottom_description2" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
-    </div>
-
-</fieldset>
-
-h3>Requirements Section 2</h3>
-<fieldset>
-    <div class="form-group col-md-12">
-        <label>Heading content </label>
-          <input type="text" name="content[works_heading13]" class="form-control" @if($obj->content && isset($obj->content['works_heading13'])) value="{{$obj->content['works_heading13']}}" @endif>
-    </div>
-    <div class="form-group col-md-12">
-        <label>Bottom content</label>
-        <textarea name="bottom_description3" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
-    </div>
-
-</fieldset>
-
-<h3>Requirements Section 3</h3>
-<fieldset>
-    <div class="form-group col-md-12">
-        <label>Heading content </label>
-          <input type="text" name="content[works_heading14]" class="form-control" @if($obj->content && isset($obj->content['works_heading14'])) value="{{$obj->content['works_heading14']}}" @endif>
-    </div>
-    <div class="form-group col-md-12">
-        <label>Bottom content</label>
-        <textarea name="bottom_description4" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
-    </div>
-
-</fieldset>
 
 
 

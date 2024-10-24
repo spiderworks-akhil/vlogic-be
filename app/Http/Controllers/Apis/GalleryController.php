@@ -19,6 +19,8 @@ class GalleryController extends Controller
                         ->each(function ($gallery) {
                             $gallery->load('gallery')->take(8);
                         });
+
+
                         if(!isset($gallery)){
                             return response()->json(['message' => 'No video found'],400);
                         }
@@ -29,11 +31,18 @@ class GalleryController extends Controller
 
     public function view(Request $request, $slug){
 
+
+
         $gallery = Gallery::where('status', 1)->where('slug', $slug)->first();
+
 
         if($gallery){
             $gallery->gallery = GalleryMedia::where('galleries_id', $gallery->id)->take(8)->get();
-            return new ResourcesGallery($gallery);
+
+            // return new ResourcesGallery($gallery);
+            return response([
+                'gallery' =>$gallery
+            ]);
         }
         else
             return response()->json(['error' => "Rental not Found!"], 404);
