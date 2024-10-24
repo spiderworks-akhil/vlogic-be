@@ -185,12 +185,15 @@ $media_id_works_first_featured_image9 = ($obj->content && isset($obj->content['m
     <div class="card-header">
         Question
     </div>
-
+    <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Bottom content</label>
-            <textarea name="bottom_description1" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
+            <textarea name="bottom_description" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
         </div>
-
+        <div class="form-group col-md-12">
+            <label>Browser title</label>
+            <input type="text" class="form-control" name="browser_title" id="browser_title" value="{{$obj->browser_title}}">
+        </div>
     <div class="form-group">
         @php
         $media_id_works_first_featured_image10 = ($obj->content && isset($obj->content['media_id_works_first_featured_image10']))?$obj->content['media_id_works_first_featured_image10']:null;
@@ -199,17 +202,4 @@ $media_id_works_first_featured_image9 = ($obj->content && isset($obj->content['m
         </div>
 </fieldset>
 
-<h3>Requirements Section 1</h3>
-<div class="form-group col-md-12">
-    <label>Heading content </label>
-      <input type="text" name="content[works_heading12]" class="form-control" @if($obj->content && isset($obj->content['works_heading12'])) value="{{$obj->content['works_heading12']}}" @endif>
-</div>
-
-    <div class="form-group col-md-12">
-        <label>Bottom content</label>
-        <textarea name="bottom_description2" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
-    </div>
-
-
-</div>
 </div>
