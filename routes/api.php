@@ -20,7 +20,6 @@ use App\Http\Controllers\Apis\WebinarController;
 
 
 
-
 /*
 home if
 story if
@@ -36,6 +35,7 @@ Government if
 webinar if
 service if
 video if
+Contact us
 */
 
 /*
@@ -61,6 +61,7 @@ Route::post('verify-otp', [AuthController::class, 'verify_otp'])->name('app.veri
 Route::get('blogs', [BlogController::class, 'index'])->name('api.blogs.index');
 Route::get('blogs/categories', [BlogController::class, 'categories'])->name('api.blogs.categories');
 Route::get('blogs/{slug}', [BlogController::class, 'view'])->name('api.blogs.view');
+Route::get('featured', [BlogController::class, 'featured'])->name('api.blogs.featured');
 
 //blog_details
 Route::get('blog_details',[BlogController::class,'blog_details'])->name('api.blog_details.index');
@@ -100,7 +101,7 @@ Route::get('service/{slug}', [ServiceController::class, 'view'])->name('api.serv
 
 //Home
 Route::get('home',[HomeController::class,'index'])->name('api.home.index');
-
+Route::post('contact-us',[HomeController::class,'contact'])->name('api.home.contact');
 
 
 

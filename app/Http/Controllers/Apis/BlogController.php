@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Http\Resources\Blog as BlogResource;
+use App\Http\Resources\BlogCollection;
 use App\Http\Resources\BlogListingCollection;
 use App\Http\Resources\CategoryCollection;
 
@@ -62,5 +63,21 @@ class BlogController extends Controller
             'page_details' => $page_details
         ]);
     }
+
+
+    public function featured(){
+        $featured = Blog::where('status', 1)->where('is_featured', 1)->orderBy('priority','DESC')->get();
+
+        if(!empty($is_featured)){
+            return response()->json(['message'=> "something error"]);
+        }
+        return new BlogCollection($featured);
+
+
+
+
+    }
+
+
 
 }

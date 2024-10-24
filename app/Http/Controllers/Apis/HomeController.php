@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Apis;
 
+use App\Models\Lead;
 use App\Models\Media;
 use App\Models\Slider;
 use App\Models\Service;
 use App\Models\SliderPhoto;
 use App\Models\FrontendPage;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Request;
+use App\Http\Requests\ContactRequest;
 use App\Http\Resources\ServiceCollection;
 use App\Http\Resources\Service as ServiceResources;
 
@@ -16,6 +18,8 @@ class HomeController extends Controller
 {
     public function index()
     {
+
+
 
         $slider = Slider::where('slider_name', 'home')->first();
         if (!$slider) {
@@ -54,4 +58,22 @@ class HomeController extends Controller
 
         ]);
     }
+    public function contact(ContactRequest $request)
+    {
+
+        
+
+
+        $request->validated();
+        $contact = new Lead;
+        $contact->fill($request->all());
+
+        $contact->save();
+
+
+        return response()->json([
+            'message' => 'Thank you for contacting us! We will get back to you soon.'
+        ], 200);
+    }
+
 }

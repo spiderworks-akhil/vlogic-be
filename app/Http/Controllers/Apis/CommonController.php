@@ -168,7 +168,7 @@ class CommonController extends Controller
     {
         $page_details = News::with('media')->orderBy('created_at', 'asc')->get();
         return response()->json(['message' => "Privacy Policy page not found"], 400);
-    
+
        return response()->json([
         'success'=>true,
        'page_details'=>$page_details
