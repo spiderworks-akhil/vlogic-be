@@ -41,7 +41,7 @@ class Blog extends JsonResource
             'extra_js' => $this->extra_js,
             'visit_count' => $this->visit_count,
             'tags' => new TagCollection($this->tags),
-            'related_blogs' => new BlogListingCollection($this->related_blogs)
+            // 'related_blogs' => new BlogListingCollection($this->related_blogs)
         ];
     }
 }
