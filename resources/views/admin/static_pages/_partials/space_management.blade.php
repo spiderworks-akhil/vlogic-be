@@ -214,6 +214,6 @@ $media_id_works_first_featured_image9 = ($obj->content && isset($obj->content['m
 
 
 </div>
-</div>
+
 
 </div>
