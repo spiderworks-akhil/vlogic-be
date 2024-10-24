@@ -214,6 +214,35 @@ $media_id_works_first_featured_image9 = ($obj->content && isset($obj->content['m
     </div>
 
 </fieldset>
+
+h3>Requirements Section 2</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Heading content </label>
+          <input type="text" name="content[works_heading13]" class="form-control" @if($obj->content && isset($obj->content['works_heading13'])) value="{{$obj->content['works_heading13']}}" @endif>
+    </div>
+    <div class="form-group col-md-12">
+        <label>Bottom content</label>
+        <textarea name="bottom_description3" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
+    </div>
+
+</fieldset>
+
+h3>Requirements Section 3</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Heading content </label>
+          <input type="text" name="content[works_heading14]" class="form-control" @if($obj->content && isset($obj->content['works_heading14'])) value="{{$obj->content['works_heading14']}}" @endif>
+    </div>
+    <div class="form-group col-md-12">
+        <label>Bottom content</label>
+        <textarea name="bottom_description4" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
+    </div>
+
+</fieldset>
+
+
+</fieldset>
 </div>
 
 
