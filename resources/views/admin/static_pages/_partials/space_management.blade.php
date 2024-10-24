@@ -188,14 +188,14 @@ $media_id_works_first_featured_image9 = ($obj->content && isset($obj->content['m
     <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Bottom content</label>
-            <textarea name="bottom_description" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
+            <textarea name="bottom_description01" class="form-control editor" id="bottom_description">{{$obj->bottom_description}}</textarea>
         </div>
 
     <div class="form-group">
         @php
         $media_id_works_first_featured_image01 = ($obj->content && isset($obj->content['media_id_works_first_featured_image01']))?$obj->content['media_id_works_first_featured_image01']:null;
         @endphp
-        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image10, 'title'=>'Works Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image10]', 'id'=>'media_id_works_first_featured_image10', 'display'=> 'horizontal'])
+        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image01, 'title'=>'Works Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image01]', 'id'=>'media_id_works_first_featured_image01', 'display'=> 'horizontal'])
         </div>
 </fieldset>
 
