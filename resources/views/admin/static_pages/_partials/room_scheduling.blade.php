@@ -83,6 +83,10 @@
 </fieldset>
 
 <h3>Challenges&Solution</h3>
+
+<fieldset>
+
+
 <div class="card-body row">
     <div class="form-group col-md-12">
         <label>Challenges</label>
@@ -104,12 +108,19 @@
 </textarea>
     </div>
 </div>
-
 <div class="form-group col-md-12">
     <label>Short Description top </label>
-    <input type="text" name="content[banner_title5]" class="form-control"
-        @if ($obj->content && isset($obj->content['banner_title5'])) value="{{ $obj->content['banner_title5'] }}" @endif>
+    <input type="text" name="content[banner_title]" class="form-control"
+        @if ($obj->content && isset($obj->content['banner_title'])) value="{{ $obj->content['banner_title'] }}" @endif>
 </div>
+@php
+$media_id_works_first_featured_image2 =
+    $obj->content && isset($obj->content['media_id_works_first_featured_image2'])
+        ? $obj->content['media_id_works_first_featured_image2']
+        : null;
+@endphp
+
+</fieldset>
 
 </div>
 

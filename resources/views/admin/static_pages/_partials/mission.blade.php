@@ -34,22 +34,32 @@
             @endphp
             @include('admin.media.set_file', ['file'=>$media_id_banner_image1, 'title'=>' Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_banner_image1]', 'id'=>'media_id_banner_image1', 'display'=> 'horizontal'])
         </div>
-        <div class="form-group col-md-12">
-            <label>Contact Heading</label>
-            <input type="text" name="content[banner_title3]" class="form-control" @if($obj->content && isset($obj->content['banner_title3'])) value="{{$obj->content['banner_title3']}}" @endif >
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Content 1 </label>
+                <textarea name="content[section_description_first1]" class="form-control editor ">
+        @if ($obj->content && isset($obj->content['section_description_first1']))
+        {{ $obj->content['section_description_first1'] }}
+        @endif
+        </textarea>
+            </div>
         </div>
-        <div class="form-group col-md-12">
-            <label>Contact Heading short Description</label>
-            <input type="text" name="content[banner_title4]" class="form-control" @if($obj->content && isset($obj->content['banner_title4'])) value="{{$obj->content['banner_title4']}}" @endif >
-        </div>
+
+
     </fieldset>
 
     <h3>Mission</h3>
     <fieldset>
 
-        <div class="form-group col-md-12">
-            <label>content short Description  </label>
-            <input type="text" name="content[banner_title5]" class="form-control" @if($obj->content && isset($obj->content['banner_title5'])) value="{{$obj->content['banner_title5']}}" @endif >
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Content 2</label>
+                <textarea name="content[section_description_first2]" class="form-control editor ">
+        @if ($obj->content && isset($obj->content['section_description_first2']))
+        {{ $obj->content['section_description_first2'] }}
+        @endif
+        </textarea>
+            </div>
         </div>
         <div class="form-group ">
             @php
@@ -64,9 +74,15 @@
     <h3>Loyalty </h3>
     <fieldset>
 
-        <div class="form-group col-md-12">
-            <label>content short Description  </label>
-            <input type="text" name="content[banner_title6]" class="form-control" @if($obj->content && isset($obj->content['banner_title6'])) value="{{$obj->content['banner_title6']}}" @endif >
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Content 3</label>
+                <textarea name="content[section_description_first3]" class="form-control editor ">
+        @if ($obj->content && isset($obj->content['section_description_first3']))
+        {{ $obj->content['section_description_first3'] }}
+        @endif
+        </textarea>
+            </div>
         </div>
         <div class="form-group ">
             @php
