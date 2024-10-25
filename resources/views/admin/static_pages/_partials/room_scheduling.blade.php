@@ -110,16 +110,16 @@
 </div>
 <div class="form-group col-md-12">
     <label>Short Description top </label>
-    <input type="text" name="content[banner_title]" class="form-control"
-        @if ($obj->content && isset($obj->content['banner_title'])) value="{{ $obj->content['banner_title'] }}" @endif>
+    <input type="text" name="content[banner_title1]" class="form-control"
+        @if ($obj->content && isset($obj->content['banner_title1'])) value="{{ $obj->content['banner_title1'] }}" @endif>
 </div>
-@php
-$media_id_works_first_featured_image2 =
-    $obj->content && isset($obj->content['media_id_works_first_featured_image2'])
-        ? $obj->content['media_id_works_first_featured_image2']
-        : null;
-@endphp
 
+<div class="form-group ">
+    @php
+    $media_id_banner_image3 = ($obj->content && isset($obj->content['media_id_banner_image3']))?$obj->content['media_id_banner_image3']:null;
+    @endphp
+    @include('admin.media.set_file', ['file'=>$media_id_banner_image3, 'title'=>' Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_banner_image3]', 'id'=>'media_id_banner_image3', 'display'=> 'horizontal'])
+</div>
 </fieldset>
 
 </div>

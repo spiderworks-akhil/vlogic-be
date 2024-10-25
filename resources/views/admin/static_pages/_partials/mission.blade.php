@@ -79,7 +79,7 @@
                 <label>Content 3</label>
                 <textarea name="content[section_description_first3]" class="form-control editor ">
         @if ($obj->content && isset($obj->content['section_description_first3']))
-        {{ $obj->content['section_description_first4'] }}
+        {{ $obj->content['section_description_first3'] }}
         @endif
         </textarea>
             </div>
