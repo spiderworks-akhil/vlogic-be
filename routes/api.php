@@ -93,8 +93,8 @@ Route::get('testimonials', [TestimonialController::class, 'index'])->name('api.t
  //news
  Route::get('news',[CommonController::class,'index'])->name('api.news.index');
 
- //webinar
- Route::get('webinar',[WebinarController::class,'webinar'])->name('api.webinar.index');
+//  //webinar
+//  Route::get('webinar',[WebinarController::class,'webinar'])->name('api.webinar.index');
 
 //Government
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -30,7 +31,35 @@ class FrontendPage extends JsonResource
             'meta_keywords' => $this->meta_keywords,
             'bottom_description' => $this->bottom_description,
             'extra_js' => $this->extra_js,
-            'faq' => new FaqCollection($this->faq)
+            'faq' => new FaqCollection($this->faq),
+            'related_section' => $this->related_section($this->slug)
         ];
     }
+    private function related_section($slug){
+
+        if($slug=='videos'){
+            return [
+            'gallery'=>$this->getgallery(),
+            ];
+        }
+
+
+        
+
+    }
+    private function getgallery(){
+        $gallery = Gallery::where('status', 1)
+        ->orderBy('priority')
+        ->get()
+        ->each(function ($gallery) {
+            $gallery->load('gallery')->take(8);
+        });
+
+
+        if(!isset($gallery)){
+            return response()->json(['message' => 'No video found'],400);
+        }
+        return new GalleryCollection($gallery);
+    }
+
 }

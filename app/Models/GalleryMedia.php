@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Models;
 
 use App\Models\BaseModel as Model;
@@ -6,9 +6,9 @@ use App\Traits\ValidationTrait;
 
 class GalleryMedia extends Model
 {
-    
+
     public function __construct() {
-        
+
         parent::__construct();
     }
 

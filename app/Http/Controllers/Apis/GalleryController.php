@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Gallery as ResourcesGallery;
 use App\Http\Resources\GalleryCollection;
 use App\Http\Resources\GalleryMediaCollection;
+use App\Models\FrontendPage;
 use App\Models\Gallery;
 use App\Models\GalleryMedia;
 use Illuminate\Http\Request;
@@ -13,6 +14,8 @@ use Illuminate\Http\Request;
 class GalleryController extends Controller
 {
     public function index(){
+        $banner = FrontendPage::with('media')->where('slug','videos')->first();
+
         $gallery = Gallery::where('status', 1)
                         ->orderBy('priority')
                         ->get()
@@ -25,7 +28,7 @@ class GalleryController extends Controller
                             return response()->json(['message' => 'No video found'],400);
                         }
 
-        return new GalleryCollection($gallery);
+        return new GalleryCollection($gallery, $banner);
 
     }
 
@@ -33,11 +36,14 @@ class GalleryController extends Controller
 
 
 
+
+
         $gallery = Gallery::where('status', 1)->where('slug', $slug)->first();
 
 
+
         if($gallery){
-            $gallery->gallery = GalleryMedia::where('galleries_id', $gallery->id)->take(8)->get();
+            $gallery->gallery = GalleryMedia::with('gallery','media')->where('galleries_id', $gallery->id)->take(8)->get();
 
             // return new ResourcesGallery($gallery);
             return response([
