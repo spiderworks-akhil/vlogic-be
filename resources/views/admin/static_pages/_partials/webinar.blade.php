@@ -3,7 +3,7 @@
         <fieldset>
 
         <div class="form-group col-md-12">
-            <label>Banner title</label>
+            <label>Banners title</label>
             <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
         </div>
 
