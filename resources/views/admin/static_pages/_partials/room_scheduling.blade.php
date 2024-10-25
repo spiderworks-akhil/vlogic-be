@@ -82,7 +82,34 @@
 
 </fieldset>
 
+<h3>Challenges&Solution</h3>
+<div class="card-body row">
+    <div class="form-group col-md-12">
+        <label>Challenges</label>
+        <textarea name="content[section_description_first]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first']))
+{{ $obj->content['section_description_first'] }}
+@endif
+</textarea>
+    </div>
+</div>
 
+<div class="card-body row">
+    <div class="form-group col-md-12">
+        <label>Solution</label>
+        <textarea name="content[section_description_first1]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first1']))
+{{ $obj->content['section_description_first1'] }}
+@endif
+</textarea>
+    </div>
+</div>
+
+<div class="form-group col-md-12">
+    <label>Short Description top </label>
+    <input type="text" name="content[banner_title5]" class="form-control"
+        @if ($obj->content && isset($obj->content['banner_title5'])) value="{{ $obj->content['banner_title5'] }}" @endif>
+</div>
 
 </div>
 
