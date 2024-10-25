@@ -56,6 +56,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('login', [AuthController::class, 'login'])->name('app.login');
 Route::post('verify-otp', [AuthController::class, 'verify_otp'])->name('app.verify-otp');
 
+
+//solution
+
+Route::get('space_management',[CommonController::class,'space_management'])->name('api.solution.space');
+
+
 //Blog
 
 Route::get('blogs', [BlogController::class, 'index'])->name('api.blogs.index');

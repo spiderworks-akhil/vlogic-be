@@ -175,4 +175,11 @@ class CommonController extends Controller
     ]);
     }
 
+
+    //solution
+    public function space_management(){
+        $data = FrontendPage::where('slug','space_management')->get();
+        dd($data);
+    }
+
 }
