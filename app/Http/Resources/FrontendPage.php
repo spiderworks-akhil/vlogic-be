@@ -3,7 +3,9 @@
 namespace App\Http\Resources;
 
 use App\Models\Gallery;
+use App\Models\Listing;
 use Illuminate\Http\Request;
+use App\Models\ListingContent;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class FrontendPage extends JsonResource
@@ -35,18 +37,38 @@ class FrontendPage extends JsonResource
             'related_section' => $this->related_section($this->slug)
         ];
     }
-    private function related_section($slug){
-
-        if($slug=='videos'){
+    private function related_section($slug)
+    {
+      
+        if ($slug == 'videos') {
             return [
-            'gallery'=>$this->getgallery(),
+                'gallery' => $this->getgallery(),
             ];
         }
 
 
-        
+        if ($slug === 'government') {
+            $listing_id = Listing::where('name', 'government_listing')->pluck('id')->first();
+            if (is_null($listing_id)) {
+                return ['error' => 'Listing ID not found'];
+            }
 
+            $listing_content_array = ListingContent::where('listing_id', $listing_id)->get();
+            if ($listing_content_array->isEmpty()) {
+                return ['error' => 'No content found for the specified listing ID'];
+            }
+
+            $listing_content = $listing_content_array->toArray();
+            return [
+                'listing_content' => $listing_content,
+                'listing_id' => $listing_id,
+            ];
+        }
+
+
+        return [];
     }
+
     private function getgallery(){
         $gallery = Gallery::where('status', 1)
         ->orderBy('priority')

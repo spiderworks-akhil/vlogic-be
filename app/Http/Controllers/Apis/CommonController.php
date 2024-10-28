@@ -100,37 +100,7 @@ public function page(string $slug)
 {
 
     $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
-
-
-    if ($slug === 'government') {
-
-        $listing_id = Listing::where('name', 'government_listing')->pluck('id')->first();
-        if (is_null($listing_id)) {
-            return response()->json(['message' => 'Listing ID not found'], 400);
-        }
-
-
-        $listing_content_array = ListingContent::where('listing_id', $listing_id)->get();
-        if ($listing_content_array->isEmpty()) {
-            return response()->json(['message' => 'No content found for the specified listing ID'], 400);
-        }
-        $listing_content = $listing_content_array->toArray();
-
-        // $page_details = FrontendPage::where('slug', 'government')->first();
-        // if (is_null($page_details)) {
-        //     return response()->json(['message' => 'Government page not found'], 400);
-        // }
-
-
-        return response()->json([
-            'data' => new ResourcesFrontendPage($data),
-            $data['listing_content'] = $listing_content,
-            $data['listing_id'] = $listing_id,
-        ]);
-    }
-
-
-    if (!$data) {
+    if (is_null($data)) {
         return response()->json(['error' => 'Page not Found!'], 404);
     }
 
