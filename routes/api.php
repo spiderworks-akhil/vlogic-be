@@ -129,7 +129,7 @@ Route::get('company-page/{slug}', [CommonController::class, 'company_page'])->na
 Route::get('faq', [CommonController::class, 'faq'])->name('api.faq');
 Route::get('leads', [CommonController::class, 'leads'])->name('api.leads');
 Route::get('leads/{id}', [CommonController::class, 'leads_view'])->name('api.leads_view');
-
+Route::get('/general-settings', [CommonController::class, 'GeneralSettings'])->name('api.general-settings');
 
 Route::get('list-urls/{page}', [CommonController::class, 'list_urls'])->name('api.list-urls');
 

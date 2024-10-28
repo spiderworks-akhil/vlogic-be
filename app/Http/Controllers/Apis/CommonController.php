@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers\Apis;
 
-use App\Http\Controllers\Controller;
-use App\Http\Resources\FrontendPage as ResourcesFrontendPage;
-use App\Models\FrontendPage;
-use App\Traits\App;
-use App\Models\Setting;
-use App\Services\MailSettings;
-use App\Models\Lead;
-use App\Http\Requests\ContactRequest;
-use App\Http\Resources\CommonPageResource;
-use App\Http\Resources\FaqCollection;
-use App\Http\Resources\LeadCollection;
-use App\Http\Resources\Lead as LeadResource;
-use App\Http\Resources\Media;
+use DB;
 use App\Models\Faq;
+use App\Traits\App;
+use App\Models\Lead;
+use App\Models\Menu;
 use App\Models\News;
 use App\Models\Page;
-use DB;
+use App\Models\Setting;
+use App\Models\MenuItem;
+use App\Models\FrontendPage;
 use Illuminate\Http\Request;
+use App\Http\Resources\Media;
+use App\Services\MailSettings;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ContactRequest;
+use App\Http\Resources\FaqCollection;
+use App\Http\Resources\LeadCollection;
+use App\Http\Resources\CommonPageResource;
+use App\Http\Resources\Lead as LeadResource;
+use App\Http\Resources\FrontendPage as ResourcesFrontendPage;
 
 class CommonController extends Controller
 {
@@ -32,6 +34,39 @@ class CommonController extends Controller
         $settings = $this->getSettings();
         return response()->json(['data' => $settings]);
     }
+
+
+    public function GeneralSettings()
+    {
+        $allMenus = Menu::select('position')->where('status',1)->get();
+        $formattedMenus = [];
+
+        foreach ($allMenus as $menu) {
+            $menuId = $menu->id;
+            $position = $menu->position;
+
+            $menuResponse = $this->menu($position);
+            $menuData = json_decode($menuResponse->getContent());
+
+            $menuItems = MenuItem::where('menu_id', $menuId)
+                ->select('title', 'url')
+                ->get();
+
+            $formattedMenus[str_replace(' ', '_', $position)] = array_merge(
+                (array) $menuData->data,
+                $menuItems->toArray()
+            );
+        }
+
+        $settings = $this->getSettings();
+
+        return response()->json([
+            'all_menus' => $formattedMenus,
+            'all_settings' => $settings,
+
+        ]);
+    }
+
 
     public function page(string $slug){
         $page_settings = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
