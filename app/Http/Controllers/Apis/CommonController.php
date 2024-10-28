@@ -9,11 +9,13 @@ use App\Models\Lead;
 use App\Models\Menu;
 use App\Models\News;
 use App\Models\Page;
+use App\Models\Listing;
 use App\Models\Setting;
 use App\Models\MenuItem;
 use App\Models\FrontendPage;
 use Illuminate\Http\Request;
 use App\Http\Resources\Media;
+use App\Models\ListingContent;
 use App\Services\MailSettings;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
@@ -68,12 +70,73 @@ class CommonController extends Controller
     }
 
 
-    public function page(string $slug){
-        $page_settings = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
-        if(!$page_settings)
-            return response()->json(['error' => 'Page not Found!'], 404);
-        return new ResourcesFrontendPage($page_settings);
+//     public function page(string $slug){
+//         $page_settings = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
+
+// if('slug'== 'government'){
+
+
+//         $listing_id = Listing::where('name','government_listing')->pluck('id')->first();
+//         if (is_null($listing_id)) {
+//         return response()->json(['message' => 'Listing ID not found'], 400);
+//     }
+//         $listing_content = ListingContent::where('listing_id',$listing_id)->get();
+//         if ($listing_content->isEmpty()) {
+//             return response()->json(['message' => 'No content found for the specified listing ID'], 400);
+//         }
+//         $page_details = FrontendPage::where('slug','government')->first();
+//         if (is_null($page_details)) {
+//             return response()->json(['message' => 'Government page not found'], 400);
+//         }
+//     }
+//         if(!$page_settings)
+//             return response()->json(['error' => 'Page not Found!'], 404);
+//         return new ResourcesFrontendPage($page_settings);
+//     }
+
+
+
+public function page(string $slug)
+{
+
+    $page_settings = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
+
+
+    if ($slug === 'government') {
+
+        $listing_id = Listing::where('name', 'government_listing')->pluck('id')->first();
+        if (is_null($listing_id)) {
+            return response()->json(['message' => 'Listing ID not found'], 400);
+        }
+
+
+        $listing_content_array = ListingContent::where('listing_id', $listing_id)->get();
+        if ($listing_content_array->isEmpty()) {
+            return response()->json(['message' => 'No content found for the specified listing ID'], 400);
+        }
+        $listing_content = $listing_content_array->toArray();
+
+        // $page_details = FrontendPage::where('slug', 'government')->first();
+        // if (is_null($page_details)) {
+        //     return response()->json(['message' => 'Government page not found'], 400);
+        // }
+
+
+        return response()->json([
+            'page_settings' => new ResourcesFrontendPage($page_settings),
+            'listing_content' => $listing_content,
+            'listing_id' =>  $listing_id
+        ]);
     }
+
+
+    if (!$page_settings) {
+        return response()->json(['error' => 'Page not Found!'], 404);
+    }
+
+    return new ResourcesFrontendPage($page_settings);
+}
+
 
     public function company_page(string $slug){
         $page = Page::where('slug', $slug)->where('status', 1)->first();

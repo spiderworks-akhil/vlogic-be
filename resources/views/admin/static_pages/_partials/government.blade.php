@@ -34,28 +34,21 @@
         @endphp
         @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image, 'title'=>'Advisory Image ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image]', 'id'=>'media_id_works_first_featured_image', 'display'=> 'horizontal'])
 
-        <div class="form-group col-md-12">
-            <label>Content Heading</label>
-            <input type="text" name="content[section_title]" class="form-control" @if($obj->content && isset($obj->content['section_title'])) value="{{$obj->content['section_title']}}" @endif>
-        </div>
-        <div class="form-group col-md-12">
-            <label> Content Description  </label>
-            <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Sections</label>
+                <textarea name="content[section_description_first]" class="form-control editor ">
+        @if ($obj->content && isset($obj->content['section_description_first']))
+        {{ $obj->content['section_description_first'] }}
+        @endif
+        </textarea>
+            </div>
         </div>
         </fieldset>
 
         <h3>Second Section</h3>
         <fieldset>
-            <div class="card-body row">
-                <div class="form-group col-md-12">
-                    <label>Sections</label>
-                    <textarea name="content[section_description_first]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first']))
-            {{ $obj->content['section_description_first'] }}
-            @endif
-            </textarea>
-                </div>
-            </div>
+
 
         </fieldset>
 
@@ -69,6 +62,11 @@
 
     <h3>Government section</h3>
         <fieldset>
+
+            <div class="form-group col-md-12">
+                <label>Listing module Heading  </label>
+                <input type="text" name="content[banner_title10]" class="form-control" @if($obj->content && isset($obj->content['banner_title10'])) value="{{$obj->content['banner_title10']}}" @endif >
+            </div>
 
             <div class="form-group">
                 <a href="{{route('admin.listing-items.index',[1])}}" class="btn btn-primary" target="_blank">Government Listing

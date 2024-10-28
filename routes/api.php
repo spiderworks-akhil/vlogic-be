@@ -98,7 +98,7 @@ Route::get('testimonials', [TestimonialController::class, 'index'])->name('api.t
 
 //Government
 
-// Route::get('government',[GovernmentController::class,'index'])->name('api.government.index');
+// Route::get('page/government',[GovernmentController::class,'index'])->name('api.government.index');
 
 //services
 Route::get('service', [ServiceController::class, 'index'])->name('api.service.index');
