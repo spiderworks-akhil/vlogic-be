@@ -99,7 +99,7 @@ class CommonController extends Controller
 public function page(string $slug)
 {
 
-    $page_settings = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
+    $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
 
 
     if ($slug === 'government') {
@@ -123,18 +123,18 @@ public function page(string $slug)
 
 
         return response()->json([
-            'page_settings' => new ResourcesFrontendPage($page_settings),
+            'data' => new ResourcesFrontendPage($data),
             'listing_content' => $listing_content,
             'listing_id' =>  $listing_id
         ]);
     }
 
 
-    if (!$page_settings) {
+    if (!$data) {
         return response()->json(['error' => 'Page not Found!'], 404);
     }
 
-    return new ResourcesFrontendPage($page_settings);
+    return new ResourcesFrontendPage($data);
 }
 
 
