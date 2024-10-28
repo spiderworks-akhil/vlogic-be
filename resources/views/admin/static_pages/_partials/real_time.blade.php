@@ -188,7 +188,7 @@
     @php
     $media_id_works_first_featured_image02 =
         $obj->content && isset($obj->content['media_id_works_first_featured_image02'])
-            ? $obj->content['media_id_works_fimedia_id_works_first_featured_image02rst_featured_image01']
+            ? $obj->content['media_id_works_first_featured_image02']
             : null;
 @endphp
 @include('admin.media.set_file', [
