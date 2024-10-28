@@ -124,8 +124,8 @@ public function page(string $slug)
 
         return response()->json([
             'data' => new ResourcesFrontendPage($data),
-            'listing_content' => $listing_content,
-            'listing_id' =>  $listing_id
+            $data['listing_content'] = $listing_content,
+            $data['listing_id'] = $listing_id,
         ]);
     }
 
