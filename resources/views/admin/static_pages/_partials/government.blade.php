@@ -46,11 +46,6 @@
         </div>
         </fieldset>
 
-        <h3>Second Section</h3>
-        <fieldset>
-
-
-        </fieldset>
 
 
 
@@ -87,7 +82,10 @@
             <label>Third Short Description  </label>
             <input type="text" name="content[banner_title4]" class="form-control" @if($obj->content && isset($obj->content['banner_title4'])) value="{{$obj->content['banner_title4']}}" @endif >
         </div>
-
+        <div class="form-group col-md-12">
+            <label>Third Short Description  </label>
+            <input type="text" name="content[banner_title7]" class="form-control" @if($obj->content && isset($obj->content['banner_title7'])) value="{{$obj->content['banner_title7']}}" @endif >
+        </div>
 
         <div class="form-group col-md-12">
             <label>Fourth Head Title  </label>

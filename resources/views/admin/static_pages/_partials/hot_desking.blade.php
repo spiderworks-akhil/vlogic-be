@@ -258,6 +258,16 @@
 </textarea>
         </div>
     </div>
+    <div class="form-group">
+        @php
+        $media_id_works_video= ($obj->content && isset($obj->content['media_id_works_video']))?$obj->content['media_id_works_video']:null;
+        @endphp
+        @include('admin.media.set_file', ['file'=>$media_id_works_video, 'title'=>'Works Video', 'popup_type'=>'single_image', 'type'=>'Video', 'holder_attr'=>'content[media_id_works_video]', 'id'=>'media_id_works_video', 'display'=> 'horizontal'])
+        <div class="form-group col-md-12">
+        <textarea class="form-control" name="content[youtube_video_link]">@if ($obj->content && isset($obj->content['youtube_video_link'])){{$obj->content['youtube_video_link']}}@endif
+        </textarea>
+
+        </div>
 </fieldset>
 
 

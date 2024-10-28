@@ -20,5 +20,102 @@
         </div>
 
     </fieldset>
-<h3>B</h3>
+<h3>Requirement section</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Short Description top </label>
+        <input type="text" name="content[banner_title2]" class="form-control"
+            @if ($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
+    </div>
+    <div class="form-group col-md-12">
+        <label>title</label>
+        <input type="text" name="content[banner_title1]" class="form-control" @if($obj->content && isset($obj->content['banner_title1'])) value="{{$obj->content['banner_title1']}}" @endif >
+    </div>
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Description</label>
+            <textarea name="content[section_description_first]" class="form-control editor ">
+            @if ($obj->content && isset($obj->content['section_description_first']))
+            {{ $obj->content['section_description_first'] }}
+            @endif
+            </textarea>
+          </div>
+    </div>
+    @php
+    $media_id_works_first_featured_image =
+        $obj->content && isset($obj->content['media_id_works_first_featured_image'])
+            ? $obj->content['media_id_works_first_featured_image']
+            : null;
+@endphp
+@include('admin.media.set_file', [
+    'file' => $media_id_works_first_featured_image,
+    'title' => 'Banner Image ',
+    'popup_type' => 'single_image',
+    'type' => 'Image',
+    'holder_attr' => 'content[media_id_works_first_featured_image]',
+    'id' => 'media_id_works_first_featured_image',
+    'display' => 'horizontal',
+])
+</fieldset>
+
+
+<h3>Requirements </h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Head</label>
+        <input type="text" name="content[banner_title4]" class="form-control" @if($obj->content && isset($obj->content['banner_title4'])) value="{{$obj->content['banner_title4']}}" @endif >
+    </div>
+    <div class="form-group col-md-12">
+        <label>Short Description top </label>
+        <input type="text" name="content[banner_title5]" class="form-control"
+            @if ($obj->content && isset($obj->content['banner_title5'])) value="{{ $obj->content['banner_title5'] }}" @endif>
+    </div>
+    <div class="form-group col-md-12">
+        <label>Challenges Heading</label>
+        <input type="text" name="content[banner_title6]" class="form-control" @if($obj->content && isset($obj->content['banner_title6'])) value="{{$obj->content['banner_title6']}}" @endif >
+    </div>
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Challenges</label>
+            <textarea name="content[section_description_first]" class="form-control editor ">
+            @if ($obj->content && isset($obj->content['section_description_first']))
+            {{ $obj->content['section_description_first'] }}
+            @endif
+            </textarea>
+          </div>
+    </div>
+
+
+
+    <div class="form-group col-md-12">
+        <label>Solution Heading</label>
+        <input type="text" name="content[banner_title7]" class="form-control" @if($obj->content && isset($obj->content['banner_title7'])) value="{{$obj->content['banner_title7']}}" @endif >
+    </div>
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Challenges</label>
+            <textarea name="content[section_description_first8]" class="form-control editor ">
+            @if ($obj->content && isset($obj->content['section_description_first8']))
+            {{ $obj->content['section_description_first8'] }}
+            @endif
+            </textarea>
+          </div>
+    </div>
+    @php
+    $media_id_works_first_featured_image1 =
+        $obj->content && isset($obj->content['media_id_works_first_featured_image1'])
+            ? $obj->content['media_id_works_first_featured_image1']
+            : null;
+@endphp
+@include('admin.media.set_file', [
+    'file' => $media_id_works_first_featured_image1,
+    'title' => 'Banner Image ',
+    'popup_type' => 'single_image',
+    'type' => 'Image',
+    'holder_attr' => 'content[media_id_works_first_featured_image1]',
+    'id' => 'media_id_works_first_featured_image1',
+    'display' => 'horizontal',
+])
+
+</fieldset>
     </div>
