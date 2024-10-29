@@ -57,7 +57,7 @@
                                             <th class="table-width-10 text-center">ID</th>
                                             <th class="table-width-120">Name</th>
                                             <th class="table-width-120">Slug</th>
-                                            <th class="nosearch table-width-10 text-center  @fieldshow(press-priority) @else nodisplay @endfieldshow">Priority</th>
+                                            <th class="nosearch table-width-10 text-center ">Priority</th>
                                             <th class="nosort nosearch table-width-10 text-center">Status</th>
                                             <th class="nosort nosearch table-width-10 text-center">@if(auth()->user()->can($permissions['edit'])) Edit @else View @endif</th>
                                             <th class="nosort nosearch table-width-10 text-center">Delete</th>
