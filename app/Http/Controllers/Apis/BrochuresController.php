@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Apis;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\BrochuresCollection;
+use App\Http\Resources\MediaCollection;
 use App\Models\Media;
 use App\Models\Brochure;
 use Illuminate\Http\Request;
@@ -15,21 +17,17 @@ class BrochuresController extends Controller
 
 
 
-        $brochures = Brochure::with('brochure:id,file_path')
-        ->select('id', 'name', 'title', 'content', 'brochure_id')
-        ->get();
+        $brochures = Brochure::get();
 
 
             if(!empty($brochure)){
                 return response()->json(['message' => "Brouchure is not found"],400);
             }
 
-         foreach ($brochures as $brochure)
-         if ($brochure->brochure) {
-            $filePaths[] = $brochure->brochure->file_path;
-        }
 
-        return response()->json(["message" => "success", "file_paths" => $filePaths]);
+
+        // return response()->json(["message" => "success", "file_paths" => $filePaths]);
+        return new BrochuresCollection($brochures);
     }
 
 
