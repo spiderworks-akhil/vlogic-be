@@ -266,24 +266,16 @@
                                                 <div class="card-body">
                                                     @include('admin.media.set_file', ['file'=>$obj->brochure, 'title'=>'Brochure pdf', 'popup_type'=>'single_image', 'type'=>'pdf', 'holder_attr'=>'brochure_id'])
                                                 </div>
-                                            </div>
-
 
                                             @php
                                             $media_id_works_first_featured_image = ($obj->content && isset($obj->content['media_id_works_first_featured_image'])) ? $obj->content['media_id_works_first_featured_image'] : null;
                                             @endphp
                                             @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image, 'title'=>'Advisory Image ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image]', 'id'=>'media_id_works_first_featured_image', 'display'=> 'horizontal'])
 
-                                            <div class="card-body row">
-                                                <div class="form-group col-md-12">
-                                                    <label>Sections</label>
-                                                    <textarea name="content[section_description_first]" class="form-control editor ">
-                                            @if ($obj->content && isset($obj->content['section_description_first']))
-                                            {{ $obj->content['section_description_first'] }}
-                                            @endif
-                                            </textarea>
-                                                </div>
+                                           
                                             </div>
+
+
 
 
                                         </div>
