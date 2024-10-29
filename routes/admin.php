@@ -39,6 +39,7 @@ use App\Http\Controllers\Admin\PhotoGallaryController;
 use App\Http\Controllers\Admin\JobApplicationController;
 use App\Http\Controllers\Admin\WebinarController;
 use App\Http\Controllers\Admin\Auth\AuthenticateSessionOtpController;
+use App\Http\Controllers\Admin\PressController;
 use App\Models\Webinar;
 
 $prefix = (config()->has('admin.url_prefix')) ? config()->get('admin.url_prefix') : 'admin';
@@ -299,6 +300,16 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use ($m
         Route::get('/services/change-status/{id}', [ServiceController::class, 'changeStatus'])->name('admin.services.change-status');
         Route::get('/services/{parent?}', [ServiceController::class, 'index'])->name('admin.services.index');
         Route::get('/services/show/{id}', [ServiceController::class, 'show'])->name('admin.services.show');
+
+ //Press
+ Route::get('press', [PressController::class, 'index'])->name('admin.press.index');
+ Route::get('press/create', [PressController::class, 'create'])->name('admin.press.create');
+ Route::get('press/edit/{id}/{tab?}', [PressController::class, 'edit'])->name('admin.press.edit');
+ Route::get('press/destroy/{id}', [PressController::class, 'destroy'])->name('admin.press.destroy');
+ Route::post('press/store', [PressController::class, 'store'])->name('admin.press.store');
+ Route::post('press/update', [PressController::class, 'update'])->name('admin.press.update');
+ Route::get('press/show/{id}', [PressController::class, 'show'])->name('admin.press.show');
+
 
         //jobs
         Route::get('jobs', [JobController::class, 'index'])->name('admin.jobs.index');

@@ -39,7 +39,7 @@ class FrontendPage extends JsonResource
     }
     private function related_section($slug)
     {
-      
+
         if ($slug == 'videos') {
             return [
                 'gallery' => $this->getgallery(),

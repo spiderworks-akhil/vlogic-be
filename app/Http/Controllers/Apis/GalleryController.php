@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 class GalleryController extends Controller
 {
     public function index(){
-        $banner = FrontendPage::with('media')->where('slug','videos')->first();
+        $banner = FrontendPage::where('slug','videos')->first();
 
         $gallery = Gallery::where('status', 1)
                         ->orderBy('priority')
