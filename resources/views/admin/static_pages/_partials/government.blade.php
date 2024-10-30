@@ -42,7 +42,7 @@
         {{ $obj->content['section_description_first'] }}
         @endif
         </textarea>
-            </div>
+            </div>  
         </div>
         <div class="form-group col-md-12">
             <label>Short Description  </label>

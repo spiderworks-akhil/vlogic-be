@@ -107,7 +107,9 @@ Route::get('service/{slug}', [ServiceController::class, 'view'])->name('api.serv
 
 //Home
 Route::get('home',[HomeController::class,'index'])->name('api.home.index');
-Route::post('contact-us',[HomeController::class,'contact'])->name('api.home.contact');
+// Correct route definition in your routes file (web.php or api.php)
+Route::post('contact-us', [HomeController::class, 'contact'])->name('api.home.contact');
+
 
 
 

@@ -266,14 +266,15 @@
                                                 <div class="card-body">
                                                     @include('admin.media.set_file', ['file'=>$obj->brochure, 'title'=>'Brochure pdf', 'popup_type'=>'single_image', 'type'=>'pdf', 'holder_attr'=>'brochure_id'])
                                                 </div>
-
-                                            @php
-                                            $media_id_works_first_featured_image = ($obj->content && isset($obj->content['media_id_works_first_featured_image'])) ? $obj->content['media_id_works_first_featured_image'] : null;
-                                            @endphp
-                                            @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image, 'title'=>'Set pdf cover image ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image]', 'id'=>'media_id_works_first_featured_image', 'display'=> 'horizontal'])
-
-
+                                                <div class="card-header">
+                                                    Featured Image
+                                                </div>
+                                                <div class="card-body">
+                                                    @include('admin.media.set_file', ['file'=>$obj->featured_image, 'title'=>'Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'featured_image_id'])
+                                                </div>
+                                            </div>
                                             </div>
+
 
 
 

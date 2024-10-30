@@ -20,22 +20,50 @@
         </div>
 
     </fieldset>
-    <h3>Contact sectio></h3>
+    <h3>Contact section</h3>
     <fieldset>
+
+
         <div class="form-group col-md-12">
             <label>Contact title</label>
             <input type="text" name="content[banner_title1]" class="form-control" @if($obj->content && isset($obj->content['banner_title1'])) value="{{$obj->content['banner_title1']}}" @endif >
         </div>
-        <div class="form-group col-md-12">
-            <label>Place details 1 </label>
-            <input type="text" name="content[banner_title2]" class="form-control" @if($obj->content && isset($obj->content['banner_title2'])) value="{{$obj->content['banner_title2']}}" @endif >
+
+
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Place detail 1 </label>
+                <textarea name="content[section_description_first]" class="form-control editor ">
+        @if ($obj->content && isset($obj->content['section_description_first']))
+        {{ $obj->content['section_description_first'] }}
+        @endif
+        </textarea>
+            </div>
         </div>
-        <div class="form-group col-md-12">
-            <label>Place details 2 </label>
-            <input type="text" name="content[banner_title3]" class="form-control" @if($obj->content && isset($obj->content['banner_title3'])) value="{{$obj->content['banner_title3']}}" @endif >
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Place detail 2 </label>
+                <textarea name="content[section_description_first1]" class="form-control editor ">
+        @if ($obj->content && isset($obj->content['section_description_first1']))
+        {{ $obj->content['section_description_first1'] }}
+        @endif
+        </textarea>
+            </div>
         </div>
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Place detail 1 </label>
+                <textarea name="content[section_description_first2]" class="form-control editor ">
+        @if ($obj->content && isset($obj->content['section_description_first2']))
+        {{ $obj->content['section_description_first2'] }}
+        @endif
+        </textarea>
+            </div>
+        </div>
+
+
         <div class="form-group col-md-12">
-            <label>Place details 3 </label>
+            <label> Map </label>
             <input type="text" name="content[banner_title4]" class="form-control" @if($obj->content && isset($obj->content['banner_banner_title4title'])) value="{{$obj->content['banner_title4']}}" @endif >
         </div>
     </fieldset>

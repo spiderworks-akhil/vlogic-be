@@ -28,6 +28,7 @@ class BrochuresResource extends JsonResource
             'meta_keywords' => $this->meta_keywords,
             'bottom_description' => $this->bottom_description,
             'extra_js' => $this->extra_js,
+            'logo' => new Media($this->logo)
 
         ];
     }

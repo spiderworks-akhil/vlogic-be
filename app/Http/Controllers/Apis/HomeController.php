@@ -61,10 +61,11 @@ class HomeController extends Controller
     public function contact(ContactRequest $request)
     {
 
-        
+
 
 
         $request->validated();
+        
         $contact = new Lead;
         $contact->fill($request->all());
 
