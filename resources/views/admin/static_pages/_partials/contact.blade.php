@@ -61,11 +61,16 @@
             </div>
         </div>
 
-
         <div class="form-group col-md-12">
-            <label> Map </label>
-            <input type="text" name="content[banner_title4]" class="form-control" @if($obj->content && isset($obj->content['banner_banner_title4title'])) value="{{$obj->content['banner_title4']}}" @endif >
+            <label>Map </label>
+            <textarea name="content[works_shortdescription]" class="form-control ">
+        @if ($obj->content && isset($obj->content['works_shortdescription']))
+        {{ $obj->content['works_shortdescription'] }}
+        @endif
+        </textarea>
         </div>
+
+
     </fieldset>
 
 </div>

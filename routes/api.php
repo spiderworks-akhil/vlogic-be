@@ -59,7 +59,7 @@ Route::post('verify-otp', [AuthController::class, 'verify_otp'])->name('app.veri
 
 //solution
 
-Route::get('space_management',[CommonController::class,'space_management'])->name('api.solution.space');
+// Route::get('space_management',[CommonController::class,'space_management'])->name('api.solution.space');
 
 
 //Blog
