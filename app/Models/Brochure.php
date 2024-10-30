@@ -20,5 +20,8 @@ class Brochure extends Model
     {
         return $this->belongsTo(Media::class, 'brochure_id','id');
     }
-
+    public function featured_image(): BelongsTo
+    {
+        return $this->belongsTo(Media::class, 'featured_image_id','id');
+    }
 }
