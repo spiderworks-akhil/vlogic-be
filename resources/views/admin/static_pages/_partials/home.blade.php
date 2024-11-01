@@ -39,6 +39,22 @@
 
     </fieldset>
 
+
+<h3>Solution Section</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>  Solution Heading  </label>
+        <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
+    </div>
+    <div class="form-group col-md-12">
+        <label>Solution description  </label>
+        <input type="text" name="content[banner_title02]" class="form-control" @if($obj->content && isset($obj->content['banner_title02'])) value="{{$obj->content['banner_title02']}}" @endif >
+    </div>
+</fieldset>
+
+
+
+
     <h3>Facility</h3>
     <fieldset>
         <div class="form-group col-md-12">

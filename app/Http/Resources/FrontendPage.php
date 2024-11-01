@@ -2,10 +2,13 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Controllers\Admin\SliderController;
 use App\Models\Gallery;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use App\Models\ListingContent;
+use App\Models\Slider;
+use App\Models\SliderPhoto;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class FrontendPage extends JsonResource
@@ -40,6 +43,14 @@ class FrontendPage extends JsonResource
     private function related_section($slug)
     {
 
+
+            if ($slug == 'home'){
+                return [
+                    'slider' => $this->slider(),
+
+                ];
+            }
+
         if ($slug == 'videos') {
             return [
                 'gallery' => $this->getgallery(),
@@ -68,6 +79,26 @@ class FrontendPage extends JsonResource
 
         return [];
     }
+    private function slider()
+    {
+        $sliders = Slider::where('slider_name', 'home')
+            ->with(['photos.media'])
+            ->get();
+
+
+        $photosWithMedia = $sliders->flatMap(function ($slider) {
+            return $slider->photos->map(function ($photo) {
+                return [
+                    'photo' => $photo,
+                    'media_image' => $photo->media->image_path ?? null
+                ];
+            });
+        });
+
+        return $photosWithMedia;
+    }
+
+
 
     private function getgallery(){
         $gallery = Gallery::where('status', 1)

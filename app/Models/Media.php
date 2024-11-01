@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Models\News;
+use Illuminate\Database\Eloquent\Factories\BelongsToRelationship;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -24,8 +25,9 @@ class Media extends Model
     public function webinar(): BelongsTo
     {
         return $this->belongsTo(Webinar::class, 'id');
-    }
 
+    }
+   
 
 
 
