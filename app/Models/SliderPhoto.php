@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\Models;
 
 use App\Models\BaseModel as Model;
@@ -6,9 +6,9 @@ use App\Traits\ValidationTrait;
 
 class SliderPhoto extends Model
 {
-    
+
     public function __construct() {
-        
+
         parent::__construct();
     }
 
@@ -48,5 +48,6 @@ class SliderPhoto extends Model
         $output = json_decode($value);
         return $output;
     }
+
 
 }

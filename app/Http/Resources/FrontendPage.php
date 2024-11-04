@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Resources;
-
-use App\Http\Controllers\Admin\SliderController;
+use App\Models\Slider;
 use App\Models\Gallery;
 use App\Models\Listing;
+use App\Models\Service;
+use App\Models\SliderPhoto;
 use Illuminate\Http\Request;
 use App\Models\ListingContent;
-use App\Models\Slider;
-use App\Models\SliderPhoto;
+use App\Http\Resources\ServiceCollection;
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class FrontendPage extends JsonResource
@@ -47,6 +48,7 @@ class FrontendPage extends JsonResource
             if ($slug == 'home'){
                 return [
                     'slider' => $this->slider(),
+                    'service' => $this->service()
 
                 ];
             }
@@ -54,7 +56,7 @@ class FrontendPage extends JsonResource
         if ($slug == 'videos') {
             return [
                 'gallery' => $this->getgallery(),
-            ];
+             ];
         }
 
 
@@ -79,23 +81,34 @@ class FrontendPage extends JsonResource
 
         return [];
     }
-    private function slider()
+    private function service()
     {
+
+
+        $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->with(['featured_image','banner_image'])->where('status', 1)->orderBy('priority','DESC')->get();
+        if (is_null($services)) {
+            return response()->json(['message' => 'Government page not found'], 400);
+        }
+        // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
+
+        return new ServiceCollection($services);
+    }
+
+    private function slider() {
         $sliders = Slider::where('slider_name', 'home')
             ->with(['photos.media'])
             ->get();
 
-
-        $photosWithMedia = $sliders->flatMap(function ($slider) {
-            return $slider->photos->map(function ($photo) {
+        $sliders->each(function ($slider) {
+            $slider->photos_with_media = $slider->photos->map(function ($photo) {
                 return [
                     'photo' => $photo,
-                    'media_image' => $photo->media->image_path ?? null
+                    'media_image' => $photo->media ? asset($photo->media->image_path) : null,
                 ];
             });
         });
 
-        return $photosWithMedia;
+        return new SliderCollection($sliders);
     }
 
 

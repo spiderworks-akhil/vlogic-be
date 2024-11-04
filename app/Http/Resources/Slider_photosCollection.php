@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ServiceCollection extends ResourceCollection
+class Slider_photosCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -16,5 +16,4 @@ class ServiceCollection extends ResourceCollection
     {
         return parent::toArray($request);
     }
-    
 }

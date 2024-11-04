@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Slider;
+use App\Models\SliderPhoto;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -33,9 +35,18 @@ class Service extends JsonResource
             'bottom_description' => $this->bottom_description,
             'extra_js' => $this->extra_js,
             'faq' => new FaqCollection($this->faq),
-            // 'gallery' => new MediaCollection($this->gallery),
+        //    'gallery' => new MediaCollection($this->gallery),
             'children' => new ServiceCollection($this->whenLoaded('children')),
-            
+            'slider_photos' => $this->slider_photos()
         ];
     }
+
+    private function slider_photos()
+    {
+        $slider_id = Slider::where('slider_name', 'home')->pluck('id')->first();
+        $slider_photos = SliderPhoto::where('sliders_id',$slider_id)->get();
+
+        return new Slider_photosCollection($slider_photos);
+    }
+
 }

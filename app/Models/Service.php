@@ -47,7 +47,7 @@ class Service extends Model
         {
             $content = json_decode($value);
             $output = collect($content)->map(function($item, $key){
-                
+
                 if (strpos($key, 'media_id') !== false) {
                     if($item)
                         return Media::find((int)$item);
@@ -60,7 +60,7 @@ class Service extends Model
             });
 
             return $output;
-            
+
         }
         return $value;
     }
@@ -84,9 +84,9 @@ class Service extends Model
         if($array)
             foreach ($array as $key => $item) {
                 if($item->parent_id == $currentParent){
-                    
+
                     $html .= '<div class="checkbox">'.$indent.'<input type="checkbox" name="services_links[]" class="services_links" value="services_link-'.$item->id.'" data-id="'.$item->id.'" data-name="'.$item->name.'" id="services-'.$item->id.'"> <label for="services-'.$item->id.'">'.$item->name.'</label></div>';
-                        
+
                     if($item->children)
                     {
                         $html .= $this->parse_hierarchical_list ($array, $item->id, ($deep+1));

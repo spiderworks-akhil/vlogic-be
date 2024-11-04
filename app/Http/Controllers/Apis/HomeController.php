@@ -11,6 +11,7 @@ use App\Models\FrontendPage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
+use App\Http\Resources\FrontendPage as ResourcesFrontendPage;
 use App\Http\Resources\ServiceCollection;
 use App\Http\Resources\Service as ServiceResources;
 
@@ -53,7 +54,7 @@ class HomeController extends Controller
         return response()->json([
             'success' => true,
             'slider' => $slider,
-            'page_details' => $page_details,
+            'page_details' => new ResourcesFrontendPage($page_details) ,
             'services' => new ServiceCollection($services),
 
         ]);
@@ -65,7 +66,7 @@ class HomeController extends Controller
 
 
         $request->validated();
-        
+
         $contact = new Lead;
         $contact->fill($request->all());
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 use App\Models\News;
 use Illuminate\Database\Eloquent\Factories\BelongsToRelationship;
@@ -27,7 +26,7 @@ class Media extends Model
         return $this->belongsTo(Webinar::class, 'id');
 
     }
-   
+
 
 
 

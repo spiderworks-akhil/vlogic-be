@@ -1,18 +1,18 @@
 @extends('admin._layouts.default')
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                                                  
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -34,7 +34,7 @@
                                             <li class="breadcrumb-item active">All Settings</li>
                                         </ol>
                                     </div><!--end col-->
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
@@ -120,23 +120,23 @@
                                 <div class="card-body row">
                                     <div class="form-group col-md-6">
                                         <label>Facebook Link</label>
-                                        <input type="text" name="settings[facebook-link]" class="form-control" value="{{$data['facebook-link']}}">
+                                        <input type="text" name="settings[facebook-link]" class="form-control" value="{{$data['facebook_link']}}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Twitter Link</label>
-                                        <input type="text" name="settings[twitter-link]" class="form-control" value="{{$data['twitter-link']}}">
+                                        <input type="text" name="settings[twitter-link]" class="form-control" value="{{$data['twitter_link']}}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Linkedin Link</label>
-                                        <input type="text" name="settings[linkedin-link]" class="form-control" value="{{$data['linkedin-link']}}">
+                                        <input type="text" name="settings[linkedin-link]" class="form-control" value="{{$data['linkedin_link']}}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Instagram Link</label>
-                                        <input type="text" name="settings[intagram-link]" class="form-control" value="{{$data['intagram-link']}}">
+                                        <input type="text" name="settings[intagram-link]" class="form-control" value="{{$data['intagram_link']}}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Youtube Link</label>
-                                        <input type="text" name="settings[youtube-link]" class="form-control" value="{{$data['youtube-link']}}">
+                                        <input type="text" name="settings[youtube-link]" class="form-control" value="{{$data['youtube_link']}}">
                                     </div>
                                 </div>
                                 <div class="card-footer text-right">
@@ -163,7 +163,7 @@
                                                 <input type="text" name="value[]" class="form-control" value="{{$odata->value_text}}">
                                             </div>
                                             <div class="col-md-1 center-block">
-                                                
+
                                             </div>
                                         </div>
                                     @endforeach
@@ -177,7 +177,7 @@
                                             <input type="text" name="value[]" class="form-control" value="">
                                         </div>
                                         <div class="col-md-1 center-block">
-                                            
+
                                         </div>
                                     </div>
                                     <div class="row bottom-btn">
@@ -333,7 +333,7 @@
                             </div>
                         </form>
                         </div>
-                    </div> 
+                    </div>
 
                 </div><!-- container -->
 
