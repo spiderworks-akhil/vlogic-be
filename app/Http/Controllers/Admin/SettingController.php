@@ -61,7 +61,7 @@ class SettingController extends Controller
                     case 'Logo':
                         $setting = Setting::where('code', 'logo')->first();
                         break;
-                    
+
                     case 'Small Logo':
                         $setting = Setting::where('code', 'logo_small')->first();
                         break;
@@ -94,7 +94,7 @@ class SettingController extends Controller
             }
         }
         $this->clear_cache();
-        return Redirect::to(route('admin.settings.index'))->withSuccess('Settings successfully saved!'); 
+        return Redirect::to(url('sw-admin/settings'))->withSuccess('Settings successfully saved!');
     }
 
     public function clear_cache()
