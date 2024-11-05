@@ -231,6 +231,112 @@
         </div>
     </fieldset>
 
+<h3>Safety section</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Section Heading</label>
+        <input type="text" name="content[banner_title04]" class="form-control"
+            value="{{ $obj->content['banner_title04'] ?? '' }}">
+    </div>
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Short description </label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+
+
+
+    @php
+    $media_id_works_first_featured_image01 = $obj->content['media_id_works_first_featured_image01'] ?? null;
+@endphp
+@include('admin.media.set_file', [
+    'file' => $media_id_works_first_featured_image01,
+    'title' => 'Safety Section Image',
+    'popup_type' => 'single_image',
+    'type' => 'Image',
+    'holder_attr' => 'content[media_id_works_first_featured_image01]',
+    'id' => 'media_id_works_first_featured_image01',
+    'display' => 'horizontal'
+])
+
+
+
+
+<div class="form-group col-md-12">
+    <label>Section mobile Heading</label>
+    <input type="text" name="content[banner_title05]" class="form-control"
+        value="{{ $obj->content['banner_title05'] ?? '' }}">
+</div>
+<div class="card-body row">
+    <div class="form-group col-md-12">
+        <label>Short description </label>
+        <textarea name="content[section_description_first01]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first01']))
+{{ $obj->content['section_description_first01'] }}
+@endif
+</textarea>
+    </div>
+</div>
+
+
+
+@php
+$media_id_works_first_featured_image02 = $obj->content['media_id_works_first_featured_image02'] ?? null;
+@endphp
+@include('admin.media.set_file', [
+'file' => $media_id_works_first_featured_image02,
+'title' => 'Safety Section Image',
+'popup_type' => 'single_image',
+'type' => 'Image',
+'holder_attr' => 'content[media_id_works_first_featured_image02]',
+'id' => 'media_id_works_first_featured_image02',
+'display' => 'horizontal'
+])
+
+
+
+
+
+
+<div class="form-group col-md-12">
+    <label>Section utility Heading</label>
+    <input type="text" name="content[banner_title06]" class="form-control"
+        value="{{ $obj->content['banner_title06'] ?? '' }}">
+</div>
+<div class="card-body row">
+    <div class="form-group col-md-12">
+        <label>Short description </label>
+        <textarea name="content[section_description_first02]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first02']))
+{{ $obj->content['section_description_first02'] }}
+@endif
+</textarea>
+    </div>
+</div>
+
+
+
+@php
+$media_id_works_first_featured_image03 = $obj->content['media_id_works_first_featured_image03'] ?? null;
+@endphp
+@include('admin.media.set_file', [
+'file' => $media_id_works_first_featured_image03,
+'title' => 'Safety Section Image',
+'popup_type' => 'single_image',
+'type' => 'Image',
+'holder_attr' => 'content[media_id_works_first_featured_image03]',
+'id' => 'media_id_works_first_featured_image03',
+'display' => 'horizontal'
+])
+
+</fieldset>
+
+
     <h3>Final Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
