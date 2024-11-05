@@ -16,7 +16,7 @@
 
         <div class="form-group col-md-12">
             <label>Banner Short Description</label>
-            <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
+            <textarea name="content[banner_shortdescription0]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
         </div>
 
     </fieldset>
@@ -24,10 +24,7 @@
     <h3>Section 1</h3>
     <fieldset>
 
-        <div class="form-group col-md-12">
-            <label>Banner Short Description</label>
-            <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
-        </div>
+
 
         <div class="card-body row">
             <div class="form-group col-md-12">
@@ -85,8 +82,14 @@
         </div>
         <div class="form-group col-md-12">
             <label> Components Heading</label>
-            <input type="text" name="content[banner_title02]" class="form-control"
-                value="{{ $obj->content['banner_title02'] ?? '' }}">
+            <input type="text" name="content[banner_title004]" class="form-control"
+                value="{{ $obj->content['banner_title004'] ?? '' }}">
+        </div>
+
+        <div class="form-group col-md-12">
+            <label> Service  Heading</label>
+            <input type="text" name="content[banner_title001]" class="form-control"
+                value="{{ $obj->content['banner_title001'] ?? '' }}">
         </div>
         <div class="card-body row">
             <div class="form-group col-md-12">
@@ -98,6 +101,11 @@
                 </textarea>
               </div>
         </div>
+        <div class="form-group col-md-12">
+            <label> Software  Heading</label>
+            <input type="text" name="content[banner_title002]" class="form-control"
+                value="{{ $obj->content['banner_title002'] ?? '' }}">
+        </div
         <div class="card-body row">
             <div class="form-group col-md-12">
                 <label>Software</label>
