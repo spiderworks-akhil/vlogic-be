@@ -19,8 +19,9 @@
             <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
         </div>
         <div class="form-group col-md-12">
-            <label>content Description 2</label>
-            <textarea name="content[banner_shortdescription0]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
+            <label>Short Description top </label>
+            <input type="text" name="content[banner_title2]" class="form-control"
+                @if ($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
         </div>
     </fieldset>
 
@@ -57,11 +58,7 @@
     <input type="text" name="content[works_heading2]" class="form-control"
         @if ($obj->content && isset($obj->content['works_heading2'])) value="{{ $obj->content['works_heading2'] }}" @endif>
 </div>
-<div class="form-group col-md-12">
-    <label>Short Description top </label>
-    <input type="text" name="content[banner_title2]" class="form-control"
-        @if ($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
-</div>
+
 
 <div class="form-group ">
     @php

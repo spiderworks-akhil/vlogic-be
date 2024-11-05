@@ -91,16 +91,7 @@
 </textarea>
         </div>
     </div>
-  <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>Manage Occupant </label>
-            <textarea name="content[section_description_first05]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first05']))
-{{ $obj->content['section_description_first05'] }}
-@endif
-</textarea>
-        </div>
-    </div>
+
   <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Manage Furniture</label>
