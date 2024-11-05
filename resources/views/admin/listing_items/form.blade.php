@@ -149,7 +149,7 @@
                                                         </div>
 
                                                     </div>
-
+{{--
                                                     <div class="form-group col-md-12">
                                                         <label>Challenges</label>
                                                         <textarea class="form-control editor" name="challenges">{{$obj->challenges}}</textarea>
@@ -163,7 +163,7 @@
                                                                 {{$obj->solution}}
 
                                                 </textarea>
-                                                        </div>
+                                                        </div> --}}
                                                     </div>
 
                                                 </div><!--end card-body-->
