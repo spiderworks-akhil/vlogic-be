@@ -30,6 +30,13 @@
     <!-- Works Section -->
 
 <h3>Work section </h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Short Description Top</label>
+        <input type="text" name="content[banner_description]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_description'])) value="{{ $obj->content['banner_description'] }}" @endif>
+    </div>
+</fieldset>
 
 
 
