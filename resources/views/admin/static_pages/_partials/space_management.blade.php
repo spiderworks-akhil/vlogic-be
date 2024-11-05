@@ -33,8 +33,8 @@
 <fieldset>
     <div class="form-group col-md-12">
         <label>Head Content</label>
-        <input type="text" name="content[banner_title0]" class="form-control"
-            @if($obj->content && isset($obj->content['banner_title0'])) value="{{ $obj->content['banner_title0'] }}" @endif>
+        <input type="text" name="content[banner_title1]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title1'])) value="{{ $obj->content['banner_title1'] }}" @endif>
     </div>
 </fieldset>
 
