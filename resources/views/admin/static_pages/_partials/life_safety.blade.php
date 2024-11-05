@@ -53,15 +53,15 @@
         </div>
 
         @php
-            $media_id_works_first_featured_image1 = $obj->content['media_id_works_first_featured_image1'] ?? null;
+            $media_id_works_first_featured_image001 = $obj->content['media_id_works_first_featured_image001'] ?? null;
         @endphp
         @include('admin.media.set_file', [
-            'file' => $media_id_works_first_featured_image1,
+            'file' => $media_id_works_first_featured_image001,
             'title' => 'Second Featured Image',
             'popup_type' => 'single_image',
             'type' => 'Image',
-            'holder_attr' => 'content[media_id_works_first_featured_image1]',
-            'id' => 'media_id_works_first_featured_image1',
+            'holder_attr' => 'content[media_id_works_first_featured_image001]',
+            'id' => 'media_id_works_first_featured_image001',
             'display' => 'horizontal'
         ])
 
@@ -73,17 +73,18 @@
         </div>
 
         @php
-            $media_id_works_video_thumb_img = $obj->content['media_id_works_video_thumb_img'] ?? null;
-        @endphp
-        @include('admin.media.set_file', [
-            'file' => $media_id_works_video_thumb_img,
-            'title' => 'Video Thumbnail Image',
-            'popup_type' => 'single_image',
-            'type' => 'Image',
-            'holder_attr' => 'content[media_id_works_video_thumb_img]',
-            'id' => 'media_id_works_video_thumb_img',
-            'display' => 'horizontal'
-        ])
+        $media_id_works_first_featured_image00 = $obj->content['media_id_works_first_featured_image00'] ?? null;
+    @endphp
+    @include('admin.media.set_file', [
+        'file' => $media_id_works_first_featured_image00,
+        'title' => 'Thumbline Image',
+        'popup_type' => 'single_image',
+        'type' => 'Image',
+        'holder_attr' => 'content[media_id_works_first_featured_image00]',
+        'id' => 'media_id_works_first_featured_image00',
+        'display' => 'horizontal'
+    ])
+
 
         <div class="form-group">
             @php
@@ -124,17 +125,18 @@
         </div>
 
         @php
-            $media_id_works_video_thumb_img = $obj->content['media_id_works_video_thumb_img'] ?? null;
-        @endphp
-        @include('admin.media.set_file', [
-            'file' => $media_id_works_video_thumb_img,
-            'title' => 'Video Thumbnail Image',
-            'popup_type' => 'single_image',
-            'type' => 'Image',
-            'holder_attr' => 'content[media_id_works_video_thumb_img]',
-            'id' => 'media_id_works_video_thumb_img',
-            'display' => 'horizontal'
-        ])
+        $media_id_works_first_featured_image0 = $obj->content['media_id_works_first_featured_image0'] ?? null;
+    @endphp
+    @include('admin.media.set_file', [
+        'file' => $media_id_works_first_featured_image0,
+        'title' => 'Thumbline Image',
+        'popup_type' => 'single_image',
+        'type' => 'Image',
+        'holder_attr' => 'content[media_id_works_first_featured_image0]',
+        'id' => 'media_id_works_first_featured_image0',
+        'display' => 'horizontal'
+    ])
+
 
         @php
             $media_id_works_video = $obj->content['media_id_works_video'] ?? null;
