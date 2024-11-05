@@ -231,7 +231,7 @@
         </div>
     </fieldset>
 
-<h3>Safety section</h3>
+<h3>Safety section 2</h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>Section Heading</label>

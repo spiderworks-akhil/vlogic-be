@@ -77,7 +77,7 @@ class ListigItemController extends Controller
         $id =  decrypt($id);
         if($obj = $this->model->find($id)){
             $listing = Listing::find($obj->listing_id);
-           
+
             return view($this->views . '.form')->with('obj', $obj)->with('listing', $listing);
         } else {
             return $this->redirect('notfound');
@@ -94,6 +94,8 @@ class ListigItemController extends Controller
 
     public function update(Request $request)
     {
+        dd($request->all());
+
         $id = decrypt($request->id);
         return $this->_update($id, $request->all());
     }
