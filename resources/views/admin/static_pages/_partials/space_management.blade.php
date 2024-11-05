@@ -52,9 +52,9 @@
       <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Occupancy in Real-time </label>
-            <textarea name="content[section_description_first0]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first0']))
-{{ $obj->content['section_description_first0'] }}
+            <textarea name="content[section_description_first01]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first01']))
+{{ $obj->content['section_description_first01'] }}
 @endif
 </textarea>
         </div>
@@ -62,9 +62,9 @@
       <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Manage Occupant </label>
-            <textarea name="content[section_description_first0]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first0']))
-{{ $obj->content['section_description_first0'] }}
+            <textarea name="content[section_description_first02]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first02']))
+{{ $obj->content['section_description_first02'] }}
 @endif
 </textarea>
         </div>
@@ -72,9 +72,9 @@
   <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Room Assignments</label>
-            <textarea name="content[section_description_first0]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first0']))
-{{ $obj->content['section_description_first0'] }}
+            <textarea name="content[section_description_first03]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first03']))
+{{ $obj->content['section_description_first03'] }}
 @endif
 </textarea>
         </div>
@@ -84,9 +84,9 @@
   <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Take Control</label>
-            <textarea name="content[section_description_first0]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first0']))
-{{ $obj->content['section_description_first0'] }}
+            <textarea name="content[section_description_first04]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first04']))
+{{ $obj->content['section_description_first04'] }}
 @endif
 </textarea>
         </div>
@@ -94,9 +94,9 @@
   <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Manage Occupant </label>
-            <textarea name="content[section_description_first0]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first0']))
-{{ $obj->content['section_description_first0'] }}
+            <textarea name="content[section_description_first05]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first05']))
+{{ $obj->content['section_description_first05'] }}
 @endif
 </textarea>
         </div>
@@ -104,9 +104,9 @@
   <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Manage Furniture</label>
-            <textarea name="content[section_description_first0]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first0']))
-{{ $obj->content['section_description_first0'] }}
+            <textarea name="content[section_description_first06]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first06']))
+{{ $obj->content['section_description_first06'] }}
 @endif
 </textarea>
         </div>
@@ -151,7 +151,7 @@
                 $featuredImage  = $obj->content['media_id_works_first_featured_image' . $index] ?? null;
             @endphp
             @include('admin.media.set_file', [
-                'file' => $featuredImage, 
+                'file' => $featuredImage,
                 'title' => 'Works Featured Image ' . $index,
                 'popup_type' => 'single_image',
                 'type' => 'Image',
