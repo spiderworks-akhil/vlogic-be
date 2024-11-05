@@ -151,7 +151,7 @@
                 $featuredImage  = $obj->content['media_id_works_first_featured_image' . $index] ?? null;
             @endphp
             @include('admin.media.set_file', [
-                'file' => $featuredImage,
+                'file' => $featuredImage, 
                 'title' => 'Works Featured Image ' . $index,
                 'popup_type' => 'single_image',
                 'type' => 'Image',
