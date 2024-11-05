@@ -192,7 +192,8 @@
 @endif
 </textarea>
         </div>
-    </div> <div class="form-group col-md-12">
+    </div>
+     <div class="form-group col-md-12">
         <label>Solution Heading content </label>
         <input type="text" name="content[works_heading02]" class="form-control"
             @if ($obj->content && isset($obj->content['works_heading02'])) value="{{ $obj->content['works_heading02'] }}" @endif>
@@ -218,12 +219,12 @@
     <div class="card-body row">
         <div class="form-group col-md-12">
             <label>challenges</label>
-            <textarea name="content[section_description_first001]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first001']))
-            {{ $obj->content['section_description_first001'] }}
-            @endif
-            </textarea>
-          </div>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
     </div>
     <div class="card-body row">
         <div class="form-group col-md-12">
