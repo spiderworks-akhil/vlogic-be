@@ -5,8 +5,8 @@
     <fieldset>
         <div class="form-group col-md-12">
             <label>Banners Title</label>
-            <input type="text" name="content[banner_title]" class="form-control"
-                value="{{ $obj->content['banner_title'] ?? '' }}">
+            <input type="text" name="content[banner_title0]" class="form-control"
+                value="{{ $obj->content['banner_title0'] ?? '' }}">
         </div>
 
         <div class="form-group">
