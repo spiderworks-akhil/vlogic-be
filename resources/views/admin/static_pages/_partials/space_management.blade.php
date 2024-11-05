@@ -1,37 +1,4 @@
 <div id="form-vertical" class="form-horizontal form-wizard-wrapper">
-
-
-    <h3>Banner Section</h3>
-    <fieldset>
-        <div class="form-group col-md-12">
-            <label>Banners Title</label>
-            <input type="text" name="content[banner_title0]" class="form-control"
-                value="{{ $obj->content['banner_title0'] ?? '' }}">
-        </div>
-
-        <div class="form-group">
-            @php
-                $media_id_banner_image = $obj->content['media_id_banner_image'] ?? null;
-            @endphp
-            @include('admin.media.set_file', [
-                'file' => $media_id_banner_image,
-                'title' => 'Banner Image',
-                'popup_type' => 'single_image',
-                'type' => 'Image',
-                'holder_attr' => 'content[media_id_banner_image]',
-                'id' => 'media_id_banner_image',
-                'display' => 'horizontal'
-            ])
-        </div>
-
-        <div class="form-group col-md-12">
-            <label>Banner Short Description</label>
-            <textarea name="content[banner_shortdescription]" class="form-control">
-                {{ $obj->content['banner_shortdescription'] ?? '' }}
-            </textarea>
-        </div>
-    </fieldset>
-
     <!-- Head Section -->
     <h3>Head Section</h3>
     <fieldset>
@@ -40,15 +7,10 @@
             <input type="text" name="content[banner_title]" class="form-control"
                 @if($obj->content && isset($obj->content['banner_title'])) value="{{ $obj->content['banner_title'] }}" @endif>
         </div>
-        <div class="card-body row">
-            <div class="form-group col-md-12">
-                <label>challenges</label>
-                <textarea name="content[section_description_first0]" class="form-control editor ">
-    @if ($obj->content && isset($obj->content['section_description_first0']))
-    {{ $obj->content['section_description_first0'] }}
-    @endif
-    </textarea>
-            </div>
+        <div class="form-group col-md-12">
+            <label>Short Description Top</label>
+            <input type="text" name="content[banner_description]" class="form-control"
+                @if($obj->content && isset($obj->content['banner_description'])) value="{{ $obj->content['banner_description'] }}" @endif>
         </div>
 
         @php
