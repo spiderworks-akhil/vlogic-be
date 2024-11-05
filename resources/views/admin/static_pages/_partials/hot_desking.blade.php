@@ -218,9 +218,9 @@
     <div class="card-body row">
         <div class="form-group col-md-12">
             <label>challenges</label>
-            <textarea name="content[section_description_first03]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first03']))
-            {{ $obj->content['section_description_first03'] }}
+            <textarea name="content[section_description_first001]" class="form-control editor ">
+            @if ($obj->content && isset($obj->content['section_description_first001']))
+            {{ $obj->content['section_description_first001'] }}
             @endif
             </textarea>
           </div>
