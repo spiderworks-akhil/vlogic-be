@@ -275,9 +275,9 @@
 <div class="card-body row">
     <div class="form-group col-md-12">
         <label>Short description </label>
-        <textarea name="content[section_description_first01]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first01']))
-{{ $obj->content['section_description_first01'] }}
+        <textarea name="content[section_description_first001]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first001']))
+{{ $obj->content['section_description_first001'] }}
 @endif
 </textarea>
     </div>
@@ -286,15 +286,15 @@
 
 
 @php
-$media_id_works_first_featured_image02 = $obj->content['media_id_works_first_featured_image02'] ?? null;
+$media_id_works_first_featured_image002 = $obj->content['media_id_works_first_featured_image002'] ?? null;
 @endphp
 @include('admin.media.set_file', [
-'file' => $media_id_works_first_featured_image02,
+'file' => $media_id_works_first_featured_image002,
 'title' => 'Safety Section Image',
 'popup_type' => 'single_image',
 'type' => 'Image',
-'holder_attr' => 'content[media_id_works_first_featured_image02]',
-'id' => 'media_id_works_first_featured_image02',
+'holder_attr' => 'content[media_id_works_first_featured_image002]',
+'id' => 'media_id_works_first_featured_image002',
 'display' => 'horizontal'
 ])
 
@@ -305,15 +305,15 @@ $media_id_works_first_featured_image02 = $obj->content['media_id_works_first_fea
 
 <div class="form-group col-md-12">
     <label>Section utility Heading</label>
-    <input type="text" name="content[banner_title06]" class="form-control"
-        value="{{ $obj->content['banner_title06'] ?? '' }}">
+    <input type="text" name="content[banner_title006]" class="form-control"
+        value="{{ $obj->content['banner_title006'] ?? '' }}">
 </div>
 <div class="card-body row">
     <div class="form-group col-md-12">
         <label>Short description </label>
-        <textarea name="content[section_description_first02]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first02']))
-{{ $obj->content['section_description_first02'] }}
+        <textarea name="content[section_description_first003]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first003']))
+{{ $obj->content['section_description_first003'] }}
 @endif
 </textarea>
     </div>
