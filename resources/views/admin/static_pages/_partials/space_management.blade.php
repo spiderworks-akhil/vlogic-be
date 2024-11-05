@@ -31,14 +31,12 @@
 
 <h3>Work section </h3>
 <fieldset>
-    <div class="form-group col-md-12">
-        <label>Heading</label>
-        <input type="text" name="content[works_heading_{{ $index }}]" class="form-control"
-            @if($obj->content && isset($obj->content['works_heading_' . $index]))
-                value="{{ $obj->content['works_heading_' . $index] }}"
-            @endif>
-    </div>
 
+    <div class="form-group col-md-12">
+        <label>Head Content</label>
+        <input type="text" name="content[banner_title0]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title0'])) value="{{ $obj->content['banner_title0'] }}" @endif>
+    </div>
 <div class="card-body row">
 <div class="form-group col-md-12">
     <label>Speed-up </label>
