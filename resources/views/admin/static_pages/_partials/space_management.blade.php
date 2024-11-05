@@ -114,13 +114,13 @@
         'id' => 'media_id_works_first_featured_image' . $index,
         'display' => 'horizontal',
     ])
-@endforeach
+
 </fieldset>
 
 <!-- Middle Section -->
 <h3>Middle Section</h3>
 <fieldset>
-@foreach (range(7, 8) as $index)
+
     <div class="form-group col-md-12">
         <label>Main Heading</label>
         <input type="text" name="content[works_heading_{{ $index }}]" class="form-control"
