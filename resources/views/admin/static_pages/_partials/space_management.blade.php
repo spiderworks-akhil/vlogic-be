@@ -28,7 +28,7 @@
     </fieldset>
 
     <!-- Works Section -->
-    <h3>Works Section</h3>
+    <h3>Space Management</h3>
     <fieldset>
         @foreach (range(1, 6) as $index)
             <div class="form-group col-md-12">
@@ -39,15 +39,78 @@
                     @endif>
             </div>
 
-            <div class="form-group col-md-12">
-                <label>Short Description {{ $index }}</label>
-                <textarea name="content[works_shortdescription_{{ $index }}]" class="form-control">
-@if($obj->content && isset($obj->content['works_shortdescription_' . $index]))
-{{ $obj->content['works_shortdescription_' . $index] }}
+  <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Speed-up </label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
 @endif
 </textarea>
-            </div>
+        </div>
+    </div>
+      <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Occupancy in Real-time </label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+      <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Manage Occupant </label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+  <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Room Assignments</label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
+    </div>
 
+
+  <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Take Control</label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+  <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Manage Occupant </label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+  <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Manage Furniture</label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
+    </div>
             @php
                 $featuredImage = $obj->content['media_id_works_first_featured_image' . $index] ?? null;
             @endphp
@@ -82,7 +145,7 @@
 {{ $obj->content['works_shortdescription_' . $index] }}
 @endif
 </textarea>
-            </div>
+            </div> 
 
             @php
                 $featuredImage = $obj->content['media_id_works_first_featured_image' . $index] ?? null;
