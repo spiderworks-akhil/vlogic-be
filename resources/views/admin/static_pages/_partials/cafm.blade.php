@@ -35,7 +35,7 @@
             </textarea>
         </div>
     </fieldset>
-    <h3>Section 2</h3>
+    <h3>Questions Section </h3>
     <fieldset>
         @php
 $media_id_works_first_featured_image=
@@ -79,7 +79,7 @@ $media_id_works_first_featured_image=
 
 <div class="card-body row">
     <div class="form-group col-md-12">
-        <label>Description</label>
+        <label>Questions </label>
         <textarea name="content[section_description_first]" class="form-control editor ">
 @if ($obj->content && isset($obj->content['section_description_first']))
 {{ $obj->content['section_description_first'] }}
@@ -93,7 +93,7 @@ $media_id_works_first_featured_image=
 
 <div class="card-body row">
     <div class="form-group col-md-12">
-        <label>Description 2</label>
+        <label> Difference  </label>
         <textarea name="content[section_description_first1]" class="form-control editor ">
 @if ($obj->content && isset($obj->content['section_description_first1']))
 {{ $obj->content['section_description_first1'] }}

@@ -19,6 +19,10 @@
             <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
         </div>
 
+        <div class="form-group col-md-12">
+            <label>Content Description</label>
+            <textarea name="content[banner_shortdescription01]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription01'])) {{$obj->content['banner_shortdescription01']}} @endif</textarea>
+        </div>
     </fieldset>
 
 
@@ -350,6 +354,10 @@
 
 <h3>Footer</h3>
 <fieldset>
+    <div class="form-group col-md-12">
+        <label>Heading</label>
+        <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
+    </div>
     <div class="card-body row">
         <div class="form-group col-md-12">
             <label>short</label>

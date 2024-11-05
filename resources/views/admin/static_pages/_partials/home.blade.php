@@ -2,11 +2,11 @@
 <h3>Head section</h3>
 <fieldset>
     <div class="form-group col-md-12">
-        <label>Head content </label>
+        <label>Head  content Description </label>
         <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
     </div>
-    <div class="form-group col-md-12">
-        <label>Short Description  </label>
+    {{-- <div class="form-group col-md-12">
+        <label>Short Description 1 </label>
         <input type="text" name="content[banner_title1]" class="form-control" @if($obj->content && isset($obj->content['banner_title1'])) value="{{$obj->content['banner_title1']}}" @endif >
     </div>
 
@@ -17,8 +17,19 @@
     <div class="form-group col-md-12">
         <label>Short Description  </label>
         <input type="text" name="content[banner_title3]" class="form-control" @if($obj->content && isset($obj->content['banner_title3'])) value="{{$obj->content['banner_title3']}}" @endif >
-    </div>
+    </div> --}}
 
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Section Spotlight</label>
+            <textarea name="content[section_description_first]" class="form-control editor ">
+    @if ($obj->content && isset($obj->content['section_description_first']))
+    {{ $obj->content['section_description_first'] }}
+    @endif
+    </textarea>
+        </div>
+    </div>
     </fieldset>
 
     <h3>Section 2 product</h3>

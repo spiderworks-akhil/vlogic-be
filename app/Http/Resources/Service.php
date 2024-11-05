@@ -37,16 +37,9 @@ class Service extends JsonResource
             'faq' => new FaqCollection($this->faq),
         //    'gallery' => new MediaCollection($this->gallery),
             'children' => new ServiceCollection($this->whenLoaded('children')),
-            'slider_photos' => $this->slider_photos()
+            
         ];
     }
 
-    private function slider_photos()
-    {
-        $slider_id = Slider::where('slider_name', 'home')->pluck('id')->first();
-        $slider_photos = SliderPhoto::where('sliders_id',$slider_id)->get();
-
-        return new Slider_photosCollection($slider_photos);
-    }
 
 }

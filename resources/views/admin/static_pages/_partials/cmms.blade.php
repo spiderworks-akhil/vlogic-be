@@ -37,7 +37,7 @@
     </fieldset>
 
 
-    <h3>Section 2</h3>
+    <h3>Top Section </h3>
 
     <fieldset>
         @php
@@ -67,7 +67,7 @@
     </div>
 </div>
     </fieldset>
-    <h3>Section 3</h3>
+    <h3>Tracking Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
             <label>Title</label>
@@ -100,7 +100,7 @@
             </div>
         </div>
     </fieldset>
-    <h3>Section 4</h3>
+    <h3>Maintenance Section </h3>
     <fieldset>
         <div class="form-group col-md-12">
             <label>Title</label>
@@ -133,7 +133,7 @@
             </div>
         </div>
     </fieldset>
-    <h3>Section 5</h3>
+    <h3>Management Section </h3>
     <fieldset>
         <div class="form-group col-md-12">
             <label>Title</label>

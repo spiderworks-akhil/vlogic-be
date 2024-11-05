@@ -21,11 +21,11 @@
 
     </fieldset>
 
-<h3>Section 1</h3>
+<h3> Section </h3>
 <fieldset>
 
     <div class="form-group col-md-12">
-        <label>Banner Short Description</label>
+        <label>Short Description</label>
         <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
     </div>
     @php
@@ -36,7 +36,7 @@
 @endphp
 @include('admin.media.set_file', [
     'file' => $media_id_works_first_featured_image,
-    'title' => 'Banner Image ',
+    'title' => 'featured Image ',
     'popup_type' => 'single_image',
     'type' => 'Image',
     'holder_attr' => 'content[media_id_works_first_featured_image]',
@@ -45,7 +45,7 @@
 ])
 </fieldset>
 
-<h3>section 2</h3>
+<h3> Regulatory section </h3>
 <fieldset>
 
     <div class="form-group col-md-12">
@@ -73,7 +73,7 @@
 
         </div>
 </fieldset>
-<h3>Section 3</h3>
+<h3>Drawing  Section</h3>
 <fieldset>
     <div class="card-body row">
         <div class="form-group col-md-12">
@@ -98,7 +98,7 @@
 
 
 </fieldset>
-<h3>Section 4</h3>
+<h3>Solutions Section </h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>title</label>

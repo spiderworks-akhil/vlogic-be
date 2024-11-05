@@ -59,7 +59,7 @@
 </fieldset>
 
 
-<h3>Requirements </h3>
+<h3>Solving Requirement Section </h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>Head</label>
@@ -119,7 +119,7 @@
 
 </fieldset>
 
-<h3>Requirements section 2</h3>
+<h3>Direct Requirements section </h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>Challenges Heading</label>

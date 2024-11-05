@@ -11,9 +11,12 @@ use App\Models\FrontendPage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ContactRequest;
-use App\Http\Resources\FrontendPage as ResourcesFrontendPage;
+use App\Http\Resources\SliderCollection;
 use App\Http\Resources\ServiceCollection;
+use App\Http\Resources\Slider_photosCollection;
 use App\Http\Resources\Service as ServiceResources;
+use App\Http\Resources\FrontendPage as ResourcesFrontendPage;
+use App\Http\Resources\Slider_photos;
 
 class HomeController extends Controller
 {
@@ -22,12 +25,14 @@ class HomeController extends Controller
 
 
 
-        $slider = Slider::where('slider_name', 'home')->first();
+        $slider = Slider::where('slider_name', 'home')->get();
+        $slider_id = Slider::where('slider_name', 'home')->pluck('id')->first();
+
         if (!$slider) {
             return response()->json(['Message' => 'Slider not found'], 404);
         }
 
-        $media_id = SliderPhoto::where('sliders_id', $slider->id)->pluck('media_id')->toArray();
+        $media_id = SliderPhoto::where('sliders_id', $slider_id)->pluck('media_id')->toArray();
         if (empty($media_id)) {
             return response()->json(['Message' => 'No media found for this slider'], 404);
         }
@@ -51,13 +56,17 @@ class HomeController extends Controller
             return response()->json(['Message' => 'Services not found'], 404);
         }
 
-        return response()->json([
+        $data = [
             'success' => true,
-            'slider' => $slider,
-            'page_details' => new ResourcesFrontendPage($page_details) ,
-            'services' => new ServiceCollection($services),
+            'data' => [ 
+                'slider' => new SliderCollection($slider),
+                'page_details' => new ResourcesFrontendPage($page_details),
+                'services' => new ServiceCollection($services),
+            ],
+        ];
 
-        ]);
+
+        return response()->json($data);
     }
     public function contact(ContactRequest $request)
     {

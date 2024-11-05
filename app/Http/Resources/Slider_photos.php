@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\SliderPhoto;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -20,9 +21,12 @@ class Slider_photos extends JsonResource
             'media_id' => new Media($this->media),
             'meta_data' => $this->meta_data,
             'priority' => $this->priority,
-          
+           
+
         ];
 
 
     }
+
+
 }

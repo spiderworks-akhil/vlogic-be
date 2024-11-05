@@ -36,13 +36,13 @@
 
         <div class="card-body row">
             <div class="form-group col-md-12">
-                <label>Sections</label>
+                <label>Types Sections</label>
                 <textarea name="content[section_description_first]" class="form-control editor ">
         @if ($obj->content && isset($obj->content['section_description_first']))
         {{ $obj->content['section_description_first'] }}
         @endif
         </textarea>
-            </div>  
+            </div>
         </div>
         <div class="form-group col-md-12">
             <label>Short Description  </label>
@@ -80,8 +80,8 @@
     <fieldset>
         <div class="card-body row">
             <div class="form-group col-md-12">
-                <label> Details</label>
-                <textarea name="content[section_description_first01]" class="form-control editor ">
+                <label> Detail Section</label>
+                <textarea name="content[section_description_first01]" class="form-control editor">
                 @if ($obj->content && isset($obj->content['section_description_first01']))
                 {{ $obj->content['section_description_first01'] }}
                 @endif

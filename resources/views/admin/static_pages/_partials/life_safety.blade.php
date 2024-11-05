@@ -160,20 +160,20 @@
     <h3>System Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
-            <label>System Heading</label>
+            <label> Building  System Heading</label>
             <input type="text" name="content[banner_title01]" class="form-control"
                 value="{{ $obj->content['banner_title01'] ?? '' }}">
         </div>
 
         <div class="form-group col-md-12">
-            <label>System Description</label>
+            <label> Building System Description</label>
             <textarea name="content[section_description_first01]" class="form-control editor">
                 {{ $obj->content['section_description_first01'] ?? '' }}
             </textarea>
         </div>
 
         <div class="form-group col-md-12">
-            <label>Prevention Heading</label>
+            <label>Prevention Systems Heading</label>
             <input type="text" name="content[banner_title02]" class="form-control"
                 value="{{ $obj->content['banner_title02'] ?? '' }}">
         </div>

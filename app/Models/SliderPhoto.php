@@ -35,7 +35,7 @@ class SliderPhoto extends Model
         );
     }
 
-    public function slider() {
+    public function sliders() {
         return $this->belongsTo('App\Models\Slider', 'sliders_id');
     }
 
