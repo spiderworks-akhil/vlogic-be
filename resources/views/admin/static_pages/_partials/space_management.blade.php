@@ -145,10 +145,10 @@
 {{ $obj->content['works_shortdescription_' . $index] }}
 @endif
 </textarea>
-            </div> 
+            </div>
 
             @php
-                $featuredImage = $obj->content['media_id_works_first_featured_image' . $index] ?? null;
+                $featuredImage  = $obj->content['media_id_works_first_featured_image' . $index] ?? null;
             @endphp
             @include('admin.media.set_file', [
                 'file' => $featuredImage,
