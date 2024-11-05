@@ -235,8 +235,8 @@
 <fieldset>
     <div class="form-group col-md-12">
         <label>Section Heading</label>
-        <input type="text" name="content[banner_title04]" class="form-control"
-            value="{{ $obj->content['banner_title04'] ?? '' }}">
+        <input type="text" name="content[banner_title004]" class="form-control"
+            value="{{ $obj->content['banner_title004'] ?? '' }}">
     </div>
     <div class="card-body row">
         <div class="form-group col-md-12">
