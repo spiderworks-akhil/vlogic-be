@@ -32,11 +32,22 @@
         <input type="text" name="content[works_heading1]" class="form-control"
             @if ($obj->content && isset($obj->content['works_heading1'])) value="{{ $obj->content['works_heading1'] }}" @endif>
     </div>
-    <div class="form-group col-md-12">
-        <label>Short Description top </label>
-        <input type="text" name="content[banner_title1]" class="form-control"
-            @if ($obj->content && isset($obj->content['banner_title1'])) value="{{ $obj->content['banner_title1'] }}" @endif>
+
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Short description </label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
     </div>
+
+
+
+
     @php
     $media_id_works_first_featured_image =
         $obj->content && isset($obj->content['media_id_works_first_featured_image'])
