@@ -87,6 +87,12 @@
         </div>
 
         <div class="form-group col-md-12">
+            <label> Components description</label>
+            <input type="text" name="content[banner_title005]" class="form-control"
+                value="{{ $obj->content['banner_title005'] ?? '' }}">
+        </div>
+
+        <div class="form-group col-md-12">
             <label> Service  Heading</label>
             <input type="text" name="content[banner_title001]" class="form-control"
                 value="{{ $obj->content['banner_title001'] ?? '' }}">
