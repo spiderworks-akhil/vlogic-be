@@ -75,40 +75,17 @@
 
 <fieldset>
 
-
-<div class="card-body row">
     <div class="form-group col-md-12">
-        <label>Challenges</label>
-        <textarea name="content[section_description_first]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first']))
-{{ $obj->content['section_description_first'] }}
-@endif
-</textarea>
+        <label>Listing module Heading  </label>
+        <input type="text" name="content[banner_title10]" class="form-control" @if($obj->content && isset($obj->content['banner_title10'])) value="{{$obj->content['banner_title10']}}" @endif >
     </div>
-</div>
 
-<div class="card-body row">
-    <div class="form-group col-md-12">
-        <label>Solution</label>
-        <textarea name="content[section_description_first1]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first1']))
-{{ $obj->content['section_description_first1'] }}
-@endif
-</textarea>
-    </div>
-</div>
-<div class="form-group col-md-12">
-    <label>Short Description top </label>
-    <input type="text" name="content[banner_title1]" class="form-control"
-        @if ($obj->content && isset($obj->content['banner_title1'])) value="{{ $obj->content['banner_title1'] }}" @endif>
-</div>
+    <div class="form-group">
+        <a href="{{route('admin.listing-items.index',[5])}}" class="btn btn-primary" target="_blank">Challenges &solutions
+       </a>
+        <input type="hidden" name="content[government_listing]" value="5">  
 
-<div class="form-group ">
-    @php
-    $media_id_banner_image3 = ($obj->content && isset($obj->content['media_id_banner_image3']))?$obj->content['media_id_banner_image3']:null;
-    @endphp
-    @include('admin.media.set_file', ['file'=>$media_id_banner_image3, 'title'=>' Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_banner_image3]', 'id'=>'media_id_banner_image3', 'display'=> 'horizontal'])
-</div>
+       </div>
 </fieldset>
 
 </div>
