@@ -79,8 +79,18 @@ class FrontendPage extends JsonResource
         }
         if($slug=='room_scheduling'){
             $service_id = Listing::where('name','service listing')->get('id');
+
+
+            $service = ListingContent::whereIn('listing_id',$service_id)->get('media_id')->all();
+
+
+
+
             $service = ListingContent::whereIn('listing_id',$service_id)->get()->all();
-       
+                return new ListingResource($service);
+
+
+
             $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
                 $challenges = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
 
