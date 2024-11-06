@@ -79,21 +79,9 @@ class FrontendPage extends JsonResource
         }
         if($slug=='room_scheduling'){
             $service_id = Listing::where('name','service listing')->get('id');
-
-
-
-
-
-
-
             $service = ListingContent::whereIn('listing_id',$service_id)->get()->all();
-                // return new ListingContentCollection($service);
-        
-
-
             $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
                 $challenges = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
-
                 $data = [
                     'challenges' => $challenges,
                     'service' => new ListingContentCollection($service),
@@ -103,6 +91,23 @@ class FrontendPage extends JsonResource
 
             return response()->json($data);
         }
+
+
+        if($slug=='hot_desking'){
+            $service_id = Listing::where('name','service ')->get('id');
+            $service = ListingContent::whereIn('listing_id',$service_id)->get()->all();
+            $listing_id = Listing::where('name','service')->get('id');
+                $challenges = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
+                $data = [
+                    'challenges' => $challenges,
+                    'service' => new ListingContentCollection($service),
+                ];
+
+
+
+            return response()->json($data);
+        }
+
 
 
 
