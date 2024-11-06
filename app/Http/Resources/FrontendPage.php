@@ -126,7 +126,7 @@ class FrontendPage extends JsonResource
 
             $data = [
                 // 'challenges' => $challenges,
-                'service' => $service,
+                'service' => new ListingContentCollection($service),
             ];
             return response()->json($data);
         }
