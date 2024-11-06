@@ -94,7 +94,7 @@
 </div> --}}
 
 <div class="form-group">
-    <a href="{{route('admin.listing-items.index',[6])}}" class="btn btn-primary" target="_blank">Room Challenges&solutions
+    <a href="{{route('admin.listing-items.index',[6])}}" class="btn btn-primary" target="_blank">Challenges & solutions Listing
    </a>
     <input type="hidden" name="content[room solution]" value="6">  
 
