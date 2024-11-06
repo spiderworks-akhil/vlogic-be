@@ -49,7 +49,7 @@ class ListingController extends Controller
     public function store(ListRequest $request)
     {
 
-        dd($request);
+   
         $request->validated();
         return $this->_store($request->all());
     }

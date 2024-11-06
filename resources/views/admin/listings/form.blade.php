@@ -48,6 +48,14 @@
               </select>
           </div>
           <div class="form-group col-md-6">
+            <label for="name">Solutions</label>
+            <select class="form-control" name="solution">
+              <option value="No" @if($obj->solution == "No") selected="selected" @endif >No</option>
+              <option value="Yes" @if($obj->solution == "Yes") selected="selected" @endif>Yes</option>
+            </select>
+        </div>
+
+          <div class="form-group col-md-6">
               <label for="name">Image</label>
               <select class="form-control" name="image">
                 <option value="No" @if($obj->image == "No") selected="selected" @endif >No</option>
@@ -64,16 +72,9 @@
 
 
 
-        <div class="form-group col-md-6">
-            <label for="name">Solutions</label>
-            <select class="form-control" name="solution">
-              <option value="No" @if($obj->solution == "No") selected="selected" @endif >No</option>
-              <option value="Yes" @if($obj->solution == "Yes") selected="selected" @endif>Yes</option>
-            </select>
-        </div>
 
 
-       
+
 
 
         </div>
