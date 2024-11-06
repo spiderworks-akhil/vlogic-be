@@ -62,9 +62,9 @@
     </div>
 
     <div class="form-group">
-        <a href="{{route('admin.listing-items.index',[4])}}" class="btn btn-primary" target="_blank">Service listing
+        <a href="{{route('admin.listing-items.index',[7])}}" class="btn btn-primary" target="_blank">Service listing
        </a>
-        <input type="hidden" name="content[solution listing]" value="4">  
+        <input type="hidden" name="content[service listing]" value="7">  
 
        </div>
 
