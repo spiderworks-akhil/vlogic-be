@@ -89,9 +89,9 @@
                                                         <div class="card-body row">
                                                             <div class="form-group col-md-12">
                                                                 <label>Short description </label>
-                                                                <textarea name="content[short_description]" class="form-control editor ">
-                                                    @if ($obj->content && isset($obj->content['short_description']))
-                                                    {{ $obj->content['short_description'] }}
+                                                                <textarea name="short_description" class="form-control editor ">
+                                                    @if ($obj->content && isset($obj->short_description))
+                                                    {{ $obj->short_description }}
                                                     @endif
                                                     </textarea>
                                                             </div>
