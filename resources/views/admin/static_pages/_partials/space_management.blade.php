@@ -12,7 +12,11 @@
             <input type="text" name="content[banner_description]" class="form-control"
                 @if($obj->content && isset($obj->content['banner_description'])) value="{{ $obj->content['banner_description'] }}" @endif>
         </div>
-
+        <div class="form-group col-md-12">
+            <label>Short description</label>
+            <input type="text" name="content[banner_title2]" class="form-control"
+                @if($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
+        </div>
         @php
             $bannerImage = $obj->content['media_id_works_first_featured_image'] ?? null;
         @endphp
@@ -33,8 +37,8 @@
 <fieldset>
     <div class="form-group col-md-12">
         <label>Head Content</label>
-        <input type="text" name="content[banner_title2]" class="form-control"
-            @if($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
+        <input type="text" name="content[banner_title3]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title3'])) value="{{ $obj->content['banner_title3'] }}" @endif>
     </div>
 
 
