@@ -25,6 +25,12 @@
 <fieldset>
 
     <div class="form-group col-md-12">
+        <label>title</label>
+        <input type="text" name="content[banner_title0]" class="form-control" @if($obj->content && isset($obj->content['banner_title0'])) value="{{$obj->content['banner_title0']}}" @endif >
+    </div>
+
+
+    <div class="form-group col-md-12">
         <label>Short Description</label>
         <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
     </div>
