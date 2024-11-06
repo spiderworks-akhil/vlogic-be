@@ -105,12 +105,13 @@ public function page(string $slug)
     }
     if($slug=='room_scheduling'){
         $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
-            $listing_content = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
+            $challenges = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
 
-        return response()->json([
-           'data' => new ResourcesFrontendPage($data),
-            'listing_content' => $listing_content,
-        ]);
+            $data = [
+                'data' => new ResourcesFrontendPage($data),
+                'challenges' => $challenges,
+            ];
+        return response()->json($data);
     }
 
 
