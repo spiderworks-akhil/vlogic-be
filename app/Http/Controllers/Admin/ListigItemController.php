@@ -89,12 +89,13 @@ class ListigItemController extends Controller
     public function store(Request $request)
     {
 
+        dd($request->all());
         return $this->_store($request->all());
     }
 
     public function update(Request $request)
     {
-   
+
 
         $id = decrypt($request->id);
         return $this->_update($id, $request->all());
