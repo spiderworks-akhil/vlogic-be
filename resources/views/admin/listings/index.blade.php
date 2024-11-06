@@ -1,18 +1,18 @@
 @extends('admin._layouts.default')
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                                                   
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -39,7 +39,7 @@
                                         <a class=" btn btn-sm btn-primary webadmin-open-ajax-popup" href="{{route($route.'.create')}}" role="button" title="Create Listings"><i class="fas fa-plus mr-2"></i>Create New</a>
                                     </div>
                                     @endif
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
@@ -73,7 +73,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
 
                 </div><!-- container -->
 

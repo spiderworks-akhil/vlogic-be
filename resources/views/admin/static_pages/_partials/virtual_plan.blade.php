@@ -104,6 +104,10 @@
             <label>Heading </label>
             <input type="text" name="content[banner_title1]" class="form-control" @if($obj->content && isset($obj->content['banner_title1'])) value="{{$obj->content['banner_title1']}}" @endif >
         </div>
+        <div class="form-group col-md-12">
+            <label>Description </label>
+            <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
+        </div>
         <div class="card-body row">
             <div class="form-group col-md-12">
                 <label>Requirements Description 1</label>
