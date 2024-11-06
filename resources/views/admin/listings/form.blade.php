@@ -26,7 +26,7 @@
                 <option value="Yes" @if($obj->short_description == "Yes") selected="selected" @endif>Yes</option>
               </select>
           </div>
-          
+
           <div class="form-group mb-2">
             <label for="exampleInputPassword1">Url</label>
             <input type="text" name="custom_url" class="form-control" id="inputCustomUrl">
@@ -38,6 +38,12 @@
                 <option value="Yes" @if($obj->detailed_description == "Yes") selected="selected" @endif>Yes</option>
               </select>
           </div>
+          @if($listing->challenges == "Yes")
+          <div class="form-group col-md-12">
+              <label>Challenges</label>
+              <textarea class="form-control editor" name="challenges">{{$obj->challenges}}</textarea>
+          </div>
+          @endif
           <div class="form-group col-md-6">
               <label for="name">Icon</label>
               <select class="form-control" name="icon">
