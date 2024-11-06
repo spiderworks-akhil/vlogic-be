@@ -99,12 +99,12 @@
 
 
 
-                                                        <div class="form-group ">
+                                                        {{-- <div class="form-group ">
                                                             @php
                                                             $media_id_banner_image = ($obj->content && isset($obj->content['media_id_banner_image']))?$obj->content['media_id_banner_image']:null;
                                                             @endphp
                                                             @include('admin.media.set_file', ['file'=>$media_id_banner_image, 'title'=>'Banner Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_banner_image]', 'id'=>'media_id_banner_image', 'display'=> 'horizontal'])
-                                                        </div>
+                                                        </div> --}}
                                                         {{-- @if($listing->icon == "Yes")
                                                             <div class="form-group col-md-12">
                                                                 <label>Description heading  </label>
