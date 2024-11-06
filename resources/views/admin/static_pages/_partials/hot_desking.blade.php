@@ -162,197 +162,32 @@
 <fieldset>
 
     <div class="form-group col-md-12">
-        <label>Heading</label>
+        <label>Heading left</label>
         <input type="text" name="content[works_heading3]" class="form-control"
             @if ($obj->content && isset($obj->content['works_heading3'])) value="{{ $obj->content['works_heading3'] }}" @endif>
     </div>
 
     <div class="form-group col-md-12">
-        <label>Short Description top </label>
-        <input type="text" name="content[banner_title2]" class="form-control"
-            @if ($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
+        <label>Heading right</label>
+        <input type="text" name="content[works_heading03]" class="form-control"
+            @if ($obj->content && isset($obj->content['works_heading03'])) value="{{ $obj->content['works_heading03'] }}" @endif>
     </div>
 
 
 </fieldset>
 
-<h3>challenges & Solution Section 1</h3>
+<h3>Service Listing</h3>
+
 <fieldset>
-    <div class="form-group col-md-12">
-        <label>Heading content </label>
-        <input type="text" name="content[works_heading01]" class="form-control"
-            @if ($obj->content && isset($obj->content['works_heading01'])) value="{{ $obj->content['works_heading01'] }}" @endif>
-    </div>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>challenges</label>
-            <textarea name="content[section_description_first01]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first01']))
-{{ $obj->content['section_description_first01'] }}
-@endif
-</textarea>
-        </div>
-    </div>
-     <div class="form-group col-md-12">
-        <label>Solution Heading content </label>
-        <input type="text" name="content[works_heading02]" class="form-control"
-            @if ($obj->content && isset($obj->content['works_heading02'])) value="{{ $obj->content['works_heading02'] }}" @endif>
-    </div>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>Solution</label>
-            <textarea name="content[section_description_first02]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first02']))
-{{ $obj->content['section_description_first02'] }}
-@endif
-</textarea>
-        </div>
-    </div>
-</fieldset>
 
-
-
-
-
-<h3>challenges  & Solution Section 2</h3>
-<fieldset>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>challenges</label>
-            <textarea name="content[section_description_first0]" class="form-control editor ">
-@if ($obj->content && isset($obj->content['section_description_first0']))
-{{ $obj->content['section_description_first0'] }}
-@endif
-</textarea>
-        </div>
-    </div>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>Solution</label>
-            <textarea name="content[section_description_first03]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first03']))
-            {{ $obj->content['section_description_first03'] }}
-            @endif
-</textarea>
-        </div>
-    </div>
-</fieldset>
-
-
-
-
-<h3>challenges & Solution Section 3</h3>
-<fieldset>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>challenges</label>
-            <textarea name="content[section_description_first04]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first04']))
-            {{ $obj->content['section_description_first04'] }}
-            @endif
-            </textarea>
-          </div>
-    </div>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>Solution</label>
-            <textarea name="content[section_description_first05]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first05']))
-            {{ $obj->content['section_description_first05'] }}
-            @endif
-</textarea>
-        </div>
-    </div>
     <div class="form-group">
-        @php
-        $media_id_works_video= ($obj->content && isset($obj->content['media_id_works_video']))?$obj->content['media_id_works_video']:null;
-        @endphp
-        @include('admin.media.set_file', ['file'=>$media_id_works_video, 'title'=>'Works Video', 'popup_type'=>'single_image', 'type'=>'Video', 'holder_attr'=>'content[media_id_works_video]', 'id'=>'media_id_works_video', 'display'=> 'horizontal'])
-        <div class="form-group col-md-12">
-        <textarea class="form-control" name="content[youtube_video_link]">@if ($obj->content && isset($obj->content['youtube_video_link'])){{$obj->content['youtube_video_link']}}@endif
-        </textarea>
+        <a href="{{route('admin.listing-items.index',[8])}}" class="btn btn-primary" target="_blank">Service
+       </a>
+        <input type="hidden" name="content[Service]" value="8">  
 
-        </div>
+       </div>
+
 </fieldset>
-
-
-
-
-
-<h3>challenges & Solution Section 4</h3>
-<fieldset>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>challenges</label>
-            <textarea name="content[section_description_first06]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first06']))
-            {{ $obj->content['section_description_first06'] }}
-            @endif
-            </textarea>
-          </div>
-    </div>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>Solution</label>
-            <textarea name="content[section_description_first07]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first07']))
-            {{ $obj->content['section_description_first07'] }}
-            @endif
-</textarea>
-        </div>
-    </div>
-</fieldset>
-<h3>challenges & Solution Section 5</h3>
-<fieldset>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>challenges</label>
-            <textarea name="content[section_description_first08]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first08']))
-            {{ $obj->content['section_description_first08'] }}
-            @endif
-            </textarea>
-          </div>
-    </div>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>Solution</label>
-            <textarea name="content[section_description_first09]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first09']))
-            {{ $obj->content['section_description_first09'] }}
-            @endif
-</textarea>
-        </div>
-    </div>
-</fieldset>
-
-
-
-<h3>challenges & Solution Section 6</h3>
-<fieldset>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>challenges</label>
-            <textarea name="content[section_description_first00]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first00']))
-            {{ $obj->content['section_description_first00'] }}
-            @endif
-            </textarea>
-          </div>
-    </div>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>Solution</label>
-            <textarea name="content[section_description_first001]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first001']))
-            {{ $obj->content['section_description_first001'] }}
-            @endif
-</textarea>
-        </div>
-    </div>
-</fieldset>
-
-
 <h3>Footer</h3>
 <fieldset>
     <div class="form-group col-md-12">
