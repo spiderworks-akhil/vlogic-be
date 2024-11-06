@@ -19,6 +19,10 @@
             <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
         </div>
 
+        <div class="form-group col-md-12">
+            <label> Short Description</label>
+            <textarea name="content[banner_shortdescription0]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
+        </div>
     </fieldset>
 <h3>Requirement section</h3>
 <fieldset>
