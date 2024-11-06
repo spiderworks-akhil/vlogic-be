@@ -142,5 +142,148 @@
            </div>
 </fieldset>
 
+<h3>key space</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Head Content</label>
+        <input type="text" name="content[banner_title0]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title0'])) value="{{ $obj->content['banner_title0'] }}" @endif>
+    </div>
+    @php
+    $bannerImage = $obj->content['media_id_works_first_featured_image0'] ?? null;
+@endphp
+@include('admin.media.set_file', [
+    'file' => $bannerImage,
+    'title' => 'Set  Image',
+    'popup_type' => 'single_image',
+    'type' => 'Image',
+    'holder_attr' => 'content[media_id_works_first_featured_image0]',
+    'id' => 'media_id_works_first_featured_image0',
+    'display' => 'horizontal',
+])
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Questions</label>
+            <textarea name="content[section_description_first00]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first00']))
+{{ $obj->content['section_description_first00'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+
+
+</fieldset>
+<h3> Table Section 1</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Head Content</label>
+        <input type="text" name="content[banner_title01]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title01'])) value="{{ $obj->content['banner_title01'] }}" @endif>
+    </div>
+    <div class="form-group col-md-12">
+        <label>Table Head title left</label>
+        <input type="text" name="content[banner_title02]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title02'])) value="{{ $obj->content['banner_title02'] }}" @endif>
+    </div>
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Table  Requirements left </label>
+            <textarea name="content[section_description_first07]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first07']))
+{{ $obj->content['section_description_first07'] }}
+@endif
+</textarea>
+        </div>
+    </div><br>
+
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Table  Solutions left </label>
+            <textarea name="content[section_description_first08]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first08']))
+{{ $obj->content['section_description_first08'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+
+</fieldset>
+<h3> Table Section 2</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Head Content</label>
+        <input type="text" name="content[banner_title03]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title03'])) value="{{ $obj->content['banner_title03'] }}" @endif>
+    </div>
+    <div class="form-group col-md-12">
+        <label>Table Head title left</label>
+        <input type="text" name="content[banner_title02]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
+    </div>
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Table  Requirements left </label>
+            <textarea name="content[section_description_first09]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first09']))
+{{ $obj->content['section_description_first09'] }}
+@endif
+</textarea>
+        </div>
+    </div><br>
+
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Table  Solutions left </label>
+            <textarea name="content[section_description_first001]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first001']))
+{{ $obj->content['section_description_first001'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+
+</fieldset>
+<h3> Table Section 3</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Head Content</label>
+        <input type="text" name="content[bannebanner_title05r_title03]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title05'])) value="{{ $obj->content['banner_title05'] }}" @endif>
+    </div>
+    <div class="form-group col-md-12">
+        <label>Table Head title left</label>
+        <input type="text" name="content[banner_title06]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title06'])) value="{{ $obj->content['banner_title06'] }}" @endif>
+    </div>
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Table  Requirements left </label>
+            <textarea name="content[section_description_first002]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first002']))
+{{ $obj->content['section_description_first002'] }}
+@endif
+</textarea>
+        </div>
+    </div><br>
+
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Table  Solutions left </label>
+            <textarea name="content[section_description_first003]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first003']))
+{{ $obj->content['section_description_first003'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+
+</fieldset>
 
 </div>
