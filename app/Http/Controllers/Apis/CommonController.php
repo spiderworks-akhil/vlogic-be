@@ -103,17 +103,7 @@ public function page(string $slug)
     if (is_null($data)) {
         return response()->json(['error' => 'Page not Found!'], 404);
     }
-    if($slug=='room_scheduling'){
-        $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
-            $challenges = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
-
-            $data = [
-                'data' => new ResourcesFrontendPage($data),
-                'challenges' => $challenges,
-            ];
-        return response()->json($data);
-    }
-
+ 
 
     return new ResourcesFrontendPage($data);
 }
