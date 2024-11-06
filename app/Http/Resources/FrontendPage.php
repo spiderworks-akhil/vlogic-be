@@ -114,15 +114,15 @@ class FrontendPage extends JsonResource
             return response()->json($data);
         }
         if ($slug == 'space_management') {
-            $service_ids = Listing::whereIn('name', 'service listing')->pluck('id');
+            $service_ids = Listing::where('name', 'service listing')->pluck('id')->first();
 
             $service = ListingContent::whereIn('listing_id', $service_ids)->get();
 
 
 
-            $stoy_id = Listing::whereIn('name', 'customer_stories')->pluck('id');
+            $stoy_id = Listing::where('name', 'customer_stories')->pluck('id')->first();
 
-            $story = ListingContent::whereIn('listing_id', $service_ids)->get();
+            $story = ListingContent::whereIn('listing_id', $stoy_id)->get();
 
 
             $data = [
