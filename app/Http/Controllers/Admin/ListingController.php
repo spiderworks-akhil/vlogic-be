@@ -24,7 +24,7 @@ class ListingController extends Controller
         $this->resourceConstruct();
 
     }
-    
+
     protected function getCollection() {
         return $this->model->select('id', 'name', 'created_at', 'updated_at');
     }
@@ -32,10 +32,10 @@ class ListingController extends Controller
     protected function setDTData($collection) {
         $route = $this->route;
         return $this->initDTData($collection)
-            ->addColumn('list', function($obj) use ($route) { 
+            ->addColumn('list', function($obj) use ($route) {
                 return '<a href="'.route('admin.listing-items.index', [$obj->id]).'" class="text-success" title="Listings" target="_blank" ><i class="fas fa-list"></i></i></a>';
             })
-            ->addColumn('action_edit', function($obj) use ($route) { 
+            ->addColumn('action_edit', function($obj) use ($route) {
                 if(auth()->user()->can($this->permissions['edit']))
                     return '<a href="'.route($route.'.edit', [encrypt($obj->id)]).'" class="text-info webadmin-open-ajax-popup" title="Update Listing" ><i class="fa fa-pencil-alt"></i></a>';
                 else
@@ -48,12 +48,14 @@ class ListingController extends Controller
 
     public function store(ListRequest $request)
     {
+   
         $request->validated();
         return $this->_store($request->all());
     }
 
     public function update(ListRequest $request)
     {
+
         $request->validated();
         $id = decrypt($request->id);
         return $this->_update($id, $request->all());
