@@ -174,6 +174,12 @@
     </div>
 
 
+    <div class="form-group">
+        <a href="{{route('admin.listing-items.index',[9])}}" class="btn btn-primary" target="_blank">Service listing
+       </a>
+        <input type="hidden" name="content[challenges_soulution]" value="9">  
+
+       </div>
 </fieldset>
 
 <h3>Service Listing</h3>
