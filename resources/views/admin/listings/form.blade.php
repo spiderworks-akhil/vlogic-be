@@ -38,13 +38,7 @@
                 <option value="Yes" @if($obj->detailed_description == "Yes") selected="selected" @endif>Yes</option>
               </select>
           </div>
-          <div class="form-group col-md-6">
-            <label for="name">Challenges</label>
-            <select class="form-control" name="challenges">
-              <option value="No" @if($obj->challenges == "No") selected="selected" @endif >No</option>
-              <option value="Yes" @if($obj->challenges == "Yes") selected="selected" @endif>Yes</option>
-            </select>
-        </div>
+
 
           <div class="form-group col-md-6">
               <label for="name">Icon</label>
@@ -60,6 +54,28 @@
                 <option value="Yes" @if($obj->image == "Yes") selected="selected" @endif>Yes</option>
               </select>
           </div>
+          <div class="form-group col-md-6">
+            <label for="name">Challenges</label>
+            <select class="form-control" name="challenges">
+              <option value="No" @if($obj->challenges == "No") selected="selected" @endif >No</option>
+              <option value="Yes" @if($obj->challenges == "Yes") selected="selected" @endif>Yes</option>
+            </select>
+        </div>
+
+
+
+        <div class="form-group col-md-6">
+            <label for="name">Solutions</label>
+            <select class="form-control" name="solution">
+              <option value="No" @if($obj->solution == "No") selected="selected" @endif >No</option>
+              <option value="Yes" @if($obj->solution == "Yes") selected="selected" @endif>Yes</option>
+            </select>
+        </div>
+
+
+       
+
+
         </div>
         <button type="button" id="webadmin-ajax-form-submit-btn" class="btn btn-primary float-right">Submit</button>
     </form>
