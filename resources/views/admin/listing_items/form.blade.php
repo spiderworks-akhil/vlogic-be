@@ -105,10 +105,11 @@
                                                             @endphp
                                                             @include('admin.media.set_file', ['file'=>$media_id_banner_image, 'title'=>'Banner Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_banner_image]', 'id'=>'media_id_banner_image', 'display'=> 'horizontal'])
                                                         </div>
+                                                        {{-- @if($listing->icon == "Yes")
                                                             <div class="form-group col-md-12">
                                                                 <label>Description heading  </label>
                                                                 <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
-                                                            </div>
+                                                            </div> --}}
                                                             @if($listing->title == "Yes")
                                                             <div class="form-group col-md-12">
                                                                 <label>Title</label>
@@ -136,10 +137,12 @@
                                                                 <textarea class="form-control" name="short_description">{{$obj->short_description}}</textarea>
                                                             </div>
                                                             @endif
+                                                            @if($listing->custom_url == "Yes")
                                                             <div class="form-group mb-2">
                                                                 <label for="exampleInputPassword1">Url</label>
                                                                 <input type="text" name="custom_url" class="form-control" id="inputCustomUrl" value="{{$obj->custom_url}}">
                                                               </div>
+                                                              @endif
                                                             @if($listing->detailed_description == "Yes")
                                                             <div class="form-group col-md-12">
                                                                 <label>Detailed Description</label>
@@ -149,19 +152,19 @@
                                                         </div>
 
                                                     </div>
-
+                                                    @if($listing->challenges == "Yes")
                                                     <div class="form-group col-md-12">
                                                         <label>Challenges</label>
                                                         <textarea class="form-control editor" name="challenges">{{$obj->challenges}}</textarea>
                                                     </div>
-
-
+                                                    @endif
+                                                    @if($listing->solution == "Yes")
                                                     <div class="card-body row">
                                                         <div class="form-group col-md-12">
                                                             <label>solution </label>
                                                             <textarea name="solution" class="form-control editor ">
                                                                 {{$obj->solution}}
-
+                                                                @endif
                                                 </textarea>
                                                         </div>
                                                     </div>
