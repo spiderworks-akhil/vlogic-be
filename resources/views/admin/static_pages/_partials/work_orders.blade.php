@@ -91,6 +91,13 @@
             </textarea>
           </div>
     </div>
+
+    <div class="form-group col-md-12">
+        <label>Title</label>
+        <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
+    </div>
+
+
     <div class="card-body row">
         <div class="form-group col-md-12">
             <label>GENERAL CMMS FUNCTIONS</label>
