@@ -27,6 +27,11 @@
             <textarea name="content[banner_shortdescription]" class="form-control">
                 {{ $obj->content['banner_shortdescription'] ?? '' }}
             </textarea>
+        </div>   <div class="form-group col-md-12">
+            <label> Short Description</label>
+            <textarea name="content[banner_shortdescription0]" class="form-control">
+                {{ $obj->content['banner_shortdescription0'] ?? '' }}
+            </textarea>
         </div>
     </fieldset>
     <h3>Section 1</h3>
