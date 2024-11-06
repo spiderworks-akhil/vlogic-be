@@ -105,11 +105,12 @@ public function page(string $slug)
         return response()->json(['error' => 'Page not Found!'], 404);
     }
     if($slug=='room_scheduling'){
-        $datas = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
-        dd($datas);
+        $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
+            $listing_content = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
+           
         return response()->json([
             'frontendPage' => new ResourcesFrontendPage($data),
-            'datas' => $datas,
+            'listing_content' => $listing_content,
         ]);
     }
 
