@@ -106,15 +106,28 @@
 <h3>Location Solutions </h3>
 <fieldset>
     <div class="form-group col-md-12">
-        <label>Head Content</label>
-        <input type="text" name="content[banner_title02]" class="form-control"
-            @if($obj->content && isset($obj->content['banner_title02'])) value="{{ $obj->content['banner_title02'] }}" @endif>
+        <label>Heading</label>
+        <input type="text" name="content[works_heading1]" class="form-control"
+            @if ($obj->content && isset($obj->content['works_heading1'])) value="{{ $obj->content['works_heading1'] }}" @endif>
     </div>
-    <div class="form-group col-md-12">
+
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Short description </label>
+            <textarea name="content[section_description_first0]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first0']))
+{{ $obj->content['section_description_first0'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+
+    {{-- <div class="form-group col-md-12">
         <label>Short Description</label>
         <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
     </div>
-</fieldset>
+</fieldset> --}}
 <h3>Solution listing</h3>
 <fieldset>
     <div class="form-group">
