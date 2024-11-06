@@ -81,24 +81,26 @@ class FrontendPage extends JsonResource
             $service_id = Listing::where('name','service listing')->get('id');
 
 
-            $service = ListingContent::whereIn('listing_id',$service_id)->get('media_id')->all();
+
 
 
 
 
             $service = ListingContent::whereIn('listing_id',$service_id)->get()->all();
-                return new ListingContentCollection($service);
-
+                // return new ListingContentCollection($service);
+        
 
 
             $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
                 $challenges = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
 
                 $data = [
-
                     'challenges' => $challenges,
-                    'service' => $service
+                    'service' => new ListingContentCollection($service),
                 ];
+
+
+
             return response()->json($data);
         }
 

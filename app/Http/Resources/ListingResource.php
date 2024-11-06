@@ -19,7 +19,7 @@ class ListingContentResource extends JsonResource
             'media_id' => new Media($this->media),
             'icon' => $this->icon,
             'title' => $this->title,
-            'description' => $this->description
+            'detail_description' => $this->detail_description
         ];
     }
 }
