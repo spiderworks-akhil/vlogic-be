@@ -24,6 +24,7 @@ use App\Http\Resources\LeadCollection;
 use App\Http\Resources\CommonPageResource;
 use App\Http\Resources\Lead as LeadResource;
 use App\Http\Resources\FrontendPage as ResourcesFrontendPage;
+use App\Http\Resources\ListingResource;
 
 class CommonController extends Controller
 {
@@ -103,8 +104,17 @@ public function page(string $slug)
     if (is_null($data)) {
         return response()->json(['error' => 'Page not Found!'], 404);
     }
+    if($slug=='room_scheduling'){
+        $datas = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
+        dd($datas);
 
-    return new ResourcesFrontendPage($data);
+    }
+
+    return response()->json([
+        'frontendPage' => new ResourcesFrontendPage($data),
+        'listing' => $datas,
+    ]);
+
 }
 
 

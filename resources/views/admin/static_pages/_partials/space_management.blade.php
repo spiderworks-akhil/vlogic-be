@@ -4,8 +4,8 @@
     <fieldset>
         <div class="form-group col-md-12">
             <label>Head Content</label>
-            <input type="text" name="content[banner_title]" class="form-control"
-                @if($obj->content && isset($obj->content['banner_title'])) value="{{ $obj->content['banner_title'] }}" @endif>
+            <input type="text" name="content[banner_title2]" class="form-control"
+                @if($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
         </div>
         <div class="form-group col-md-12">
             <label>Short Description Top</label>
@@ -69,6 +69,60 @@
 </textarea>
         </div>
     </div>
+
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label> Facility Drawings</label>
+            <textarea name="content[section_description_first03]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first03']))
+{{ $obj->content['section_description_first03'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Manage Occupant</label>
+            <textarea name="content[section_description_first04]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first04']))
+{{ $obj->content['section_description_first04'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Manage Furniture</label>
+            <textarea name="content[section_description_first05]" class="form-control editor ">
+@if ($obj->content && isset($obj->content['section_description_first05']))
+{{ $obj->content['section_description_first05'] }}
+@endif
+</textarea>
+        </div>
+    </div>
+</fieldset>
+
+
+<h3>Location Solutions </h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Head Content</label>
+        <input type="text" name="content[banner_title2]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
+    </div>
+    <div class="form-group col-md-12">
+        <label>Short Description</label>
+        <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
+    </div>
+</fieldset>
+<h3>Solution listing</h3>
+<fieldset>
+    <div class="form-group">
+        <a href="{{route('admin.listing-items.index',[7])}}" class="btn btn-primary" target="_blank">Room solutions
+       </a>
+        <input type="hidden" name="content[]" value="7">  
+
+           </div>
 </fieldset>
 
 

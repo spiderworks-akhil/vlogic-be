@@ -15,8 +15,8 @@ class ListingResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'meida_type' => $this->meida_type,
-            'media_id' => new Media($this->media),
+            // 'meida_type' => $this->meida_type,
+            // 'media_id' => new Media($this->media),
             'icon' => $this->icon,
             'title' => $this->title,
             'description' => $this->description
