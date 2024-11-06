@@ -24,7 +24,6 @@ use App\Http\Resources\LeadCollection;
 use App\Http\Resources\CommonPageResource;
 use App\Http\Resources\Lead as LeadResource;
 use App\Http\Resources\FrontendPage as ResourcesFrontendPage;
-use App\Http\Resources\ListingResource;
 
 class CommonController extends Controller
 {
@@ -107,18 +106,15 @@ public function page(string $slug)
     if($slug=='room_scheduling'){
         $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
             $listing_content = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
-           
+
         return response()->json([
-            'frontendPage' => new ResourcesFrontendPage($data),
+           'data' => new ResourcesFrontendPage($data),
             'listing_content' => $listing_content,
         ]);
     }
 
-    return response()->json([
-        'frontendPage' => new ResourcesFrontendPage($data),
 
-    ]);
-
+    return new ResourcesFrontendPage($data);
 }
 
 
