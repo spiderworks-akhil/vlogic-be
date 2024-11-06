@@ -108,6 +108,35 @@
 
        </div>
 </fieldset>
+<h3>Footer section </h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Title</label>
+        <input type="text" name="content[banner_title001]" class="form-control" @if($obj->content && isset($obj->content['banner_title001'])) value="{{$obj->content['banner_title001']}}" @endif >
+    </div>
+    <div class="form-group col-md-12">
+        <label>Short Description</label>
+        <textarea name="content[banner_shortdescription0]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
+    </div>
+
+
+    @php
+    $media_id_works_first_featured_image =
+        $obj->content && isset($obj->content['media_id_works_first_featured_image'])
+            ? $obj->content['media_id_works_first_featured_image']
+            : null;
+@endphp
+@include('admin.media.set_file', [
+    'file' => $media_id_works_first_featured_image,
+    'title' => 'featured Image ',
+    'popup_type' => 'single_image',
+    'type' => 'Image',
+    'holder_attr' => 'content[media_id_works_first_featured_image]',
+    'id' => 'media_id_works_first_featured_image',
+    'display' => 'horizontal',
+])
+
+</fieldset>
 
 </div>
 
