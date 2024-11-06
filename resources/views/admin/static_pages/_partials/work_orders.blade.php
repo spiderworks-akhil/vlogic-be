@@ -115,7 +115,11 @@
 <fieldset>
     <div class="form-group col-md-12">
         <label>title</label>
-        <input type="text" name="content[banner_title2]" class="form-control" @if($obj->content && isset($obj->content['banner_title2'])) value="{{$obj->content['banner_title2']}}" @endif >
+        <input type="text" name="content[banner_title02]" class="form-control" @if($obj->content && isset($obj->content['banner_title02'])) value="{{$obj->content['banner_title02']}}" @endif >
+    </div>
+    <div class="form-group col-md-12">
+        <label>Description</label>
+        <input type="text" name="content[banner_title05]" class="form-control" @if($obj->content && isset($obj->content['banner_title05'])) value="{{$obj->content['banner_title05']}}" @endif >
     </div>
     <div class="form-group col-md-12">
         <label>Solutions Heading 1</label>
