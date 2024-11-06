@@ -93,6 +93,14 @@
     <input type="text" name="content[banner_title10]" class="form-control" @if($obj->content && isset($obj->content['banner_title10'])) value="{{$obj->content['banner_title10']}}" @endif >
 </div> --}}
 
+<div class="form-group col-md-12">
+    <label>Table Heading left  </label>
+    <input type="text" name="content[banner_title0]" class="form-control" @if($obj->content && isset($obj->content['banner_title0'])) value="{{$obj->content['banner_title0']}}" @endif >
+</div>
+<div class="form-group col-md-12">
+    <label>Table Heading left   </label>
+    <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
+</div>
 <div class="form-group">
     <a href="{{route('admin.listing-items.index',[6])}}" class="btn btn-primary" target="_blank">Challenges & solutions Listing
    </a>
