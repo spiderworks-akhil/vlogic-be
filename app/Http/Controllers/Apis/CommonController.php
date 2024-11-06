@@ -107,12 +107,15 @@ public function page(string $slug)
     if($slug=='room_scheduling'){
         $datas = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
         dd($datas);
-
+        return response()->json([
+            'frontendPage' => new ResourcesFrontendPage($data),
+            'datas' => $datas,
+        ]);
     }
 
     return response()->json([
         'frontendPage' => new ResourcesFrontendPage($data),
-        'listing' => $datas,
+
     ]);
 
 }
