@@ -133,7 +133,7 @@
     <div class="form-group">
         <a href="{{route('admin.listing-items.index',[7])}}" class="btn btn-primary" target="_blank">Room solutions
        </a>
-        <input type="hidden" name="content[]" value="7">  
+        <input type="hidden" name="content[service listing]" value="7">  
 
            </div>
 </fieldset>
@@ -194,10 +194,14 @@
         </div>
     </div>
 
-
+    <div class="form-group col-md-12">
+        <label>Table Head title right</label>
+        <input type="text" name="content[banner_title07]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title07'])) value="{{ $obj->content['banner_title07'] }}" @endif>
+    </div>
     <div class="card-body row">
         <div class="form-group col-md-12">
-            <label>Table  Solutions left </label>
+            <label>Table  Solutions right </label>
             <textarea name="content[section_description_first08]" class="form-control editor ">
 @if ($obj->content && isset($obj->content['section_description_first08']))
 {{ $obj->content['section_description_first08'] }}
@@ -230,11 +234,15 @@
 </textarea>
         </div>
     </div>
-
+    <div class="form-group col-md-12">
+        <label>Table Head title Right</label>
+        <input type="text" name="content[banner_title08]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title08'])) value="{{ $obj->content['banner_title08'] }}" @endif>
+    </div>
 
     <div class="card-body row">
         <div class="form-group col-md-12">
-            <label>Table  Solutions left </label>
+            <label>Table  Solutions Right </label>
             <textarea name="content[section_description_first001]" class="form-control editor ">
 @if ($obj->content && isset($obj->content['section_description_first001']))
 {{ $obj->content['section_description_first001'] }}
@@ -252,7 +260,7 @@
             @if($obj->content && isset($obj->content['banner_title05'])) value="{{ $obj->content['banner_title05'] }}" @endif>
     </div>
     <div class="form-group col-md-12">
-        <label>Table Head title left</label>
+        <label>Table requirement title left</label>
         <input type="text" name="content[banner_title06]" class="form-control"
             @if($obj->content && isset($obj->content['banner_title06'])) value="{{ $obj->content['banner_title06'] }}" @endif>
     </div>
@@ -266,6 +274,11 @@
 @endif
 </textarea>
         </div>
+    </div>
+    <div class="form-group col-md-12">
+        <label>Table solution title right</label>
+        <input type="text" name="content[banner_title09]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title09'])) value="{{ $obj->content['banner_title09'] }}" @endif>
     </div>
 
 
