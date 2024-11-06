@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ListingContentResource extends JsonResource
+class ListingContent extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,7 +15,7 @@ class ListingContentResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            // 'meida_type' => $this->meida_type,
+            'meida_type' => $this->meida_type,
             'media_id' => new Media($this->media),
             'icon' => $this->icon,
             'title' => $this->title,

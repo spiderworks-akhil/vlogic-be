@@ -87,7 +87,7 @@ class FrontendPage extends JsonResource
 
 
             $service = ListingContent::whereIn('listing_id',$service_id)->get()->all();
-                return new ListingResource($service);
+                return new ListingContentCollection($service);
 
 
 
