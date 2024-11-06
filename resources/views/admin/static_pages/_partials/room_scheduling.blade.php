@@ -87,7 +87,7 @@
 
        </div> --}}
 
-{{-- 
+{{--
 <div class="form-group col-md-12">
     <label>Listing module Heading  </label>
     <input type="text" name="content[banner_title10]" class="form-control" @if($obj->content && isset($obj->content['banner_title10'])) value="{{$obj->content['banner_title10']}}" @endif >
@@ -96,7 +96,7 @@
 <div class="form-group">
     <a href="{{route('admin.listing-items.index',[6])}}" class="btn btn-primary" target="_blank">Room Challenges&solutions
    </a>
-    <input type="hidden" name="content[government_listing]" value="6">  
+    <input type="hidden" name="content[room solution]" value="6">  
 
        </div>
 </fieldset>
