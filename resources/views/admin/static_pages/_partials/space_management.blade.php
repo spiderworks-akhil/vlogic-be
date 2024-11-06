@@ -127,11 +127,7 @@
         </div>
     </div>
 
-    {{-- <div class="form-group col-md-12">
-        <label>Short Description</label>
-        <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
-    </div>
-</fieldset> --}}
+
 <h3>Solution listing</h3>
 <fieldset>
     <div class="form-group">
@@ -220,7 +216,7 @@
     </div>
     <div class="form-group col-md-12">
         <label>Table Head title left</label>
-        <input type="text" name="content[banner_title02]" class="form-control"
+        <input type="text" name="content[banner_title04]" class="form-control"
             @if($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
     </div>
 
