@@ -196,7 +196,7 @@
 @endif
 </textarea>
         </div>
-    </div><br>
+    </div>
 
 
     <div class="card-body row">
@@ -233,7 +233,7 @@
 @endif
 </textarea>
         </div>
-    </div><br>
+    </div>
 
 
     <div class="card-body row">
@@ -270,7 +270,7 @@
 @endif
 </textarea>
         </div>
-    </div><br>
+    </div>
 
 
     <div class="card-body row">
