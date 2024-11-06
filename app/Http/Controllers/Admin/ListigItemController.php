@@ -94,7 +94,7 @@ class ListigItemController extends Controller
 
     public function update(Request $request)
     {
-        dd($request->all());
+   
 
         $id = decrypt($request->id);
         return $this->_update($id, $request->all());
