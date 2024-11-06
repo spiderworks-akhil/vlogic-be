@@ -4,8 +4,8 @@
     <fieldset>
         <div class="form-group col-md-12">
             <label>Head Content</label>
-            <input type="text" name="content[banner_title2]" class="form-control"
-                @if($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
+            <input type="text" name="content[banner_title]" class="form-control"
+                @if($obj->content && isset($obj->content['banner_title'])) value="{{ $obj->content['banner_title'] }}" @endif>
         </div>
         <div class="form-group col-md-12">
             <label>Short Description Top</label>
@@ -33,8 +33,8 @@
 <fieldset>
     <div class="form-group col-md-12">
         <label>Head Content</label>
-        <input type="text" name="content[banner_title1]" class="form-control"
-            @if($obj->content && isset($obj->content['banner_title1'])) value="{{ $obj->content['banner_title1'] }}" @endif>
+        <input type="text" name="content[banner_title2]" class="form-control"
+            @if($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
     </div>
 
 
