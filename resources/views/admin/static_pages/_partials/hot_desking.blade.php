@@ -181,9 +181,9 @@
 <fieldset>
 
     <div class="form-group">
-        <a href="{{route('admin.listing-items.index',[1])}}" class="btn btn-primary" target="_blank">Government Listing
+        <a href="{{route('admin.listing-items.index',[8])}}" class="btn btn-primary" target="_blank">Service
        </a>
-        <input type="hidden" name="content[government_listing]" value="1">  
+        <input type="hidden" name="content[Service]" value="8">  
 
        </div>
 
