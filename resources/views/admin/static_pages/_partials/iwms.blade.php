@@ -62,9 +62,9 @@
         <div class="card-body row">
             <div class="form-group col-md-12">
                 <label>Table  Requirements left </label>
-                <textarea name="content[section_description_first02]" class="form-control editor ">
-    @if ($obj->content && isset($obj->content['section_description_first02']))
-    {{ $obj->content['section_description_first02'] }}
+                <textarea name="content[section_description_first04]" class="form-control editor ">
+    @if ($obj->content && isset($obj->content['section_description_first04']))
+    {{ $obj->content['section_description_first04'] }}
     @endif
     </textarea>
             </div>
