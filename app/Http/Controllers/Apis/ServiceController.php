@@ -17,7 +17,7 @@ class ServiceController extends Controller
             $limit = !empty($data['limit'])?(int)$data['limit']:10;
             $services = Service::where('status', 1)->get();
 
-            $services = $services->orderBy('priority', 'DESC')->paginate($limit);
+            // $services = $services->orderBy('priority', 'DESC')->paginate($limit);
 
 
             return new ServiceCollection($services);
@@ -26,6 +26,11 @@ class ServiceController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+
+
+
+
+
 
     public function featured(){
 
