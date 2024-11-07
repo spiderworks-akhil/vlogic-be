@@ -132,6 +132,23 @@ class FrontendPage extends JsonResource
             return response()->json($data);
         }
 
+        if ($slug == 'iwms') {
+
+
+           $service_id = Listing::where('name', 'service_listing')->pluck('id')->first();
+
+
+            if ($service_id) {
+                $service = ListingContent::where('listing_id', $service_id)->get();
+                $data = [
+                    'service' => new ListingContentCollection($service),
+                ];
+                return response()->json($data);
+            } else {
+                return response()->json(['error' => 'Service not found'], 404);
+            }
+        }
+
 
 
         return [];
