@@ -98,7 +98,10 @@
                                                         </div>
 
 
-
+                                                        <div class="form-group col-md-12">
+                                                            <label>Youtube</label>
+                                                            <input type="text" name="youtube_link" class="form-control" value="{{$obj->youtube_link}}" id="youtube_link">
+                                                        </div>
                                                         {{-- <div class="form-group ">
                                                             @php
                                                             $media_id_banner_image = ($obj->content && isset($obj->content['media_id_banner_image']))?$obj->content['media_id_banner_image']:null;

@@ -22,10 +22,9 @@
             ])
         </div>
         <div class="form-group col-md-12">
-            <label>Short Description</label>
-            <textarea name="content[banner_shortdescription]" class="form-control">
-                {{ $obj->content['banner_shortdescription'] ?? '' }}
-            </textarea>
+            <label>Description</label>
+            <input type="text" name="content[banner_title2]" class="form-control"
+                value="{{ $obj->content['banner_title2'] ?? '' }}">
         </div>
 
 </fieldset>
