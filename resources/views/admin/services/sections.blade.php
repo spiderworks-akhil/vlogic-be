@@ -19,13 +19,21 @@
 
                                                         <h3>Middle Content</h3>
                                                         <fieldset>
-                                                            <div class="form-group">
-                                                                <a href="{{route('admin.listing-items.index',[11])}}" class="btn btn-primary" target="_blank">Serive Section
-                                                               </a>
-                                                                <input type="hidden" name="content[service_listings_section]" value="11">  
-
-                                                                   </div>
-                                                        </fieldset>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Title</label>
+                                                                <input type="text" name="content[title_2]" class="form-control" @if($obj->content && isset($obj->content['title_2'])) value="{{$obj->content['title_2']}}" @endif  >
+                                                            </div>
+                                                            <div class="form-group col-md-12">
+                                                                <label>Content</label>
+                                                                <textarea name="content[description_2]" class="form-control editor">@if($obj->content && isset($obj->content['description_2'])) {{$obj->content['description_2']}} @endif</textarea>
+                                                            </div>
+                                                            <div class="form-group ">
+                                                                @php
+                                                                    $media_id_2 = ($obj->content && isset($obj->content['media_id_2']))?$obj->content['media_id_2']:null;
+                                                                @endphp
+                                                                @include('admin.media.set_file', ['file'=>$media_id_2, 'title'=>'Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_2]', 'id'=>'content_image_2', 'display'=> 'horizontal'])
+                                                            </div><!--end form-group-->
+                                                        </fieldset><!--end fieldset--> 
                                                         <h3>Bottom Content</h3>
                                                         <fieldset>
                                                             <div class="form-group col-md-12">
