@@ -61,7 +61,7 @@
 
         <div class="card-body row">
             <div class="form-group col-md-12">
-                <label>Table  Requirements left </label>
+                <label>Table   Features left </label>
                 <textarea name="content[section_description_first04]" class="form-control editor ">
     @if ($obj->content && isset($obj->content['section_description_first04']))
     {{ $obj->content['section_description_first04'] }}
@@ -77,7 +77,7 @@
 
         <div class="card-body row">
             <div class="form-group col-md-12">
-                <label>Table  Solutions Right </label>
+                <label>Table   Features Right </label>
                 <textarea name="content[section_description_first03]" class="form-control editor ">
     @if ($obj->content && isset($obj->content['section_description_first03']))
     {{ $obj->content['section_description_first03'] }}
@@ -93,15 +93,11 @@
             <input type="text" name="content[banner_title04]" class="form-control"
                 @if($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
         </div>
-        <div class="form-group col-md-12">
-            <label>Table Head title left</label>
-            <input type="text" name="content[banner_title05]" class="form-control"
-                @if($obj->content && isset($obj->content['banner_title05'])) value="{{ $obj->content['banner_title05'] }}" @endif>
-        </div>
+
 
         <div class="card-body row">
             <div class="form-group col-md-12">
-                <label>Table  Requirements left </label>
+                <label>Table  Requirements  </label>
                 <textarea name="content[section_description_first01]" class="form-control editor ">
     @if ($obj->content && isset($obj->content['section_description_first01']))
     {{ $obj->content['section_description_first01'] }}
@@ -109,21 +105,8 @@
     </textarea>
             </div>
         </div>
-        <div class="form-group col-md-12">
-            <label>Table Head title Right</label>
-            <input type="text" name="content[banner_title06]" class="form-control"
-                @if($obj->content && isset($obj->content['banner_title06'])) value="{{ $obj->content['banner_title06'] }}" @endif>
-        </div>
 
-        <div class="card-body row">
-            <div class="form-group col-md-12">
-                <label>Table  Solutions Right </label>
-                <textarea name="content[section_description_first02]" class="form-control editor ">
-    @if ($obj->content && isset($obj->content['section_description_first02']))
-    {{ $obj->content['section_description_first02'] }}
-    @endif
-    </textarea>
-            </div>
-        </div>
+
+
     </fieldset>
     </div>
