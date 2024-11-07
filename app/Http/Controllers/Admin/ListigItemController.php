@@ -88,7 +88,7 @@ class ListigItemController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->toArray());
+       
 
         return $this->_store($request->all());
     }
