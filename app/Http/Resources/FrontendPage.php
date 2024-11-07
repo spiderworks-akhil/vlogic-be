@@ -87,7 +87,7 @@ class FrontendPage extends JsonResource
 
                 $challenges = ListingContent::where('listing_id',$listing_id)->get()->all();
                 $data = [
-                    'challenges' => $challenges,
+                    'challenges' => new ListingResourceCollection($challenges) ,
                     'service' => new ListingContentCollection($service),
 
                 ];

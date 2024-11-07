@@ -126,7 +126,7 @@
 </textarea>
         </div>
     </div>
-
+</fieldset>
 
 <h3>Solution listing</h3>
 <fieldset>

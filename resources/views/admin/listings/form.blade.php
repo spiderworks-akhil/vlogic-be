@@ -39,7 +39,13 @@
               </select>
           </div>
 
-
+          <div class="form-group col-md-6">
+            <label for="name">Youtube link</label>
+            <select class="form-control" name="youtube_link">
+              <option value="No" @if($obj->detailed_description == "No") selected="selected" @endif >No</option>
+              <option value="Yes" @if($obj->detailed_description == "Yes") selected="selected" @endif>Yes</option>
+            </select>
+        </div>
           <div class="form-group col-md-6">
               <label for="name">Icon</label>
               <select class="form-control" name="icon">
