@@ -78,15 +78,18 @@ class FrontendPage extends JsonResource
             ];
         }
         if($slug=='room_scheduling'){
-            $service_id = Listing::where('name','service listing')->get('id');
+            $service_id = Listing::where('name', 'service listing')->pluck('id')->first();
 
-            $service = ListingContent::whereIn('listing_id',$service_id)->get()->all();
 
-            $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->get('id');
-                $challenges = ListingContent::whereIn('listing_id',$listing_id)->get()->all();
+            $service = ListingContent::where('listing_id', $service_id)->get()->all();
+
+            $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->pluck('id')->first();
+
+                $challenges = ListingContent::where('listing_id',$listing_id)->get()->all();
                 $data = [
                     'challenges' => $challenges,
                     'service' => new ListingContentCollection($service),
+
                 ];
 
 
@@ -95,8 +98,8 @@ class FrontendPage extends JsonResource
         }
 
         if ($slug == 'hot_desking') {
-            $service_id = Listing::where('name', 'service')->pluck('id')->get();
-            dd($service_id);
+            $service_id = Listing::where('name', 'service')->pluck('id')->first();
+
             $service = ListingContent::where('listing_id', $service_id)->get()->all();
 
             $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
