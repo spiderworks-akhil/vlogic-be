@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\ListingContent;
 use App\Http\Resources\ServiceCollection;
 use App\Http\Controllers\Admin\SliderController;
+use App\Models\FrontendPage as ModelsFrontendPage;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class FrontendPage extends JsonResource
@@ -46,11 +47,25 @@ class FrontendPage extends JsonResource
 
 
             if ($slug == 'home'){
-                return [
-                    'slider' => $this->slider(),
-                    'service' => $this->service()
 
-                ];
+
+
+        // $services = Service::get();
+        // if (is_null($services)) {
+        //     return response()->json(['message' => 'Government page not found'], 400);
+        // }
+        // // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
+
+        // return new ServiceCollection($services);
+        $solution = ModelsFrontendPage::whereIn('slug',['space_management','room_scheduling','hot_desking','work_orders','life_safety','drawings_service','virtual_plan'])->get();
+
+
+
+        return response()->json([
+            'slider' => $this->slider(),
+            'service' => $this->service(),
+            'content' => new FrontendPageContentResource($solution),
+        ]);
             }
 
         if ($slug == 'videos') {
@@ -101,7 +116,7 @@ class FrontendPage extends JsonResource
             $service_id = Listing::where('name', 'service')->pluck('id')->first();
 
             $service = ListingContent::where('listing_id', $service_id)
-        ->orderBy('priority', 'asc') 
+        ->orderBy('priority', 'asc')
         ->get();
             $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
 
@@ -163,7 +178,7 @@ class FrontendPage extends JsonResource
     {
 
 
-        $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->with(['featured_image','banner_image'])->where('status', 1)->orderBy('priority','DESC')->get();
+        $services = Service::with(['featured_image','banner_image'])->where('status', 1)->orderBy('priority','DESC')->get();
         if (is_null($services)) {
             return response()->json(['message' => 'Government page not found'], 400);
         }
@@ -205,5 +220,17 @@ class FrontendPage extends JsonResource
         }
         return new GalleryCollection($gallery);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
