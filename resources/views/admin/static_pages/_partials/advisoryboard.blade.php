@@ -67,7 +67,7 @@
         <div>
             <div class="form-group col-md-12">
                 <label>Advisory Board Name 3</label>
-                <input type="text" name="content[section3_title]" class="form-control" @if($obj->content && isset($obj->content['section3_title     '])) value="{{$obj->content['section3_title']}}" @endif>
+                <input type="text" name="content[section3_title]" class="form-control" @if($obj->content && isset($obj->content['section3_title'])) value="{{$obj->content['section3_title']}}" @endif>
             </div>
 
             @php
