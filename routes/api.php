@@ -84,7 +84,7 @@ Route::get('show/{id}', [TestimonialController::class, 'show'])->name('api.testi
 //story
 Route::get('testimonials/featured', [TestimonialController::class, 'featured'])->name('api.testimonials.featured');
 Route::get('testimonials', [TestimonialController::class, 'index'])->name('api.testimonials');
-Route::get('testimorial/{id}',[TestimonialController::class,'detail'])->name('api.testimonials.detail');
+Route::get('testimonials/{id}',[TestimonialController::class,'detail'])->name('api.testimonials.detail');
 
 //Brochures
  Route::get('brochures', [BrochuresController::class, 'index'])->name('api.brochures.index');
