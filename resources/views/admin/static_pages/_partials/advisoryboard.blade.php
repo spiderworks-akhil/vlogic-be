@@ -78,7 +78,7 @@
 
             <div class="form-group col-md-12">
                 <label>About Advisory Board</label>
-                <input type="text" name="content[works_first_featured_img_heading3]" class="form-control" @if($obj->content && isset($obj->content['wworks_first_featured_img_heading3'])) value="{{$obj->content['works_first_featured_img_heading3']}}" @endif>
+                <input type="text" name="content[works_first_featured_img_heading5]" class="form-control" @if($obj->content && isset($obj->content['works_first_featured_img_heading5'])) value="{{$obj->content['works_first_featured_img_heading5']}}" @endif>
             </div>
 
         </div><br><br><br>
@@ -97,7 +97,7 @@
 
             <div class="form-group col-md-12">
                 <label>About Advisory Board</label>
-                <input type="text" name="content[works_first_featured_img_heading4]" class="form-control" @if($obj->content && isset($obj->content['wworks_first_featured_img_heading4'])) value="{{$obj->content['works_first_featured_img_heading4']}}" @endif>
+                <input type="text" name="content[works_first_featured_img_heading6]" class="form-control" @if($obj->content && isset($obj->content['works_first_featured_img_heading6'])) value="{{$obj->content['works_first_featured_img_heading6']}}" @endif>
             </div>
 
         </div><br><br><br>
