@@ -71,9 +71,9 @@
             </div>
 
             @php
-            $media_id_works_first_featured_image03 = ($obj->content && isset($obj->content['media_id_works_first_featured_image03'])) ? $obj->content['media_id_works_first_featured_image03'] : null;
+            $media_id_works_first_featured_image5 = ($obj->content && isset($obj->content['media_id_works_first_featured_image5'])) ? $obj->content['media_id_works_first_featured_image5'] : null;
             @endphp
-            @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image03, 'title'=>'Advisory Image 1', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[mmedia_id_works_first_featured_image3]', 'id'=>'media_id_works_first_featured_image03', 'display'=> 'horizontal'])
+            @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image5, 'title'=>'Advisory Image 1', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image5]', 'id'=>'media_id_works_first_featured_image5', 'display'=> 'horizontal'])
 
 
             <div class="form-group col-md-12">
