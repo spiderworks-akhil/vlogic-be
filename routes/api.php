@@ -95,6 +95,7 @@ Route::get('testimonials', [TestimonialController::class, 'index'])->name('api.t
 
 //  //webinar
  Route::get('webinar',[WebinarController::class,'webinar'])->name('api.webinar.index');
+ Route::get('webinar/{slug}',[WebinarController::class,'detail'])->name('api.webinars.detail');
 
 //Government
 

@@ -100,8 +100,9 @@ class FrontendPage extends JsonResource
         if ($slug == 'hot_desking') {
             $service_id = Listing::where('name', 'service')->pluck('id')->first();
 
-            $service = ListingContent::where('listing_id', $service_id)->get()->all();
-
+            $service = ListingContent::where('listing_id', $service_id)
+        ->orderBy('priority', 'asc') 
+        ->get();
             $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
 
             $challenges = ListingContent::where('listing_id', $listing_id)->get()->all();
@@ -110,7 +111,7 @@ class FrontendPage extends JsonResource
 
             $data = [
                 'challenges' => $challenges,
-                'service' => $service,
+                'service' => new ListingContentCollection($service),
             ];
 
 

@@ -103,7 +103,7 @@ public function page(string $slug)
     if (is_null($data)) {
         return response()->json(['error' => 'Page not Found!'], 404);
     }
-
+    
 
     return new ResourcesFrontendPage($data);
 }
