@@ -37,7 +37,7 @@ class FrontendPage extends JsonResource
             'meta_keywords' => $this->meta_keywords,
             'bottom_description' => $this->bottom_description,
             'extra_js' => $this->extra_js,
-            'faq' => new FaqCollection($this->faq),
+          'faq' => new FaqCollection($this->faq->sortBy('id')),
             'related_section' => $this->related_section($this->slug)
         ];
     }
