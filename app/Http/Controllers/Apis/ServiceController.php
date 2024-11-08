@@ -27,11 +27,6 @@ class ServiceController extends Controller
         }
     }
 
-
-
-
-
-
     public function featured(){
 
 
@@ -42,16 +37,20 @@ class ServiceController extends Controller
         }
         // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
 
+
         return new ServiceCollection($services);
     }
-
 
     public function view(Request $request, $slug){
         try{
             $data = $request->all();
-            $service = Service::with(['featured_image','banner_image'])->where('slug', $slug)->where('status', 1)->first();
-            if(!$service)
+           $service = Service::with(['featured_image','banner_image'])->where('slug', $slug)->where('status', 1)->first();
+
+;           if(!$service)
                 return response()->json(['error' => 'Not found'], 404);
+
+
+
             return new ServiceResource($service);
         }
         catch(\Exception $e){
