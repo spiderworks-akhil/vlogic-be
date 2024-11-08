@@ -28,7 +28,7 @@
         <div>
             <div class="form-group col-md-12">
                 <label>Advisory Board Name</label>
-                <input type="text" name="content[section1_title]" class="form-control" @if($obj->content && isset($obj->content['section2_title1'])) value="{{$obj->content['section1_title']}}" @endif>
+                <input type="text" name="content[section1_title]" class="form-control" @if($obj->content && isset($obj->content['section1_title'])) value="{{$obj->content['section1_title']}}" @endif>
             </div>
 
             @php
@@ -47,7 +47,7 @@
         <div>
             <div class="form-group col-md-12">
                 <label>Advisory Board Name 2</label>
-                <input type="text" name="content[section2_title]" class="form-control" @if($obj->content && isset($obj->content['section2_title1'])) value="{{$obj->content['section2_title']}}" @endif>
+                <input type="text" name="content[section2_title]" class="form-control" @if($obj->content && isset($obj->content['section2_title'])) value="{{$obj->content['section2_title']}}" @endif>
             </div>
 
             @php
@@ -67,13 +67,13 @@
         <div>
             <div class="form-group col-md-12">
                 <label>Advisory Board Name 3</label>
-                <input type="text" name="content[section3_title]" class="form-control" @if($obj->content && isset($obj->content['section3_title1'])) value="{{$obj->content['section3_title']}}" @endif>
+                <input type="text" name="content[section3_title]" class="form-control" @if($obj->content && isset($obj->content['section3_title     '])) value="{{$obj->content['section3_title']}}" @endif>
             </div>
 
             @php
-            $media_id_works_first_featured_image3 = ($obj->content && isset($obj->content['media_id_works_first_featured_image3'])) ? $obj->content['media_id_works_first_featured_image3'] : null;
+            $media_id_works_first_featured_image03 = ($obj->content && isset($obj->content['media_id_works_first_featured_image03'])) ? $obj->content['media_id_works_first_featured_image03'] : null;
             @endphp
-            @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image3, 'title'=>'Advisory Image 1', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[mmedia_id_works_first_featured_image3]', 'id'=>'media_id_works_first_featured_image3', 'display'=> 'horizontal'])
+            @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image03, 'title'=>'Advisory Image 1', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[mmedia_id_works_first_featured_image3]', 'id'=>'media_id_works_first_featured_image03', 'display'=> 'horizontal'])
 
 
             <div class="form-group col-md-12">
