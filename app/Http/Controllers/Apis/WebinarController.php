@@ -43,7 +43,7 @@ class WebinarController extends Controller
 
         $webinar_detail = new WebinarResource($webinar_detail);
 
-        // Return the response inside a 'data' key
+       
         return response()->json(['data' => $webinar_detail]);
     } catch (\Exception $e) {
         return response()->json(['error' => $e->getMessage()], 500);
