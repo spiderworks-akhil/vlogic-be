@@ -1,8 +1,4 @@
 <div id="form-vertical" class="form-horizontal form-wizard-wrapper">
-
-
-
-    <div id="form-vertical" class="form-horizontal form-wizard-wrapper">
         <h3>Banner Section</h3>
         <fieldset>
 
@@ -59,7 +55,7 @@
 @if ($obj->content && isset($obj->content['description_1']))
 {{ $obj->content['description_1'] }}
 @endif
-</textarea>
+  </textarea>
             </div>
             <div class="form-group ">
                 @php
