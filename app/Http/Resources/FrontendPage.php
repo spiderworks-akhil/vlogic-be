@@ -54,17 +54,23 @@ class FrontendPage extends JsonResource
         // if (is_null($services)) {
         //     return response()->json(['message' => 'Government page not found'], 400);
         // }
-        // // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
+        // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
 
         // return new ServiceCollection($services);
         $solution = ModelsFrontendPage::whereIn('slug',['space_management','room_scheduling','hot_desking','work_orders','life_safety','drawings_service','virtual_plan'])->get();
 
-
+            
 
         return response()->json([
             'slider' => $this->slider(),
             'service' => $this->service(),
-            'content' => new FrontendPageContentResource($solution),
+            'solutions' =>$solution->map(function ($item) {
+                   return [
+                    'id'=>$item->id,
+                    'slug'=>$item->slug,
+                    'content'=>new FrontendPageContentResource($item->content)
+                   ];
+            })
         ]);
             }
 
@@ -180,7 +186,7 @@ class FrontendPage extends JsonResource
 
         $services = Service::with(['featured_image','banner_image'])->where('status', 1)->orderBy('priority','DESC')->get();
         if (is_null($services)) {
-            return response()->json(['message' => 'Government page not found'], 400);
+            return response()->json(['message' => 'services page not found'], 400);
         }
         // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
 
