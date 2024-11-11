@@ -83,6 +83,7 @@ class FrontendPage extends JsonResource
                    return [
                     'id'=>$item->id,
                     'slug'=>$item->slug,
+                    'url' =>$item->url,
                     'content'=>new FrontendPageContentResource($item->content)
                    ];
             })
