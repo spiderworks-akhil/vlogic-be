@@ -63,10 +63,11 @@ class FrontendPage extends JsonResource
 
             $partner = Partner::get()->all();
 
-            if(!$partner){
-                return ['message' => ' Error'];
-
+            if (!isset( $partner)) {
+                return response()->json(['message' => 'Error']);
             }
+
+
 
 
         $solution = ModelsFrontendPage::whereIn('slug',['space_management','room_scheduling','hot_desking','work_orders','life_safety','drawings_service','virtual_plan'])->get();
