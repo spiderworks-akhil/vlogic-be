@@ -44,8 +44,9 @@ class ServiceController extends Controller
     public function view(Request $request, $slug){
         try{
             $data = $request->all();
-           $service = Service::with(['featured_image','banner_image'])->where('slug', $slug)->where('status', 1)->first();
 
+           $service = Service::with(['featured_image','banner_image'])->where('slug', $slug)->where('status', 1)->first();
+      
 ;           if(!$service)
                 return response()->json(['error' => 'Not found'], 404);
 
