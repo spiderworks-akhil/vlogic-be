@@ -103,7 +103,7 @@ public function page(string $slug)
     if (is_null($data)) {
         return response()->json(['error' => 'Page not Found!'], 404);
     }
-    
+
 
     return new ResourcesFrontendPage($data);
 }
@@ -236,8 +236,11 @@ public function page(string $slug)
     public function index()
     {
         $page_details = News::with('media')->orderBy('created_at', 'asc')->get();
-        return response()->json(['message' => "Privacy Policy page not found"], 400);
+       if(!$page_details){
 
+
+        return response()->json(['message' => "Privacy Policy page not found"], 400);
+    }
        return response()->json([
         'success'=>true,
        'page_details'=>$page_details
