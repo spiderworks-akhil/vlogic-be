@@ -10,7 +10,9 @@ use Illuminate\Http\Request;
 use App\Models\ListingContent;
 use App\Http\Resources\ServiceCollection;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Resources\Partner as ResourcesPartner;
 use App\Models\FrontendPage as ModelsFrontendPage;
+use App\Models\Partner;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class FrontendPage extends JsonResource
@@ -57,11 +59,22 @@ class FrontendPage extends JsonResource
         // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
 
         // return new ServiceCollection($services);
+
+
+            $partner = Partner::get()->all();
+
+            if(!$partner){
+                return ['message' => ' Error'];
+
+            }
+
+
         $solution = ModelsFrontendPage::whereIn('slug',['space_management','room_scheduling','hot_desking','work_orders','life_safety','drawings_service','virtual_plan'])->get();
 
-            
+
 
         return response()->json([
+            'partner' => new PartnerCollection($partner),
             'slider' => $this->slider(),
             'service' => $this->service(),
             'solutions' =>$solution->map(function ($item) {

@@ -235,15 +235,22 @@ public function page(string $slug)
     }
     public function index()
     {
+
+
+        $banner = FrontendPage::where('slug','news')->first();
+   
         $page_details = News::with('media')->orderBy('created_at', 'asc')->get();
        if(!$page_details){
 
 
         return response()->json(['message' => "Privacy Policy page not found"], 400);
     }
+
+
+
        return response()->json([
         'success'=>true,
-       'page_details'=>$page_details
+       'data'=>$page_details
     ]);
     }
 
