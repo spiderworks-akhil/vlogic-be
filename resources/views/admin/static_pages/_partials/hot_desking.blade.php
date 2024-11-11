@@ -28,6 +28,15 @@
             <label>Content Description</label>
             <textarea name="content[banner_shortdescription01]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription01'])) {{$obj->content['banner_shortdescription01']}} @endif</textarea>
         </div>
+
+
+
+        <div class="form-group col-md-12">
+            <label>Page url</label>
+            <input type="text" name="url" class="form-control" value="{{ isset($obj->url) ? $obj->url : '' }}">
+        </div>
+
+
     </fieldset>
 
 

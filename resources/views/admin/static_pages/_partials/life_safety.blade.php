@@ -28,6 +28,14 @@
                 {{ $obj->content['banner_shortdescription'] ?? '' }}
             </textarea>
         </div>
+
+
+
+        <div class="form-group col-md-12">
+            <label>Page url</label>
+            <input type="text" name="url" class="form-control" value="{{ isset($obj->url) ? $obj->url : '' }}">
+        </div>
+
     </fieldset>
 
     <h3>Description Section 1</h3>

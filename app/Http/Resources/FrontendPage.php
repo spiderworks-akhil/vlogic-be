@@ -29,6 +29,7 @@ class FrontendPage extends JsonResource
             'slug' => $this->slug,
             'name' => $this->name,
             'title' => $this->title,
+            'url' => $this->url,
             'banner_heading_colour' => $this->banner_heading_colour,
             'banner_content_colour' => $this->banner_content_colour,
             'content' => new FrontendPageContentResource($this->content),

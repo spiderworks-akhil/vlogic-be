@@ -100,6 +100,7 @@ public function page(string $slug)
 {
 
     $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
+    
     if (is_null($data)) {
         return response()->json(['error' => 'Page not Found!'], 404);
     }
@@ -238,7 +239,7 @@ public function page(string $slug)
 
 
         $banner = FrontendPage::where('slug','news')->first();
-   
+
         $page_details = News::with('media')->orderBy('created_at', 'asc')->get();
        if(!$page_details){
 
