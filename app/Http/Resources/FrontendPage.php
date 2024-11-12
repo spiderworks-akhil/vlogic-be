@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Resources;
+
 use App\Models\Slider;
 use App\Models\Gallery;
 use App\Models\Listing;
@@ -41,7 +42,7 @@ class FrontendPage extends JsonResource
             'meta_keywords' => $this->meta_keywords,
             'bottom_description' => $this->bottom_description,
             'extra_js' => $this->extra_js,
-          'faq' => new FaqCollection($this->faq->sortBy('id')),
+            'faq' => new FaqCollection($this->faq->sortBy('id')),
             'related_section' => $this->related_section($this->slug)
         ];
     }
@@ -49,51 +50,39 @@ class FrontendPage extends JsonResource
     {
 
 
-            if ($slug == 'home'){
-
-
-
-        // $services = Service::get();
-        // if (is_null($services)) {
-        //     return response()->json(['message' => 'Government page not found'], 400);
-        // }
-        // $services = Service::select('name','title','id','slug','featured_image_id','banner_image_id')->where('status', 1)->orderBy('priority','DESC')->get();
-
-        // return new ServiceCollection($services);
-
-
+        if ($slug == 'home') {
             $partner = Partner::get()->all();
 
-            if (!isset( $partner)) {
+            if (!isset($partner)) {
                 return response()->json(['message' => 'Error']);
             }
+            $solution = ModelsFrontendPage::whereIn('slug', ['space_management', 'room_scheduling', 'hot_desking', 'work_orders', 'life_safety', 'drawings_service', 'virtual_plan'])->get();
+
+            $spotlight_id = Listing::where('name', 'spotlight')->value('id');
+
+           $spotlight = ListingContent::where('listing_id',$spotlight_id)->get();
 
 
-
-
-        $solution = ModelsFrontendPage::whereIn('slug',['space_management','room_scheduling','hot_desking','work_orders','life_safety','drawings_service','virtual_plan'])->get();
-
-
-
-        return response()->json([
-            'partner' => new PartnerCollection($partner),
-            'slider' => $this->slider(),
-            'service' => $this->service(),
-            'solutions' =>$solution->map(function ($item) {
-                   return [
-                    'id'=>$item->id,
-                    'slug'=>$item->slug,
-                    'url' =>$item->url,
-                    'content'=>new FrontendPageContentResource($item->content)
-                   ];
-            })
-        ]);
-            }
+            return response()->json([
+                'spotlight' => $spotlight,
+                'partner' => new PartnerCollection($partner),
+                'slider' => $this->slider(),
+                'service' => $this->service(),
+                'solutions' => $solution->map(function ($item) {
+                    return [
+                        'id' => $item->id,
+                        'slug' => $item->slug,
+                        'url' => $item->url,
+                        'content' => new FrontendPageContentResource($item->content)
+                    ];
+                })
+            ]);
+        }
 
         if ($slug == 'videos') {
             return [
                 'gallery' => $this->getgallery(),
-             ];
+            ];
         }
 
 
@@ -114,7 +103,7 @@ class FrontendPage extends JsonResource
                 'listing_id' => $listing_id,
             ];
         }
-        if($slug=='room_scheduling'){
+        if ($slug == 'room_scheduling') {
             $service_id = Listing::where('name', 'service listing')->pluck('id')->first();
 
 
@@ -122,12 +111,12 @@ class FrontendPage extends JsonResource
 
             $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->pluck('id')->first();
 
-                $challenges = ListingContent::where('listing_id',$listing_id)->get()->all();
-                $data = [
-                    'challenges' => new ListingResourceCollection($challenges) ,
-                    'service' => new ListingContentCollection($service),
+            $challenges = ListingContent::where('listing_id', $listing_id)->get()->all();
+            $data = [
+                'challenges' => new ListingResourceCollection($challenges),
+                'service' => new ListingContentCollection($service),
 
-                ];
+            ];
 
 
 
@@ -138,8 +127,8 @@ class FrontendPage extends JsonResource
             $service_id = Listing::where('name', 'service')->pluck('id')->first();
 
             $service = ListingContent::where('listing_id', $service_id)
-        ->orderBy('priority', 'asc')
-        ->get();
+                ->orderBy('priority', 'asc')
+                ->get();
             $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
 
             $challenges = ListingContent::where('listing_id', $listing_id)->get()->all();
@@ -178,7 +167,7 @@ class FrontendPage extends JsonResource
         if ($slug == 'iwms') {
 
 
-           $service_id = Listing::where('name', 'service_listing')->pluck('id')->first();
+            $service_id = Listing::where('name', 'service_listing')->pluck('id')->first();
 
 
             if ($service_id) {
@@ -200,7 +189,7 @@ class FrontendPage extends JsonResource
     {
 
 
-        $services = Service::with(['featured_image','banner_image'])->where('status', 1)->orderBy('priority','DESC')->get();
+        $services = Service::with(['featured_image', 'banner_image'])->where('status', 1)->orderBy('priority', 'DESC')->get();
         if (is_null($services)) {
             return response()->json(['message' => 'services page not found'], 400);
         }
@@ -209,7 +198,8 @@ class FrontendPage extends JsonResource
         return new ServiceCollection($services);
     }
 
-    private function slider() {
+    private function slider()
+    {
         $sliders = Slider::where('slider_name', 'home')
             ->with(['photos.media'])
             ->get();
@@ -228,31 +218,19 @@ class FrontendPage extends JsonResource
 
 
 
-    private function getgallery(){
+    private function getgallery()
+    {
         $gallery = Gallery::where('status', 1)
-        ->orderBy('priority')
-        ->get()
-        ->each(function ($gallery) {
-            $gallery->load('gallery')->take(8);
-        });
+            ->orderBy('priority')
+            ->get()
+            ->each(function ($gallery) {
+                $gallery->load('gallery')->take(8);
+            });
 
 
-        if(!isset($gallery)){
-            return response()->json(['message' => 'No video found'],400);
+        if (!isset($gallery)) {
+            return response()->json(['message' => 'No video found'], 400);
         }
         return new GalleryCollection($gallery);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
