@@ -20,7 +20,7 @@
     </div> --}}
 
 
-    <div class="card-body row">
+    {{-- <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Section Spotlight</label>
             <textarea name="content[section_description_first]" class="form-control editor ">
@@ -29,7 +29,16 @@
     @endif
     </textarea>
         </div>
-    </div>
+    </div> --}}
+    </fieldset>
+    <h3>spotlight</h3>
+    <fieldset>
+        <div class="form-group">
+            <a href="{{route('admin.listing-items.index',[12])}}" class="btn btn-primary" target="_blank">spotlight Listing
+           </a>
+            <input type="hidden" name="content[spotlight]" value="12">  
+
+         </div>
     </fieldset>
 
     <h3>Section 2 product</h3>
