@@ -114,6 +114,7 @@ class WebadminController extends Controller {
     {
         $items = DB::table('testimonials')->where('status',1)->where('name', 'like', $request->q.'%')->orderBy('name')
             ->get();
+
         $json = [];
         foreach($items as $c){
             $json[] = ['id'=>$c->id, 'text'=>$c->name];
@@ -237,18 +238,4 @@ class WebadminController extends Controller {
                         ->withErrors("Ooops..Something wrong happend.Please try again.") // send back all errors to the login form
                         ->withInput($data);
     }
-    public function dynamic_listing(Request $request,$key) {
-
-        $listing_name = $key; 
-        $listing = Listing::where('listing_name',$listing_name)->first();
-        if (!$listing) {
-           $listing = new Listing;
-           $listing->listing_name =  $listing_name;
-           $listing->save();
-        }
-
-        return Redirect::to(route('admin.listing-items.index', [$listing->id]));
-
-    }
-
 }
