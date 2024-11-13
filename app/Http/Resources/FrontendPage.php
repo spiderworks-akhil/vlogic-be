@@ -60,6 +60,10 @@ class FrontendPage extends JsonResource
     {
 
 
+
+
+
+
         if ($slug == 'home') {
             $partner = Partner::get()->all();
 
@@ -132,6 +136,29 @@ class FrontendPage extends JsonResource
 
             return response()->json($data);
         }
+        if ($slug == 'real_time') {
+            $service_id = Listing::where('name', 'real_time_occupancy-tracking')->pluck('id')->first();
+
+            $service = ListingContent::where('listing_id', $service_id)
+                ->orderBy('priority', 'asc')
+                ->get();
+            // $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
+
+            // $challenges = ListingContent::where('listing_id', $listing_id)->get()->all();
+
+
+
+            $data = [
+                // 'challenges' => $challenges,
+                'service' => new ListingContentCollection($service),
+            ];
+
+
+
+
+            return response()->json($data);
+        }
+
 
         if ($slug == 'hot_desking') {
             $service_id = Listing::where('name', 'service')->pluck('id')->first();
@@ -195,6 +222,7 @@ class FrontendPage extends JsonResource
 
         return [];
     }
+
     private function service()
     {
 

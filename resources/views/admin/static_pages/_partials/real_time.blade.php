@@ -31,7 +31,19 @@
         </div>
 
     </fieldset>
+
+
 <h3>Requirement section</h3>
+<fieldset>
+    <div class="form-group">
+        <a href="{{route('admin.listing-items.index',[14])}}" class="btn btn-primary" target="_blank">Service listing
+       </a>
+        <input type="hidden" name="content[room service listing]" value="14">  
+
+       </div>
+</fieldset>
+
+{{-- <h3>Requirement section</h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>Short Description top </label>
@@ -67,7 +79,7 @@
     'id' => 'media_id_works_first_featured_image',
     'display' => 'horizontal',
 ])
-</fieldset>
+</fieldset> --}}
 
 
 <h3>Solving Requirement Section </h3>
