@@ -60,6 +60,8 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use ($m
     Route::get('select2/tags', [WebadminController::class, 'select2_tags'])->name('admin.select2.tags');
     Route::get('select2/listings', [WebadminController::class, 'select2_listings'])->name('admin.select2.listings');
     Route::get('select2/authors', [WebadminController::class, 'select2_authors'])->name('admin.select2.authors');
+    Route::get('select2/testimonials', [WebadminController::class, 'select2_testimonials'])->name('admin.select2.testimonials');
+
 
     Route::group(['middleware' => $middleware], function () {
         Route::get('/dashboard', [WebadminController::class, 'index'])->name('admin.dashboard');
@@ -310,8 +312,9 @@ Route::group(['prefix' => $prefix, 'middleware' => ['web']], function () use ($m
  Route::post('press/update', [PressController::class, 'update'])->name('admin.press.update');
  Route::get('press/show/{id}', [PressController::class, 'show'])->name('admin.press.show');
 
-
-        //jobs
+        // individual services
+        Route::get('/dynamic-listing/{key}', [WebadminController::class, 'dynamic_listing'])->name('admin.dynamic_listing');
+                //jobs
         Route::get('jobs', [JobController::class, 'index'])->name('admin.jobs.index');
         Route::get('jobs/create', [JobController::class, 'create'])->name('admin.jobs.create');
         Route::get('jobs/edit/{id}/{tab?}', [JobController::class, 'edit'])->name('admin.jobs.edit');

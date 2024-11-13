@@ -1,18 +1,18 @@
 @extends('admin._layouts.fileupload')
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                          
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -37,12 +37,12 @@
                                         </ol>
                                     </div><!--end col-->
 
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             @include('admin._partials.notifications')
@@ -75,9 +75,10 @@
                                                                 <input type="text" name="title" class="form-control" value="{{$obj->title}}" required="">
                                                             </div>
                                                         </div>
-                                                    </div>                                           
+                                                    </div>
                                                 </div><!--end card-body-->
                                             </div><!--end card-->
+
                                             @if(View::exists('admin.static_pages._partials.'.$obj->slug))
                                                 <div class="card">
                                                     <div class="card-header">
@@ -88,6 +89,43 @@
                                                     </div>
                                                 </div>
                                             @endif
+                                            {{-- <h3>Source code</h3>
+                                            <fieldset>
+                                                <div class="card-header">
+                                                    Source code
+                                                </div>
+                                                <div class="card-header">
+                                                <div class="card-body row">
+                                                    <div class="form-group col-md-12">
+                                                        <label>Bottom content</label>
+                                                        <textarea name="bottom_description" class="form-control" rows="6" id="bottom_description">{{$obj->bottom_description}}</textarea>
+                                                    </div>
+                                                </div>
+                                                                                    </div> --}}
+                                       <div class="card">
+                                                <div class="card-header">
+                                                Testimonials
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="form-group col-md-12">
+                                                        <label class="">Testimonials</label>
+                                                        <select name="testimonials[]" class="w-100 webadmin-select2-input" data-select2-url="{{route('admin.select2.testimonials')}}" data-placeholder="Select Testimonials" multiple>
+                                                            @if($obj->id && count($obj->testimonials))
+                                                                @foreach($obj->testimonials as $item)
+
+                                                                @if(!empty($item->testimonial))
+                                                                    <option value="{{$item->testimonial->id}}" selected="selected">{{$item->testimonial->name}}</option>
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            </fieldset>
+
                                             <div class="card">
                                                 <div class="card-header">
                                                     SEO
@@ -182,7 +220,7 @@
                                                     <button class="btn btn-sm btn-primary float-right">Save</button>
                                                 </div>
                                             </div>
-                                            
+
                                             @if($obj->id)
                                             <div class="card">
                                                 <div class="card-header">
@@ -201,9 +239,9 @@
                                                     @include('admin.media.set_file', ['file'=>$obj->og_image, 'title'=>'OG Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'og_image_id'])
                                                 </div>
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
-                            </form> 
+                            </form>
                         </div><!--end col-->
                     </div><!--end row-->
 
@@ -230,7 +268,7 @@
         </script>
     @endif
     <script type="text/javascript">
-        
+
     </script>
 @parent
 @endsection

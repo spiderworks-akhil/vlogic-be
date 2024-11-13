@@ -37,8 +37,13 @@
 
     </fieldset>
 
-    <!-- Works Section -->
 
+
+
+
+
+    <!-- Works Section -->
+{{--
 <h3>Work section </h3>
 <fieldset>
     <div class="form-group col-md-12">
@@ -299,7 +304,7 @@
         </div>
     </div>
 
-</fieldset>
+</fieldset> --}}
 
 
 <h3>Footer Section</h3>

@@ -43,8 +43,18 @@ class FrontendPage extends JsonResource
             'bottom_description' => $this->bottom_description,
             'extra_js' => $this->extra_js,
             'faq' => new FaqCollection($this->faq->sortBy('id')),
-            'related_section' => $this->related_section($this->slug)
+            'related_section' => $this->related_section($this->slug),
+            'testimonials' => $this->testimonialsProcess($this->testimonials)
         ];
+    }
+    private function testimonialsProcess($testimonials){
+        if(!empty($testimonials)){
+            return $testimonials->map(function($item){
+                return new Testimonial($item->testimonial);
+            });
+        }else{
+            return [];
+        }
     }
     private function related_section($slug)
     {
@@ -104,7 +114,7 @@ class FrontendPage extends JsonResource
             ];
         }
         if ($slug == 'room_scheduling') {
-            $service_id = Listing::where('name', 'service listing')->pluck('id')->first();
+            $service_id = Listing::where('name', 'room_scheduling_listing')->pluck('id')->first();
 
 
             $service = ListingContent::where('listing_id', $service_id)->get()->all();

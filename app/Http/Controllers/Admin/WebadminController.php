@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Http\Controllers\Admin;
 
@@ -80,7 +80,7 @@ class WebadminController extends Controller {
         $items = DB::table('categories')->where('name', 'like', request()->q.'%');
         if($type)
             $items->where('category_type', $type);
-        
+
         $items = $items->orderBy('name')->get();
         $json = [];
         foreach($items as $c){
@@ -110,6 +110,16 @@ class WebadminController extends Controller {
         }
         return \Response::json($json);
     }
+    public function select2_testimonials(Request $request)
+    {
+        $items = DB::table('testimonials')->where('status',1)->where('name', 'like', $request->q.'%')->orderBy('name')
+            ->get();
+        $json = [];
+        foreach($items as $c){
+            $json[] = ['id'=>$c->id, 'text'=>$c->name];
+        }
+        return \Response::json($json);
+    }
 
     public function select2_authors(Request $request)
     {
@@ -126,17 +136,17 @@ class WebadminController extends Controller {
     {
         $id = $request->id;
         $name = $request->name;
-         
+
         $where = "name='".$name."'";
         if($id)
             $where .= " AND id != ".decrypt($id);
         $obj = DB::table('roles')
                     ->whereRaw($where)
                     ->get();
-         
-        if (count($obj)>0) {  
+
+        if (count($obj)>0) {
              echo "false";
-        } else {  
+        } else {
              echo "true";
         }
     }
@@ -145,7 +155,7 @@ class WebadminController extends Controller {
     {
         $id = $request->id;
         $email = $request->email;
-         
+
         $where = "email='".$email."'";
         if($id)
             $where .= " AND id != ".decrypt($id);
@@ -153,10 +163,10 @@ class WebadminController extends Controller {
                     ->whereRaw($where)
                     ->whereNull('deleted_at')
                     ->get();
-         
-        if (count($obj)>0) {  
+
+        if (count($obj)>0) {
              echo "false";
-        } else {  
+        } else {
              echo "true";
         }
     }
@@ -166,7 +176,7 @@ class WebadminController extends Controller {
          $id = $request->id;
          $slug = $request->slug;
          $table = $request->table;
-         
+
          $where = "slug='".$slug."'";
          if($id)
             $where .= " AND id != ".decrypt($id);
@@ -174,14 +184,14 @@ class WebadminController extends Controller {
                     ->whereRaw($where)
                     ->whereNull('deleted_at')
                     ->get();
-         
-         if (count($result)>0) {  
+
+         if (count($result)>0) {
              echo "false";
-         } else {  
+         } else {
              echo "true";
          }
     }
-	
+
 	public function changePassword(Request $request){
         if (!(Hash::check($request->get('current_password'), Auth::user()->password))) {
             // The passwords matches
@@ -227,5 +237,18 @@ class WebadminController extends Controller {
                         ->withErrors("Ooops..Something wrong happend.Please try again.") // send back all errors to the login form
                         ->withInput($data);
     }
+    public function dynamic_listing(Request $request,$key) {
+
+        $listing_name = $key; 
+        $listing = Listing::where('listing_name',$listing_name)->first();
+        if (!$listing) {
+           $listing = new Listing;
+           $listing->listing_name =  $listing_name;
+           $listing->save();
+        }
+
+        return Redirect::to(route('admin.listing-items.index', [$listing->id]));
+
+    }
 
 }

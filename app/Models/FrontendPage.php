@@ -23,7 +23,7 @@ class FrontendPage extends Model
         return $this->morphMany(Faq::class, 'linkable')->orderBy('display_order', 'DESC')->orderBy('created_at', 'DESC');
     }
 
-    public function menu(): MorphOne    
+    public function menu(): MorphOne
     {
         return $this->morphOne(MenuItem::class, 'linkable');
     }
@@ -66,5 +66,10 @@ class FrontendPage extends Model
             $html .= '<div class="checkbox"><input type="checkbox" name="frontend_pages_links[]" class="frontend_pages_links" value="frontend_pages_link-'.$item->id.'" data-id="'.$item->id.'" data-name="'.$item->name.'" id="frontend_pages-'.$item->id.'"> <label for="frontend_pages-'.$item->id.'">'.$item->name.'</label></div>';
         }
         return $html;
+    }
+
+    public function testimonials()
+    {
+        return $this->hasMany(FrontendPageTestimonial::class, 'frontend_page_id');
     }
 }

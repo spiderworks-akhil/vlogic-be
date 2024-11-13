@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\BaseController as Controller;
 use App\Http\Requests\Admin\StaticPageRequest;
 use App\Traits\ResourceTrait;
 use App\Models\FrontendPage;
+use App\Models\FrontendPageTestimonial;
+use App\Models\Testimonial;
 
 class StaticPageController extends Controller
 {
@@ -23,7 +25,7 @@ class StaticPageController extends Controller
         $this->resourceConstruct();
 
     }
-    
+
     protected function getCollection() {
         return $this->model->select('id', 'slug', 'name', 'title', 'updated_at');
     }
@@ -35,6 +37,7 @@ class StaticPageController extends Controller
 
     protected function getSearchSettings(){}
 
+
     public function update(StaticPageRequest $request)
     {
         $request->validated();
@@ -43,8 +46,28 @@ class StaticPageController extends Controller
         if(!empty($data['content'])){
             $data['content'] = json_encode($data['content']);
         }
-        return $this->_update($id, $data);
+
+        if($obj = $this->model->find($id)){
+            $data['is_featured'] = isset($data['is_featured'])?1:0;
+            $data['priority'] = (!empty($data['priority']))?$data['priority']:0;
+        	if($obj->update($data)){
+                if(!empty($data['testimonials'])){
+                    FrontendPageTestimonial::where('frontend_page_id',$obj->id)->delete();
+                    foreach($data['testimonials'] as $item){
+                        $new = new FrontendPageTestimonial;
+                        $new->testimonial_id = $item;
+                        $new->frontend_page_id = $obj->id;
+                        $new->save();
+                    }
+                }
+            }
+            return $this->redirect('updated','success', 'edit', [encrypt($obj->id)]);
+        } else {
+            return $this->redirect('notfound');
+        }
+
     }
+
 
 
 }
