@@ -110,10 +110,10 @@
     </div>
     <div class="card-body row">
         <div class="form-group col-md-12">
-            <label>Descriptio</label>
+            <label>Description</label>
             <textarea name="content[section_description_first08]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first05']))
-            {{ $obj->content['section_description_first05'] }}
+            @if ($obj->content && isset($obj->content['section_description_first08']))
+            {{ $obj->content['section_description_first08'] }}
             @endif
             </textarea>
           </div>
