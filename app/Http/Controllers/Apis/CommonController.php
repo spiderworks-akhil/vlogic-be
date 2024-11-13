@@ -12,6 +12,7 @@ use App\Models\Page;
 use App\Models\Listing;
 use App\Models\Setting;
 use App\Models\MenuItem;
+use App\Models\Redirect;
 use App\Models\FrontendPage;
 use Illuminate\Http\Request;
 use App\Http\Resources\Media;
@@ -24,6 +25,7 @@ use App\Http\Resources\LeadCollection;
 use App\Http\Resources\CommonPageResource;
 use App\Http\Resources\Lead as LeadResource;
 use App\Http\Resources\FrontendPage as ResourcesFrontendPage;
+use Maatwebsite\Excel\Concerns\ToArray;
 
 class CommonController extends Controller
 {
@@ -105,7 +107,7 @@ public function page(string $slug)
         return response()->json(['error' => 'Page not Found!'], 404);
     }
 
-    
+
 
     return new ResourcesFrontendPage($data);
 }
@@ -255,7 +257,12 @@ public function page(string $slug)
        'data'=>$page_details
     ]);
     }
+    
+    public function redirect_links() {
+        $redirects = Redirect::select('redirect_from', 'redirect_to')->get();
 
+        return $redirects->toArray();
+    }
 
     // //solution
     // public function space_management(){
@@ -263,5 +270,7 @@ public function page(string $slug)
 
 
     // }
+
+
 
 }

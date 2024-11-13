@@ -115,7 +115,7 @@ Route::get('home',[HomeController::class,'index'])->name('api.home.index');
 Route::post('contact-us', [HomeController::class, 'contact'])->name('api.home.contact');
 
 
-
+Route::get('301-links', [CommonController::class, 'redirect_links'])->name('api.301-links');
 
 Route::get('team', [TeamController::class, 'index'])->name('api.team.index');
 Route::get('team/featured', [TeamController::class, 'featured'])->name('api.team.featured');
