@@ -22,7 +22,9 @@ class ListingContent extends JsonResource
             'detailed_description' => $this->detailed_description,
             'youtube_link' => $this->youtube_link,
             'content' => $this->content,
-            'short_description' => $this->short_description
+            'short_description' => $this->short_description,
+            'challenges' => $this->challenges,
+            'solution' => $this->solution
         ];
     }
 }
