@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use App\Models\ListingContent;
 use App\Http\Resources\ServiceCollection;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Resources\ListingContent as ResourcesListingContent;
 use App\Http\Resources\Partner as ResourcesPartner;
 use App\Models\FrontendPage as ModelsFrontendPage;
 use App\Models\Partner;
@@ -183,21 +184,60 @@ class FrontendPage extends JsonResource
             return response()->json($data);
         }
         if ($slug == 'space_management') {
-            $service_ids = Listing::where('name', 'service listing')->pluck('id')->first();
+            // $service_ids = Listing::where('name', 'service listing')->pluck('id')->first();
 
-            $service = ListingContent::where('listing_id', $service_ids)->orderBy('priority', 'asc')->get();
+            // $service = ListingContent::where('listing_id', $service_ids)->orderBy('priority', 'asc')->get();
+            $SpaceManagementCases_id = Listing::where('name','space-management-cases')->pluck('id')->first();
+            $SpaceManagementCases = ListingContent::where('listing_id', $SpaceManagementCases_id)->get();
 
+            $space_management_where_solution_id = Listing::where('name','space-management-where-solution')->pluck('id')->first();
+            $space_management_where_solution = ListingContent::where('listing_id', $space_management_where_solution_id)->get();
+
+
+            $space_management_where_requirements_id  = Listing::where('name','space-management-where-requirements')->pluck('id')->first();
+            $space_management_where_requirements = ListingContent::where('listing_id', $space_management_where_requirements_id)->get();
+
+
+            $space_management_who_is_using_solution_id = Listing::where('name', 'space-management-who-is-using-solution')->pluck('id')->first();
+            $space_management_who_is_using_solution = ListingContent::where('listing_id', $space_management_who_is_using_solution_id)->get();
+
+
+            $space_management_who_is_using_requirements_id = Listing::where('name', 'space-management-who-is-using-requirements')->pluck('id')->first();
+            $space_management_who_is_using_requirements = ListingContent::where('listing_id', $space_management_who_is_using_requirements_id)->get();
+
+
+            $space_management_what_do_have_solution_id = Listing::where('name', 'space-management-what-do-have-solution')->pluck('id')->first();
+            $space_management_what_do_have_solution = ListingContent::where('listing_id', $space_management_what_do_have_solution_id)->get();
+
+            $space_management_what_do_have_id = Listing::where('name', 'space-management-what-do-have')->pluck('id')->first();
+            $space_management_what_do_have = ListingContent::where('listing_id', $space_management_what_do_have_id)->get();
+
+
+            $space_management_location_id = Listing::where('name', 'space-management-location')->pluck('id')->first();
+            $space_management_location = ListingContent::where('listing_id', $space_management_location_id)->get();
+
+
+            $space_management_where_requirements_id = Listing::where('name', 'space-management-where-requirements')->pluck('id')->first();
+            $space_management_where_requirements = ListingContent::where('listing_id', $space_management_where_requirements_id)->get();
 
 
             $stoy_id = Listing::where('name', 'customer_stories')->pluck('id')->first();
-
             $story = ListingContent::where('listing_id', $stoy_id)->orderBy('priority', 'asc')->get();
 
 
             $data = [
                 'story' => $story,
-                'service' => new ListingContentCollection($service),
-            ];
+                // 'service' => new ListingContentCollection($service),
+                'SpaceManagementCases' => new ListingContentCollection( $SpaceManagementCases),
+                'space_management_where_solution'  => new ListingContentCollection( $space_management_where_solution),
+                'space_management_where_requirements'  => new ListingContentCollection( $space_management_where_requirements),
+                'space_management_who_is_using_solution' => new ListingContentCollection($space_management_who_is_using_solution),
+                'space_management_who_is_using_requirements' => new ListingContentCollection($space_management_who_is_using_requirements),
+                'space_management_what_do_have_solution' => new ListingContentCollection($space_management_what_do_have_solution),
+                'space_management_what_do_have' => new ListingContentCollection($space_management_what_do_have),
+                'space_management_location' => new ListingContentCollection($space_management_location),
+                'space_management_where_requirements' => new ListingContentCollection($space_management_where_requirements),
+                        ];
             return response()->json($data);
         }
 
