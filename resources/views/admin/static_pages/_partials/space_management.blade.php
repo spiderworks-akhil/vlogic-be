@@ -37,6 +37,11 @@
 
     <h3>Section</h3>
     <fieldset>
+        <div class="form-group col-md-12">
+            <label>Head Content</label>
+            <input type="text" name="content[banner_title_01]" class="form-control"
+                @if ($obj->content && isset($obj->content['banner_title_01'])) value="{{ $obj->content['banner_title_01'] }}" @endif>
+        </div>
         <a href="{{ route('admin.listing-items.index', [15]) }}" class="btn btn-primary" target="_blank">Space
             management cases</a>
         <input type="hidden" name="content[space-management-cases]" value="15">
