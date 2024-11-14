@@ -62,6 +62,20 @@
             <input type="text" name="content[banner_title1]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_title1'])) value="{{ $obj->content['banner_title1'] }}" @endif>
         </div>
+
+        @php
+        $bannerImage = $obj->content['media_id_works_first_featured_image1'] ?? null;
+    @endphp
+    @include('admin.media.set_file', [
+        'file' => $bannerImage,
+        'title' => ' Image',
+        'popup_type' => 'single_image',
+        'type' => 'Image',
+        'holder_attr' => 'content[media_id_works_first_featured_image1]',
+        'id' => 'media_id_works_first_featured_image1',
+        'display' => 'horizontal',
+    ])
+
         <h3>Questions</h3>
         <fieldset>
             <div class="form-group col-md-12">
