@@ -105,7 +105,7 @@
     </div>
 
     <a href="{{ route('admin.listing-items.index', [18]) }}" class="btn btn-primary" target="_blank">Space management Solution</a>
-    <input type="hidden" name="content[ space-management-what-do-have-solution]" value="18">
+    <input type="hidden" name="content[space-management-what-do-have-solution]" value="18">
     <div class="form-group col-md-12">
         <label>Solution heading</label>
         <input type="text" name="content[banner_title03]" class="form-control"
@@ -123,7 +123,7 @@
             @if($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
     </div>
     <a href="{{ route('admin.listing-items.index', [19]) }}" class="btn btn-primary" target="_blank">Space management  requirements</a>
-    <input type="hidden" name="content[	space-management-who-is-using-requirements]" value="19">
+    <input type="hidden" name="content[space-management-who-is-using-requirements]" value="19">
     <div class="form-group col-md-12">
         <label>Requirements heading</label>
         <input type="text" name="content[banner_title05]" class="form-control"
@@ -131,7 +131,7 @@
     </div>
 
     <a href="{{ route('admin.listing-items.index', [20]) }}" class="btn btn-primary" target="_blank">Space management Solution</a>
-    <input type="hidden" name="content[ space-management-who-is-using-solution]" value="20">
+    <input type="hidden" name="content[space-management-who-is-using-solution]" value="20">
     <div class="form-group col-md-12">
         <label>Solution heading</label>
         <input type="text" name="content[banner_title06]" class="form-control"
@@ -148,7 +148,7 @@
             @if($obj->content && isset($obj->content['banner_title08'])) value="{{ $obj->content['banner_title08'] }}" @endif>
     </div>
     <a href="{{ route('admin.listing-items.index', [21]) }}" class="btn btn-primary" target="_blank">Space management Customer Requirements</a>
-    <input type="hidden" name="content[	space-management-where-requirements]" value="21">
+    <input type="hidden" name="content[space-management-where-requirements]" value="21">
     <div class="form-group col-md-12">
         <label>Requirements heading</label>
         <input type="text" name="content[banner_title09]" class="form-control"
@@ -156,7 +156,7 @@
     </div>
 
     <a href="{{ route('admin.listing-items.index', [22]) }}" class="btn btn-primary" target="_blank">Space management Customer Solution</a>
-    <input type="hidden" name="content[ space-management-where-solution]" value="22">
+    <input type="hidden" name="content[space-management-where-solution]" value="22">
     <div class="form-group col-md-12">
         <label>Solution heading</label>
         <input type="text" name="content[banner_title_1]" class="form-control"
