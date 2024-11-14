@@ -143,6 +143,31 @@ class FrontendPage extends JsonResource
             $service = ListingContent::where('listing_id', $service_id)
                 ->orderBy('priority', 'asc')
                 ->get();
+
+
+
+
+                $manager_needs_solution_id = Listing::where('name', 'manager-needs-solution')->pluck('id')->first();
+                $manager_needs_solution = ListingContent::where('listing_id', $manager_needs_solution_id)
+                ->orderBy('priority', 'asc')
+                ->get();
+
+                $managerNeedsId = Listing::where('name', 'manager-needs')->value('id');
+                $managerNeeds = ListingContent::where('listing_id', $managerNeedsId)
+                    ->orderBy('priority')
+                    ->get();
+
+                $solvingStakeholderId = Listing::where('name', 'solving-stakeholder')->value('id');
+                $solvingStakeholder = ListingContent::where('listing_id', $solvingStakeholderId)
+                    ->orderBy('priority')
+                    ->get();
+
+                $solvingStakeholderSolutionId = Listing::where('name', 'solving-stakeholder-solution')->value('id');
+                $solvingStakeholderSolution = ListingContent::where('listing_id', $solvingStakeholderSolutionId)
+                    ->orderBy('priority')
+                    ->get();
+
+
             // $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
 
             // $challenges = ListingContent::where('listing_id', $listing_id)->get()->all();
@@ -152,6 +177,10 @@ class FrontendPage extends JsonResource
             $data = [
                 // 'challenges' => $challenges,
                 'service' => new ListingContentCollection($service),
+                'manager_needs_solution' => new ListingContentCollection($manager_needs_solution),
+                'managerNeeds' => new ListingContentCollection($managerNeeds),
+                'solvingStakeholder' => new ListingContentCollection($solvingStakeholder),
+                'solvingStakeholderSolution' => new ListingContentCollection($solvingStakeholderSolution),
             ];
 
 
