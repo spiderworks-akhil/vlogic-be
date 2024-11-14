@@ -43,46 +43,9 @@
        </div>
 </fieldset>
 
-{{-- <h3>Requirement section</h3>
-<fieldset>
-    <div class="form-group col-md-12">
-        <label>Short Description top </label>
-        <input type="text" name="content[banner_title2]" class="form-control"
-            @if ($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
-    </div>
-    <div class="form-group col-md-12">
-        <label>title</label>
-        <input type="text" name="content[banner_title1]" class="form-control" @if($obj->content && isset($obj->content['banner_title1'])) value="{{$obj->content['banner_title1']}}" @endif >
-    </div>
-    <div class="card-body row">
-        <div class="form-group col-md-12">
-            <label>Description</label>
-            <textarea name="content[section_description_first]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first']))
-            {{ $obj->content['section_description_first'] }}
-            @endif
-            </textarea>
-          </div>
-    </div>
-    @php
-    $media_id_works_first_featured_image =
-        $obj->content && isset($obj->content['media_id_works_first_featured_image'])
-            ? $obj->content['media_id_works_first_featured_image']
-            : null;
-@endphp
-@include('admin.media.set_file', [
-    'file' => $media_id_works_first_featured_image,
-    'title' => 'Banner Image ',
-    'popup_type' => 'single_image',
-    'type' => 'Image',
-    'holder_attr' => 'content[media_id_works_first_featured_image]',
-    'id' => 'media_id_works_first_featured_image',
-    'display' => 'horizontal',
-])
-</fieldset> --}}
 
 
-<h3>Solving Requirement Section </h3>
+{{-- <h3>Solving Requirement Section </h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>Head</label>
@@ -140,7 +103,30 @@
     'display' => 'horizontal',
 ])
 
+</fieldset> --}}
+
+
+
+<h3>Solving Requirement Section</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Challenges heading</label>
+        <input type="text" name="content[banner_title0]" class="form-control"
+            @if ($obj->content && isset($obj->content['banner_title0'])) value="{{ $obj->content['banner_title0'] }}" @endif>
+    </div>
+    <a href="{{ route('admin.listing-items.index', [23]) }}" class="btn btn-primary" target="_blank">Solving Requirement Section</a>
+    <input type="hidden" name="content[	solving-stakeholder]" value="23">
+    <div class="form-group col-md-12">
+        <label>Solution heading</label>
+        <input type="text" name="content[banner_title04]" class="form-control"
+            @if ($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
+    </div>
+    <a href="{{ route('admin.listing-items.index', [24]) }}" class="btn btn-primary" target="_blank">Solving Requirement solution</a>
+    <input type="hidden" name="content[	solving-stakeholder-solution]" value="24">
 </fieldset>
+
+
+{{--
 
 <h3>Direct Requirements section </h3>
 <fieldset>
@@ -191,7 +177,29 @@
     'display' => 'horizontal',
 ])
 
+</fieldset> --}}
+
+
+
+<h3>Direct Requirements section</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label>Need's heading</label>
+        <input type="text" name="content[banner_title001]" class="form-control"
+            @if ($obj->content && isset($obj->content['banner_title001'])) value="{{ $obj->content['banner_title001'] }}" @endif>
+    </div>
+    <a href="{{ route('admin.listing-items.index', [25]) }}" class="btn btn-primary" target="_blank">Manager  Requirement Section</a>
+    <input type="hidden" name="content[manager-needs]" value="25">
+    <div class="form-group col-md-12">
+        <label>Solution heading</label>
+        <input type="text" name="content[banner_title04]" class="form-control"
+            @if ($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
+    </div>
+    <a href="{{ route('admin.listing-items.index', [26]) }}" class="btn btn-primary" target="_blank">Manager Requirement solution</a>
+    <input type="hidden" name="content[manager-needs-solution]" value="26">
 </fieldset>
+
+
 <h3>End section</h3>
 <fieldset>
     <div class="form-group col-md-12">
