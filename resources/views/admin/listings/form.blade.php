@@ -26,8 +26,14 @@
                 <option value="Yes" @if($obj->short_description == "Yes") selected="selected" @endif>Yes</option>
               </select>
           </div>
+          <div class="form-group col-md-6">
+            <label for="name">Content Description</label>
+            <select class="form-control" name="content">
+              <option value="No" @if($obj->content == "No") selected="selected" @endif >No</option>
+              <option value="Yes" @if($obj->content == "Yes") selected="selected" @endif>Yes</option>
+            </select>
+        </div>
 
-         
 
           <div class="form-group col-md-6">
             <label for="name">Url</label>

@@ -37,7 +37,14 @@
 
     </fieldset>
 
+<h3>Section</h3>
+<fieldset>
+    <a href="{{route('admin.listing-items.index',[15])}}" class="btn btn-primary" target="_blank">Space management cases
+    </a>
+     <input type="hidden" name="content[space-management-cases]" value="15">  
 
+        </div>
+</fieldset>
 
 
 
@@ -305,7 +312,7 @@
     </div>
 
 </fieldset> --}}
-
+</div>
 
 <h3>Footer Section</h3>
 <fieldset>

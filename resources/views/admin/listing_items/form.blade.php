@@ -85,7 +85,7 @@
                                                 <div class="card-body">
                                                     <div data-simplebar>
                                                         <div class="row m-0">
-
+{{--
                                                         <div class="card-body row">
                                                             <div class="form-group col-md-12">
                                                                 <label>Short description </label>
@@ -95,13 +95,15 @@
                                                     @endif
                                                     </textarea>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
 
-
+                                                      
+                                                        @if($listing->title == "Yes")
                                                         <div class="form-group col-md-12">
                                                             <label>Youtube</label>
                                                             <input type="text" name="youtube_link" class="form-control" value="{{$obj->youtube_link}}" id="youtube_link">
                                                         </div>
+                                                        @endif
                                                         {{-- <div class="form-group ">
                                                             @php
                                                             $media_id_banner_image = ($obj->content && isset($obj->content['media_id_banner_image']))?$obj->content['media_id_banner_image']:null;
@@ -125,6 +127,13 @@
                                                                 <textarea class="form-control" name="icon">{{$obj->icon}}</textarea>
                                                             </div>
                                                             @endif
+                                                            @if($listing->content == "Yes")
+                                                            <div class="form-group col-md-6">
+                                                                <label for="content">Content Description</label>
+                                                                <textarea class="form-control" name="content" id="content" rows="4">{{ $obj->content }}</textarea>
+                                                            </div>
+                                                            @endif
+
                                                             @if($listing->image == "Yes")
                                                             <div class="form-group col-md-12" >
                                                                 <label>Image</label>
