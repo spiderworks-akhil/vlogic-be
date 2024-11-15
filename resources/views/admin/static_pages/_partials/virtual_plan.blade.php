@@ -60,7 +60,7 @@
     @endphp
     @include('admin.media.set_file', [
         'file' => $media_id_works_first_featured_image,
-        'title' => 'Banner Image ',
+        'title' => 'set Image ',
         'popup_type' => 'single_image',
         'type' => 'Image',
         'holder_attr' => 'content[media_id_works_first_featured_image]',
@@ -104,67 +104,39 @@
 
     </div>
     </fieldset>
-    <h3>Management  Section 2</h3>
+
+
+    <h3>Management  Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
-            <label>Heading </label>
-            <input type="text" name="content[banner_title1]" class="form-control" @if($obj->content && isset($obj->content['banner_title1'])) value="{{$obj->content['banner_title1']}}" @endif >
+            <label>Requirements Heading  </label>
+            <input type="text" name="content[banner_title03]" class="form-control" @if($obj->content && isset($obj->content['banner_title03'])) value="{{$obj->content['banner_title03']}}" @endif >
         </div>
-        <div class="form-group col-md-12">
-            <label>Description </label>
-            <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
-        </div>
-        <div class="card-body row">
-            <div class="form-group col-md-12">
-                <label>Requirements Description 1</label>
-                <textarea name="content[section_description_first2]" class="form-control editor ">
-                @if ($obj->content && isset($obj->content['section_description_first2']))
-                {{ $obj->content['section_description_first2'] }}
-                @endif
-                </textarea>
-              </div>
-        </div>
-        <div class="card-body row">
-            <div class="form-group col-md-12">
-                <label>Requirements Description 2</label>
-                <textarea name="content[section_description_first3]" class="form-control editor ">
-                @if ($obj->content && isset($obj->content['section_description_first3']))
-                {{ $obj->content['section_description_first3'] }}
-                @endif
-                </textarea>
-              </div>
-        </div>
-        <div class="card-body row">
-            <div class="form-group col-md-12">
-                <label>Requirements Description 3</label>
-                <textarea name="content[section_description_first4]" class="form-control editor ">
-                @if ($obj->content && isset($obj->content['section_description_first4']))
-                {{ $obj->content['section_description_first4'] }}
-                @endif
-                </textarea>
-              </div>
-        </div>
-        <div class="card-body row">
-            <div class="form-group col-md-12">
-                <label>Requirements Description 4</label>
-                <textarea name="content[section_description_first5]" class="form-control editor ">
-                @if ($obj->content && isset($obj->content['section_description_first5']))
-                {{ $obj->content['section_description_first5'] }}
-                @endif
-                </textarea>
-              </div>
-        </div>
-        <div class="form-group">
-            @php
-            $media_id_works_video1= ($obj->content && isset($obj->content['media_id_works_video1']))?$obj->content['media_id_works_video1']:null;
-            @endphp
-            @include('admin.media.set_file', ['file'=>$media_id_works_video1, 'title'=>'Works Video', 'popup_type'=>'single_image', 'type'=>'Video', 'holder_attr'=>'content[media_id_works_video1]', 'id'=>'media_id_works_video1', 'display'=> 'horizontal'])
-            <div class="form-group col-md-12">
-            <textarea class="form-control" name="content[youtube_video_link]">@if ($obj->content && isset($obj->content['youtube_video_link'])){{$obj->content['youtube_video_link']}}@endif
-            </textarea>
 
-            </div>
+        <div class="form-group">
+            <a href="{{route('admin.listing-items.index',[27])}}" class="btn btn-primary" target="_blank">Requirements Heading
+           </a>
+            <input type="hidden" name="content[virtual-plan-room-requirement]" value="27">  
+
+           </div>
     </fieldset>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <h3>Customer Stories  section</h3>
 <fieldset>
