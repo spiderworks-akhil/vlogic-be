@@ -3,7 +3,7 @@
         <fieldset>
 
             <div class="form-group col-md-12">
-                <label>Banner title</label>
+                <label>Head title</label>
                 <input type="text" name="content[banner_title]" class="form-control"
                     @if ($obj->content && isset($obj->content['banner_title'])) value="{{ $obj->content['banner_title'] }}" @endif>
             </div>
@@ -43,6 +43,14 @@
         </fieldset>
         <h3>Top Content</h3>
         <fieldset>
+
+
+
+            <div class="form-group col-md-12">
+                <label>Title</label>
+                <input type="text" name="content[banner_title0]" class="form-control"
+                    @if ($obj->content && isset($obj->content['banner_title0'])) value="{{ $obj->content['banner_title0'] }}" @endif>
+            </div>
 
             <div class="form-group col-md-12">
                 <label>Content</label>
