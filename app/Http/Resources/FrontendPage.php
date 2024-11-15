@@ -77,7 +77,7 @@ class FrontendPage extends JsonResource
 
            $spotlight = ListingContent::where('listing_id',$spotlight_id)->get();
 
-           $services = Service::where('parent_id', '=', null)->orWhere('parent_id', '=', '')->get();
+           $service = Service::where('parent_id', '=', null)->orWhere('parent_id', '=', '')->get();
 
 
 
@@ -87,7 +87,7 @@ class FrontendPage extends JsonResource
                 'spotlight' => $spotlight,
                 'partner' => new PartnerCollection($partner),
                 'slider' => $this->slider(),
-                'services' => new ServiceCollection($services),
+                'service' => new ServiceCollection($service),
                 'solutions' => $solution->map(function ($item) {
                     return [
                         'id' => $item->id,
