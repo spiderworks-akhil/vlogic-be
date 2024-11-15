@@ -76,6 +76,19 @@
 
     </fieldset>
 
+
+
+<h3>Turnkey Services Section</h3>
+<fieldset>
+    <div class="form-group">
+        <a href="{{route('admin.listing-items.index',[28])}}" class="btn btn-primary" target="_blank">Turnkey Services
+       </a>
+        <input type="hidden" name="content[turn-key]" value="28">  
+
+       </div>
+</fieldset>
+
+
     <h3>Third Section</h3>
     <fieldset>
         <div class="card-body row">
