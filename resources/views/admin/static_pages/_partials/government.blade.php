@@ -80,6 +80,10 @@
 
 <h3>Turnkey Services Section</h3>
 <fieldset>
+    <div class="form-group col-md-12">
+        <label>LTurnkey Services Heading  </label>
+        <input type="text" name="content[banner_title11]" class="form-control" @if($obj->content && isset($obj->content['banner_title11'])) value="{{$obj->content['banner_title11']}}" @endif >
+    </div>
     <div class="form-group">
         <a href="{{route('admin.listing-items.index',[28])}}" class="btn btn-primary" target="_blank">Turnkey Services
        </a>
