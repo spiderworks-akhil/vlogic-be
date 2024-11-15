@@ -46,7 +46,12 @@ class ServiceController extends Controller
             $data = $request->all();
 
            $service = Service::with(['featured_image','banner_image'])->where('slug', $slug)->where('status', 1)->first();
-      
+
+
+           $parente_id = Service::where('slug',$slug)->pluck('id')->first();
+           dd($parente_id);
+
+
 ;           if(!$service)
                 return response()->json(['error' => 'Not found'], 404);
 

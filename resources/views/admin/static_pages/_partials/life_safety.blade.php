@@ -230,6 +230,11 @@
             'id' => 'media_id_works_first_featured_image1',
             'display' => 'horizontal'
         ])
+         <div class="form-group col-md-12">
+            <label>footer </label>
+            <input type="text" name="content[banner_title005]" class="form-control"
+                value="{{ $obj->content['banner_title005'] ?? '' }}">
+        </div>
 
         <div class="form-group col-md-12">
             <label>Post Safety Description</label>

@@ -52,6 +52,12 @@
         <a href="{{ route('admin.listing-items.index', [16]) }}" class="btn btn-primary" target="_blank">Space
             management location</a>
         <input type="hidden" name="content[space-management-location]" value="16">
+
+        <div class="form-group col-md-12">
+            <label>Head Content</label>
+            <input type="text" name="content[banner_title_05]" class="form-control"
+                @if ($obj->content && isset($obj->content['banner_title_05'])) value="{{ $obj->content['banner_title_05'] }}" @endif>
+        </div>
     </fieldset>
 
 
