@@ -200,6 +200,24 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <h3>Footer Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
@@ -207,13 +225,21 @@
             <input type="text" name="content[banner_title001]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_title001'])) value="{{ $obj->content['banner_title001'] }}" @endif>
         </div>
-        <div class="form-group col-md-12">
-            <label>Footer Description</label>
-            <textarea name="content[banner_footer_description]" class="form-control" rows="4">
-@if ($obj->content && isset($obj->content['banner_footer_description']))
-{{ $obj->content['banner_footer_description'] }}
-@endif
-</textarea>
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Footer Description </label>
+                <textarea name="content[section_description_first1]" class="form-control editor ">
+    @if ($obj->content && isset($obj->content['section_description_first1']))
+    {{ $obj->content['section_description_first1'] }}
+    @endif
+    </textarea>
+            </div>
         </div>
+        <div class="form-group col-md-12">
+            <label>Testimonial  heading</label>
+            <input type="text" name="content[banner_title_1]" class="form-control"
+                @if ($obj->content && isset($obj->content['banner_title_1'])) value="{{ $obj->content['banner_title_1'] }}" @endif>
+        </div>
+
     </fieldset>
 </div>
