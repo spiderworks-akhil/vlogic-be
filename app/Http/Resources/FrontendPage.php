@@ -87,7 +87,7 @@ class FrontendPage extends JsonResource
                 'spotlight' => $spotlight,
                 'partner' => new PartnerCollection($partner),
                 'slider' => $this->slider(),
-                'service' =>$services ,
+                'services' => new ServiceCollection($services),
                 'solutions' => $solution->map(function ($item) {
                     return [
                         'id' => $item->id,
