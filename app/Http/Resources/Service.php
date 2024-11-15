@@ -37,9 +37,18 @@ class Service extends JsonResource
             'faq' => new FaqCollection($this->faq),
         //    'gallery' => new MediaCollection($this->gallery),
             'children' => new ServiceCollection($this->whenLoaded('children')),
+            'sub_services' => $this->sub_services(),
 
         ];
     }
+
+
+    private function sub_services(){
+        $sub_service = Service::where('parent_id', $this->id)->get();
+
+        return $sub_service;
+    }
+
 
 
 }
