@@ -237,8 +237,8 @@
         </div>
         <div class="form-group col-md-12">
             <label>Testimonial  heading</label>
-            <input type="text" name="content[banner_title_1]" class="form-control"
-                @if ($obj->content && isset($obj->content['banner_title_1'])) value="{{ $obj->content['banner_title_1'] }}" @endif>
+            <input type="text" name="content[banner_title_2]" class="form-control"
+                @if ($obj->content && isset($obj->content['banner_title_2'])) value="{{ $obj->content['banner_title_2'] }}" @endif>
         </div>
 
     </fieldset>
