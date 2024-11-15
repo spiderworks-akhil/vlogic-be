@@ -44,9 +44,11 @@ class Service extends JsonResource
 
 
     private function sub_services(){
-        $sub_service = Service::where('parent_id', $this->id)->get();
 
-        return new Service( $sub_service);
+    $sub_service = Service::where('parent_id', $this->id)->get();
+
+    
+    return $sub_service;
     }
 
 
