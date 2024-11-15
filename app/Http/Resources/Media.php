@@ -21,7 +21,8 @@ class Media extends JsonResource
             'file_type' => $this->file_type,
             'file_size' => $this->file_size,
             'media_type' => $this->media_type,
-            'alt_text' => $this->alt_text
+            'alt_text' => $this->alt_text,
+           'description' => $this->description
         ];
     }
 }
