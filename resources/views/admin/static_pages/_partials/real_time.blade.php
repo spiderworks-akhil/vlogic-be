@@ -35,6 +35,17 @@
 
 <h3>Requirement section</h3>
 <fieldset>
+    <div class="form-group col-md-12">
+        <label>Title</label>
+        <input type="text" name="content[banner_title_1]" class="form-control" @if($obj->content && isset($obj->content['banner_title_1'])) value="{{$obj->content['banner_title_1']}}" @endif >
+    </div>
+
+    <div class="form-group col-md-12">
+        <label>Short Description</label>
+        <textarea name="content[banner_shortdescription01]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription01'])) {{$obj->content['banner_shortdescription01']}} @endif</textarea>
+    </div>
+
+
     <div class="form-group">
         <a href="{{route('admin.listing-items.index',[14])}}" class="btn btn-primary" target="_blank">Service listing
        </a>
