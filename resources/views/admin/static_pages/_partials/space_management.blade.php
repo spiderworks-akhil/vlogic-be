@@ -15,7 +15,7 @@
         <div class="form-group col-md-12">
             <label>Short description</label>
             <input type="text" name="content[banner_title2]" class="form-control"
-                @if ($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
+                @if ($obj->content && isset($obj->content['banner_title'])) value="{{ $obj->content['banner_title'] }}" @endif>
         </div>
         @php
             $bannerImage = $obj->content['media_id_works_first_featured_image'] ?? null;

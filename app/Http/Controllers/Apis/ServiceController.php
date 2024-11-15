@@ -48,16 +48,21 @@ class ServiceController extends Controller
            $service = Service::with(['featured_image','banner_image'])->where('slug', $slug)->where('status', 1)->first();
 
 
-           $parente_id = Service::where('slug',$slug)->pluck('id')->first();
-           dd($parente_id);
+           $service_id = Service::where('slug',$slug)->pluck('id')->first();
+           $sub_service = Service::where('parent_id', $service_id)->first();
+
 
 
 ;           if(!$service)
                 return response()->json(['error' => 'Not found'], 404);
 
+                    $data = [
+                        'service' => new ServiceResource($service),
+                        'sub_service' => new  ServiceResource($sub_service),
+                    ];
+                    return ($data);
 
 
-            return new ServiceResource($service);
         }
         catch(\Exception $e){
             return response()->json(['error' => $e->getMessage()], 500);
