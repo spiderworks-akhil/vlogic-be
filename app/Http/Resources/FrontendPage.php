@@ -154,11 +154,12 @@ class FrontendPage extends JsonResource
             if($slug == 'virtual_plan'){
                 $virtual_plan_id = Listing::where('name', 'virtual-plan-room-requirement')->pluck('id')->first();
 
+
                         $virtual_plan = ListingContent::where('listing_id',$virtual_plan_id)->get();
 
 
                         $data = [
-                            'virtual_plan' => new ListingResourceCollection($virtual_plan),
+                            'virtual_plan' => new ListingContentCollection($virtual_plan),
 
 
                         ];
