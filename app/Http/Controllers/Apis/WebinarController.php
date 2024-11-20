@@ -17,32 +17,31 @@ class WebinarController extends Controller
     public function webinar(Request $request)
     {
         try {
-
-            $data = Webinar::with('media')->get();
-            if (is_null($data)) {
-                return response()->json(['message' => 'Government page not found'], 400);
-            }
+            // Fetch the banner for the webinar page
             $banner = FrontendPage::where('slug', 'webinar')->first();
 
-
+            // Set the limit for pagination (default is 10)
             $limit = (int) $request->query('limit', 10);
 
-
-            $webinarQuery = Webinar::with(['featured_image'])
+            // Build the query for webinars with a status of 1
+            $webinarQuery = Webinar::with(['featured_image', 'media'])
                 ->where('status', 1);
 
-
-
+            // Paginate the query with the specified limit
             $webinars = $webinarQuery->orderBy('created_at', 'DESC')->paginate($limit);
 
+            // Return the response with the banner and paginated webinars
+            return response()->json([
 
-                return new WebinarResourceCollection($data, $banner,  $webinars);
-
+                'data' => new WebinarResourceCollection($webinars,$banner,), // Use the paginated data
+            ]);
         } catch (\Exception $e) {
-
+            // Handle exceptions and return a 500 error response
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+
+
 
 
     public function detail(Request $request, $slug)
