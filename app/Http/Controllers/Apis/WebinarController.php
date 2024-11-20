@@ -28,26 +28,43 @@ class WebinarController extends Controller
     }
 
 
-
-
     public function detail(Request $request, $slug)
-{
-    try {
-        $webinar_detail = Webinar::where('slug', $slug)
-            ->where('status', 1)
-            ->first();
+    {
+        try {
+            $page = $request->get('page', 1); // Default to the first page
+            $limit = $request->get('limit', 10); // Default to 10 items per page
+            $offset = ($page - 1) * $limit; // Calculate offset
 
-        if (!$webinar_detail) {
-            return response()->json(['error' => 'Not found'], 404);
+            // Fetch the webinar details
+            $webinar = Webinar::where('slug', $slug)
+                ->where('status', 1)
+                ->first();
+
+            if (!$webinar) {
+                return response()->json(['error' => 'Not found'], 404);
+            }
+
+
+            $relatedDetails = $webinar->details()
+                ->skip($offset)
+                ->take($limit)
+                ->get();
+
+            $totalDetails = $webinar->details()->count();
+
+            $paginatedData = [
+                'current_page' => $page,
+                'total_pages' => ceil($totalDetails / $limit),
+                'limit' => $limit,
+                'total_items' => $totalDetails,
+                'items' => WebinarResource::collection($relatedDetails),
+            ];
+
+            return response()->json(['data' => $paginatedData]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
         }
-
-        $webinar_detail = new WebinarResource($webinar_detail);
-
-       
-        return response()->json(['data' => $webinar_detail]);
-    } catch (\Exception $e) {
-        return response()->json(['error' => $e->getMessage()], 500);
     }
-}
+
 
 }
