@@ -21,7 +21,7 @@ class WebinarController extends Controller
             $banner = FrontendPage::where('slug', 'webinar')->first();
 
             // Set the limit for pagination (default is 10)
-            $limit = (int) $request->query('limit', 10);
+            $limit = (int) $request->query('limit', 12);
 
             // Build the query for webinars with a status of 1
             $webinarQuery = Webinar::with(['featured_image', 'media'])
