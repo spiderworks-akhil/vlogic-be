@@ -24,5 +24,5 @@ class Webinar extends Model
     {
         return $this->belongsTo(Media::class , 'banner_image_id');
     }
-
+  
 }

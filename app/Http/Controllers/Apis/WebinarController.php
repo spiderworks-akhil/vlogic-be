@@ -9,43 +9,40 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\WebinarResource;
 use App\Http\Resources\WebinarResourceCollection;
+use Termwind\Components\Dd;
 
 class WebinarController extends Controller
 {
+
     public function webinar(Request $request)
     {
+        try {
 
-        $banner = FrontendPage::where('slug', 'webinar')->get();
-
-
-        $data = Webinar::with('media')->get();
-        if (is_null($data)) {
-            return response()->json(['message' => 'Government page not found'], 400);
-        }
-
-
-
-
-        try{
-            $data = $request->all();
-            $limit = !empty($data['limit'])?(int)$data['limit']:10;
-            $webinar = Webinar::with(['featured_image', 'category'])->where('status', 1);
-            if(!empty($data['categories'])){
-                $webinar->whereIn('category_id', $data['categories']);
+            $data = Webinar::with('media')->get();
+            if (is_null($data)) {
+                return response()->json(['message' => 'Government page not found'], 400);
             }
-            $blogs = $webinar->orderBy('published_on', 'DESC')->paginate($limit);
-            return new WebinarResourceCollection($webinar);
-        }
-        catch(\Exception $e){
+            $banner = FrontendPage::where('slug', 'webinar')->first();
+
+
+            $limit = (int) $request->query('limit', 10);
+
+
+            $webinarQuery = Webinar::with(['featured_image'])
+                ->where('status', 1);
+
+
+
+            $webinars = $webinarQuery->orderBy('created_at', 'DESC')->paginate($limit);
+
+
+                return new WebinarResourceCollection($data, $banner,  $webinars);
+
+        } catch (\Exception $e) {
+
             return response()->json(['error' => $e->getMessage()], 500);
         }
-
-
-
-        return new WebinarResourceCollection($data, $banner);
     }
-
-
 
 
     public function detail(Request $request, $slug)
