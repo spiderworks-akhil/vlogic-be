@@ -17,26 +17,26 @@ class WebinarController extends Controller
     public function webinar(Request $request)
     {
         try {
-            // Fetch the banner for the webinar page
+
             $banner = FrontendPage::where('slug', 'webinar')->first();
 
-            // Set the limit for pagination (default is 10)
+
             $limit = (int) $request->query('limit', 12);
 
-            // Build the query for webinars with a status of 1
+
             $webinarQuery = Webinar::with(['featured_image', 'media'])
                 ->where('status', 1);
 
-            // Paginate the query with the specified limit
-            $webinars = $webinarQuery->orderBy('created_at', 'DESC')->paginate($limit);
 
-            // Return the response with the banner and paginated webinars
+            $webinars = $webinarQuery->orderBy('created_at', 'asc')->paginate($limit);
+
+
             return response()->json([
 
-                'data' => new WebinarResourceCollection($webinars,$banner,), // Use the paginated data
+                'data' => new WebinarResourceCollection($webinars,$banner,),
             ]);
         } catch (\Exception $e) {
-            // Handle exceptions and return a 500 error response
+
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
