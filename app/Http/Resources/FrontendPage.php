@@ -83,8 +83,12 @@ class FrontendPage extends JsonResource
 
 
 
+
+
+
             return response()->json([
                 'spotlight' => $spotlight,
+
                 'partner' => new PartnerCollection($partner),
                 'slider' => $this->slider(),
                 'service' => new ServiceCollection($service),
@@ -116,9 +120,12 @@ class FrontendPage extends JsonResource
             if ($listing_content_array->isEmpty()) {
                 return ['error' => 'No content found for the specified listing ID'];
             }
+            $turn_key_id =Listing::where('name','turn-key')->value('id');
+            $turn_key = ListingContent::where('listing_id',$turn_key_id)->get();
 
             $listing_content = $listing_content_array->toArray();
             return [
+                'turn_key' => $turn_key,
                 'listing_content' => $listing_content,
                 'listing_id' => $listing_id,
             ];
