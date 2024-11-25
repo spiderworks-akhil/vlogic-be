@@ -7,6 +7,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Admin;
 use App\Http\Resources\Media;
 use App\Http\Resources\Category;
+use App\Http\Resources\Author;
+
 
 class Blog extends JsonResource
 {
