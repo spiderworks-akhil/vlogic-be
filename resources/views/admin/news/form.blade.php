@@ -29,9 +29,9 @@
                                 <div class="row">
                                     <div class="col">
                                         @if($obj->id)
-                                            <h4 class="page-title">Edit newes Member</h4>
+                                            <h4 class="page-title">Edit news Member</h4>
                                         @else
-                                            <h4 class="page-title">Create new newes Member</h4>
+                                            <h4 class="page-title">Create new news Member</h4>
                                         @endif
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Admin</a></li>
