@@ -29,15 +29,15 @@
                                 <div class="row">
                                     <div class="col">
                                         @if($obj->id)
-                                            <h4 class="page-title">Edit Team Member</h4>
+                                            <h4 class="page-title">Edit Webinar Member</h4>
 
                                         @else
-                                            <h4 class="page-title">Create new Team Member</h4>
+                                            <h4 class="page-title">Create new Webinar Member</h4>
                                         @endif
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Admin</a></li>
-                                            <li class="breadcrumb-item"><a href="{{ route($route.'.index') }}">All Team Members</a></li>
-                                            <li class="breadcrumb-item active">@if($obj->id)Edit @else Create new @endif Team Member</li>
+                                            <li class="breadcrumb-item"><a href="{{ route($route.'.index') }}">All Webinar Members</a></li>
+                                            <li class="breadcrumb-item active">@if($obj->id)Edit @else Create new @endif Webinar Member</li>
                                         </ol>
                                     </div><!--end col-->
                                     @if(auth()->user()->can($permissions['create']))
@@ -91,10 +91,6 @@
                                                             </div>
 
 
-                                                            <div class="form-group col-md-6">
-                                                                <label>Designation</label>
-                                                                <input type="text" name="designation" class="form-control" value="{{$obj->designation}}" id="designation">
-                                                            </div>
 
                                                             <div class="form-group col-md-12">
                                                                 <label>Short Description</label>
@@ -235,7 +231,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="card">
+                                            {{-- <div class="card">
                                                 <div class="card-header">
                                                     Social Media Links
                                                 </div>
@@ -267,7 +263,7 @@
                                                     </div>
 
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
                                             <div class="card">
                                                 <div class="card-header">
