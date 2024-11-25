@@ -35,8 +35,8 @@
                                         @endif
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Admin</a></li>
-                                            <li class="breadcrumb-item"><a href="{{ route($route.'.index') }}">All newes Members</a></li>
-                                            <li class="breadcrumb-item active">@if($obj->id)Edit @else Create new @endif newes Member</li>
+                                            <li class="breadcrumb-item"><a href="{{ route($route.'.index') }}">All news Members</a></li>
+                                            <li class="breadcrumb-item active">@if($obj->id)Edit @else Create new @endif news Member</li>
                                         </ol>
                                     </div><!--end col-->
                                     @if(auth()->user()->can($permissions['create']))
