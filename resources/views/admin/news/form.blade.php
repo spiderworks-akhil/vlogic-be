@@ -112,7 +112,14 @@
                                                                 <label>Content</label>
                                                                 <textarea name="content" class="form-control editor" id="content">{{$obj->content}}</textarea>
                                                             </div>
-
+                                                            <div class="form-group col-md-6">
+                                                                <label>Url</label>
+                                                                <input type="text" name="content[url]" class="form-control"
+                                                                    @if($obj->content && isset($obj->content['url']))
+                                                                value="{{ $obj->content['url'] }}"
+                                                                @endif
+                                                                >
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div><!--end card-body-->
