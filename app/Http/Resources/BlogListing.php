@@ -20,7 +20,7 @@ class BlogListing extends JsonResource
             'title' => $this->title,
             'short_description' => $this->short_description,
             'published_on' => $this->published_on,
-            'published_by' => $this->published_by,
+            'published_by' => new Author($this->author),
             'featured_image' => new Media($this->featured_image),
             'tags' => new TagCollection($this->tags)
         ];
