@@ -85,7 +85,12 @@ class BlogController extends Controller
             $data['is_featured'] = isset($data['is_featured'])?1:0;
             $data['published_on'] = !empty($data['published_on'])?$this->parse_date_time($data['published_on']):date('Y-m-d H:i:s');
             $data['priority'] = (!empty($data['priority']))?$data['priority']:0;
-            if($obj->update($data))
+            if ($obj->update($data)) {
+                dd('Update successful!');
+            } else {
+                dd('Update failed!');
+            }
+
             {
                 if(!empty($data['tags']))
                     $obj->tags()->sync($data['tags']);
