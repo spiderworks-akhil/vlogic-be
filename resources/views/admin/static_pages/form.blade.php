@@ -102,7 +102,10 @@
                                                     </div>
                                                 </div>
                                                                                     </div> --}}
+
+
                                        <div class="card">
+                                                  @if(!in_array($obj->id, [5, 16, 9, 10, 1, 2]))
                                                 <div class="card-header">
                                                 Testimonials
                                                 </div>
@@ -121,6 +124,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                @endif
                                             </div>
 
 
@@ -220,7 +224,7 @@
                                                     <button class="btn btn-sm btn-primary float-right">Save</button>
                                                 </div>
                                             </div>
-
+                                            @if(!in_array($obj->id, [5, 16, 9, 10, 1, 2]))
                                             @if($obj->id)
                                             <div class="card">
                                                 <div class="card-header">
@@ -230,6 +234,7 @@
                                                     <a href="{{route('admin.faq.index', [$obj->id, 'FrontendPage'])}}" class="webadmin-open-ajax-popup btn btn-sm btn-warning" title="SET FAQ" data-popup-size="large">@if(count($obj->faq)>0) Update FAQ @else Add FAQ @endif</a>
                                                 </div>
                                             </div>
+                                            @endif
                                             @endif
                                             <div class="card">
                                                 <div class="card-header">

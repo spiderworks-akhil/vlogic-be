@@ -87,6 +87,10 @@
                                                                 <input type="text" name="name" class="form-control" value="{{$obj->name}}">
                                                             </div>
                                                             <div class="form-group col-md-12">
+                                                                <label>Slug</label>
+                                                                <input type="text" name="slug" class="form-control" value="{{$obj->slug}}">
+                                                            </div>
+                                                            <div class="form-group col-md-12">
                                                                 <label>Designation</label>
                                                                 <textarea class="form-control" name="designation">{{$obj->designation}}</textarea>
                                                             </div>
@@ -117,7 +121,7 @@
                                                         </div>
                                                     </div>
                                                 </div><!--end card-body-->
-                                                
+
                                             </div><!--end card-->
                                         </div>
                                         <div class="col-md-4">

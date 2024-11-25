@@ -21,6 +21,7 @@ class Blog extends JsonResource
             'id' => $this->id,
             'slug' => $this->slug,
             'title' => $this->title,
+            'is_featured' => $this->is_featured,
             'short_description' => $this->short_description,
             'published_on' => $this->published_on,
             'published_by' => new Author($this->author),

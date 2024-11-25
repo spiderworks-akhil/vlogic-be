@@ -46,7 +46,7 @@
                                     @endif
                                 </div><!--end row-->
                             </div><!--end page-title-box-->
-                        </div><!--end col-->
+                        </div><!--end col-->url
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
 

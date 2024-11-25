@@ -17,6 +17,7 @@ class Testimonial extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'slug' => $this->slug,
             'designation' => $this->designation,
             'comment' => $this->comment,
             'featured_image' => new Media($this->featured_image),

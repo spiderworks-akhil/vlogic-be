@@ -6,18 +6,18 @@
 
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                          
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -49,12 +49,12 @@
                                         <a class=" btn btn-sm btn-primary" href="{{route($route.'.create')}}" role="button"><i class="fas fa-plus mr-2"></i>Create New</a>
                                     </div>
                                     @endif
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             @include('admin._partials.notifications')
@@ -100,7 +100,7 @@
                                                                 <textarea name="content" class="form-control editor" id="content">{{$obj->content}}</textarea>
                                                             </div>
                                                         </div>
-                                                    </div>                                           
+                                                    </div>
                                                 </div><!--end card-body-->
                                             </div><!--end card-->
                                             @fieldshow(blogs-seo)
@@ -192,12 +192,7 @@
                                                                 <input type="checkbox" class="custom-control-input" value="1" id="status" name="status" @if(!$obj->id || $obj->status == 1) checked="" @endif>
                                                                 <label class="custom-control-label" for="status">Status</label>
                                                             </div>
-                                                            @fieldshow(blogs-is_featured)
-                                                            <div class="custom-control custom-switch switch-primary float-right">
-                                                                <input type="checkbox" class="custom-control-input" value="1" id="is_featured" name="is_featured" @if($obj->is_featured == 1) checked="checked" @endif>
-                                                                <label class="custom-control-label" for="is_featured">Featured</label>
-                                                            </div>
-                                                            @endfieldshow
+                                                            <div class="custom-control custom-switch switch-primary float-right"> <input type="checkbox" class="custom-control-input" value="1" id="is_featured" name="is_featured" @if($obj->is_featured == 1) checked="checked" @endif> <label class="custom-control-label" for="is_featured">Featured</label> </div>
                                                         </div>
                                                         <div class="form-group w-100 mb-1">
                                                             <label for="name">Created On: </label>
@@ -318,9 +313,9 @@
                                                 </div>
                                             </div>
                                             @endfieldshow
-                                        </div>    
+                                        </div>
                                     </div>
-                            </form> 
+                            </form>
                         </div><!--end col-->
                     </div><!--end row-->
 
