@@ -120,27 +120,27 @@
                                 <div class="card-body row">
                                     <div class="form-group col-md-6">
                                         <label>Facebook Link</label>
-                                        <input type="text" name="settings[facebook-link]" class="form-control" value="{{$data['facebook_link']}}">
+                                        <input type="text" name="settings[facebook_link]" class="form-control" value="{{$data['facebook_link']}}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Twitter Link</label>
-                                        <input type="text" name="settings[twitter-link]" class="form-control" value="{{$data['twitter_link']}}">
+                                        <input type="text" name="settings[twitter_link]" class="form-control" value="{{$data['twitter_link']}}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Linkedin Link</label>
-                                        <input type="text" name="settings[linkedin-link]" class="form-control" value="{{$data['linkedin_link']}}">
+                                        <input type="text" name="settings[linkedin_link]" class="form-control" value="{{$data['linkedin_link']}}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Instagram Link</label>
-                                        <input type="text" name="settings[intagram-link]" class="form-control" value="{{$data['intagram_link']}}">
+                                        <input type="text" name="settings[instagram_link]" class="form-control" value="{{$data['instagram_link']}}">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label>Youtube Link</label>
-                                        <input type="text" name="settings[youtube-link]" class="form-control" value="{{$data['youtube_link']}}">
+                                        <input type="text" name="settings[youtube_link]" class="form-control" value="{{$data['youtube_link']}}">
                                     </div>
                                 </div>
                                 <div class="card-footer text-right">
-                                    <button class="btn btn-sm btn-primary">Update</button>
+                                    <button type="submit" class="btn btn-sm btn-primary">Update</button>
                                 </div>
                             </div>
                         </form>

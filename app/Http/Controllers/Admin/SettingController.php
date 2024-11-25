@@ -30,12 +30,15 @@ class SettingController extends Controller
 
     public function store(Request $request)
     {
+
         $data = $request->all();
+
         if($data['settings_type'] == 'Contact' || $data['settings_type'] == 'Social Media' || $data['settings_type'] == 'Common' || $data['settings_type'] == 'Smtp' || $data['settings_type'] == 'Google')
         {
             foreach($data['settings'] as $key=>$value)
             {
                 $setting = Setting::where('code', $key)->first();
+
                 $setting->value_text = $value;
                 $setting->save();
             }
@@ -94,7 +97,8 @@ class SettingController extends Controller
             }
         }
         $this->clear_cache();
-        return Redirect::to(url('sw-admin/settings'))->withSuccess('Settings successfully saved!');
+        // return Redirect::to(url('sw-admin/settings'))->withSuccess('Settings successfully saved!');
+        return redirect()->back()->withSuccess('Settings successfully saved!');
     }
 
     public function clear_cache()
