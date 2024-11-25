@@ -114,9 +114,9 @@
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label>Url</label>
-                                                                <input type="text" name="content[url]" class="form-control"
-                                                                    @if($obj->content && isset($obj->content['url']))
-                                                                value="{{ $obj->content['url'] }}"
+                                                                <input type="text" name="url" class="form-control"
+                                                                    @if($obj->content && isset($obj->url))
+                                                                value="{{ $obj->url }}"
                                                                 @endif
                                                                 >
                                                             </div>
