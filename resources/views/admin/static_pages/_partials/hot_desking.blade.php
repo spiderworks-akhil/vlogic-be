@@ -3,7 +3,7 @@
         <fieldset>
 
         <div class="form-group col-md-12">
-            <label>Banners title</label>
+            <label> Title</label>
             <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
         </div>
 
@@ -20,12 +20,12 @@
         </div>
 
         <div class="form-group col-md-12">
-            <label>Banner Short Description</label>
+            <label>Top Description</label>
             <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
         </div>
 
         <div class="form-group col-md-12">
-            <label>Content Description</label>
+            <label>Short Description</label>
             <textarea name="content[banner_shortdescription01]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription01'])) {{$obj->content['banner_shortdescription01']}} @endif</textarea>
         </div>
 
