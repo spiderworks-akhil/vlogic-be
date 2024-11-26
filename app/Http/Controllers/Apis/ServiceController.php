@@ -16,7 +16,7 @@ class ServiceController extends Controller
 
             $limit = !empty($data['limit']) ? (int)$data['limit'] : 10;
             $services = Service::where('status', 1)
-                ->orderBy('priority', 'DESC')
+                ->orderBy('priority', 'ASC')
                 ->paginate($limit);
 
             return new ServiceCollection($services);

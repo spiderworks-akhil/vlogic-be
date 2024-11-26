@@ -35,10 +35,7 @@
 
 <h3>Requirement section</h3>
 <fieldset>
-    <div class="form-group col-md-12">
-        <label>Title</label>
-        <input type="text" name="content[banner_title_1]" class="form-control" @if($obj->content && isset($obj->content['banner_title_1'])) value="{{$obj->content['banner_title_1']}}" @endif >
-    </div>
+
 
     <div class="form-group col-md-12">
         <label>Short Description</label>
@@ -118,26 +115,10 @@
 
 
 
-<h3>Solving Requirement Section</h3>
-<fieldset>
-    <div class="form-group col-md-12">
-        <label>Challenges heading</label>
-        <input type="text" name="content[banner_title0]" class="form-control"
-            @if ($obj->content && isset($obj->content['banner_title0'])) value="{{ $obj->content['banner_title0'] }}" @endif>
-    </div>
-    <a href="{{ route('admin.listing-items.index', [23]) }}" class="btn btn-primary" target="_blank">Solving Requirement Section</a>
-    <input type="hidden" name="content[	solving-stakeholder]" value="23">
-    <div class="form-group col-md-12">
-        <label>Solution heading</label>
-        <input type="text" name="content[banner_title04]" class="form-control"
-            @if ($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
-    </div>
-    <a href="{{ route('admin.listing-items.index', [24]) }}" class="btn btn-primary" target="_blank">Solving Requirement solution</a>
-    <input type="hidden" name="content[	solving-stakeholder-solution]" value="24">
-</fieldset>
 
 
-{{--
+
+
 
 <h3>Direct Requirements section </h3>
 <fieldset>
@@ -190,7 +171,27 @@
 
 </fieldset> --}}
 
-
+<h3>Solving Requirement Section</h3>
+<fieldset>
+    <div class="form-group col-md-12">
+        <label> Solving Stakeholder Requirements Title</label>
+        <input type="text" name="content[banner_title_1]" class="form-control" @if($obj->content && isset($obj->content['banner_title_1'])) value="{{$obj->content['banner_title_1']}}" @endif >
+    </div>
+    <div class="form-group col-md-12">
+        <label>Challenges heading</label>
+        <input type="text" name="content[banner_title0]" class="form-control"
+            @if ($obj->content && isset($obj->content['banner_title0'])) value="{{ $obj->content['banner_title0'] }}" @endif>
+    </div>
+    <a href="{{ route('admin.listing-items.index', [23]) }}" class="btn btn-primary" target="_blank">Solving Requirement Section</a>
+    <input type="hidden" name="content[	solving-stakeholder]" value="23">
+    <div class="form-group col-md-12">
+        <label>Solution heading</label>
+        <input type="text" name="content[banner_title04]" class="form-control"
+            @if ($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
+    </div>
+    <a href="{{ route('admin.listing-items.index', [24]) }}" class="btn btn-primary" target="_blank">Solving Requirement solution</a>
+    <input type="hidden" name="content[	solving-stakeholder-solution]" value="24">
+</fieldset>
 
 <h3>Direct Requirements section</h3>
 <fieldset>

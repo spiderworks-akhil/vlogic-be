@@ -155,7 +155,7 @@ class FrontendPage extends JsonResource
                 $virtual_plan_id = Listing::where('name', 'virtual-plan-room-requirement')->pluck('id')->first();
 
 
-                        $virtual_plan = ListingContent::where('listing_id',$virtual_plan_id)->get();
+                        $virtual_plan = ListingContent::where('listing_id',$virtual_plan_id)->orderBy('priority', 'ASC')->get();
 
 
                         $data = [
