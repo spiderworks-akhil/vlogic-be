@@ -41,7 +41,7 @@
             </div>
 
         </fieldset>
-        {{-- <h3>Top Content</h3>
+        <h3>Top Content</h3>
         <fieldset>
 
 
@@ -75,7 +75,7 @@
                     'display' => 'horizontal',
                 ])
             </div><!--end form-group-->
-        </fieldset><!--end fieldset--> --}}
+        </fieldset><!--end fieldset-->
 
 
     </div><!--end form-->
