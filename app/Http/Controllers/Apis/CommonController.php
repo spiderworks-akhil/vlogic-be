@@ -147,7 +147,7 @@ class CommonController extends Controller
         $contact->fill($request->all());
 
         $contact->save();
-        $page_details = FrontendPage::where('slug', 'contact')->first();
+
         $notif_emails = Setting::where('code', 'contact_notification_email_ids')->first();
 
         if ($notif_emails && trim($notif_emails->value_text) != '') {
@@ -164,8 +164,7 @@ class CommonController extends Controller
             $thank_mail->to($contact->email)->send(new \App\Mail\ContactThankyou($contact));
         }
         return response()->json([
-            'success' => true,
-            'page_details' => $page_details
+            'success' => true
         ]);
     }
 
