@@ -10,22 +10,21 @@ use App\Http\Resources\ServiceCollection;
 
 class ServiceController extends Controller
 {
-    public function index(Request $request){
-        try{
+    public function index(Request $request) {
+        try {
             $data = $request->all();
 
-            $limit = !empty($data['limit'])?(int)$data['limit']:10;
-            $services = Service::where('status', 1)->get();
-
-            $services = $services->orderBy('priority', 'DESC')->paginate($limit);
-
+            $limit = !empty($data['limit']) ? (int)$data['limit'] : 10;
+            $services = Service::where('status', 1)
+                ->orderBy('priority', 'DESC')
+                ->paginate($limit);
 
             return new ServiceCollection($services);
-        }
-        catch(\Exception $e){
+        } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
+
 
     public function featured(){
 
@@ -56,7 +55,7 @@ class ServiceController extends Controller
 
                     $data = [
                         'service' => new ServiceResource($service),
-                     
+
                     ];
                     return ($data);
 
