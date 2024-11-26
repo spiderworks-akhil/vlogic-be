@@ -3,11 +3,15 @@
         <fieldset>
 
         <div class="form-group col-md-12">
-            <label>Banners title</label>
+            <label>Title</label>
             <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
         </div>
 
 
+        <div class="form-group col-md-12">
+            <label> Top Description</label>
+            <textarea name="content[banner_shortdescription0]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
+        </div>
         <div class="form-group col-md-12">
             <label>Short Description</label>
             <input type="text" name="content[banner_title2]" class="form-control" @if($obj->content && isset($obj->content['banner_title2'])) value="{{$obj->content['banner_title2']}}" @endif >
@@ -21,10 +25,6 @@
             @include('admin.media.set_file', ['file'=>$media_id_banner_image, 'title'=>'Banner Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_banner_image]', 'id'=>'media_id_banner_image', 'display'=> 'horizontal'])
         </div>
 
-        <div class="form-group col-md-12">
-            <label>Banner Short Description</label>
-            <textarea name="content[banner_shortdescription0]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
-        </div>
 
         <div class="form-group col-md-12">
             <label>Page url</label>
@@ -33,7 +33,7 @@
 
     </fieldset>
 
-    <h3>Section 1</h3>
+    <h3>Top Section</h3>
     <fieldset>
 
 
@@ -126,7 +126,7 @@
         </div
         <div class="card-body row">
             <div class="form-group col-md-12">
-                <label>Software</label>
+                <label>Software Description</label>
                 <textarea name="content[section_description_first4]" class="form-control editor ">
                 @if ($obj->content && isset($obj->content['section_description_first4']))
                 {{ $obj->content['section_description_first4'] }}
@@ -136,7 +136,7 @@
         </div>
 
     </fieldset>
-    <h3>End section</h3>
+    <h3>Solution Model section</h3>
     <fieldset>
         <div class="form-group col-md-12">
             <label> Heading</label>
@@ -145,7 +145,7 @@
         </div>
         <div class="card-body row">
             <div class="form-group col-md-12">
-                <label>Solution Model  heading</label>
+                <label>Description</label>
                 <textarea name="content[section_description_first5]" class="form-control editor ">
                 @if ($obj->content && isset($obj->content['section_description_first5']))
                 {{ $obj->content['section_description_first5'] }}
