@@ -1,4 +1,4 @@
-<div id="form-vertical" class="form-horizontal form-wizard-wrapper">
+<div   id="form-vertical" class="form-horizontal form-wizard-wrapper">
         <h3>Banner Section</h3>
         <fieldset>
 
@@ -41,7 +41,7 @@
             </div>
 
         </fieldset>
-        <h3>Top Content</h3>
+        {{-- <h3>Top Content</h3>
         <fieldset>
 
 
@@ -75,9 +75,9 @@
                     'display' => 'horizontal',
                 ])
             </div><!--end form-group-->
-        </fieldset><!--end fieldset-->
+        </fieldset><!--end fieldset--> --}}
 
 
     </div><!--end form-->
 
-</div>
+

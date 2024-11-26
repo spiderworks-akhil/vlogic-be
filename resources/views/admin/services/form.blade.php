@@ -1,18 +1,18 @@
 @extends('admin._layouts.fileupload')
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                          
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -44,12 +44,12 @@
                                         <a class=" btn btn-sm btn-primary" href="{{route($route.'.create')}}" role="button"><i class="fas fa-plus mr-2"></i>Create New</a>
                                     </div>
                                     @endif
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             @include('admin._partials.notifications')
@@ -62,7 +62,7 @@
                                     <input type="hidden" name="id" @if($obj->id) value="{{encrypt($obj->id)}}" @endif id="inputId">
                                     <div class="row">
                                         <div class="col-md-8">
-                                            <div class="card">
+                                             <div class="card">
                                                 <div class="card-header">
                                                     Basic Details
                                                 </div>
@@ -111,10 +111,12 @@
                                                                 @endif
                                                             @endfieldshow
                                                         </div>
-                                                    </div>                                           
+                                                    </div>
                                                 </div><!--end card-body-->
                                             </div><!--end card-->
-                                            @fieldshow(services-content)
+
+
+                                             @fieldshow(services-content)
                                                 @if(config('admin.services.sections'))
                                                 <div class="card">
                                                     <div class="card-header">
@@ -126,7 +128,10 @@
                                                 </div>
                                                 @endif
                                             @endfieldshow
-                                            @fieldshow(services-seo)
+
+
+
+                                              @fieldshow(services-seo)
                                             <div class="card">
                                                 <div class="card-header">
                                                     SEO
@@ -159,7 +164,9 @@
                                                 </div>
                                             </div>
                                             @endfieldshow
-                                            @fieldshow(services-extra_data)
+
+
+                                             @fieldshow(services-extra_data)
                                             <div class="card">
                                                 <div class="card-header">
                                                     Extra Data
@@ -186,7 +193,12 @@
                                                 </div>
                                             </div>
                                             @endfieldshow
+
+
                                         </div>
+
+
+
                                         <div class="col-md-4">
                                             <div class="card">
                                                 <div class="card-header">
@@ -269,7 +281,7 @@
                                                 </div>
                                                 @endif
                                             @endfieldshow
-                                            @fieldshow(services-featured_image_id)
+                                            {{-- @fieldshow(services-featured_image_id)
                                             <div class="card">
                                                 <div class="card-header">
                                                     Featured Image
@@ -278,8 +290,8 @@
                                                     @include('admin.media.set_file', ['file'=>$obj->featured_image, 'title'=>'Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'featured_image_id'])
                                                 </div>
                                             </div>
-                                            @endfieldshow
-                                            @fieldshow(services-banner_image_id)
+                                            @endfieldshow --}}
+                                            {{-- @fieldshow(services-banner_image_id)
                                             <div class="card">
                                                 <div class="card-header">
                                                     Banner Image
@@ -288,7 +300,7 @@
                                                     @include('admin.media.set_file', ['file'=>$obj->banner_image, 'title'=>'Banner Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'banner_image_id'])
                                                 </div>
                                             </div>
-                                            @endfieldshow
+                                            @endfieldshow --}}
                                             @fieldshow(services-og_image_id)
                                             <div class="card">
                                                 <div class="card-header">
@@ -299,9 +311,9 @@
                                                 </div>
                                             </div>
                                             @endfieldshow
-                                        </div>    
+                                        </div>
                                     </div>
-                            </form> 
+                            </form>
                         </div><!--end col-->
                     </div><!--end row-->
 

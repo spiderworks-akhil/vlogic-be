@@ -1,19 +1,19 @@
 <div id="form-vertical" class="form-horizontal form-wizard-wrapper">
     <!-- Head Section -->
-    <h3>Head Section</h3>
+    <h3>Banner Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
-            <label>Head Content</label>
+            <label>Banner title</label>
             <input type="text" name="content[banner_title]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_title'])) value="{{ $obj->content['banner_title'] }}" @endif>
         </div>
         <div class="form-group col-md-12">
-            <label>Short Description Top</label>
+            <label>Banner Short Description</label>
             <input type="text" name="content[banner_description]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_description'])) value="{{ $obj->content['banner_description'] }}" @endif>
         </div>
         <div class="form-group col-md-12">
-            <label>Short description</label>
+            <label>Banner description</label>
             <input type="text" name="content[banner_title2]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_title2'])) value="{{ $obj->content['banner_title2'] }}" @endif>
         </div>
@@ -35,10 +35,10 @@
         </div>
     </fieldset>
 
-    <h3>Section</h3>
+    <h3>Space Management Use Case Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
-            <label>Head Content</label>
+            <label>Title</label>
             <input type="text" name="content[banner_title_01]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_title_01'])) value="{{ $obj->content['banner_title_01'] }}" @endif>
         </div>
@@ -54,17 +54,17 @@
         <input type="hidden" name="content[space-management-location]" value="16">
 
         <div class="form-group col-md-12">
-            <label>Head Content</label>
+            <label>Title</label>
             <input type="text" name="content[banner_title_05]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_title_05'])) value="{{ $obj->content['banner_title_05'] }}" @endif>
         </div>
     </fieldset>
 
 
-    <h3>Key Section </h3>
+    <h3>Key Space Management Section </h3>
     <fieldset>
         <div class="form-group col-md-12">
-            <label>Head title</label>
+            <label> Title</label>
             <input type="text" name="content[banner_title1]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_title1'])) value="{{ $obj->content['banner_title1'] }}" @endif>
         </div>
@@ -101,7 +101,7 @@
             </div>
             <div class="card-body row">
                 <div class="form-group col-md-12">
-                    <label>Key description </label>
+                    <label>Description </label>
                     <textarea name="content[section_description_first]" class="form-control editor ">
         @if ($obj->content && isset($obj->content['section_description_first']))
 {{ $obj->content['section_description_first'] }}
@@ -221,13 +221,13 @@
     <h3>Footer Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
-            <label>Footer heading</label>
+            <label>Heading</label>
             <input type="text" name="content[banner_title001]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_title001'])) value="{{ $obj->content['banner_title001'] }}" @endif>
         </div>
         <div class="card-body row">
             <div class="form-group col-md-12">
-                <label>Footer Description </label>
+                <label>Description </label>
                 <textarea name="content[section_description_first1]" class="form-control editor ">
     @if ($obj->content && isset($obj->content['section_description_first1']))
     {{ $obj->content['section_description_first1'] }}
