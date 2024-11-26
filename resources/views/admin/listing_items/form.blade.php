@@ -97,11 +97,17 @@
                                                             </div>
                                                         </div> --}}
 
-
+{{-- 
                                                         @if($listing->title == "Yes")
                                                         <div class="form-group col-md-12">
                                                             <label>Youtube</label>
                                                             <input type="text" name="youtube_link" class="form-control" value="{{$obj->youtube_link}}" id="youtube_link">
+                                                        </div>
+                                                        @endif --}}
+                                                        @if($listing->title == "Yes")
+                                                        <div class="form-group col-md-12">
+                                                            <label>Youtube</label>
+                                                            <input type="text" name="youtube_link" class="form-control" value="{{$obj->youtube_link}}">
                                                         </div>
                                                         @endif
                                                         {{-- <div class="form-group ">
