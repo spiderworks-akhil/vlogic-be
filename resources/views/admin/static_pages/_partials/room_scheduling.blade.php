@@ -30,7 +30,7 @@
         </div>
 
     </fieldset>
-
+{{--
 <h3>Top content</h3>
 <fieldset>
     <div class="form-group col-md-12">
@@ -57,15 +57,15 @@
 
 
 
-</fieldset>
+</fieldset> --}}
 
 <h3> service section</h3>
 <fieldset>
 
-    <div class="form-group col-md-12">
+    {{-- <div class="form-group col-md-12">
         <label>Listing module Heading  </label>
         <input type="text" name="content[banner_title10]" class="form-control" @if($obj->content && isset($obj->content['banner_title10'])) value="{{$obj->content['banner_title10']}}" @endif >
-    </div>
+    </div> --}}
 
     <div class="form-group">
         <a href="{{route('admin.listing-items.index',[13])}}" class="btn btn-primary" target="_blank">Service listing
@@ -101,11 +101,11 @@
 </div> --}}
 
 <div class="form-group col-md-12">
-    <label>Table Heading left  </label>
+    <label>Challenges Heading   </label>
     <input type="text" name="content[banner_title0]" class="form-control" @if($obj->content && isset($obj->content['banner_title0'])) value="{{$obj->content['banner_title0']}}" @endif >
 </div>
 <div class="form-group col-md-12">
-    <label>Table Heading left   </label>
+    <label>Solutions Heading   </label>
     <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
 </div>
 <div class="form-group">
