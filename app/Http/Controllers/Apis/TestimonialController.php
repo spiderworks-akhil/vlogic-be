@@ -30,11 +30,11 @@ class TestimonialController extends Controller
     }
 
 
-    public function detail (Request $request, $id)
+    public function detail (Request $request, $slug)
     {
 
         try {
-            $testimonial_detail = Testimonial::where('id', $id)
+            $testimonial_detail = Testimonial::where('slug', $slug)
                 ->where('status', 1)
                 ->first();
 
