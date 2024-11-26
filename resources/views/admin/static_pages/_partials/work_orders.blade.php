@@ -3,7 +3,7 @@
         <fieldset>
 
         <div class="form-group col-md-12">
-            <label>Banners title</label>
+            <label>Title</label>
             <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
         </div>
 
@@ -15,19 +15,19 @@
         </div>
 
         <div class="form-group col-md-12">
-            <label>Banner Short Description</label>
+            <label>Top Description</label>
             <textarea name="content[banner_shortdescription0]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
         </div>
 
     </fieldset>
 
-<h3> Section </h3>
+<h3>Top Section </h3>
 <fieldset>
 
-    <div class="form-group col-md-12">
+    {{-- <div class="form-group col-md-12">
         <label>title</label>
         <input type="text" name="content[banner_title0]" class="form-control" @if($obj->content && isset($obj->content['banner_title0'])) value="{{$obj->content['banner_title0']}}" @endif >
-    </div>
+    </div> --}}
 
 
     <div class="form-group col-md-12">
@@ -83,7 +83,7 @@
 <fieldset>
     <div class="card-body row">
         <div class="form-group col-md-12">
-            <label>Description</label>
+            <label>Top Content</label>
             <textarea name="content[section_description_first04]" class="form-control editor ">
             @if ($obj->content && isset($obj->content['section_description_first04']))
             {{ $obj->content['section_description_first04'] }}
@@ -124,7 +124,7 @@
 <h3>Solutions Section </h3>
 <fieldset>
     <div class="form-group col-md-12">
-        <label>title</label>
+        <label>Title</label>
         <input type="text" name="content[banner_title02]" class="form-control" @if($obj->content && isset($obj->content['banner_title02'])) value="{{$obj->content['banner_title02']}}" @endif >
     </div>
     <div class="form-group col-md-12">

@@ -2,7 +2,7 @@
     <h3>Banner Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
-            <label>Banners Title</label>
+            <label> Title</label>
             <input type="text" name="content[banner_title]" class="form-control"
                 value="{{ $obj->content['banner_title'] ?? '' }}">
         </div>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group col-md-12">
-            <label>Banner Short Description</label>
+            <label>Top Description</label>
             <textarea name="content[banner_shortdescription]" class="form-control">
                 {{ $obj->content['banner_shortdescription'] ?? '' }}
             </textarea>
@@ -40,7 +40,7 @@
         </div>
 
     </fieldset>
-    <h3>Section 1</h3>
+    <h3>Top Section</h3>
     <fieldset>
         <div class="card-body row">
             <div class="form-group col-md-12">
@@ -69,7 +69,7 @@
     ])
       <div class="card-body row">
         <div class="form-group col-md-12">
-            <label>Bullet point Description</label>
+            <label> Point Description</label>
             <textarea name="content[section_description_first1]" class="form-control editor ">
             @if ($obj->content && isset($obj->content['section_description_first1']))
             {{ $obj->content['section_description_first1'] }}
@@ -85,7 +85,7 @@
 @endphp
 @include('admin.media.set_file', [
     'file' => $media_id_works_first_featured_image1,
-    'title' => 'Banner Image ',
+    'title' => 'Author Image ',
     'popup_type' => 'single_image',
     'type' => 'Image',
     'holder_attr' => 'content[media_id_works_first_featured_image1]',
@@ -143,7 +143,7 @@
 
     <div class="form-group col-md-12">
         <label>Listing module Heading  </label>
-        <input type="text" name="content[banner_title02]" class="form-control" @if($obj->content && isset($obj->content['banner_title10'])) value="{{$obj->content['banner_title10']}}" @endif >
+        <input type="text" name="content[customer_stories]" class="form-control" @if($obj->content && isset($obj->content['customer_stories'])) value="{{$obj->content['customer_stories']}}" @endif >
     </div>
 
     <div class="form-group">

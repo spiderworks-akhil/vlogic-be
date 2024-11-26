@@ -2,7 +2,7 @@
     <h3>Banner Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
-            <label>Banners Title</label>
+            <label> Title</label>
             <input type="text" name="content[banner_title]" class="form-control"
                 value="{{ $obj->content['banner_title'] ?? '' }}">
         </div>
@@ -22,12 +22,12 @@
             ])
         </div>
 
-        <div class="form-group col-md-12">
-            <label>Banner Short Description</label>
+        {{-- <div class="form-group col-md-12">
+            <label>Top Description</label>
             <textarea name="content[banner_shortdescription]" class="form-control">
                 {{ $obj->content['banner_shortdescription'] ?? '' }}
             </textarea>
-        </div>
+        </div> --}}
 
 
 
@@ -38,7 +38,7 @@
 
     </fieldset>
 
-    <h3>Description Section 1</h3>
+    <h3>Top Section </h3>
     <fieldset>
         @php
             $media_id_works_first_featured_image = $obj->content['media_id_works_first_featured_image'] ?? null;
@@ -65,7 +65,7 @@
         @endphp
         @include('admin.media.set_file', [
             'file' => $media_id_works_first_featured_image001,
-            'title' => 'Second Featured Image',
+            'title' => 'Author Image',
             'popup_type' => 'single_image',
             'type' => 'Image',
             'holder_attr' => 'content[media_id_works_first_featured_image001]',
@@ -189,14 +189,14 @@
         </div>
 
         <div class="form-group col-md-12">
-            <label>Prevention Description</label>
+            <label>Prevention Systems Description</label>
             <textarea name="content[section_description_first02]" class="form-control editor">
                 {{ $obj->content['section_description_first02'] ?? '' }}
             </textarea>
         </div>
 
         <div class="form-group col-md-12">
-            <label>Section Description</label>
+            <label>Bottom Content</label>
             <textarea name="content[section_description_first03]" class="form-control editor">
                 {{ $obj->content['section_description_first03'] ?? '' }}
             </textarea>
@@ -206,13 +206,13 @@
     <h3>Safety Section</h3>
     <fieldset>
         <div class="form-group col-md-12">
-            <label>Safety Solution Heading</label>
+            <label>Heading</label>
             <input type="text" name="content[banner_title03]" class="form-control"
                 value="{{ $obj->content['banner_title03'] ?? '' }}">
         </div>
 
         <div class="form-group col-md-12">
-            <label>Safety Section Description</label>
+            <label> Description</label>
             <textarea name="content[section_description_first04]" class="form-control editor">
                 {{ $obj->content['section_description_first04'] ?? '' }}
             </textarea>
@@ -230,11 +230,7 @@
             'id' => 'media_id_works_first_featured_image1',
             'display' => 'horizontal'
         ])
-         <div class="form-group col-md-12">
-            <label>footer </label>
-            <input type="text" name="content[banner_title005]" class="form-control"
-                value="{{ $obj->content['banner_title005'] ?? '' }}">
-        </div>
+
 
         <div class="form-group col-md-12">
             <label>Post Safety Description</label>
@@ -242,18 +238,23 @@
                 {{ $obj->content['post_safety_description'] ?? '' }}
             </textarea>
         </div>
+        <div class="form-group col-md-12">
+            <label> Footer content</label>
+            <input type="text" name="content[banner_title005]" class="form-control"
+                value="{{ $obj->content['banner_title005'] ?? '' }}">
+        </div>
     </fieldset>
 
 <h3>Safety section 2</h3>
 <fieldset>
     <div class="form-group col-md-12">
-        <label>Section Heading</label>
+        <label> Heading</label>
         <input type="text" name="content[banner_title004]" class="form-control"
             value="{{ $obj->content['banner_title004'] ?? '' }}">
     </div>
     <div class="card-body row">
         <div class="form-group col-md-12">
-            <label>Short description </label>
+            <label> Description </label>
             <textarea name="content[section_description_first0]" class="form-control editor ">
 @if ($obj->content && isset($obj->content['section_description_first0']))
 {{ $obj->content['section_description_first0'] }}
@@ -358,12 +359,12 @@ $media_id_works_first_featured_image03 = $obj->content['media_id_works_first_fea
                 value="{{ $obj->content['banner_title04'] ?? '' }}">
         </div>
 
-        <div class="form-group col-md-12">
+        {{-- <div class="form-group col-md-12">
             <label>Final Section Description</label>
             <textarea name="content[final_section_description]" class="form-control editor">
                 {{ $obj->content['final_section_description'] ?? '' }}
             </textarea>
-        </div>
+        </div> --}}
 
         <div class="form-group col-md-12">
             <label>Banner Video Link</label>

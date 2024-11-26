@@ -181,40 +181,6 @@
         </div>
 
  </fieldset>
- <h3>Footer</h3>
- <fieldset>
-     <div class="form-group col-md-12">
-         <label>Heading</label>
-         <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
-     </div>
-     <div class="card-body row">
-         <div class="form-group col-md-12">
-             <label>short</label>
-             <textarea name="content[section_description_first002]" class="form-control editor ">
-             @if ($obj->content && isset($obj->content['section_description_first002']))
-             {{ $obj->content['section_description_first002'] }}
-             @endif
-             </textarea>
-           </div>
-     </div>
-     @php
-
-     $media_id_works_first_featured_image =
-     $obj->content && isset($obj->content['media_id_works_first_featured_image01'])
-         ? $obj->content['media_id_works_first_featured_image01']
-         : null;
- @endphp
- @include('admin.media.set_file', [
- 'file' => $media_id_works_first_featured_image,
- 'title' => 'Banner Image ',
- 'popup_type' => 'single_image',
- 'type' => 'Image',
- 'holder_attr' => 'content[media_id_works_first_featured_image01]',
- 'id' => 'media_id_works_first_featured_image01',
- 'display' => 'horizontal',
- ])
- </fieldset>
-
 
 {{-- <h3>Challenges&Solution</h3> --}}
 <h3>Substantial Benefits</h3>
@@ -222,13 +188,13 @@
 <fieldset>
 
     <div class="form-group col-md-12">
-        <label>Heading left</label>
+        <label>Challenges Title</label>
         <input type="text" name="content[works_heading3]" class="form-control"
             @if ($obj->content && isset($obj->content['works_heading3'])) value="{{ $obj->content['works_heading3'] }}" @endif>
     </div>
 
     <div class="form-group col-md-12">
-        <label>Heading right</label>
+        <label>Solution Title</label>
         <input type="text" name="content[works_heading03]" class="form-control"
             @if ($obj->content && isset($obj->content['works_heading03'])) value="{{ $obj->content['works_heading03'] }}" @endif>
     </div>
@@ -241,5 +207,40 @@
 
        </div>
 </fieldset>
+<h3>Footer</h3>
+<fieldset>
+    {{-- <div class="form-group col-md-12">
+        <label>Heading</label>
+        <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
+    </div> --}}
+    <div class="card-body row">
+        <div class="form-group col-md-12">
+            <label>Content</label>
+            <textarea name="content[section_description_first002]" class="form-control editor ">
+            @if ($obj->content && isset($obj->content['section_description_first002']))
+            {{ $obj->content['section_description_first002'] }}
+            @endif
+            </textarea>
+          </div>
+    </div>
+    @php
+
+    $media_id_works_first_featured_image =
+    $obj->content && isset($obj->content['media_id_works_first_featured_image01'])
+        ? $obj->content['media_id_works_first_featured_image01']
+        : null;
+@endphp
+@include('admin.media.set_file', [
+'file' => $media_id_works_first_featured_image,
+'title' => 'Banner Image ',
+'popup_type' => 'single_image',
+'type' => 'Image',
+'holder_attr' => 'content[media_id_works_first_featured_image01]',
+'id' => 'media_id_works_first_featured_image01',
+'display' => 'horizontal',
+])
+</fieldset>
+
+
 
     </div>
