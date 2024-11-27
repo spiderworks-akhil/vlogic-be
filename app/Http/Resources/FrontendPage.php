@@ -48,12 +48,13 @@ class FrontendPage extends JsonResource
             'testimonials' => $this->testimonialsProcess($this->testimonials)
         ];
     }
-    private function testimonialsProcess($testimonials){
-        if(!empty($testimonials)){
-            return $testimonials->map(function($item){
+    private function testimonialsProcess($testimonials)
+    {
+        if (!empty($testimonials)) {
+            return $testimonials->map(function ($item) {
                 return new Testimonial($item->testimonial);
             });
-        }else{
+        } else {
             return [];
         }
     }
@@ -75,9 +76,9 @@ class FrontendPage extends JsonResource
 
             $spotlight_id = Listing::where('name', 'spotlight')->value('id');
 
-           $spotlight = ListingContent::where('listing_id',$spotlight_id)->orderBy('priority', 'ASC')->get();
+            $spotlight = ListingContent::where('listing_id', $spotlight_id)->orderBy('priority', 'ASC')->get();
 
-           $service = Service::where('parent_id', '=', null)->orWhere('parent_id', '=', '')->orderBy('priority', 'ASC')->get();
+            $service = Service::where('parent_id', '=', null)->orWhere('parent_id', '=', '')->orderBy('priority', 'ASC')->get();
 
 
 
@@ -120,8 +121,8 @@ class FrontendPage extends JsonResource
             if ($listing_content_array->isEmpty()) {
                 return ['error' => 'No content found for the specified listing ID'];
             }
-            $turn_key_id =Listing::where('name','turn-key')->value('id');
-            $turn_key = ListingContent::where('listing_id',$turn_key_id)->orderBy('priority', 'ASC')->get();
+            $turn_key_id = Listing::where('name', 'turn-key')->value('id');
+            $turn_key = ListingContent::where('listing_id', $turn_key_id)->orderBy('priority', 'ASC')->get();
 
             $listing_content = $listing_content_array->toArray();
             return [
@@ -151,59 +152,52 @@ class FrontendPage extends JsonResource
         }
 
 
-            if($slug == 'virtual_plan'){
-                $virtual_plan_id = Listing::where('name', 'virtual-plan-room-requirement')->pluck('id')->first();
+        if ($slug == 'virtual_plan') {
+            $virtual_plan_id = Listing::where('name', 'virtual-plan-room-requirement')->pluck('id')->first();
 
 
-                        $virtual_plan = ListingContent::where('listing_id',$virtual_plan_id)->orderBy('priority', 'ASC')->get();
+            $virtual_plan = ListingContent::where('listing_id', $virtual_plan_id)->orderBy('priority', 'ASC')->get();
 
 
-                        $data = [
-                            'virtual_plan' => new ListingContentCollection($virtual_plan),
+            $data = [
+                'virtual_plan' => new ListingContentCollection($virtual_plan),
 
 
-                        ];
-
-
-
-                        return response()->json($data);
+            ];
 
 
 
-            }
+            return response()->json($data);
+        }
 
 
-                        if($slug == 'contact'){
+        if ($slug == 'contact') {
 
-                                $address_id = Listing::where('name','address')->pluck('id')->first();
-
-                                $address = ListingContent::where('listing_id',$address_id)->get()->all();
-                                dd($address);
-
-                        }
+            $address_id = Listing::where('name', 'address')->pluck('id')->first();
+            $address = ListingContent::where('listing_id', $address_id)->get()->all();
+            $data = [
+                'virtual_plan' => new ListingContentCollection($address),
 
 
-
+            ];
+            return response()->json($data);
+        }
 
         if ($slug == 'real_time') {
             $service_id = Listing::where('name', 'real_time_occupancy-tracking')->pluck('id')->first();
 
             $service = ListingContent::where('listing_id', $service_id)->orderBy('priority', 'ASC')->get();
+            $manager_needs_solution_id = Listing::where('name', 'manager-needs-solution')->pluck('id')->first();
+            $manager_needs_solution = ListingContent::where('listing_id', $manager_needs_solution_id)->orderBy('priority', 'ASC')->get();
 
+            $managerNeedsId = Listing::where('name', 'manager-needs')->value('id');
+            $managerNeeds = ListingContent::where('listing_id', $managerNeedsId)->orderBy('priority', 'ASC')->get();
 
+            $solvingStakeholderId = Listing::where('name', 'solving-stakeholder')->value('id');
+            $solvingStakeholder = ListingContent::where('listing_id', $solvingStakeholderId)->orderBy('priority', 'ASC')->get();
 
-
-                $manager_needs_solution_id = Listing::where('name', 'manager-needs-solution')->pluck('id')->first();
-                $manager_needs_solution = ListingContent::where('listing_id', $manager_needs_solution_id) ->orderBy('priority', 'ASC')->get();
-
-                $managerNeedsId = Listing::where('name', 'manager-needs')->value('id');
-                $managerNeeds = ListingContent::where('listing_id', $managerNeedsId)->orderBy('priority', 'ASC')->get();
-
-                $solvingStakeholderId = Listing::where('name', 'solving-stakeholder')->value('id');
-                $solvingStakeholder = ListingContent::where('listing_id', $solvingStakeholderId)->orderBy('priority', 'ASC')->get();
-
-                $solvingStakeholderSolutionId = Listing::where('name', 'solving-stakeholder-solution')->value('id');
-                $solvingStakeholderSolution = ListingContent::where('listing_id', $solvingStakeholderSolutionId)->orderBy('priority', 'ASC')->get();
+            $solvingStakeholderSolutionId = Listing::where('name', 'solving-stakeholder-solution')->value('id');
+            $solvingStakeholderSolution = ListingContent::where('listing_id', $solvingStakeholderSolutionId)->orderBy('priority', 'ASC')->get();
 
 
             // $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
@@ -253,14 +247,14 @@ class FrontendPage extends JsonResource
             // $service_ids = Listing::where('name', 'service listing')->pluck('id')->first();
 
             // $service = ListingContent::where('listing_id', $service_ids)->orderBy('priority', 'asc')->get();
-            $SpaceManagementCases_id = Listing::where('name','space-management-cases')->pluck('id')->first();
+            $SpaceManagementCases_id = Listing::where('name', 'space-management-cases')->pluck('id')->first();
             $SpaceManagementCases = ListingContent::where('listing_id', $SpaceManagementCases_id)->orderBy('priority', 'ASC')->get();
 
-            $space_management_where_solution_id = Listing::where('name','space-management-where-solution')->pluck('id')->first();
+            $space_management_where_solution_id = Listing::where('name', 'space-management-where-solution')->pluck('id')->first();
             $space_management_where_solution = ListingContent::where('listing_id', $space_management_where_solution_id)->orderBy('priority', 'ASC')->get();
 
 
-            $space_management_where_requirements_id  = Listing::where('name','space-management-where-requirements')->pluck('id')->first();
+            $space_management_where_requirements_id  = Listing::where('name', 'space-management-where-requirements')->pluck('id')->first();
             $space_management_where_requirements = ListingContent::where('listing_id', $space_management_where_requirements_id)->orderBy('priority', 'ASC')->get();
 
 
@@ -294,16 +288,16 @@ class FrontendPage extends JsonResource
             $data = [
                 'story' => $story,
                 // 'service' => new ListingContentCollection($service),
-                'SpaceManagementCases' => new ListingContentCollection( $SpaceManagementCases),
-                'space_management_where_solution'  => new ListingContentCollection( $space_management_where_solution),
-                'space_management_where_requirements'  => new ListingContentCollection( $space_management_where_requirements),
+                'SpaceManagementCases' => new ListingContentCollection($SpaceManagementCases),
+                'space_management_where_solution'  => new ListingContentCollection($space_management_where_solution),
+                'space_management_where_requirements'  => new ListingContentCollection($space_management_where_requirements),
                 'space_management_who_is_using_solution' => new ListingContentCollection($space_management_who_is_using_solution),
                 'space_management_who_is_using_requirements' => new ListingContentCollection($space_management_who_is_using_requirements),
                 'space_management_what_do_have_solution' => new ListingContentCollection($space_management_what_do_have_solution),
                 'space_management_what_do_have' => new ListingContentCollection($space_management_what_do_have),
                 'space_management_location' => new ListingContentCollection($space_management_location),
                 'space_management_where_requirements' => new ListingContentCollection($space_management_where_requirements),
-                        ];
+            ];
             return response()->json($data);
         }
 

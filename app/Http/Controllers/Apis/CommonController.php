@@ -127,7 +127,7 @@ class CommonController extends Controller
 
     public function contact_save(ContactRequest $request)
     {
-       print_r('reached');
+        print_r('reached');
         $request->validated();
         $response = Http::withOptions(['verify' => true])->asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
             'secret' => config('services.recaptcha.secret'),
@@ -138,10 +138,10 @@ class CommonController extends Controller
         $recaptchaResult = $response->json();
 
         if (!($recaptchaResult['success'] ?? false)) {
-            return response()->json(['success' => false, 'message' => 'reCAPTCHA verification failed','res'=>$recaptchaResult,'token'=>$request->recaptcha_token,"secret" =>config('services.recaptcha.secret')], 422);
+            return response()->json(['success' => false, 'message' => 'reCAPTCHA verification failed', 'res' => $recaptchaResult, 'token' => $request->recaptcha_token, "secret" => config('services.recaptcha.secret')], 422);
         }
 
-// If reCAPTCHA is successful, proceed with saving the contact
+        // If reCAPTCHA is successful, proceed with saving the contact
         $contact = new Lead;
         $contact->fill($request->all());
 
