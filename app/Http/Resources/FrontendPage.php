@@ -75,9 +75,9 @@ class FrontendPage extends JsonResource
 
             $spotlight_id = Listing::where('name', 'spotlight')->value('id');
 
-           $spotlight = ListingContent::where('listing_id',$spotlight_id)->get();
+           $spotlight = ListingContent::where('listing_id',$spotlight_id)->orderBy('priority', 'ASC')->get();
 
-           $service = Service::where('parent_id', '=', null)->orWhere('parent_id', '=', '')->get();
+           $service = Service::where('parent_id', '=', null)->orWhere('parent_id', '=', '')->orderBy('priority', 'ASC')->get();
 
 
 
@@ -116,12 +116,12 @@ class FrontendPage extends JsonResource
                 return ['error' => 'Listing ID not found'];
             }
 
-            $listing_content_array = ListingContent::where('listing_id', $listing_id)->get();
+            $listing_content_array = ListingContent::where('listing_id', $listing_id)->orderBy('priority', 'ASC')->get();
             if ($listing_content_array->isEmpty()) {
                 return ['error' => 'No content found for the specified listing ID'];
             }
             $turn_key_id =Listing::where('name','turn-key')->value('id');
-            $turn_key = ListingContent::where('listing_id',$turn_key_id)->get();
+            $turn_key = ListingContent::where('listing_id',$turn_key_id)->orderBy('priority', 'ASC')->get();
 
             $listing_content = $listing_content_array->toArray();
             return [
@@ -134,11 +134,11 @@ class FrontendPage extends JsonResource
             $service_id = Listing::where('name', 'room_scheduling_listing')->pluck('id')->first();
 
 
-            $service = ListingContent::where('listing_id', $service_id)->get()->all();
+            $service = ListingContent::where('listing_id', $service_id)->orderBy('priority', 'ASC')->get();
 
             $listing_id = Listing::whereIn('name', ['Room Challenges', 'room solution'])->pluck('id')->first();
 
-            $challenges = ListingContent::where('listing_id', $listing_id)->get()->all();
+            $challenges = ListingContent::where('listing_id', $listing_id)->orderBy('priority', 'ASC')->get();
             $data = [
                 'challenges' => new ListingResourceCollection($challenges),
                 'service' => new ListingContentCollection($service),
@@ -179,27 +179,22 @@ class FrontendPage extends JsonResource
         if ($slug == 'real_time') {
             $service_id = Listing::where('name', 'real_time_occupancy-tracking')->pluck('id')->first();
 
-            $service = ListingContent::where('listing_id', $service_id)
-            ->orderBy('priority', 'ASC')->get();
+            $service = ListingContent::where('listing_id', $service_id)->orderBy('priority', 'ASC')->get();
 
 
 
 
                 $manager_needs_solution_id = Listing::where('name', 'manager-needs-solution')->pluck('id')->first();
-                $manager_needs_solution = ListingContent::where('listing_id', $manager_needs_solution_id)
-                ->orderBy('priority', 'ASC')->get();
+                $manager_needs_solution = ListingContent::where('listing_id', $manager_needs_solution_id) ->orderBy('priority', 'ASC')->get();
 
                 $managerNeedsId = Listing::where('name', 'manager-needs')->value('id');
-                $managerNeeds = ListingContent::where('listing_id', $managerNeedsId)
-                ->orderBy('priority', 'ASC')->get();
+                $managerNeeds = ListingContent::where('listing_id', $managerNeedsId)->orderBy('priority', 'ASC')->get();
 
                 $solvingStakeholderId = Listing::where('name', 'solving-stakeholder')->value('id');
-                $solvingStakeholder = ListingContent::where('listing_id', $solvingStakeholderId)
-                ->orderBy('priority', 'ASC')->get();
+                $solvingStakeholder = ListingContent::where('listing_id', $solvingStakeholderId)->orderBy('priority', 'ASC')->get();
 
                 $solvingStakeholderSolutionId = Listing::where('name', 'solving-stakeholder-solution')->value('id');
-                $solvingStakeholderSolution = ListingContent::where('listing_id', $solvingStakeholderSolutionId)
-                ->orderBy('priority', 'ASC')->get();
+                $solvingStakeholderSolution = ListingContent::where('listing_id', $solvingStakeholderSolutionId)->orderBy('priority', 'ASC')->get();
 
 
             // $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
@@ -227,9 +222,8 @@ class FrontendPage extends JsonResource
         if ($slug == 'hot_desking') {
             $service_id = Listing::where('name', 'service')->pluck('id')->first();
 
-            $service = ListingContent::where('listing_id', $service_id)
-                ->orderBy('priority', 'asc')
-                ->get();
+            $service = ListingContent::where('listing_id', $service_id)->orderBy('priority', 'ASC')->get();
+
             $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
 
             $challenges = ListingContent::where('listing_id', $listing_id)->orderBy('priority', 'ASC')->get();
