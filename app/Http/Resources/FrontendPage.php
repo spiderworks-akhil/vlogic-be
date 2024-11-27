@@ -173,6 +173,15 @@ class FrontendPage extends JsonResource
             }
 
 
+                        if($slug == 'contact'){
+
+                                $address_id = Listing::where('name','address')->pluck('id')->first();
+
+                                $address = ListingContent::where('listing_id',$address_id)->get()->all();
+                                dd($address);
+
+                        }
+
 
 
 
