@@ -1,18 +1,18 @@
 @extends('admin._layouts.fileupload')
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                          
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -44,12 +44,12 @@
                                         <a class=" btn btn-sm btn-primary" href="{{route($route.'.create')}}" role="button"><i class="fas fa-plus mr-2"></i>Create New</a>
                                     </div>
                                     @endif
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             @include('admin._partials.notifications')
@@ -84,7 +84,7 @@
                                                                 <input type="text" name="slug" class="form-control" value="{{$obj->slug}}" id="slug">
                                                                 <small class="text-muted">The “slug” is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.</small>
                                                             </div>
-                                                            @fieldshow(team-department_id)
+                                                            {{-- @fieldshow(team-department_id)
                                                             <div class="form-group col-md-6">
                                                                 <label class="">Department</label>
                                                                 <select name="department_id" class="w-100 js-location-tags form-control">
@@ -100,13 +100,24 @@
                                                                 <label>Designation</label>
                                                                 <input type="text" name="designation" class="form-control" value="{{$obj->designation}}" id="designation">
                                                             </div>
-                                                            @endfieldshow
-                                                            @fieldshow(team-short_description)
+                                                            @endfieldshow --}}
+                                                            {{-- @fieldshow(team-short_description)
                                                             <div class="form-group col-md-12">
                                                                 <label>Short Description</label>
                                                                 <textarea name="short_description" class="form-control" rows="2" id="short_description">{{$obj->short_description}}</textarea>
                                                             </div>
+                                                            @endfieldshow --}}
+                                                            @fieldshow(team-featured_image_id)
+
+
+
+                                                             
+                                                                <div class="card-body">
+                                                                    @include('admin.media.set_file', ['file'=>$obj->featured_image, 'title'=>'Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'featured_image_id'])
+                                                                </div>
+
                                                             @endfieldshow
+
                                                             @fieldshow(team-content)
                                                             <div class="form-group col-md-12">
                                                                 <label>Content</label>
@@ -114,7 +125,7 @@
                                                             </div>
                                                             @endfieldshow
                                                         </div>
-                                                    </div>                                           
+                                                    </div>
                                                 </div><!--end card-body-->
                                             </div><!--end card-->
                                             @fieldshow(team-seo)
@@ -249,7 +260,7 @@
                                             </div>
                                             @endfieldshow
                                             @fieldshow(team-social_media_links)
-                                            <div class="card">
+                                            {{-- <div class="card">
                                                 <div class="card-header">
                                                     Social Media Links
                                                 </div>
@@ -285,19 +296,10 @@
                                                     </div>
                                                     @endfieldshow
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             @endfieldshow
-                                            @fieldshow(team-featured_image_id)
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    Featured Image
-                                                </div>
-                                                <div class="card-body">
-                                                    @include('admin.media.set_file', ['file'=>$obj->featured_image, 'title'=>'Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'featured_image_id'])
-                                                </div>
-                                            </div>
-                                            @endfieldshow
-                                            @fieldshow(team-banner_image_id)
+
+                                            {{-- @fieldshow(team-banner_image_id)
                                             <div class="card">
                                                 <div class="card-header">
                                                     Banner Image
@@ -306,8 +308,8 @@
                                                     @include('admin.media.set_file', ['file'=>$obj->banner_image, 'title'=>'Banner Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'banner_image_id'])
                                                 </div>
                                             </div>
-                                            @endfieldshow
-                                            @fieldshow(team-og_image_id)
+                                            @endfieldshow --}}
+                                            {{-- @fieldshow(team-og_image_id)
                                             <div class="card">
                                                 <div class="card-header">
                                                     OG Image
@@ -316,10 +318,10 @@
                                                     @include('admin.media.set_file', ['file'=>$obj->og_image, 'title'=>'OG Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'og_image_id'])
                                                 </div>
                                             </div>
-                                            @endfieldshow
-                                        </div>    
+                                            @endfieldshow --}}
+                                        </div>
                                     </div>
-                            </form> 
+                            </form>
                         </div><!--end col-->
                     </div><!--end row-->
 

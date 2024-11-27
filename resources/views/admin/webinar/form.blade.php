@@ -101,6 +101,10 @@
                                                                 <label>Content</label>
                                                                 <textarea name="content" class="form-control editor" id="content">{{$obj->content}}</textarea>
                                                             </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label>Button name</label>
+                                                                <input type="text" name="button_name" class="form-control" value="{{$obj->button_name}}" id="url">
+                                                            </div>
 
                                                         </div>
                                                     </div>

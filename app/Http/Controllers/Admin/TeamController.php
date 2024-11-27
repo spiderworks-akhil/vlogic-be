@@ -59,8 +59,7 @@ class TeamController extends Controller
         $request->validated();
         $data = $request->all();
 
-        if($data['department_id'])
-            $data['department_id'] = $this->saveDepartment($data['department_id']);
+
 
         return $this->_store($data);
     }
@@ -83,8 +82,7 @@ class TeamController extends Controller
         $request->validated();
         $data = $request->all();
         $id = decrypt($data['id']);
-        if($data['department_id'])
-            $data['department_id'] = $this->saveDepartment($data['department_id']);
+      
         return $this->_update($id, $data);
     }
 

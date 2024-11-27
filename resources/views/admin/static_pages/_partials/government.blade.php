@@ -27,8 +27,12 @@
 
         <div class="form-group col-md-12">
             <label>Heading</label>
-            <input type="text" name="content[section_title11]" class="form-control" @if($obj->content && isset($obj->content['section_title11'])) value="{{$obj->content['section_title11']}}" @endif>
-        </div>
+            <input type="text" name="content[section_title11]" class="form-control"
+            @if($obj->content && isset($obj->content['section_title11']))
+                value="{{ htmlspecialchars_decode($obj->content['section_title11']) }}"
+            @endif>        </div>
+
+
         @php
         $media_id_works_first_featured_image = ($obj->content && isset($obj->content['media_id_works_first_featured_image'])) ? $obj->content['media_id_works_first_featured_image'] : null;
         @endphp
@@ -81,7 +85,7 @@
 <h3>Turnkey Services Section</h3>
 <fieldset>
     <div class="form-group col-md-12">
-        <label>LTurnkey Services Heading  </label>
+        <label>Turnkey Services Heading  </label>
         <input type="text" name="content[banner_title11]" class="form-control" @if($obj->content && isset($obj->content['banner_title11'])) value="{{$obj->content['banner_title11']}}" @endif >
     </div>
     <div class="form-group">

@@ -108,6 +108,12 @@
                                                                 <label>Comment</label>
                                                                 <textarea class="form-control" name="comment">{{$obj->comment}}</textarea>
                                                             </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label>Button name</label>
+                                                                <input type="text" name="button_name" class="form-control" value="{{$obj->button_name}}" id="url">
+                                                            </div>
+
+
                                                             @fieldshow(testimonials-has_video_testimonials)
                                                             <div class="form-group col-md-12" id="youtube-div" @if(!$obj->id || $obj->comment_type == 'Text' || $obj->comment_type == 'Video from Computer') style="display:none;" @endif>
                                                                 <label>Youtube Link</label>

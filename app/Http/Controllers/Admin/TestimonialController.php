@@ -10,7 +10,7 @@ use App\Models\Testimonial;
 class TestimonialController extends Controller
 {
     use ResourceTrait;
-    
+
     public function __construct()
     {
         parent::__construct();
@@ -18,7 +18,7 @@ class TestimonialController extends Controller
         $this->model = new Testimonial;
         $this->route .= '.testimonials';
         $this->views .= '.testimonials';
-        
+
         $this->permissions = ['list'=>'testimonial_listing', 'create'=>'testimonial_adding', 'edit'=>'testimonial_editing', 'delete'=>'testimonial_deleting'];
         $this->resourceConstruct();
 
@@ -26,10 +26,10 @@ class TestimonialController extends Controller
 
     protected function getCollection() {
         return $this->model->select('id', 'name', 'status', 'designation', 'priority', 'created_at', 'updated_at');
-        
+
     }
 
-    protected function setDTData($collection) 
+    protected function setDTData($collection)
     {
         return $this->initDTData($collection)
             ->rawColumns(['action_edit', 'action_delete', 'status']);
@@ -40,9 +40,12 @@ class TestimonialController extends Controller
 
     public function store(TestimonialRequest $request)
     {
+
         $request->validated();
         $data = request()->all();
+     
         $data = $this->formatCommentInput($data);
+
         return $this->_store($data);
     }
 

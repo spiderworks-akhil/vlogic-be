@@ -28,9 +28,14 @@
             <label>Contact title</label>
             <input type="text" name="content[banner_title1]" class="form-control" @if($obj->content && isset($obj->content['banner_title1'])) value="{{$obj->content['banner_title1']}}" @endif >
         </div>
+        <div class="form-group">
+            <a href="{{route('admin.listing-items.index',[29])}}" class="btn btn-primary" target="_blank">Addresses
+           </a>
+            <input type="hidden" name="content[address]" value="29">  
 
+           </div>
 
-        <div class="card-body row">
+        {{-- <div class="card-body row">
             <div class="form-group col-md-12">
                 <label>Place detail 1 </label>
                 <textarea name="content[section_description_first]" class="form-control editor ">
@@ -59,7 +64,7 @@
         @endif
         </textarea>
             </div>
-        </div>
+        </div> --}}
 
         <div class="form-group col-md-12">
             <label>Map </label>

@@ -100,7 +100,10 @@
                                                                 <label>Designation</label>
                                                                 <input type="text" name="designation" class="form-control" value="{{$obj->designation}}" id="designation">
                                                             </div>
-
+                                                            <div class="form-group col-md-6">
+                                                                <label>Published on</label>
+                                                                <input type="text" name="published_on" class="form-control" value="{{$obj->published_on}}" id="url">
+                                                            </div>
 
                                                             <div class="form-group col-md-12">
                                                                 <label>Short Description</label>
@@ -116,6 +119,11 @@
                                                             <div class="form-group col-md-6">
                                                                 <label>Url</label>
                                                                 <input type="text" name="url" class="form-control" value="{{$obj->url}}" id="url">
+                                                            </div>
+
+                                                            <div class="form-group col-md-6">
+                                                                <label>Button name</label>
+                                                                <input type="text" name="button_name" class="form-control" value="{{$obj->button_name}}" id="url">
                                                             </div>
 
                                                         </div>
