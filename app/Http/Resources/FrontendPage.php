@@ -176,7 +176,7 @@ class FrontendPage extends JsonResource
             $address_id = Listing::where('name', 'address')->pluck('id')->first();
             $address = ListingContent::where('listing_id', $address_id)->get()->all();
             $data = [
-                'virtual_plan' => new ListingContentCollection($address),
+                'address' => new ListingContentCollection($address),
 
 
             ];
