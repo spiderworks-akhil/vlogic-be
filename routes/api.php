@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\Apis\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,10 @@ Route::post('verify-otp', [AuthController::class, 'verify_otp'])->name('app.veri
 
 
 //Blog
+
+
+
+
 
 Route::get('blogs', [BlogController::class, 'index'])->name('api.blogs.index');
 Route::get('blogs/categories', [BlogController::class, 'categories'])->name('api.blogs.categories');
@@ -140,8 +145,8 @@ Route::get('/general-settings', [CommonController::class, 'GeneralSettings'])->n
 Route::get('list-urls/{page}', [CommonController::class, 'list_urls'])->name('api.list-urls');
 
 //Contact
-
 Route::post('contact/save', [CommonController::class, 'contact_save'])->name('contacts.save');
+
 
 //Privacy
 Route::get('privacy/policy',[CommonController::class,'privacy'])->name('privacy_policy');

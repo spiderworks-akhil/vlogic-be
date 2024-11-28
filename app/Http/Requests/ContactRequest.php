@@ -41,7 +41,7 @@ class ContactRequest extends FormRequest
             'phone_number.required' => 'Please enter your phone number',
             'organization.reruired' =>'Please enter your organization name',
             'country.required' => 'please enter your country name',
-            
+
         ];
     }
 }
