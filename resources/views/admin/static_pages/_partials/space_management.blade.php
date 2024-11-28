@@ -33,7 +33,7 @@
         @endphp
         @include('admin.media.set_file', [
             'file' => $bannerImage,
-            'title' => 'Banner Image',
+            'title' => 'Banner Image - ( width-100px x height-100px )',
             'popup_type' => 'single_image',
             'type' => 'Image',
             'holder_attr' => 'content[media_id_works_first_featured_image]',
