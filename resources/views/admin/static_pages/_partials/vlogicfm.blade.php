@@ -45,4 +45,57 @@
         ])
 
     </fieldset>
+    <h3>Top Section</h3>
+    <fieldset>
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Top Description</label>
+                <textarea name="content[section_description_first]" class="form-control editor ">
+                @if ($obj->content && isset($obj->content['section_description_first']))
+                {{ $obj->content['section_description_first'] }}
+                @endif
+                </textarea>
+              </div>
+        </div>
+        <div class="form-group">
+            <a href="{{route('admin.listing-items.index',[30])}}" class="btn btn-primary" target="_blank"> Asset Linking listing
+           </a>
+            <input type="hidden" name="content[asset_linking]" value="30">  
+
+           </div>
+
+
+
+
+    </fieldset>
+    <h3>Client</h3>
+    <fieldset>
+        <div class="form-group col-md-12">
+            <label>Client Heading </label>
+            <input type="text" name="content[client_heading]" class="form-control"
+                @if ($obj->content && isset($obj->content['client_heading'])) value="{{ $obj->content['client_heading'] }}" @endif>
+        </div>
+        <div class="form-group col-md-12">
+            <label>Client Subtitle </label>
+            <input type="text" name="content[client_subtitle]" class="form-control"
+                @if ($obj->content && isset($obj->content['client_subtitle'])) value="{{ $obj->content['client_subtitle'] }}" @endif>
+        </div>
+    </fieldset>
+
+
+    <h3>Mid Content </h3>
+    <fieldset>
+        <div class="form-group col-md-12">
+            <label>Midle content Heading</label>
+            <input type="text" name="content[middle_heading]" class="form-control"
+                @if ($obj->content && isset($obj->content['middle_heading'])) value="{{ $obj->content['middle_heading'] }}" @endif>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label>Midle content Subtitle</label>
+            <input type="text" name="content[middle_subtitle]" class="form-control"
+                @if ($obj->content && isset($obj->content['middle_subtitle'])) value="{{ $obj->content['middle_subtitle'] }}" @endif>
+        </div>
+    </fieldset>
+
 </div>

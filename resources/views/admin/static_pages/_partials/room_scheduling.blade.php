@@ -1,4 +1,4 @@
-<div id="form-vertical" class="form-horizontal form-wizard-wrapper">
+section what<div id="form-vertical" class="form-horizontal form-wizard-wrapper">
     <h3>Banner Section</h3>
         <fieldset>
 
