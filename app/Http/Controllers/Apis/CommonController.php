@@ -125,7 +125,7 @@ class CommonController extends Controller
         return new CommonPageResource($page);
     }
 
-    public function contact_save(ContactRequest $request)
+    public function contact_save(ContactRequest $request, $solutions)
     {
 
         $request->validated();
@@ -144,6 +144,7 @@ class CommonController extends Controller
         // If reCAPTCHA is successful, proceed with saving the contact
         $contact = new Lead;
         $data = $request->all();
+        $data['solutions'] == $solutions;
         $data['solutions'] = json_encode($data['solutions']);
         $contact->fill($data);
 

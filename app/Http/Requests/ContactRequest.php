@@ -29,6 +29,7 @@ class ContactRequest extends FormRequest
             'organization' => ['required'],
             'country' => ['required'],
             'message' => ['nullable', new Spam()],
+            'solutions' => ['nullable']
         ];
     }
 
