@@ -18,9 +18,10 @@ class Webinar extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'title' => $this->title,
-            'designation' => $this->designation,
+            // 'designation' => $this->designation,
             'content' => $this->content,
             'featured_image' => new Media($this->featured_image),
+            'button_name' => $this->button_name,
         ];
     }
 }

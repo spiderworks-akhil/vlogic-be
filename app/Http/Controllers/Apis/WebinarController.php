@@ -35,6 +35,7 @@ public function webinar(Request $request)
             ->orderBy('published_on','DESC')
             ->get();
 
+            
 
             $futureWebinars = Webinar::with(['featured_image', 'media'])
             ->where('status', 1)->where('published_on','>=',$currentDate)
