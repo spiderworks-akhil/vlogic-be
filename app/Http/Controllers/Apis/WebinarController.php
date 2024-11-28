@@ -28,23 +28,19 @@ public function webinar(Request $request)
             ->where('status', 1)
             ->get();
 
-        $currentDate = Carbon::now();
-        $currentWebinars = [];
-        $futureWebinars = [];
+            $currentDate = Carbon::now();
 
-        foreach ($webinarQuery as $webinar) {
-            if ($currentDate->isSameDay($webinar->published_on)) {
-
-                $currentWebinars[] = $webinar;
-            } else if ($currentDate->lessThan($webinar->published_on)) {
-
-                $futureWebinars[] = $webinar;
-            }
-        }
+            $currentWebinars = Webinar::with(['featured_image', 'media'])
+            ->where('status', 1)->where('published_on','<',$currentDate)
+            ->orderBy('published_on','DESC')
+            ->get();
 
 
-        $currentWebinars = collect($currentWebinars)->sortBy('published_on');
-        $futureWebinars = collect($futureWebinars)->sortBy('published_on')  ;
+            $futureWebinars = Webinar::with(['featured_image', 'media'])
+            ->where('status', 1)->where('published_on','>=',$currentDate)
+            ->orderBy('published_on','DESC')
+            ->get();
+
 
         return response()->json([
             'current_webinars' => new WebinarResourceCollection($currentWebinars, $banner),

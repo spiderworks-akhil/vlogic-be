@@ -102,7 +102,7 @@
                                                             </div>
                                                             <div class="form-group col-md-6">
                                                                 <label>Published on</label>
-                                                                <input type="text" name="published_on" class="form-control" value="{{$obj->published_on}}" id="url">
+                                                                <input type="date" name="published_on" class="form-control" value="{{$obj->published_on}}" id="url">
                                                             </div>
 
                                                             <div class="form-group col-md-12">

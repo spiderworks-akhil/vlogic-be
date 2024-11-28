@@ -1,6 +1,6 @@
 <div class="settings-item w-100 confirm-wrap">
   <div class="row m-0">
-    <form id="inputForm" data-validate=true class="w-100" method="POST" @if($obj->id) action="{{ route($route.'.update') }}" @else action="{{ route($route.'.store') }}" @endif enctype="multipart/form-data">
+     <form id="inputForm" data-validate=true class="w-100" method="POST" @if($obj->id) action="{{ route($route.'.update') }}" @else action="{{ route($route.'.store') }}" @endif enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="id" @if($obj->id) value="{{encrypt($obj->id)}}" @endif />
         <div class="form-group">
@@ -32,7 +32,7 @@
               <option value="No" @if($obj->content == "No") selected="selected" @endif >No</option>
               <option value="Yes" @if($obj->content == "Yes") selected="selected" @endif>Yes</option>
             </select>
-        </div>
+         </div>
 
 
           <div class="form-group col-md-6">
@@ -41,7 +41,7 @@
               <option value="No" @if($obj->custom_url == "No") selected="selected" @endif >No</option>
               <option value="Yes" @if($obj->custom_url == "Yes") selected="selected" @endif>Yes</option>
             </select>
-        </div>
+         </div>
 
 
 
@@ -60,7 +60,7 @@
               <option value="No" @if($obj->detailed_description == "No") selected="selected" @endif >No</option>
               <option value="Yes" @if($obj->detailed_description == "Yes") selected="selected" @endif>Yes</option>
             </select>
-        </div>
+         </div>
           <div class="form-group col-md-6">
               <label for="name">Icon</label>
               <select class="form-control" name="icon">
@@ -74,7 +74,7 @@
               <option value="No" @if($obj->solution == "No") selected="selected" @endif >No</option>
               <option value="Yes" @if($obj->solution == "Yes") selected="selected" @endif>Yes</option>
             </select>
-        </div>
+         </div>
 
           <div class="form-group col-md-6">
               <label for="name">Image</label>
@@ -89,17 +89,10 @@
               <option value="No" @if($obj->challenges == "No") selected="selected" @endif >No</option>
               <option value="Yes" @if($obj->challenges == "Yes") selected="selected" @endif>Yes</option>
             </select>
-        </div>
+         </div>
 
-
-
-
-
-
-
-
-        </div>
-        <button type="button" id="webadmin-ajax-form-submit-btn" class="btn btn-primary float-right">Submit</button>
-    </form>
+         </div>
+         <button type="button" id="webadmin-ajax-form-submit-btn" class="btn btn-primary float-right">Submit</button>
+     </form>
   </div>
 </div>
