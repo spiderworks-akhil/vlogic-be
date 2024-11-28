@@ -96,6 +96,87 @@
             <input type="text" name="content[middle_subtitle]" class="form-control"
                 @if ($obj->content && isset($obj->content['middle_subtitle'])) value="{{ $obj->content['middle_subtitle'] }}" @endif>
         </div>
+        @php
+        $media_id_works_first_featured_image1 =
+            $obj->content && isset($obj->content['media_id_works_first_featured_image1'])
+                ? $obj->content['media_id_works_first_featured_image1']
+                : null;
+    @endphp
+    @include('admin.media.set_file', [
+        'file' => $media_id_works_first_featured_image1,
+        'title' => 'featured Image ',
+        'popup_type' => 'single_image',
+        'type' => 'Image',
+        'holder_attr' => 'content[media_id_works_first_featured_image1]',
+        'id' => 'media_id_works_first_featured_image1',
+        'display' => 'horizontal',
+    ])
+
+<div class="form-group col-md-12">
+    <label>Button Name</label>
+    <input type="text" name="content[button_name1]" class="form-control"
+        @if ($obj->content && isset($obj->content['button_name1'])) value="{{ $obj->content['button_name1'] }}" @endif>
+</div>
+
+<div class="form-group col-md-12">
+    <label>Button url</label>
+    <input type="text" name="content[button_url1]" class="form-control"
+        @if ($obj->content && isset($obj->content['button_url1'])) value="{{ $obj->content['button_url1'] }}" @endif>
+</div>
+
+
+    </fieldset>
+    <h3>Contact Section</h3>
+    <fieldset>
+        @php
+        $bannerImage = $obj->content['media_id_works_first_featured_image2'] ?? null;
+    @endphp
+    @include('admin.media.set_file', [
+        'file' => $bannerImage,
+        'title' => 'Contact  Image - ( width-100px x height-100px )',
+        'popup_type' => 'single_image',
+        'type' => 'Image',
+        'holder_attr' => 'content[media_id_works_first_featured_image2]',
+        'id' => 'media_id_works_first_featured_image2',
+        'display' => 'horizontal',
+    ])
+         <div class="form-group col-md-12">
+            <label>Title</label>
+            <input type="text" name="content[top_title]" class="form-control"
+                @if ($obj->content && isset($obj->content['top_title'])) value="{{ $obj->content['top_title'] }}" @endif>
+        </div>
+        <div class="form-group col-md-12">
+            <label>Sub Title</label>
+            <input type="text" name="content[sub_title]" class="form-control"
+                @if ($obj->content && isset($obj->content['sub_title'])) value="{{ $obj->content['sub_title'] }}" @endif>
+        </div>
+    </fieldset>
+    <h3>Footer</h3>
+    <fieldset>
+        <div class="form-group col-md-12">
+            <label>Title</label>
+            <input type="text" name="content[footer_title]" class="form-control"
+                @if ($obj->content && isset($obj->content['footer_title'])) value="{{ $obj->content['footer_title'] }}" @endif>
+        </div>
+        <div class="form-group col-md-12">
+            <label>Sub Title</label>
+            <input type="text" name="content[footer_subtitle]" class="form-control"
+                @if ($obj->content && isset($obj->content['footer_subtitle'])) value="{{ $obj->content['footer_subtitle'] }}" @endif>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label>Button Name</label>
+            <input type="text" name="content[button_name2]" class="form-control"
+                @if ($obj->content && isset($obj->content['button_name2'])) value="{{ $obj->content['button_name2'] }}" @endif>
+        </div>
+
+        <div class="form-group col-md-12">
+            <label>Button url</label>
+            <input type="text" name="content[button_url2]" class="form-control"
+                @if ($obj->content && isset($obj->content['button_url2'])) value="{{ $obj->content['button_url2'] }}" @endif>
+        </div>
+
+
     </fieldset>
 
 </div>
