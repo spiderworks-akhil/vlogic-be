@@ -170,6 +170,20 @@ class FrontendPage extends JsonResource
             return response()->json($data);
         }
 
+        if($slug == 'asset_linking'){
+
+
+                $asset_linking_id = Listing::where('name','asset_linking')->pluck('id')->first();
+                $asset_linking = ListingContent::where('listing_id', $asset_linking_id)->orderBy('priority', 'ASC')->get();
+                $data = [
+                    'Asset' => new ListingContentCollection($asset_linking),
+
+
+                ];
+                return response()->json($data);
+
+        }
+
 
         if ($slug == 'contact') {
 
