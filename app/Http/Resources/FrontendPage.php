@@ -170,7 +170,7 @@ class FrontendPage extends JsonResource
             return response()->json($data);
         }
 
-        if($slug == 'asset_linking'){
+        if($slug == 'vlogicfm'){
 
 
                 $asset_linking_id = Listing::where('name','asset_linking')->pluck('id')->first();
