@@ -20,20 +20,17 @@
         </div>
 
 
-        <div class="card-body row">
-            <div class="form-group col-md-12">
-                <label>Top Description </label>
-                <textarea name="content[banner_title2]" class="form-control editor ">
-    @if ($obj->content && isset($obj->content['banner_title2']))
-{{ $obj->content['banner_title2'] }}
-@endif
-    </textarea>
-            </div>
+        <div class="form-group col-md-12">
+            <label>Button Name</label>
+            <input type="text" name="content[button_name]" class="form-control"
+                @if ($obj->content && isset($obj->content['button_name'])) value="{{ $obj->content['button_name'] }}" @endif>
         </div>
 
-
-
-
+        <div class="form-group col-md-12">
+            <label>Button url</label>
+            <input type="text" name="content[button_url]" class="form-control"
+                @if ($obj->content && isset($obj->content['button_url'])) value="{{ $obj->content['button_url'] }}" @endif>
+        </div>
         @php
             $bannerImage = $obj->content['media_id_works_first_featured_image'] ?? null;
         @endphp
@@ -46,6 +43,6 @@
             'id' => 'media_id_works_first_featured_image',
             'display' => 'horizontal',
         ])
-      
+
     </fieldset>
 </div>

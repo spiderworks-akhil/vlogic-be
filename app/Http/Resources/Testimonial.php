@@ -21,6 +21,7 @@ class Testimonial extends JsonResource
             'designation' => $this->designation,
             'comment' => $this->comment,
             'featured_image' => new Media($this->featured_image),
+            'button_name' => $this->button_name,
         ];
     }
 }
