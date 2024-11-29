@@ -15,7 +15,7 @@ class TeamController extends Controller
             $data = $request->all();
             $limit = !empty($data['limit'])?(int)$data['limit']:10;
             $teams = Team::where('status', 1);
-            $teams = $teams->orderBy('priority', 'DESC')->paginate($limit);
+            $teams = $teams->orderBy('priority', 'ASC')->paginate($limit);
             return new TeamCollection($teams);
         }
         catch(\Exception $e){
