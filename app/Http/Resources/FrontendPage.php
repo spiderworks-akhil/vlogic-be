@@ -13,6 +13,7 @@ use App\Http\Resources\ServiceCollection;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Resources\ListingContent as ResourcesListingContent;
 use App\Http\Resources\Partner as ResourcesPartner;
+use App\Models\Faq;
 use App\Models\FrontendPage as ModelsFrontendPage;
 use App\Models\Partner;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -170,19 +171,22 @@ class FrontendPage extends JsonResource
             return response()->json($data);
         }
 
-        if($slug == 'vlogicfm'){
+        if ($slug == 'vlogicfm') {
 
 
-                $asset_linking_id = Listing::where('name','asset_linking')->pluck('id')->first();
-                $asset_linking = ListingContent::where('listing_id', $asset_linking_id)->orderBy('priority', 'ASC')->get();
-             
-                $data = [
-                    'asset' => new ListingContentCollection($asset_linking),
+            $asset_linking_id = Listing::where('name', 'asset_linking')->pluck('id')->first();
 
+            $asset_linking = ListingContent::where('listing_id', $asset_linking_id)->orderBy('priority', 'ASC')->get();
 
-                ];
-                return response()->json($data);
+            $faq_id = FrontendPage::where('slug', 'vlogicfm')->pluck('id')->first();
 
+            $faq = Faq::where('linkable_id', $faq_id)->get();
+            $data = [
+                'asset' => new ListingContentCollection($asset_linking),
+                'faq' => new FaqCollection($faq)
+
+            ];
+            return response()->json($data);
         }
 
 
