@@ -58,7 +58,7 @@ class FrontendPage extends JsonResource
             return [];
         }
     }
-    private function related_section($slug,$testimonials)
+    private function related_section($slug)
     {
 
 
@@ -175,7 +175,7 @@ class FrontendPage extends JsonResource
 
                 $asset_linking_id = Listing::where('name','asset_linking')->pluck('id')->first();
                 $asset_linking = ListingContent::where('listing_id', $asset_linking_id)->orderBy('priority', 'ASC')->get();
-                $this->testimonialsProcess($testimonials);
+             
                 $data = [
                     'asset' => new ListingContentCollection($asset_linking),
 
