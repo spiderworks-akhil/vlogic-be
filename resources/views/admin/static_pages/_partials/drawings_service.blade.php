@@ -123,7 +123,7 @@
             <label> Software  Heading</label>
             <input type="text" name="content[banner_title002]" class="form-control"
                 value="{{ $obj->content['banner_title002'] ?? '' }}">
-        </div
+        </div>
         <div class="card-body row">
             <div class="form-group col-md-12">
                 <label>Software Description</label>
