@@ -82,12 +82,6 @@ class FrontendPage extends JsonResource
             $service = Service::where('parent_id', '=', null)->orWhere('parent_id', '=', '')->orderBy('priority', 'ASC')->get();
 
 
-
-
-
-
-
-
             return response()->json([
                 'spotlight' => $spotlight,
 
@@ -166,13 +160,10 @@ class FrontendPage extends JsonResource
 
             ];
 
-
-
             return response()->json($data);
         }
 
         if ($slug == 'vlogicfm') {
-
 
             $asset_linking_id = Listing::where('name', 'asset_linking')->pluck('id')->first();
 
@@ -204,8 +195,8 @@ class FrontendPage extends JsonResource
 
         if ($slug == 'real_time') {
             $service_id = Listing::where('name', 'real_time_occupancy-tracking')->pluck('id')->first();
-
             $service = ListingContent::where('listing_id', $service_id)->orderBy('priority', 'ASC')->get();
+
             $manager_needs_solution_id = Listing::where('name', 'manager-needs-solution')->pluck('id')->first();
             $manager_needs_solution = ListingContent::where('listing_id', $manager_needs_solution_id)->orderBy('priority', 'ASC')->get();
 
@@ -218,13 +209,8 @@ class FrontendPage extends JsonResource
             $solvingStakeholderSolutionId = Listing::where('name', 'solving-stakeholder-solution')->value('id');
             $solvingStakeholderSolution = ListingContent::where('listing_id', $solvingStakeholderSolutionId)->orderBy('priority', 'ASC')->get();
 
-
             // $listing_id = Listing::where('name', 'challenges_solution')->pluck('id')->first();
-
             // $challenges = ListingContent::where('listing_id', $listing_id)->get()->all();
-
-
-
             $data = [
                 // 'challenges' => $challenges,
                 'service' => new ListingContentCollection($service),

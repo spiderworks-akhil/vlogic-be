@@ -3,10 +3,20 @@
     <!-- Head Section -->
     <h3>Banner Section</h3>
     <fieldset>
-        <div class="form-group col-md-12">
+        {{-- <div class="form-group col-md-12">
             <label>Banner Top Title</label>
             <input type="text" name="content[banner_top_title]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_top_title'])) value="{{ $obj->content['banner_top_title'] }}" @endif>
+        </div> --}}
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Banner Top Title</label>
+                <textarea name="content[banner_top_title]" class="form-control editor ">
+                @if ($obj->content && isset($obj->content['banner_top_title']))
+                {{ $obj->content['banner_top_title'] }}
+                @endif
+                </textarea>
+              </div>
         </div>
         <div class="form-group col-md-12">
             <label>Banner title</label>
