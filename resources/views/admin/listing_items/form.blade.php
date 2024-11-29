@@ -127,8 +127,9 @@
                                                                 @if($listing->short_description == "Yes")
                                                                 <div class="form-group col-md-12">
                                                                     <label>Short Description</label>
-                                                                    <textarea class="form-control" name="short_description">{{$obj->short_description}}</textarea>
+                                                                    <textarea class="form-control editor" name="short_description">{{$obj->short_description}}</textarea>
                                                                 </div>
+
                                                                 @endif
 
                                                                 @if($listing->custom_url == "Yes")
