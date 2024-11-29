@@ -101,11 +101,29 @@
                 @if ($obj->content && isset($obj->content['middle_heading'])) value="{{ $obj->content['middle_heading'] }}" @endif>
         </div>
 
+
+
+
+
+
+
+
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Midle content Subtitle</label>
+                <textarea name="content[middle_subtitle]" class="form-control editor ">
+                @if ($obj->content && isset($obj->content['middle_subtitle']))
+                {{ $obj->content['middle_subtitle'] }}
+                @endif
+                </textarea>
+              </div>
+        </div>
+{{--
         <div class="form-group col-md-12">
             <label>Midle content Subtitle</label>
             <input type="text" name="content[middle_subtitle]" class="form-control"
                 @if ($obj->content && isset($obj->content['middle_subtitle'])) value="{{ $obj->content['middle_subtitle'] }}" @endif>
-        </div>
+        </div> --}}
         @php
         $media_id_works_first_featured_image1 =
             $obj->content && isset($obj->content['media_id_works_first_featured_image1'])
