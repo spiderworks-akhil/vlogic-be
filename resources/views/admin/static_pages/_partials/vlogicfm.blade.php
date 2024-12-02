@@ -23,6 +23,20 @@
             <input type="text" name="content[banner_title]" class="form-control"
                 @if ($obj->content && isset($obj->content['banner_title'])) value="{{ $obj->content['banner_title'] }}" @endif>
         </div>
+        <x-text-area name="content[banner_title]" value="{{ old('content.banner_title', $obj->content['banner_title'] ?? '') }}" class="custom-class" />
+
+
+
+        <div class="card-body row">
+            <div class="form-group col-md-12">
+                <label>Banner title</label>
+                <textarea name="content[banner_title]" class="form-control editor ">
+                @if ($obj->content && isset($obj->content['banner_title']))
+                {{ $obj->content['banner_title'] }}
+                @endif
+                </textarea>
+              </div>
+        </div>
         <div class="form-group col-md-12">
             <label>Banner Short Description</label>
             <input type="text" name="content[banner_description]" class="form-control"
@@ -32,9 +46,12 @@
 
         <div class="form-group col-md-12">
             <label>Button Name</label>
-            <input type="text" name="content[button_name]" class="form-control"
-                @if ($obj->content && isset($obj->content['button_name'])) value="{{ $obj->content['button_name'] }}" @endif>
-        </div>
+            <input  name="content[button_name]" class="form-control editor"
+            value={{ optional($obj->content)['button_name']  }}>
+                </div>
+
+
+
 
         <div class="form-group col-md-12">
             <label>Button url</label>
@@ -97,16 +114,23 @@
     <fieldset>
         <div class="form-group col-md-12">
             <label>Midle content Heading</label>
-            <input type="text" name="content[middle_heading]" class="form-control"
+            <input type="text" name="content[middle_heading]" class="form-control "
                 @if ($obj->content && isset($obj->content['middle_heading'])) value="{{ $obj->content['middle_heading'] }}" @endif>
         </div>
 
+        <div class="form-group col-md-12">
+            <label>Midle content Heading</label>
+            <textarea type="text" name="content[middle_heading]" class="form-control editor">
+                @if ($obj->content && isset($obj->content['middle_heading'])) {{ $obj->content['middle_heading'] }}" @endif    </textarea>
+        </div>
 
 
-
-
-
-
+{{--
+        <div class="form-group col-md-12">
+            <label>Midle content Heading</label>
+            <input type="text" name="content[middle_heading]" class="form-control editor"
+                @if ($obj->content && isset($obj->content['middle_heading'])) value="{{ $obj->content['middle_heading'] }}" @endif>
+        </div> --}}
 
         <div class="card-body row">
             <div class="form-group col-md-12">
@@ -142,7 +166,7 @@
 
 <div class="form-group col-md-12">
     <label>Button Name</label>
-    <input type="text" name="content[button_name1]" class="form-control"
+    <input type="text" name="content[button_name1]" class="form-control editor"
         @if ($obj->content && isset($obj->content['button_name1'])) value="{{ $obj->content['button_name1'] }}" @endif>
 </div>
 
@@ -200,7 +224,7 @@
 
         <div class="form-group col-md-12">
             <label>Button url</label>
-            <input type="text" name="content[button_url2]" class="form-control"
+            <input type="text" name="content[button_url2]" class="form-control  editor"
                 @if ($obj->content && isset($obj->content['button_url2'])) value="{{ $obj->content['button_url2'] }}" @endif>
         </div>
 
@@ -208,3 +232,4 @@
     </fieldset>
 
 </div>
+

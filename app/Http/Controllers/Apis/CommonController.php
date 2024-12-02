@@ -105,7 +105,7 @@ class CommonController extends Controller
     {
 
         $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
-
+        dd($data);
         if (is_null($data)) {
             return response()->json(['error' => 'Page not Found!'], 404);
         }
@@ -144,7 +144,7 @@ class CommonController extends Controller
         // If reCAPTCHA is successful, proceed with saving the contact
         $contact = new Lead;
         $data = $request->all();
-    
+
         // $data['solution'] = json_encode($data['solution']);
 
         $contact->fill($data);

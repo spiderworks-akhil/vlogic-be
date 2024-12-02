@@ -1,6 +1,6 @@
 $(function(){
 	display_select2();
-    
+
     if($('#fileupload').length)
         file_upload();
 
@@ -57,7 +57,7 @@ $(function(){
                                             dt();
                                       }
                                     },
-                                   
+
                                 });
                             });
                             return false;
@@ -92,7 +92,7 @@ $(function(){
         e.preventDefault();
         var title = $(this).attr('title');
         if($(this).attr('data-url'))
-            var targetUrl = $(this).data('url'); 
+            var targetUrl = $(this).data('url');
         else
             var targetUrl = $(this).attr('href');
         var popup_size = 'medium';
@@ -119,7 +119,7 @@ $(function(){
                             {
                                 $("img.checkable").imgCheckbox({
                                     onclick: function(el){
-                                        select_checked_image(el);  
+                                        select_checked_image(el);
                                     }
                                 });
 
@@ -185,9 +185,9 @@ $(function(){
                                 $( "#sortable" ).sortable();
                                 $( "#sortable" ).disableSelection();
                             }
-                        
+
                         }, 500 );
-                            
+
                     });
                 },
                 columnClass: popup_size,
@@ -335,7 +335,7 @@ $(function(){
                   targ.load(loadurl, function(){
                     $("img.checkable").imgCheckbox({
                         onclick: function(el){
-                            select_checked_image(el);  
+                            select_checked_image(el);
                         }
                     });
                   });
@@ -354,7 +354,7 @@ $(function(){
                   $('#mediaList').html(data);
                   $("img.checkable").imgCheckbox({
                         onclick: function(el){
-                            select_checked_image(el);  
+                            select_checked_image(el);
                         }
                     });
                }
@@ -405,7 +405,7 @@ $(function(){
                         $.alert('Opps! something wrong happend, please try again.')
                 })
             }
-            
+
         });
 
         $(document).on('click', '#set-gallery-btn', function(){
@@ -452,7 +452,7 @@ $(function(){
                 }
             });
 
-            
+
         });
 
         $('.numeric').ForceNumericOnly();
@@ -641,14 +641,14 @@ function miniweb_alert(title, message, action, redirect_url)
                 text: 'OK',
                 btnClass: 'btn-success',
                 action: function(){
-                    if (typeof action !== "undefined" || action != null) { 
+                    if (typeof action !== "undefined" || action != null) {
                         if(action == 'redraw')
                             dt();
                         else if(action == 'redirect'){
                             if (typeof redirect_url !== "undefined" || redirect_url != null) {
                                 window.location.href= redirect_url;
                             }
-                        } 
+                        }
                     }
                 }
             }
@@ -833,7 +833,7 @@ function file_upload()
                     }
                     $("img.new_file").imgCheckbox({
                         onclick: function(el){
-                            select_checked_image(el);  
+                            select_checked_image(el);
                         }
                     });
 
@@ -864,7 +864,7 @@ jQuery.fn.ForceNumericOnly = function()
                 });
             });
         };
-        
+
         jQuery.fn.ForcePriceOnly = function()
         {
             return this.each(function(){
@@ -881,7 +881,7 @@ jQuery.fn.ForceNumericOnly = function()
                 })
             })
         }
-        
+
         jQuery.fn.ForceSlugOnly = function()
         {
             return this.each(function(){
@@ -903,6 +903,9 @@ jQuery.fn.ForceNumericOnly = function()
             var output = document.getElementById('video-cover-image');
             output.src = URL.createObjectURL(event.target.files[0]);
             output.onload = function() {
-            URL.revokeObjectURL(output.src) // free memory
+            URL.revokeObjectURL(output.src)
             }
         };
+
+
+
