@@ -88,7 +88,7 @@
                                                             <div class="form-group col-md-6">
                                                                 <label>Published On</label>
                                                                 <input type="date" name="published_on" class="form-control" value="{{$obj->published_on}}" id="published_on">
-                                                           
+
                                                             </div>
 
 
@@ -106,6 +106,11 @@
                                                                 <label>Button name</label>
                                                                 <input type="text" name="button_name" class="form-control" value="{{$obj->button_name}}" id="url">
                                                             </div>
+                                                            <div class="form-group col-md-6">
+                                                                <label>Button Url</label>
+                                                                <input type="text" name="button_url" class="form-control" value="{{$obj->button_url}}" id="url">
+                                                            </div>
+
 
                                                         </div>
                                                     </div>
