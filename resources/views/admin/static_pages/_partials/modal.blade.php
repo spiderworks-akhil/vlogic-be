@@ -34,7 +34,7 @@ $bannerImage = $obj->content['media_id_works_first_featured_image1'] ?? null;
 @endphp
 @include('admin.media.set_file', [
     'file' => $bannerImage,
-    'title' => 'Pop Image',
+    'title' => 'Pop Image - (width-800px x height-800px)',
     'popup_type' => 'single_image',
     'type' => 'Image',
     'holder_attr' => 'content[media_id_works_first_featured_image1]',

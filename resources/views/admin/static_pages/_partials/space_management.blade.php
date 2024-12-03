@@ -23,7 +23,7 @@
         @endphp
         @include('admin.media.set_file', [
             'file' => $bannerImage,
-            'title' => 'Banner Image - (width-100px x height-100px)',
+            'title' => 'Banner Image - (width-800px x height-800px)',
             'popup_type' => 'single_image',
             'type' => 'Image',
             'holder_attr' => 'content[media_id_works_first_featured_image]',
@@ -68,7 +68,7 @@
         @endphp
         @include('admin.media.set_file', [
             'file' => $bannerImage,
-            'title' => ' Image',
+            'title' => ' Image Image - (width-800px x height-800px)',
             'popup_type' => 'single_image',
             'type' => 'Image',
             'holder_attr' => 'content[media_id_works_first_featured_image1]',

@@ -13,7 +13,7 @@
             @endphp
             @include('admin.media.set_file', [
                 'file' => $media_id_banner_image,
-                'title' => 'Banner Image',
+                'title' => 'Banner  Image - (width-800px x height-800px)',
                 'popup_type' => 'single_image',
                 'type' => 'Image',
                 'holder_attr' => 'content[media_id_banner_image]',

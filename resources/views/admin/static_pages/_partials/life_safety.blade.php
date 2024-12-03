@@ -13,7 +13,7 @@
                 @endphp
                 @include('admin.media.set_file', [
                     'file' => $media_id_banner_image,
-                    'title' => 'Banner Image',
+                    'title' => 'Banner Image - (width-800px x height-800px)',
                     'popup_type' => 'single_image',
                     'type' => 'Image',
                     'holder_attr' => 'content[media_id_banner_image]',
@@ -138,7 +138,7 @@
         @endphp
         @include('admin.media.set_file', [
             'file' => $media_id_works_first_featured_image0,
-            'title' => 'Thumbline Image',
+            'title' => 'Thumbline Image - (width-800px x height-800px)',
             'popup_type' => 'single_image',
             'type' => 'Image',
             'holder_attr' => 'content[media_id_works_first_featured_image0]',
@@ -224,7 +224,7 @@
             @endphp
             @include('admin.media.set_file', [
                 'file' => $media_id_works_first_featured_image1,
-                'title' => 'Safety Section Image',
+                'title' => 'Safety Section Image - (width-800px x height-800px)',
                 'popup_type' => 'single_image',
                 'type' => 'Image',
                 'holder_attr' => 'content[media_id_works_first_featured_image1]',
@@ -271,7 +271,7 @@
     @endphp
     @include('admin.media.set_file', [
         'file' => $media_id_works_first_featured_image01,
-        'title' => 'Safety Section Image',
+        'title' => 'Safety Section Image - (width-800px x height-800px)',
         'popup_type' => 'single_image',
         'type' => 'Image',
         'holder_attr' => 'content[media_id_works_first_featured_image01]',
@@ -305,7 +305,7 @@
     @endphp
     @include('admin.media.set_file', [
     'file' => $media_id_works_first_featured_image002,
-    'title' => 'Safety Section Image',
+    'title' => 'Safety Section Image - (width-800px x height-800px)',
     'popup_type' => 'single_image',
     'type' => 'Image',
     'holder_attr' => 'content[media_id_works_first_featured_image002]',
@@ -341,7 +341,7 @@
     @endphp
     @include('admin.media.set_file', [
     'file' => $media_id_works_first_featured_image03,
-    'title' => 'Safety Section Image',
+    'title' => 'Safety Section Image - (width-800px x height-800px)',
     'popup_type' => 'single_image',
     'type' => 'Image',
     'holder_attr' => 'content[media_id_works_first_featured_image03]',

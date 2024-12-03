@@ -12,7 +12,7 @@
             @endphp
             @include('admin.media.set_file', [
                 'file' => $media_id_banner_image,
-                'title' => 'Banner Image',
+                'title' => 'Banner Image - (width-800px x height-800px)',
                 'popup_type' => 'single_image',
                 'type' => 'Image',
                 'holder_attr' => 'content[media_id_banner_image]',
@@ -58,7 +58,7 @@
         @endphp
         @include('admin.media.set_file', [
             'file' => $media_id_works_first_featured_image,
-            'title' => 'set Image',
+            'title' => 'set Image - (width-800px x height-800px)',
             'popup_type' => 'single_image',
             'type' => 'Image',
             'holder_attr' => 'content[media_id_works_first_featured_image]',
@@ -80,7 +80,7 @@
         @endphp
         @include('admin.media.set_file', [
             'file' => $media_id_works_first_featured_image1,
-            'title' => 'Author Image',
+            'title' => 'Author Image - (width-800px x height-800px)',
             'popup_type' => 'single_image',
             'type' => 'Image',
             'holder_attr' => 'content[media_id_works_first_featured_image1]',

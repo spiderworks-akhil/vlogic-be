@@ -54,7 +54,7 @@
         @php
         $media_id_works_first_featured_image = ($obj->content && isset($obj->content['media_id_works_first_featured_image'])) ? $obj->content['media_id_works_first_featured_image'] : null;
         @endphp
-        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image, 'title'=>'Advisory Image ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image]', 'id'=>'media_id_works_first_featured_image', 'display'=> 'horizontal'])
+        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image, 'title'=>'Advisory Image - (width-800px x height-800px) ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image]', 'id'=>'media_id_works_first_featured_image', 'display'=> 'horizontal'])
     </fieldset>
 
     <h3>Solution Section</h3>
@@ -90,7 +90,7 @@
         @php
         $media_id_works_first_featured_image1 = ($obj->content && isset($obj->content['media_id_works_first_featured_image1'])) ? $obj->content['media_id_works_first_featured_image1'] : null;
         @endphp
-        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image1, 'title'=>'Facilities Image ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image1]', 'id'=>'media_id_works_first_featured_image1', 'display'=> 'horizontal'])
+        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image1, 'title'=>'Facilities Image - (width-800px x height-800px) ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image1]', 'id'=>'media_id_works_first_featured_image1', 'display'=> 'horizontal'])
 
         <div class="form-group col-md-12">
             <label>Facilities Heading 2</label>
@@ -99,7 +99,7 @@
         @php
         $media_id_works_first_featured_image2 = ($obj->content && isset($obj->content['media_id_works_first_featured_image2'])) ? $obj->content['media_id_works_first_featured_image2'] : null;
         @endphp
-        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image2, 'title'=>'Facilities Image ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image2]', 'id'=>'media_id_works_first_featured_image2', 'display'=> 'horizontal'])
+        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image2, 'title'=>'Facilities Image - (width-800px x height-800px) ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image2]', 'id'=>'media_id_works_first_featured_image2', 'display'=> 'horizontal'])
 
         <div class="form-group col-md-12">
             <label>Facilities Heading 3</label>
@@ -108,7 +108,7 @@
         @php
         $media_id_works_first_featured_image3 = ($obj->content && isset($obj->content['media_id_works_first_featured_image3'])) ? $obj->content['media_id_works_first_featured_image3'] : null;
         @endphp
-        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image3, 'title'=>'Facilities Image ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image3]', 'id'=>'media_id_works_first_featured_image3', 'display'=> 'horizontal'])
+        @include('admin.media.set_file', ['file'=>$media_id_works_first_featured_image3, 'title'=>'Facilities Image - (width-800px x height-800px) ', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'content[media_id_works_first_featured_image3]', 'id'=>'media_id_works_first_featured_image3', 'display'=> 'horizontal'])
     </fieldset>
 
     </div>
