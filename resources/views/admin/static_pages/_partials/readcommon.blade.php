@@ -4,7 +4,7 @@
 
         <div class="form-group col-md-12">
             <label>Banner Title</label>
-            <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif>
+            <textarea name="content[banner_title]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title'])) {{$obj->content['banner_title']}} @endif</textarea>
         </div>
 
         <div class="form-group">
@@ -16,44 +16,36 @@
 
         <div class="form-group col-md-12">
             <label>Banner Short Description</label>
-            <textarea name="content[banner_shortdescription]" class="form-control">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
+            <textarea name="content[banner_shortdescription]" class="form-control editor">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
         </div>
 
-
-
-
     </fieldset>
-
 
     <h3>Section</h3>
     <fieldset>
         <div class="card-body row">
             <div class="form-group col-md-12">
                 <label>Detail section Description</label>
-                <textarea name="content[section_description_first]" class="form-control editor ">
-    @if ($obj->content && isset($obj->content['section_description_first']))
-    {{ $obj->content['section_description_first'] }}
-    @endif
-    </textarea>
+                <textarea name="content[section_description_first]" class="form-control editor">
+@if ($obj->content && isset($obj->content['section_description_first']))
+{{ $obj->content['section_description_first'] }}
+@endif
+</textarea>
             </div>
         </div>
 
-
-
-
         @php
         $bannerImage = $obj->content['media_id_works_first_featured_image'] ?? null;
-    @endphp
-    @include('admin.media.set_file', [
-        'file' => $bannerImage,
-        'title' => ' Image',
-        'popup_type' => 'single_image',
-        'type' => 'Image',
-        'holder_attr' => 'content[media_id_works_first_featured_image]',
-        'id' => 'media_id_works_first_featured_image',
-        'display' => 'horizontal',
-    ])
+        @endphp
+        @include('admin.media.set_file', [
+            'file' => $bannerImage,
+            'title' => 'Image',
+            'popup_type' => 'single_image',
+            'type' => 'Image',
+            'holder_attr' => 'content[media_id_works_first_featured_image]',
+            'id' => 'media_id_works_first_featured_image',
+            'display' => 'horizontal'
+        ])
 
     </fieldset>
-
 </div>

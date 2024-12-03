@@ -1,13 +1,13 @@
 <div id="form-vertical" class="form-horizontal form-wizard-wrapper">
     <h3>Banner Section</h3>
-        <fieldset>
+    <fieldset>
 
         <div class="form-group col-md-12">
             <label>Banners title</label>
-            <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
+            <textarea name="content[banner_title]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title'])) {{$obj->content['banner_title']}} @endif</textarea>
         </div>
 
-        <div class="form-group ">
+        <div class="form-group">
             @php
             $media_id_banner_image = ($obj->content && isset($obj->content['media_id_banner_image']))?$obj->content['media_id_banner_image']:null;
             @endphp
@@ -16,7 +16,7 @@
 
         <div class="form-group col-md-12">
             <label>Banner Short Description</label>
-            <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
+            <textarea name="content[banner_shortdescription]" class="form-control editor">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
         </div>
 
     </fieldset>

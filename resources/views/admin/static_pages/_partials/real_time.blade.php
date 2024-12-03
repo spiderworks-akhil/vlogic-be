@@ -1,10 +1,10 @@
 <div id="form-vertical" class="form-horizontal form-wizard-wrapper">
     <h3>Banner Section</h3>
-        <fieldset>
+    <fieldset>
 
         <div class="form-group col-md-12">
             <label>Title</label>
-            <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
+            <textarea name="content[banner_title]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title'])) {{$obj->content['banner_title']}} @endif</textarea>
         </div>
 
         <div class="form-group ">
@@ -16,40 +16,36 @@
 
         <div class="form-group col-md-12">
             <label>Top Description</label>
-            <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
+            <textarea name="content[banner_shortdescription]" class="form-control editor">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
         </div>
 
         <div class="form-group col-md-12">
-            <label> Short Description</label>
-            <textarea name="content[banner_shortdescription0]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
+            <label>Short Description</label>
+            <textarea name="content[banner_shortdescription0]" class="form-control editor">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
         </div>
-
 
         {{-- <div class="form-group col-md-12">
             <label>Page url</label>
-            <input type="text" name="url" class="form-control" value="{{ isset($obj->url) ? $obj->url : '' }}">
+            <textarea name="url" class="form-control">@if($obj->url) {{$obj->url}} @endif</textarea>
         </div> --}}
 
     </fieldset>
 
+    <h3>Requirement section</h3>
+    <fieldset>
 
-<h3>Requirement section</h3>
-<fieldset>
+        <div class="form-group col-md-12">
+            <label>Short Description</label>
+            <textarea name="content[banner_shortdescription01]" class="form-control editor">@if($obj->content && isset($obj->content['banner_shortdescription01'])) {{$obj->content['banner_shortdescription01']}} @endif</textarea>
+        </div>
 
+        <div class="form-group">
+            <a href="{{route('admin.listing-items.index',[14])}}" class="btn btn-primary" target="_blank">Service listing</a>
+            <input type="hidden" name="content[room service listing]" value="14">
+        </div>
 
-    <div class="form-group col-md-12">
-        <label>Short Description</label>
-        <textarea name="content[banner_shortdescription01]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription01'])) {{$obj->content['banner_shortdescription01']}} @endif</textarea>
-    </div>
+    </fieldset>
 
-
-    <div class="form-group">
-        <a href="{{route('admin.listing-items.index',[14])}}" class="btn btn-primary" target="_blank">Service listing
-       </a>
-        <input type="hidden" name="content[room service listing]" value="14">  
-
-       </div>
-</fieldset>
 
 
 
@@ -170,79 +166,66 @@
 ])
 
 </fieldset> --}}
-
 <h3>Solving Requirement Section</h3>
 <fieldset>
     <div class="form-group col-md-12">
-        <label> Solving Stakeholder Requirements Title</label>
-        <input type="text" name="content[banner_title_1]" class="form-control" @if($obj->content && isset($obj->content['banner_title_1'])) value="{{$obj->content['banner_title_1']}}" @endif >
+        <label>Solving Stakeholder Requirements Title</label>
+        <textarea name="content[banner_title_1]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title_1'])) {{$obj->content['banner_title_1']}} @endif</textarea>
     </div>
     <div class="form-group col-md-12">
         <label>Challenges heading</label>
-        <input type="text" name="content[banner_title0]" class="form-control"
-            @if ($obj->content && isset($obj->content['banner_title0'])) value="{{ $obj->content['banner_title0'] }}" @endif>
+        <textarea name="content[banner_title0]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_title0'])) {{$obj->content['banner_title0']}} @endif</textarea>
     </div>
     <a href="{{ route('admin.listing-items.index', [23]) }}" class="btn btn-primary" target="_blank">Solving Requirement Section</a>
-    <input type="hidden" name="content[	solving-stakeholder]" value="23">
+    <input type="hidden" name="content[solving-stakeholder]" value="23">
     <div class="form-group col-md-12">
         <label>Solution heading</label>
-        <input type="text" name="content[banner_title04]" class="form-control"
-            @if ($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
+        <textarea name="content[banner_title04]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_title04'])) {{$obj->content['banner_title04']}} @endif</textarea>
     </div>
     <a href="{{ route('admin.listing-items.index', [24]) }}" class="btn btn-primary" target="_blank">Solving Requirement solution</a>
-    <input type="hidden" name="content[	solving-stakeholder-solution]" value="24">
+    <input type="hidden" name="content[solving-stakeholder-solution]" value="24">
 </fieldset>
 
 <h3>Direct Requirements section</h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>Need's heading</label>
-        <input type="text" name="content[banner_title001]" class="form-control"
-            @if ($obj->content && isset($obj->content['banner_title001'])) value="{{ $obj->content['banner_title001'] }}" @endif>
+        <textarea name="content[banner_title001]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_title001'])) {{$obj->content['banner_title001']}} @endif</textarea>
     </div>
-    <a href="{{ route('admin.listing-items.index', [25]) }}" class="btn btn-primary" target="_blank">Manager  Requirement Section</a>
+    <a href="{{ route('admin.listing-items.index', [25]) }}" class="btn btn-primary" target="_blank">Manager Requirement Section</a>
     <input type="hidden" name="content[manager-needs]" value="25">
     <div class="form-group col-md-12">
         <label>Solution heading</label>
-        <input type="text" name="content[banner_title04]" class="form-control"
-            @if ($obj->content && isset($obj->content['banner_title04'])) value="{{ $obj->content['banner_title04'] }}" @endif>
+        <textarea name="content[banner_title04]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_title04'])) {{$obj->content['banner_title04']}} @endif</textarea>
     </div>
     <a href="{{ route('admin.listing-items.index', [26]) }}" class="btn btn-primary" target="_blank">Manager Requirement solution</a>
     <input type="hidden" name="content[manager-needs-solution]" value="26">
 </fieldset>
 
-
 <h3>End section</h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>Solution Heading</label>
-        <input type="text" name="content[banner_title03]" class="form-control" @if($obj->content && isset($obj->content['banner_title03'])) value="{{$obj->content['banner_title03']}}" @endif >
+        <textarea name="content[banner_title03]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title03'])) {{$obj->content['banner_title03']}} @endif</textarea>
     </div>
     <div class="card-body row">
         <div class="form-group col-md-12">
             <label>Challenges</label>
-            <textarea name="content[section_description_first03]" class="form-control editor ">
-            @if ($obj->content && isset($obj->content['section_description_first03']))
-            {{ $obj->content['section_description_first03'] }}
-            @endif
-            </textarea>
-          </div>
+            <textarea name="content[section_description_first03]" class="form-control editor">@if ($obj->content && isset($obj->content['section_description_first03'])) {{$obj->content['section_description_first03']}} @endif</textarea>
+        </div>
     </div>
     @php
-    $media_id_works_first_featured_image02 =
-        $obj->content && isset($obj->content['media_id_works_first_featured_image02'])
-            ? $obj->content['media_id_works_first_featured_image02']
-            : null;
-@endphp
-@include('admin.media.set_file', [
-    'file' => $media_id_works_first_featured_image02,
-    'title' => 'Banner Image ',
-    'popup_type' => 'single_image',
-    'type' => 'Image',
-    'holder_attr' => 'content[media_id_works_first_featured_image02]',
-    'id' => 'media_id_works_first_featured_image02',
-    'display' => 'horizontal',
-])
-
+    $media_id_works_first_featured_image02 = $obj->content && isset($obj->content['media_id_works_first_featured_image02']) ? $obj->content['media_id_works_first_featured_image02'] : null;
+    @endphp
+    @include('admin.media.set_file', [
+        'file' => $media_id_works_first_featured_image02,
+        'title' => 'Banner Image',
+        'popup_type' => 'single_image',
+        'type' => 'Image',
+        'holder_attr' => 'content[media_id_works_first_featured_image02]',
+        'id' => 'media_id_works_first_featured_image02',
+        'display' => 'horizontal'
+    ])
 </fieldset>
+
     </div>

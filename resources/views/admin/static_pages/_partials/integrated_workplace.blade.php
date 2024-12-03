@@ -3,8 +3,9 @@
     <fieldset>
         <div class="form-group col-md-12">
             <label>Banners Title</label>
-            <input type="text" name="content[banner_title]" class="form-control"
-                value="{{ $obj->content['banner_title'] ?? '' }}">
+            <textarea name="content[banner_title]" class="form-control editor">
+                {{ $obj->content['banner_title'] ?? '' }}
+            </textarea>
         </div>
 
         <div class="form-group">
@@ -24,13 +25,13 @@
 
         <div class="form-group col-md-12">
             <label>Banner Short Description</label>
-            <textarea name="content[banner_shortdescription]" class="form-control">
+            <textarea name="content[banner_shortdescription]" class="form-control editor">
                 {{ $obj->content['banner_shortdescription'] ?? '' }}
             </textarea>
         </div>
         <div class="form-group col-md-12">
             <label>Short Description</label>
-            <textarea name="content[banner_shortdescription1]" class="form-control">
+            <textarea name="content[banner_shortdescription1]" class="form-control editor">
                 {{ $obj->content['banner_shortdescription1'] ?? '' }}
             </textarea>
         </div>
@@ -57,7 +58,7 @@
 
 <div class="form-group col-md-12">
     <label>Short Description</label>
-    <textarea name="content[works_shortdescription]" class="form-control ">
+    <textarea name="content[works_shortdescription]" class="form-control editor ">
 @if ($obj->content && isset($obj->content['works_shortdescription']))
 {{ $obj->content['works_shortdescription'] }}
 @endif
@@ -97,19 +98,17 @@ $media_id_works_first_featured_image1 =
     <fieldset>
         <div class="form-group col-md-12">
             <label>Main Title</label>
-            <input type="text" name="content[banner_title1]" class="form-control"
-                value="{{ $obj->content['banner_title1'] ?? '' }}">
+            <textarea name="content[banner_title1]" class="form-control editor">
+                {{ $obj->content['banner_title1'] ?? '' }}
+            </textarea>
         </div>
-
 
         <div class="form-group col-md-12">
             <label>Sub Title</label>
-            <input type="text" name="content[banner_title2]" class="form-control"
-                value="{{ $obj->content['banner_title2'] ?? '' }}">
+            <textarea name="content[banner_title2]" class="form-control editor">
+                {{ $obj->content['banner_title2'] ?? '' }}
+            </textarea>
         </div>
-
-
-
 
 <div class="card-body row">
     <div class="form-group col-md-12">
@@ -122,18 +121,12 @@ $media_id_works_first_featured_image1 =
     </div>
 </div>
 
-
-
-
-
 <div class="form-group col-md-12">
     <label>Sub Title</label>
-    <input type="text" name="content[banner_title3]" class="form-control"
-        value="{{ $obj->content['banner_title3'] ?? '' }}">
+    <textarea name="content[banner_title3]" class="form-control editor">
+        {{ $obj->content['banner_title3'] ?? '' }}
+    </textarea>
 </div>
-
-
-
 
 <div class="card-body row">
 <div class="form-group col-md-12">
@@ -151,11 +144,10 @@ $media_id_works_first_featured_image1 =
     <fieldset>
         <div class="form-group col-md-12">
             <label>End Title</label>
-            <input type="text" name="content[banner_title4]" class="form-control"
-                value="{{ $obj->content['banner_title4'] ?? '' }}">
+            <textarea name="content[banner_title4]" class="form-control editor">
+                {{ $obj->content['banner_title4'] ?? '' }}
+            </textarea>
         </div>
-
-
 
 <div class="card-body row">
     <div class="form-group col-md-12">
@@ -166,7 +158,7 @@ $media_id_works_first_featured_image1 =
     @endif
     </textarea>
     </div>
-    </div>
+</div>
     </fieldset>
 
-    </div>
+</div>

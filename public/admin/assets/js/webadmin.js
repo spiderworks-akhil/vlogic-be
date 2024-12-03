@@ -907,5 +907,23 @@ jQuery.fn.ForceNumericOnly = function()
             }
         };
 
+        // <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        // $(document).ready(function () {
+        //     $("input.form-control").each(function () {
+        //         const input = $(this);
+        //         const textarea = $("<textarea>", {
+        //             name: input.attr("name"),
+        //             class: input.attr("class"),
+        //             text: input.val()
+        //         });
+        //         input.replaceWith(textarea);
+        //     });
+
+
+        //     tinymce.init({
+        //         selector: "textarea.form-control"
+        //     });
+        // });
+
 
 

@@ -4,7 +4,7 @@
 
         <div class="form-group col-md-12">
             <label>Banners title</label>
-            <input type="text" name="content[banner_title8]" class="form-control" @if($obj->content && isset($obj->content['banner_title8'])) value="{{$obj->content['banner_title8']}}" @endif >
+            <textarea name="content[banner_title8]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title8'])) {{$obj->content['banner_title8']}} @endif</textarea>
         </div>
 
         <div class="form-group ">
@@ -16,7 +16,7 @@
 
         <div class="form-group col-md-12">
             <label>Banner Short Description</label>
-            <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
+            <textarea name="content[banner_shortdescription]" class="form-control editor">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
         </div>
 
     </fieldset>
@@ -27,10 +27,8 @@
 
         <div class="form-group col-md-12">
             <label>Heading</label>
-            <input type="text" name="content[section_title11]" class="form-control"
-            @if($obj->content && isset($obj->content['section_title11']))
-                value="{{ htmlspecialchars_decode($obj->content['section_title11']) }}"
-            @endif>        </div>
+            <textarea name="content[section_title11]" class="form-control editor">@if($obj->content && isset($obj->content['section_title11'])) {{ htmlspecialchars_decode($obj->content['section_title11']) }} @endif</textarea>
+        </div>
 
 
         @php
@@ -50,25 +48,16 @@
         </div>
         <div class="form-group col-md-12">
             <label>Short Description  </label>
-            <input type="text" name="content[banner_title01]" class="form-control" @if($obj->content && isset($obj->content['banner_title01'])) value="{{$obj->content['banner_title01']}}" @endif >
+            <textarea name="content[banner_title01]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title01'])) {{$obj->content['banner_title01']}} @endif</textarea>
         </div>
-        </fieldset>
-
-
-
-
-
-
-
-
-
+    </fieldset>
 
     <h3>Government section</h3>
         <fieldset>
 
             <div class="form-group col-md-12">
                 <label>Listing module Heading  </label>
-                <input type="text" name="content[banner_title10]" class="form-control" @if($obj->content && isset($obj->content['banner_title10'])) value="{{$obj->content['banner_title10']}}" @endif >
+                <textarea name="content[banner_title10]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title10'])) {{$obj->content['banner_title10']}} @endif</textarea>
             </div>
 
             <div class="form-group">
@@ -80,13 +69,11 @@
 
     </fieldset>
 
-
-
 <h3>Turnkey Services Section</h3>
 <fieldset>
     <div class="form-group col-md-12">
         <label>Turnkey Services Heading  </label>
-        <input type="text" name="content[banner_title11]" class="form-control" @if($obj->content && isset($obj->content['banner_title11'])) value="{{$obj->content['banner_title11']}}" @endif >
+        <textarea name="content[banner_title11]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title11'])) {{$obj->content['banner_title11']}} @endif</textarea>
     </div>
     <div class="form-group">
         <a href="{{route('admin.listing-items.index',[28])}}" class="btn btn-primary" target="_blank">Turnkey Services
@@ -95,7 +82,6 @@
 
        </div>
 </fieldset>
-
 
     <h3>Third Section</h3>
     <fieldset>
