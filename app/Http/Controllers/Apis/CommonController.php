@@ -105,7 +105,7 @@ class CommonController extends Controller
     {
 
         $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
-        dd($data);
+       
         if (is_null($data)) {
             return response()->json(['error' => 'Page not Found!'], 404);
         }
