@@ -1,7 +1,7 @@
 :root {
     --blue: #2fc3eb;
-    --white: #ffffff; 
-     
+    --white: #ffffff;
+
   }
   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,500;1,600;1,800&display=swap');
 
@@ -11,8 +11,8 @@ body{
     background-color: #f8f9fc;
     font-family: 'Poppins', sans-serif;
 }
-.navbar-custom .nav-link.button-menu-mobile { 
-    color:var(--white) !important; 
+.navbar-custom .nav-link.button-menu-mobile {
+    color:var(--white) !important;
     background-color: #ee3c35;
     margin: 10px;
     height: 30px;
@@ -36,8 +36,8 @@ body{
     padding: 0 0 10px 0;
     font-size: 16px;
     margin:0 0 20px;
-    border-bottom: 1px solid #f5f5f5; 
-}    
+    border-bottom: 1px solid #f5f5f5;
+}
 .card   {
     box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
     margin:15px 0;
@@ -48,14 +48,14 @@ body{
 
 
 
-.topbar { 
+.topbar {
 box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;
 }
 .left-sidenav-menu li>a{
 line-height:35px;
 color: #000;
 }
-.left-sidenav-menu li>a i { 
+.left-sidenav-menu li>a i {
     color: #333;
 }
 .left-sidenav-menu li>a:hover {
@@ -66,23 +66,23 @@ color: #000;
 }
 .thumb-xs {
 height: 25px !important;
-width: 25px !important; 
+width: 25px !important;
 }
-.left-sidenav { 
- 
+.left-sidenav {
+
 }
-.left-sidenav-menu li { 
-margin-top: 0px; 
+.left-sidenav-menu li {
+margin-top: 0px;
 border-bottom: 1px solid rgb(222 222 222);
 }
-.card .card-header { 
+.card .card-header {
 font-weight: 600;
 font-size: 16px;
 }
 .navbar-custom {
     border-bottom: 1px solid var(--blue)  ;
 }
-.card { 
+.card {
     /* border: 1px solid var(--blue) ;  */
     overflow: hidden;
 }
@@ -114,8 +114,8 @@ thead{
     padding: 8px 20px;
     font-size: 14px;
 }
-.auth-form .btn{ 
-    border-radius: 15px;  
+.auth-form .btn{
+    border-radius: 15px;
     height: 40px;
 }
 .account-body .auth-header-box {
@@ -133,7 +133,7 @@ thead{
     text-align: center;
 }
 .auth-body-box p{
-    font-size: 16px; 
+    font-size: 16px;
     color: #fff;
     text-align: center;
 }
@@ -298,4 +298,94 @@ button.btn.btn-dark.btn-block.waves-effect.waves-light {
 }
 a.logo.logo-admin img {
     width: 85px;
+}
+.switch-field {
+	display: flex;
+	margin-bottom: 36px;
+	overflow: hidden;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label {
+	background-color: #e4e4e4;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+	padding: 8px 16px;
+	margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+}
+
+.switch-field input:checked + label {
+	background-color: #a5dc86;
+	box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+	border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+	border-radius: 0 4px 4px 0;
+}
+
+/* radio button modal */
+.switch-field {
+	display: flex;
+	margin-bottom: 36px;
+	overflow: hidden;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label {
+	background-color: #e4e4e4;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+	padding: 8px 16px;
+	margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+}
+
+.switch-field input:checked + label {
+	background-color: #86c1dc;
+	box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+	border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+	border-radius: 0 4px 4px 0;
 }

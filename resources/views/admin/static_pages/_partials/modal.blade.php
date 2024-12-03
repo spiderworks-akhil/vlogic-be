@@ -3,6 +3,8 @@
     <!-- Head Section -->
     <h3>Modal Section</h3>
     <fieldset>
+
+
         @php
 $bannerImage = $obj->content['media_id_works_first_featured_image'] ?? null;
 @endphp

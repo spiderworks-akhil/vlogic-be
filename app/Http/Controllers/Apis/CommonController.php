@@ -104,9 +104,9 @@ class CommonController extends Controller
     public function page(string $slug )
     {
 
-        
-        $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
 
+        $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
+        
 
         if (is_null($data)) {
             return response()->json(['error' => 'Page not Found!'], 404);

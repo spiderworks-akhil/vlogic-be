@@ -43,6 +43,7 @@ class StaticPageController extends Controller
 
          $request->validated();
     	$data = request()->all();
+      
 
     	$id = decrypt($data['id']);
         if(!empty($data['content'])){
@@ -53,6 +54,8 @@ class StaticPageController extends Controller
             $data['is_featured'] = isset($data['is_featured'])?1:0;
             $data['priority'] = (!empty($data['priority']))?$data['priority']:0;
             $data['status'] = (!empty($data['status']))?$data['status']:0;
+            $data['enable'] = (!empty($data['enable']))?$data['enable']:0;
+
 
         	if($obj->update($data)){
                 if(!empty($data['testimonials'])){

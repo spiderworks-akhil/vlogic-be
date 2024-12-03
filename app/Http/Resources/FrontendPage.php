@@ -33,6 +33,7 @@ class FrontendPage extends JsonResource
             'name' => $this->name,
             'title' => $this->title,
             'url' => $this->url,
+            'enable' => $this->enable,
             'alt_text' => $this->alt_text,
             'banner_heading_colour' => $this->banner_heading_colour,
             'banner_content_colour' => $this->banner_content_colour,
@@ -109,7 +110,7 @@ class FrontendPage extends JsonResource
             ]);
         }
 
-       
+
 
         if ($slug == 'videos') {
             return [
