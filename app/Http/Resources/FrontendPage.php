@@ -109,6 +109,8 @@ class FrontendPage extends JsonResource
             ]);
         }
 
+       
+
         if ($slug == 'videos') {
             return [
                 'gallery' => $this->getgallery(),

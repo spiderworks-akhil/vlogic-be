@@ -41,8 +41,6 @@ $bannerImage = $obj->content['media_id_works_first_featured_image1'] ?? null;
     'id' => 'media_id_works_first_featured_image1',
     'display' => 'horizontal'
 ])
-<label class="switch">
-    <input type="checkbox">
-    <span class="slider"></span>
-  </label>
+
+
         </div>

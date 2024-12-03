@@ -40,8 +40,10 @@ class StaticPageController extends Controller
 
     public function update(StaticPageRequest $request)
     {
-        $request->validated();
+
+         $request->validated();
     	$data = request()->all();
+
     	$id = decrypt($data['id']);
         if(!empty($data['content'])){
             $data['content'] = json_encode($data['content']);
@@ -50,6 +52,8 @@ class StaticPageController extends Controller
         if($obj = $this->model->find($id)){
             $data['is_featured'] = isset($data['is_featured'])?1:0;
             $data['priority'] = (!empty($data['priority']))?$data['priority']:0;
+            $data['status'] = (!empty($data['status']))?$data['status']:0;
+
         	if($obj->update($data)){
                 if(!empty($data['testimonials'])){
                     FrontendPageTestimonial::where('frontend_page_id',$obj->id)->delete();
