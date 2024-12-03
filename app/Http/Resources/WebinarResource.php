@@ -23,8 +23,10 @@ class WebinarResource extends JsonResource
             'browser_title'=>$this->browser_title,
             'banner_image' => new Media($this->media),
             'button_name' => $this->button_name,
+            'button_url' => $this->button_url,
             'featured_image' => new Media($this->featured_image),
             'published_on' => $this->published_on,
+
 
         ];
     }
