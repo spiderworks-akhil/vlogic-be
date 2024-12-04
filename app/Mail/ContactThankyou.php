@@ -32,6 +32,6 @@ class ContactThankyou extends Mailable
     public function build()
     {
         $common_settings = $this->getSettings();
-        return $this->subject('Thank you for contacting us - Dentique')->view('email.contact_thankyou')->with('common_settings', $common_settings);
+        return $this->subject('Thank you for contacting us - Vlogic')->view('email.contact_thankyou')->with('common_settings', $common_settings);
     }
 }
