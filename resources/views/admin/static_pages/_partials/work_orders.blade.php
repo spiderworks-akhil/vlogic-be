@@ -189,10 +189,10 @@
             </div>
         </div>
 
-        <div class="form-group col-md-12">
+        {{-- <div class="form-group col-md-12">
             <label>Page url</label>
             <textarea name="url" class="form-control editor">{{ isset($obj->url) ? $obj->url : '' }}</textarea>
-        </div>
+        </div> --}}
     </fieldset>
 
     <h3>Customer Stories section</h3>

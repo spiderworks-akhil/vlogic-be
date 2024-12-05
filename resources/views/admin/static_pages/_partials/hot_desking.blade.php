@@ -24,10 +24,10 @@
             <textarea name="content[banner_shortdescription01]" class="form-control editor">@if($obj->content && isset($obj->content['banner_shortdescription01'])) {{$obj->content['banner_shortdescription01']}} @endif</textarea>
         </div>
 
-        <div class="form-group col-md-12">
+        {{-- <div class="form-group col-md-12">
             <label>Page url</label>
             <textarea name="url" class="form-control editor">@if(isset($obj->url)) {{$obj->url}} @endif</textarea>
-        </div>
+        </div> --}}
 
     </fieldset>
 
