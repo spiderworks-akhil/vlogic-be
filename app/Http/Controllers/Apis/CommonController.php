@@ -106,8 +106,6 @@ class CommonController extends Controller
 
     public function page(string $slug )
     {
-
-
         $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
 
 
@@ -177,7 +175,7 @@ class CommonController extends Controller
     }
 
     public function brochure_save(Request $request){
-        $request->validated();
+        // $request->validated();
         $brochure = new Lead;
         $brochure->fill($request->all());
         $brochure->save();
