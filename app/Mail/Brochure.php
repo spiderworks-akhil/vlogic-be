@@ -3,30 +3,31 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Traits\App;
 
 class Brochure extends Mailable
 {
-    use Queueable, SerializesModels;
+    use Queueable, SerializesModels, App;
+
     public $data;
 
     /**
      * Create a new message instance.
+     *
+     * @return void
      */
     public function __construct($data)
     {
         $this->data = $data;
     }
 
-
     /**
-     * Get the attachments for the message.
+     * Build the message.
      *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
+     * @return $this
      */
     public function build()
     {
