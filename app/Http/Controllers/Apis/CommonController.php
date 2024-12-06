@@ -176,9 +176,11 @@ class CommonController extends Controller
 
     public function brochure_save(Request $request){
         // $request->validated();
+        // print_r($request->all()); exit;
         $brochure = new Lead;
         $brochure->fill($request->all());
         $brochure->save();
+
 
         $notif_emails = Setting::where('code', 'contact_notification_email_ids')->first();
 

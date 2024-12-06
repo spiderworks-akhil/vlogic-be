@@ -22,7 +22,7 @@ class Lead extends Model
     protected $table = 'leads';
 
 
-    protected $fillable = array('name', 'email', 'phone_number', 'message', 'organization','country','extra_data', 'lead_type', 'utm_source', 'source_url', 'ip_address', 'user_agent', 'referrer_link', 'remarks', 'status');
+    protected $fillable = array('name', 'email', 'phone_number', 'message', 'organization','country','extra_data', 'lead_type', 'utm_source', 'source_url', 'ip_address', 'user_agent', 'referrer_link', 'remarks', 'status','brochure_name');
 
     protected $dates = ['created_at','updated_at'];
 
