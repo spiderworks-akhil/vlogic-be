@@ -9,6 +9,7 @@ use App\Models\Lead;
 use App\Models\Menu;
 use App\Models\News;
 use App\Models\Page;
+use App\Mail\Brochure;
 use App\Models\Listing;
 use App\Models\Setting;
 use App\Models\MenuItem;
@@ -16,12 +17,14 @@ use App\Models\Redirect;
 use App\Models\FrontendPage;
 use Illuminate\Http\Request;
 use App\Http\Resources\Media;
+use App\Mail\BrochureThankyou;
 use App\Models\ListingContent;
 use App\Services\MailSettings;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use App\Http\Requests\ContactRequest;
 use App\Http\Resources\FaqCollection;
+use App\Http\Requests\BrochureRequest;
 use App\Http\Resources\LeadCollection;
 use Maatwebsite\Excel\Concerns\ToArray;
 use App\Http\Resources\CommonPageResource;
@@ -189,11 +192,11 @@ class CommonController extends Controller
                 return !is_null($value) && $value !== '';
             });
             $email_array = array_map('trim', $email_array);
-            $mail->to($email_array)->send(new \App\Mail\Brochure($brochure));
+            $mail->to($email_array)->send(new Brochure($brochure));
         }
         if($brochure->email){
                 $thank_mail = new MailSettings;
-                $thank_mail->to($brochure->email)->send(new \App\Mail\BrochureThankyou($brochure));
+                $thank_mail->to($brochure->email)->send(new BrochureThankyou($brochure));
         }
         return response()->json(['success' => true]);
     }
