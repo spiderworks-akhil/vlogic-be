@@ -1,18 +1,18 @@
 @extends('admin._layouts.fileupload')
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                          
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -35,12 +35,12 @@
                                             <li class="breadcrumb-item active">View Lead Details</li>
                                         </ol>
                                     </div><!--end col-->
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             @include('admin._partials.notifications')
@@ -84,6 +84,14 @@
                                                                 <label>Lead Type: </label>
                                                                 {{$obj->lead_type}}
                                                             </div>
+                                                        @if ($obj->brochure_name)
+                                                            <div class="form-group col-md-6">
+                                                                <label>Brochure Name: </label>
+                                                                {{$obj->brochure_name}}
+                                                            </div>
+                                                        @endif
+
+
                                                             <div class="form-group col-md-6">
                                                                 <label>Utm Source: </label>
                                                                 {{$obj->utm_source}}
@@ -117,10 +125,10 @@
                                                                 <b>{{$obj->remarks}}</b>
                                                             </div>
                                                         </div>
-                                                    </div>                                           
+                                                    </div>
                                                 </div><!--end card-body-->
                                             </div><!--end card-->
-   
+
                                         </div>
                                         <div class="col-md-4">
                                             <div class="card">
@@ -168,9 +176,9 @@
                                                 </div>
                                                 @endif
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
-                            </form> 
+                            </form>
                         </div><!--end col-->
                     </div><!--end row-->
 
