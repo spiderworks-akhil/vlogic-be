@@ -20,6 +20,9 @@
             @if($data->country)
             <tr> <td>Country:</td><td > {{$data->country}}</td> </tr>
             @endif
+            @if($data->brochure_name)
+            <tr> <td>Brochure Name:</td><td > {{$data->brochure_name}}</td> </tr>
+            @endif
 
         </thead>
 
