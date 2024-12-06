@@ -174,8 +174,8 @@ class CommonController extends Controller
         ]);
     }
 
-    public function brochure_save(BrochureRequest $request){
-        $request->validated();
+    public function brochure_save(Request $request){
+        // $request->validated();
         $brochure = new Lead;
         $brochure->fill($request->all());
         $brochure->save();

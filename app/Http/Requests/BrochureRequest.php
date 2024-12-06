@@ -27,7 +27,6 @@ class BrochureRequest extends FormRequest
             'phone_number' => 'required|max:20',
             'email' => ['nullable', 'email', 'max:255'],
             'brochure_name' => 'required|max:255',
-
         ];
     }
 
