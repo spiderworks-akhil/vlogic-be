@@ -147,6 +147,7 @@ Route::get('list-urls/{page}', [CommonController::class, 'list_urls'])->name('ap
 //Contact
 Route::post('contact/save', [CommonController::class, 'contact_save'])->name('contacts.save');
 
+Route::post('brochure/save', [CommonController::class, 'brochure_save'])->name('brochure.save');
 
 //Privacy
 Route::get('privacy/policy',[CommonController::class,'privacy'])->name('privacy_policy');

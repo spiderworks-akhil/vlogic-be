@@ -106,7 +106,7 @@ class CommonController extends Controller
 
 
         $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
-        
+
 
         if (is_null($data)) {
             return response()->json(['error' => 'Page not Found!'], 404);
@@ -171,6 +171,31 @@ class CommonController extends Controller
         return response()->json([
             'success' => true
         ]);
+    }
+
+    public function brochure_save(BrochureRequest $request){
+        $request->validated();
+        $brochure = new Lead;
+        $brochure->fill($request->all());
+        $brochure->save();
+
+        $notif_emails = Setting::where('code', 'contact_notification_email_ids')->first();
+
+        if($notif_emails && trim($notif_emails->value_text) != '')
+        {
+            $mail = new MailSettings;
+            $email_array = explode(',', $notif_emails->value_text);
+            array_filter($email_array, function($value){
+                return !is_null($value) && $value !== '';
+            });
+            $email_array = array_map('trim', $email_array);
+            $mail->to($email_array)->send(new \App\Mail\Brochure($brochure));
+        }
+        if($brochure->email){
+                $thank_mail = new MailSettings;
+                $thank_mail->to($brochure->email)->send(new \App\Mail\BrochureThankyou($brochure));
+        }
+        return response()->json(['success' => true]);
     }
 
     public function list_urls($page)

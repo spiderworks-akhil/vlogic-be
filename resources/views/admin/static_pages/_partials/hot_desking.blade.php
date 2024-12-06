@@ -41,17 +41,14 @@
 
     <h3>Substantial Benefits</h3>
     <fieldset>
-
         <div class="form-group col-md-12">
             <label>Challenges Title</label>
             <textarea name="content[works_heading3]" class="form-control editor">@if ($obj->content && isset($obj->content['works_heading3'])) {{ $obj->content['works_heading3'] }} @endif</textarea>
         </div>
-
         <div class="form-group col-md-12">
             <label>Solution Title</label>
             <textarea name="content[works_heading03]" class="form-control editor">@if ($obj->content && isset($obj->content['works_heading03'])) {{ $obj->content['works_heading03'] }} @endif</textarea>
         </div>
-
         <div class="form-group">
             <a href="{{route('admin.listing-items.index',[9])}}" class="btn btn-primary" target="_blank">Service listing</a>
             <input type="hidden" name="content[challenges_solution]" value="9">

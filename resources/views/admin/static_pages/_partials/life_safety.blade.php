@@ -34,7 +34,6 @@
                 <textarea name="url" class="form-control editor">{{ isset($obj->url) ? $obj->url : '' }}</textarea>
             </div> --}}
 
-
         </fieldset>
 
         <h3>Top Section </h3>
