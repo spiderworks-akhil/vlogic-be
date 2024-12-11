@@ -16,3 +16,4 @@ class FrontendPageTestimonial extends Model
     }
 
 }
+ 
