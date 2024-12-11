@@ -85,4 +85,21 @@
         ])
     </fieldset>
 
+    <h3>Featured Image (for home page)</h3>
+    <fieldset>
+        @php
+        $featuredImage = $obj->content['media_id_featured_image'] ?? null;
+        @endphp
+        @include('admin.media.set_file', [
+            'file' => $featuredImage,
+            'title' => 'Featured Image',
+            'popup_type' => 'single_image',
+            'type' => 'Image',
+            'holder_attr' => 'content[media_id_featured_image]',
+            'id' => 'media_id_featured_image',
+            'display' => 'horizontal'
+        ])
+
+    </fieldset>
+
 </div>
