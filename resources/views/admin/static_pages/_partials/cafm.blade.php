@@ -11,6 +11,7 @@
 
         <!-- Banner Image Upload -->
         <div class="form-group">
+            <p>Image size-(width-100px x height-100px)</p>
             @php
                 $media_id_banner_image = $obj->content['media_id_banner_image'] ?? null;
             @endphp
@@ -46,6 +47,7 @@
     <h3>Questions Section</h3>
     <fieldset>
         <!-- Featured Image 1 Upload -->
+        <p>Image size-(width-940px x height-400px)</p>
         @php
             $media_id_works_first_featured_image = $obj->content && isset($obj->content['media_id_works_first_featured_image'])
                 ? $obj->content['media_id_works_first_featured_image']
@@ -72,6 +74,7 @@
         </div>
 
         <!-- Featured Image 2 Upload -->
+        <p>Image size-(width-940px x height-400px)</p>
         @php
             $media_id_works_first_featured_image2 = $obj->content && isset($obj->content['media_id_works_first_featured_image2'])
                 ? $obj->content['media_id_works_first_featured_image2']

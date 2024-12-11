@@ -8,6 +8,7 @@
         </div>
 
         <div class="form-group ">
+            <p>Image size-(width-100px x height-100px)</p>
             @php
             $media_id_banner_image = ($obj->content && isset($obj->content['media_id_banner_image']))?$obj->content['media_id_banner_image']:null;
             @endphp
@@ -68,7 +69,7 @@
             <label>Description</label>
             <textarea name="content[banner_shortdescription0]" class="form-control editor">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
         </div>
-
+        <p>Image size-(width-750px x height-100px)</p>
         @php
         $media_id_works_first_featured_image = $obj->content && isset($obj->content['media_id_works_first_featured_image']) ? $obj->content['media_id_works_first_featured_image'] : null;
         @endphp

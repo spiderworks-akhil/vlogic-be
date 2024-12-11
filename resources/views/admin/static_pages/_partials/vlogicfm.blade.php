@@ -42,6 +42,7 @@
                 @endif
             </textarea>
         </div>
+        <p>Imagesize-(width-600px x height-600px)</p>
         @php
             $bannerImage = $obj->content['media_id_works_first_featured_image'] ?? null;
         @endphp

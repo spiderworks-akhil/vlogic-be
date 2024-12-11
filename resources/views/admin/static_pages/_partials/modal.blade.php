@@ -4,8 +4,9 @@
     <h3>Modal Section</h3>
     <fieldset>
 
-
+<p>Imagesize-(width-300px x height-300px)</p>
         @php
+
 $bannerImage = $obj->content['media_id_works_first_featured_image'] ?? null;
 @endphp
 @include('admin.media.set_file', [
