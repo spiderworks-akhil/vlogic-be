@@ -64,31 +64,18 @@ class FrontendPage extends JsonResource
     private function related_section($slug)
     {
 
-
-
-
-
-
         if ($slug == 'home') {
             $partner = Partner::get()->all();
 
             if (!isset($partner)) {
                 return response()->json(['message' => 'Error']);
             }
-            $solution = ModelsFrontendPage::whereIn('slug', ['space_management', 'room_scheduling', 'hot_desking', 'work_orders', 'life_safety', 'drawings_service', 'virtual_plan'])->get();
+            $solution = ModelsFrontendPage::whereIn('slug', ['space_management', 'room_scheduling', 'hot_desking', 'work_orders', 'life_safety', 'drawings_service', 'virtual_plan','real_time'])->get();
 
             $spotlight_id = Listing::where('name', 'spotlight')->value('id');
             // $spotlight_id = Listing::where('name', 'spotlight')->pluck('status');
 
-
-
             $spotlight = ListingContent::where('listing_id', $spotlight_id) -> where( 'status', '!=', 0) ->orderBy('priority', 'ASC')->get();
-
-
-
-
-
-
 
             $service = Service::where('parent_id', '=', null)->orWhere('parent_id', '=', '')->orderBy('priority', 'ASC')->get();
 

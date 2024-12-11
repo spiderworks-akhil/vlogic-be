@@ -22,9 +22,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-
-
         $slider = Slider::where('slider_name', 'home')->get();
         $slider_id = Slider::where('slider_name', 'home')->pluck('id')->first();
 
@@ -58,7 +55,7 @@ class HomeController extends Controller
 
         $data = [
             'success' => true,
-            'data' => [ 
+            'data' => [
                 'slider' => new SliderCollection($slider),
                 'page_details' => new ResourcesFrontendPage($page_details),
                 'services' => new ServiceCollection($services),
@@ -70,9 +67,6 @@ class HomeController extends Controller
     }
     public function contact(ContactRequest $request)
     {
-
-
-
 
         $request->validated();
 
