@@ -72,4 +72,7 @@ class FrontendPage extends Model
     {
         return $this->hasMany(FrontendPageTestimonial::class, 'frontend_page_id');
     }
+
+
+
 }
