@@ -187,14 +187,14 @@
                                                             </div>
                                                         </div>
 
-                                                     {{-- @if($obj->id == 31) --}}
+                                                     @if($obj->id == 31)
                                                         <div class="form-group w-100  mb-2">
                                                             <div class="custom-control custom-switch switch-primary float-left">
                                                                 <input type="checkbox" class="custom-control-input" value="1" id="enable" name="enable" @if(!$obj->id || $obj->enable == 1) checked="" @endif>
                                                                 <label class="custom-control-label" for="enable">Enable</label>
                                                             </div>
                                                         </div>
-                                                    {{-- @endif --}}
+                                                    @endif
                                                         <div class="form-group w-100 mb-1">
                                                             <label for="name">Created On: </label>
                                                             @if(!$obj->id)
