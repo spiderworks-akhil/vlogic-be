@@ -31,10 +31,10 @@
             'display' => 'horizontal'
         ])
 
-        {{-- <div class="form-group col-md-12">
+      <div class="form-group col-md-12">
             <label>Page url</label>
-            <textarea name="url" class="form-control editor">{{ isset($obj->url) ? $obj->url : '' }}</textarea>
-        </div> --}}
+            <input type="text" name="content[url]" class="form-control" @if($obj->content && isset($obj->content['url'])) value="{{$obj->content['url']}}" @endif >
+        </div>
 
     </fieldset>
     <h3>Space Management Use Case Section</h3>
