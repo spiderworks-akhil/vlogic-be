@@ -13,11 +13,6 @@
         </div>
 
         <div class="form-group col-md-12">
-            <label>Top Description</label>
-            <textarea name="content[banner_shortdescription0]" class="form-control editor">@if($obj->content && isset($obj->content['banner_shortdescription0'])) {{$obj->content['banner_shortdescription0']}} @endif</textarea>
-        </div>
-
-        <div class="form-group col-md-12">
             <label>Short Description</label>
             <textarea name="content[banner_title2]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title2'])) {{$obj->content['banner_title2']}} @endif</textarea>
         </div>
