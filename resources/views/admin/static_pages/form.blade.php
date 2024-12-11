@@ -105,7 +105,7 @@
 
 
                                        <div class="card">
-                                                  @if(!in_array($obj->id, [5, 16, 9, 10, 1, 2,12,13,18,]))
+                                                  {{-- @if(!in_array($obj->id, [5, 16, 9, 10, 1, 2,12,13,18,])) --}}
                                                 <div class="card-header">
                                                 Testimonials
                                                 </div>
@@ -124,7 +124,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                @endif
+                                                {{-- @endif --}}
                                             </div>
 
 
