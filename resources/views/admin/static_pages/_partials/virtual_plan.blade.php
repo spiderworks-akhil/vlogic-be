@@ -3,7 +3,7 @@
     <fieldset>
         <div class="form-group col-md-12">
             <label>Title</label>
-            <textarea name="content[banner_title]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title'])) {{$obj->content['banner_title']}} @endif</textarea>
+            <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
         </div>
 
         <div class="form-group">
@@ -28,16 +28,15 @@
                 {{ $obj->content['banner_shortdescription'] ?? '' }}
             </textarea>
         </div>
+
         <div class="form-group col-md-12">
-            <label>Short Description</label>
-            <textarea name="content[banner_shortdescription0]" class="form-control editor">
-                {{ $obj->content['banner_shortdescription0'] ?? '' }}
-            </textarea>
+            <label>Banner Description</label>
+            <textarea name="content[banner_description]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_description'])) {{$obj->content['banner_description']}} @endif</textarea>
         </div>
 
         <div class="form-group col-md-12">
             <label>Page url</label>
-            <textarea name="url" class="form-control editor">{{ isset($obj->url) ? $obj->url : '' }}</textarea>
+            <input type="text" name="content[url]" class="form-control" @if($obj->content && isset($obj->content['url'])) value="{{$obj->content['url']}}" @endif >
         </div>
 
     </fieldset>
@@ -92,15 +91,16 @@
         ])
 
         <div class="form-group">
+            <label>Youtube video link</label>
+
+
             @php
             $media_id_works_video = $obj->content['media_id_works_video'] ?? null;
             @endphp
             @include('admin.media.set_file', ['file' => $media_id_works_video, 'title' => 'Works Video', 'popup_type' => 'single_image', 'type' => 'Video', 'holder_attr' => 'content[media_id_works_video]', 'id' => 'media_id_works_video', 'display' => 'horizontal'])
-            <div class="form-group col-md-12">
-                <textarea class="form-control editor" name="content[youtube_video_link]">
-                    @if ($obj->content && isset($obj->content['youtube_video_link'])) {{ $obj->content['youtube_video_link'] }} @endif
-                </textarea>
-            </div>
+
+
+            <input type="text" name="content[youtube_video_link]" class="form-control" @if($obj->content && isset($obj->content['youtube_video_link'])) value="{{$obj->content['youtube_video_link']}}" @endif >
         </div>
     </fieldset>
 
@@ -126,5 +126,22 @@
             <a href="{{route('admin.listing-items.index',[3])}}" class="btn btn-primary" target="_blank">Customer Stories Listing</a>
             <input type="hidden" name="content[government_listing]" value="1">
         </div>
+    </fieldset>
+
+    <h3>Featured Image (for home page)</h3>
+    <fieldset>
+        @php
+        $featuredImage = $obj->content['media_id_featured_image'] ?? null;
+        @endphp
+        @include('admin.media.set_file', [
+            'file' => $featuredImage,
+            'title' => 'Featured Image',
+            'popup_type' => 'single_image',
+            'type' => 'Image',
+            'holder_attr' => 'content[media_id_featured_image]',
+            'id' => 'media_id_featured_image',
+            'display' => 'horizontal'
+        ])
+
     </fieldset>
 </div>

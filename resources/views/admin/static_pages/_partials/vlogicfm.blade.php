@@ -5,20 +5,13 @@
         <div class="card-body row">
             <div class="form-group col-md-12">
                 <label>Banner Top Title</label>
-                <textarea name="content[banner_top_title]" class="form-control editor">
-                    @if ($obj->content && isset($obj->content['banner_top_title']))
-                        {{ $obj->content['banner_top_title'] }}
-                    @endif
-                </textarea>
+            <input type="text" name="content[banner_top_title]" class="form-control" @if($obj->content && isset($obj->content['banner_top_title'])) value="{{$obj->content['banner_top_title']}}" @endif >
             </div>
         </div>
         <div class="form-group col-md-12">
             <label>Banner Title</label>
-            <textarea name="content[banner_title]" class="form-control editor">
-                @if ($obj->content && isset($obj->content['banner_title']))
-                    {{ $obj->content['banner_title'] }}
-                @endif
-            </textarea>
+            <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
+
         </div>
         <div class="form-group col-md-12">
             <label>Banner Short Description</label>
@@ -30,17 +23,13 @@
         </div>
         <div class="form-group col-md-12">
             <label>Button Name</label>
-            <textarea name="content[button_name]" class="form-control editor">
-                {{ optional($obj->content)['button_name'] }}
-            </textarea>
+            <input type="text" name="content[button_name]" class="form-control" @if($obj->content && isset($obj->content['button_name'])) value="{{$obj->content['button_name']}}" @endif >
+
         </div>
         <div class="form-group col-md-12">
             <label>Button URL</label>
-            <textarea name="content[button_url]" class="form-control editor">
-                @if ($obj->content && isset($obj->content['button_url']))
-                    {{ $obj->content['button_url'] }}
-                @endif
-            </textarea>
+            <input type="text" name="content[button_url]" class="form-control" @if($obj->content && isset($obj->content['button_url'])) value="{{$obj->content['button_url']}}" @endif >
+
         </div>
         <p>Imagesize-(width-600px x height-600px)</p>
         @php

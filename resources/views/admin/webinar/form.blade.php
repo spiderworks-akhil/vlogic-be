@@ -1,5 +1,7 @@
 @extends('admin._layouts.fileupload')
 @section('content')
+
+<link href="{{asset('admin/plugins/jquery-datetimepicker/css/jquery.datetimepicker.css')}}" rel="stylesheet" type="text/css"  />
 <!-- Top Bar Start -->
             <div class="topbar">
                 <!-- Navbar -->
@@ -85,13 +87,12 @@
                                                                 <input type="text" name="slug" class="form-control" value="{{$obj->slug}}" id="slug">
                                                                 <small class="text-muted">The “slug” is the URL-friendly version of the name. It is usually all lowercase and contains only letters, numbers, and hyphens.</small>
                                                             </div>
+
                                                             <div class="form-group col-md-6">
                                                                 <label>Published On</label>
-                                                                <input type="date" name="published_on" class="form-control" value="{{$obj->published_on}}" id="published_on">
+                                                                <input type="text" name="published_on" class="form-control datetimepicker" value="{{$obj->published_on}}" id="published_on">
 
                                                             </div>
-
-
 
                                                             <div class="form-group col-md-12">
                                                                 <label>Short Description</label>
@@ -315,6 +316,8 @@
             <!-- end page content -->
 @endsection
 @section('footer')
+<script src="{{asset('admin/plugins/jquery-datetimepicker/js/jquery.datetimepicker.full.min.js')}}" type="text/javascript"></script>
+
     <script type="text/javascript">
         var validator = $('#InputFrm').validate({
             ignore: [],
@@ -347,6 +350,13 @@
               tags: true
             });
         })
+
+        $(function(){
+                $('.datetimepicker').datetimepicker({
+                    format: 'd/m/Y H:i',
+                    formatDate: 'd/m/Y'
+                });
+            })
     </script>
 @parent
 @endsection

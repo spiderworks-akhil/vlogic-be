@@ -1,22 +1,41 @@
 <?php
+
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\Spam;
 
 class BrochureRequest extends FormRequest
 {
-    public function authorize()
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
     {
-        return true;  // Set to true if all users can access this request
+        return true;
     }
 
-    public function rules()
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
     {
         return [
-            'slug' => 'string|max:191',
-            'brochures' => 'pdf|max:191',
-            'content' => 'nullable|',
-            // Add other fields as necessary
+            'name' => 'required|max:255',
+            'phone_number' => 'required|max:20',
+            'email' => ['nullable', 'email', 'max:255'],
+            'brochure_name' => 'required|max:255',
+        ];
+    }
+
+    public function messages()
+    {
+        return[
+            'name.required' => 'Please enter your first name',
+            'phone_number.required' => 'Please enter your phone number',
+            'email.email' => 'Please enter a valid email address',
         ];
     }
 }

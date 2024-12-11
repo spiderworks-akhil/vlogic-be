@@ -105,7 +105,7 @@
 
 
                                        <div class="card">
-                                                  @if(!in_array($obj->id, [5, 16, 9, 10, 1, 2,12,13,18,]))
+                                                  {{-- @if(!in_array($obj->id, [5, 16, 9, 10, 1, 2,12,13,18,])) --}}
                                                 <div class="card-header">
                                                 Testimonials
                                                 </div>
@@ -124,7 +124,7 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                @endif
+                                                {{-- @endif --}}
                                             </div>
 
 
@@ -186,12 +186,15 @@
                                                                 <label class="custom-control-label" for="status">Status</label>
                                                             </div>
                                                         </div>
+
+                                                     @if($obj->id == 31)
                                                         <div class="form-group w-100  mb-2">
                                                             <div class="custom-control custom-switch switch-primary float-left">
                                                                 <input type="checkbox" class="custom-control-input" value="1" id="enable" name="enable" @if(!$obj->id || $obj->enable == 1) checked="" @endif>
                                                                 <label class="custom-control-label" for="enable">Enable</label>
                                                             </div>
                                                         </div>
+                                                    @endif
                                                         <div class="form-group w-100 mb-1">
                                                             <label for="name">Created On: </label>
                                                             @if(!$obj->id)

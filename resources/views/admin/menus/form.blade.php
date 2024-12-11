@@ -104,7 +104,7 @@
                                                     $menu = Config('admin.menu.items');
                                                     $i = 0;
                                                 @endphp
-                                                @foreach($menu as $item)
+                                                {{-- @foreach($menu as $item)
                                                     @if(method_exists($item['model'], 'create_admin_menu'))
                                                         @php
                                                             $model = new $item['model'];
@@ -120,7 +120,7 @@
                                                           @endif
                                                         </div>
                                                     @endif
-                                                @endforeach
+                                                @endforeach --}}
                                                 <div class="accord-header">Custom Links<span class="float-right fa fa-angle-down toggle-arraow"></span></div>
                                                 <div class="accord-content">
                                                   <div class="form-group mb-2">

@@ -19,4 +19,5 @@ class Testimonial extends Model
         return $this->belongsTo(Media::class, 'video_link_id');
     }
 
+
 }

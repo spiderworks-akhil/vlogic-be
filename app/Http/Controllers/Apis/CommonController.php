@@ -9,6 +9,7 @@ use App\Models\Lead;
 use App\Models\Menu;
 use App\Models\News;
 use App\Models\Page;
+use App\Mail\Brochure;
 use App\Models\Listing;
 use App\Models\Setting;
 use App\Models\MenuItem;
@@ -16,12 +17,14 @@ use App\Models\Redirect;
 use App\Models\FrontendPage;
 use Illuminate\Http\Request;
 use App\Http\Resources\Media;
+use App\Mail\BrochureThankyou;
 use App\Models\ListingContent;
 use App\Services\MailSettings;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use App\Http\Requests\ContactRequest;
 use App\Http\Resources\FaqCollection;
+use App\Http\Requests\BrochureRequest;
 use App\Http\Resources\LeadCollection;
 use Maatwebsite\Excel\Concerns\ToArray;
 use App\Http\Resources\CommonPageResource;
@@ -103,10 +106,8 @@ class CommonController extends Controller
 
     public function page(string $slug )
     {
-
-
         $data = FrontendPage::with(['faq', 'og_image'])->where('slug', $slug)->where('status', 1)->first();
-        
+
 
         if (is_null($data)) {
             return response()->json(['error' => 'Page not Found!'], 404);
@@ -171,6 +172,31 @@ class CommonController extends Controller
         return response()->json([
             'success' => true
         ]);
+    }
+
+    public function brochure_save(BrochureRequest $request){
+        $request->validated();
+        $brochure = new Lead;
+        $brochure->fill($request->all());
+        $brochure->save();
+
+        $notif_emails = Setting::where('code', 'contact_notification_email_ids')->first();
+
+        if($notif_emails && trim($notif_emails->value_text) != '')
+        {
+            $mail = new MailSettings;
+            $email_array = explode(',', $notif_emails->value_text);
+            array_filter($email_array, function($value){
+                return !is_null($value) && $value !== '';
+            });
+            $email_array = array_map('trim', $email_array);
+            $mail->to($email_array)->send(new Brochure($brochure));
+        }
+        if($brochure->email){
+                $thank_mail = new MailSettings;
+                $thank_mail->to($brochure->email)->send(new BrochureThankyou($brochure));
+        }
+        return response()->json(['success' => true]);
     }
 
     public function list_urls($page)

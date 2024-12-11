@@ -41,9 +41,8 @@ class StaticPageController extends Controller
     public function update(StaticPageRequest $request)
     {
 
-         $request->validated();
+        $request->validated();
     	$data = request()->all();
-      
 
     	$id = decrypt($data['id']);
         if(!empty($data['content'])){
@@ -58,15 +57,31 @@ class StaticPageController extends Controller
 
 
         	if($obj->update($data)){
-                if(!empty($data['testimonials'])){
-                    FrontendPageTestimonial::where('frontend_page_id',$obj->id)->delete();
-                    foreach($data['testimonials'] as $item){
+
+                if (empty($data['testimonials'])) {
+
+                    FrontendPageTestimonial::where('frontend_page_id', $obj->id)->delete();
+
+                } elseif (!empty($data['testimonials'])) {
+
+                    FrontendPageTestimonial::where('frontend_page_id', $obj->id)->delete();
+                    foreach ($data['testimonials'] as $item) {
                         $new = new FrontendPageTestimonial;
                         $new->testimonial_id = $item;
                         $new->frontend_page_id = $obj->id;
                         $new->save();
                     }
                 }
+
+                // if(!empty($data['testimonials'])){
+                //     FrontendPageTestimonial::where('frontend_page_id',$obj->id)->delete();
+                //     foreach($data['testimonials'] as $item){
+                //         $new = new FrontendPageTestimonial;
+                //         $new->testimonial_id = $item;
+                //         $new->frontend_page_id = $obj->id;
+                //         $new->save();
+                //     }
+                // }
             }
             return $this->redirect('updated','success', 'edit', [encrypt($obj->id)]);
         } else {

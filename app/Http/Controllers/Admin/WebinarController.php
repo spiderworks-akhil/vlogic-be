@@ -58,10 +58,6 @@ class WebinarController extends Controller
     {
         $request->validated();
         $data = $request->all();
-
-
-
-
         return $this->_store($data);
     }
 
@@ -84,8 +80,19 @@ class WebinarController extends Controller
         $data = $request->all();
         $id = decrypt($data['id']);
 
-            
-        return $this->_update($id, $data);
+        if($obj = $this->model->find($id)){
+
+            $data['is_featured'] = isset($data['is_featured'])?1:0;
+            $data['priority'] = (!empty($data['priority']))?$data['priority']:0;
+            $data['published_on'] = !empty($data['published_on'])?$this->parse_date_time($data['published_on']):date('Y-m-d H:i:s');
+        	$obj->update($data);
+
+            return $this->redirect('updated','success', 'edit', [encrypt($obj->id)]);
+        } else {
+            return $this->redirect('notfound');
+        }
+
+        // return $this->_update($id, $data);
     }
 
 }

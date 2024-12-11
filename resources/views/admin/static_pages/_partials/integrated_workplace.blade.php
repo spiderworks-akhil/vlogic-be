@@ -3,9 +3,8 @@
     <fieldset>
         <div class="form-group col-md-12">
             <label>Banners Title</label>
-            <textarea name="content[banner_title]" class="form-control editor">
-                {{ $obj->content['banner_title'] ?? '' }}
-            </textarea>
+            <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
+
         </div>
 
         <div class="form-group">

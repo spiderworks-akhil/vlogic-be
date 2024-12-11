@@ -4,10 +4,10 @@
     <fieldset>
         <div class="form-group col-md-12">
             <label>Banner title</label>
-            <textarea name="content[banner_title]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_title'])) {{$obj->content['banner_title']}} @endif</textarea>
+            <input type="text" name="content[banner_title]" class="form-control" @if($obj->content && isset($obj->content['banner_title'])) value="{{$obj->content['banner_title']}}" @endif >
         </div>
         <div class="form-group col-md-12">
-            <label>Banner Short Description</label>
+            <label>Banner Description</label>
             <textarea name="content[banner_description]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_description'])) {{$obj->content['banner_description']}} @endif</textarea>
         </div>
 
@@ -31,10 +31,11 @@
             'display' => 'horizontal'
         ])
 
-        <div class="form-group col-md-12">
+      <div class="form-group col-md-12">
             <label>Page url</label>
-            <textarea name="url" class="form-control editor">{{ isset($obj->url) ? $obj->url : '' }}</textarea>
+            <input type="text" name="content[url]" class="form-control" @if($obj->content && isset($obj->content['url'])) value="{{$obj->content['url']}}" @endif >
         </div>
+
     </fieldset>
     <h3>Space Management Use Case Section</h3>
     <fieldset>
@@ -180,4 +181,24 @@
             <textarea name="content[banner_title_2]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_title_2'])) {{$obj->content['banner_title_2']}} @endif</textarea>
         </div>
     </fieldset>
+
+    <h3>Featured Image (for home page)</h3>
+
+    <fieldset>
+        @php
+        $featuredImage = $obj->content['media_id_featured_image'] ?? null;
+        @endphp
+        @include('admin.media.set_file', [
+            'file' => $featuredImage,
+            'title' => 'Featured Image',
+            'popup_type' => 'single_image',
+            'type' => 'Image',
+            'holder_attr' => 'content[media_id_featured_image]',
+            'id' => 'media_id_featured_image',
+            'display' => 'horizontal'
+        ])
+
+    </fieldset>
+
+
 </div>
