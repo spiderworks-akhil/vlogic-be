@@ -28,14 +28,12 @@ public function webinar(Request $request)
             ->where('status', 1)
             ->get();
 
-            $currentDate = Carbon::now();
+            $currentDate = Carbon::now('Asia/Kolkata')->format('Y-m-d H:i:s');
 
             $currentWebinars = Webinar::with(['featured_image', 'media'])
             ->where('status', 1)->where('published_on','<',$currentDate)
             ->orderBy('published_on','DESC')
             ->get();
-
-
 
             $futureWebinars = Webinar::with(['featured_image', 'media'])
             ->where('status', 1)->where('published_on','>=',$currentDate)
@@ -51,8 +49,6 @@ public function webinar(Request $request)
         return response()->json(['error' => $e->getMessage()], 500);
     }
 }
-
-
 
 
 
