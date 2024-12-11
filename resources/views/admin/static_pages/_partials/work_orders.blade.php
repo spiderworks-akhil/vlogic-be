@@ -66,13 +66,13 @@
             </div>
         </div>
         <div class="form-group">
+            <label>Youtube video link</label>
             @php
             $media_id_works_video = $obj->content['media_id_works_video'] ?? null;
             @endphp
-            @include('admin.media.set_file', ['file'=>$media_id_works_video, 'title'=>'Works Video', 'popup_type'=>'single_image', 'type'=>'Video', 'holder_attr'=>'content[media_id_works_video]', 'id'=>'media_id_works_video', 'display'=> 'horizontal'])
-            <div class="form-group col-md-12">
-                <textarea class="form-control editor" name="content[youtube_video_link]">@if ($obj->content && isset($obj->content['youtube_video_link'])) {{$obj->content['youtube_video_link']}} @endif</textarea>
-            </div>
+            @include('admin.media.set_file', ['file' => $media_id_works_video, 'title' => 'Works Video', 'popup_type' => 'single_image', 'type' => 'Video', 'holder_attr' => 'content[media_id_works_video]', 'id' => 'media_id_works_video', 'display' => 'horizontal'])
+
+            <input type="text" name="content[youtube_video_link]" class="form-control" @if($obj->content && isset($obj->content['youtube_video_link'])) value="{{$obj->content['youtube_video_link']}}" @endif >
         </div>
 
     </fieldset>
