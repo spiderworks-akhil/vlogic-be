@@ -288,6 +288,7 @@
                                                 <div class="card-header">
                                                     Featured Image
                                                 </div>
+                                                <p>Image size-(width-900px x height-350px)</p>
                                                 <div class="card-body">
                                                     @include('admin.media.set_file', ['file'=>$obj->featured_image, 'title'=>'Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'featured_image_id'])
                                                 </div>
@@ -295,9 +296,11 @@
                                             @endfieldshow
                                             @fieldshow(blogs-banner_image_id)
                                             <div class="card">
+
                                                 <div class="card-header">
                                                     Banner Image
                                                 </div>
+                                                <p>Image size-(width-1440px x height-300px)</p>
                                                 <div class="card-body">
                                                     @include('admin.media.set_file', ['file'=>$obj->banner_image, 'title'=>'Banner Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'banner_image_id'])
                                                 </div>

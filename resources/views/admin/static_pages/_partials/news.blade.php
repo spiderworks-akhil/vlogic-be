@@ -13,6 +13,7 @@
         </div>
 
         <div class="form-group ">
+            <p>Image size-(width-1440px x height-300px)</p>
             @php
             $media_id_banner_image = ($obj->content && isset($obj->content['media_id_banner_image']))?$obj->content['media_id_banner_image']:null;
             @endphp

@@ -8,6 +8,7 @@
         </div>
 
         <div class="form-group ">
+            <p>Image size-(width-1440px x height-300px)</p>
             @php
             $media_id_banner_image = ($obj->content && isset($obj->content['media_id_banner_image']))?$obj->content['media_id_banner_image']:null;
             @endphp
@@ -30,7 +31,7 @@
             <textarea name="content[section_title11]" class="form-control editor">@if($obj->content && isset($obj->content['section_title11'])) {{ htmlspecialchars_decode($obj->content['section_title11']) }} @endif</textarea>
         </div>
 
-
+        <p>Image size-(width-500px x height-400px)</p>
         @php
         $media_id_works_first_featured_image = ($obj->content && isset($obj->content['media_id_works_first_featured_image'])) ? $obj->content['media_id_works_first_featured_image'] : null;
         @endphp

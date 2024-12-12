@@ -17,7 +17,7 @@
                 <textarea name="content[banner_title2]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_title2'])) {{$obj->content['banner_title2']}} @endif</textarea>
             </div>
         </div>
-
+        <p>Image size-(width-1440px x height-300px)</p>
         @php
         $bannerImage = $obj->content['media_id_works_first_featured_image'] ?? null;
         @endphp
@@ -63,7 +63,7 @@
             <label>Title</label>
             <textarea name="content[banner_title1]" class="form-control editor">@if ($obj->content && isset($obj->content['banner_title1'])) {{$obj->content['banner_title1']}} @endif</textarea>
         </div>
-
+        <p>Image size-(width-550px x height-400px)</p>
         @php
         $bannerImage = $obj->content['media_id_works_first_featured_image1'] ?? null;
         @endphp

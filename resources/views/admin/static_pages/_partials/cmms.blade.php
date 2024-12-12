@@ -7,6 +7,7 @@
         </div>
 
         <div class="form-group">
+            <p>Image size-(width-1440px x height-300px)</p>
             @php
                 $media_id_banner_image = $obj->content['media_id_banner_image'] ?? null;
             @endphp
@@ -31,6 +32,7 @@
 
     <h3>Top Section </h3>
     <fieldset>
+        <p>Image size-(width-600px x height-400px)</p>
         @php
             $media_id_works_first_featured_image = $obj->content && isset($obj->content['media_id_works_first_featured_image'])
                 ? $obj->content['media_id_works_first_featured_image']
@@ -64,7 +66,7 @@
                 {{ $obj->content['banner_title1'] ?? '' }}
             </textarea>
         </div>
-
+        <p>Image size-(width-500px x height-300px)</p>
         @php
             $media_id_works_first_featured_image1 = $obj->content && isset($obj->content['media_id_works_first_featured_image1'])
                 ? $obj->content['media_id_works_first_featured_image1']
@@ -98,7 +100,7 @@
                 {{ $obj->content['banner_title2'] ?? '' }}
             </textarea>
         </div>
-
+        <p>Image size-(width-500px x height-300px)</p>>
         @php
             $media_id_works_first_featured_image2 = $obj->content && isset($obj->content['media_id_works_first_featured_image2'])
                 ? $obj->content['media_id_works_first_featured_image2']
@@ -132,7 +134,7 @@
                 {{ $obj->content['banner_title3'] ?? '' }}
             </textarea>
         </div>
-
+        <p>Image size-(width-500px x height-300px)</p>
         @php
             $media_id_works_first_featured_image3 = $obj->content && isset($obj->content['media_id_works_first_featured_image3'])
                 ? $obj->content['media_id_works_first_featured_image3']

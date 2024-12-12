@@ -264,6 +264,7 @@
                                                     Featured Image
                                                 </div>
                                                 <div class="card-body">
+                                                    <p>Image size-(width-650px x height-300px)</p>
                                                     @include('admin.media.set_file', ['file'=>$obj->featured_image, 'title'=>'Featured Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'featured_image_id'])
                                                 </div>
                                             </div>

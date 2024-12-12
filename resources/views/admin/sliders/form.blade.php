@@ -1,18 +1,18 @@
 @extends('admin._layouts.fileupload')
 @section('content')
 <!-- Top Bar Start -->
-            <div class="topbar">            
+            <div class="topbar">
                 <!-- Navbar -->
-                <nav class="navbar-custom">    
+                <nav class="navbar-custom">
                     @include('admin._partials.profile_menu')
-        
-                    <ul class="list-unstyled topbar-nav mb-0">                        
+
+                    <ul class="list-unstyled topbar-nav mb-0">
                         <li>
                             <button class="nav-link button-menu-mobile">
                                 <i data-feather="menu" class="align-self-center topbar-icon"></i>
                             </button>
-                        </li> 
-                          
+                        </li>
+
                     </ul>
                 </nav>
                 <!-- end navbar-->
@@ -35,12 +35,12 @@
                                             <li class="breadcrumb-item active">Edit Slider</li>
                                         </ol>
                                     </div><!--end col-->
-                                </div><!--end row-->                                                              
+                                </div><!--end row-->
                             </div><!--end page-title-box-->
                         </div><!--end col-->
                     </div><!--end row-->
                     <!-- end page title end breadcrumb -->
-                    
+
                     <div class="row">
                         <div class="col-lg-12">
                             @include('admin._partials.notifications')
@@ -70,7 +70,7 @@
                                                                     <input type="text" name="height" class="form-control" value="{{$obj->height}}" maxLength="4" >
                                                                 </div>
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -79,18 +79,20 @@
                                         <hr/>
                                         <div class="row">
                                             <div class="col-sm-12 text-right">
+
                                                 <a href="{{route('admin.media.popup', ['popup_type'=>'slider', 'type'=>'Image-Video', 'holder_attr'=>'slider-list', 'title'=>'Gallery', 'related_id'=>encrypt($obj->id)])}}" class="webadmin-open-ajax-popup btn btn-warning" title="Media Files" data-popup-size="xlarge"><i class="fa fa-plus-sign"></i> Add Medias</a>
 
                                                 <button type="submit" class="btn btn-primary">Update</button>
                                                 <a href="{{ route($route.'.index') }}" class="btn btn-soft-primary">Cancel</a>
                                             </div>
                                         </div>
-                                    </form>                                                                   
+                                    </form>
                                 </div><!--end card-body-->
                             </div><!--end card-->
                             @endif
                             <div class="card">
                                 <div class="card-body" >
+                                    <p>Image size-(width-1440px x height-450px)</p>
                                     @if(count($obj->photos)>0)
                                     <div class="mb-3">
                                         <a href="javascript:void(0);" class="btn btn-success reorder-sliders">Reorder Sliders</a>
@@ -137,9 +139,9 @@
                     success: function(){
                        window.location.reload();
                     }
-                });	
+                });
         })
-        
+
     })
       var validator = $('#SliderFrm').validate({
             ignore: [],

@@ -149,6 +149,7 @@
                                                             </div>
                                                             @endfieldshow
                                                         </div>
+
                                                         <div class="form-group w-100 mb-1">
                                                             <label for="name">Created On: </label>
                                                             @if(!$obj->id)
@@ -200,9 +201,11 @@
                                                 </div>
                                             </div>
                                             <div class="card">
+
                                                 <div class="card-header">
                                                     User Image
                                                 </div>
+                                                <p>Image size-(width-600px x height-600px)</p>
                                                 <div class="card-body">
                                                     @include('admin.media.set_file', ['file'=>$obj->featured_image, 'title'=>'User Image', 'popup_type'=>'single_image', 'type'=>'Image', 'holder_attr'=>'featured_image_id'])
                                                 </div>

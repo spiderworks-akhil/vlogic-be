@@ -9,6 +9,7 @@
             </div>
 
             <div class="form-group ">
+                <p>Image size-(width-1440px x height-260px)</p>
                 @php
                     $media_id_banner_image =
                         $obj->content && isset($obj->content['media_id_banner_image'])
@@ -61,6 +62,7 @@
   </textarea>
             </div>
             <div class="form-group ">
+                <p>Image size-(width-380px x height-280px)</p>
                 @php
                     $media_id_1 =
                         $obj->content && isset($obj->content['media_id_1']) ? $obj->content['media_id_1'] : null;
