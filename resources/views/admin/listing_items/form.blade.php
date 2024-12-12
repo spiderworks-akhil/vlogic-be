@@ -131,7 +131,7 @@
                                                                 </div>
 
                                                                 @endif
-
+                                                           
                                                                 @if($listing->custom_url == "Yes")
                                                                 <div class="form-group mb-2">
                                                                     <label for="exampleInputPassword1">Url</label>

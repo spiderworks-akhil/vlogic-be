@@ -287,6 +287,7 @@
                                             </div>
 
                                             <div class="card">
+                                                <p>Image size-(width-1440px x height-300px)</p>s
                                                 <div class="card-header">
                                                     Banner Image
                                                 </div>

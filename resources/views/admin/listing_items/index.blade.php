@@ -28,13 +28,15 @@
                             <div class="page-title-box">
                                 <div class="row">
                                     <div class="col">
-                                    
+
+                                        <p>Note:Please upload square images only.</p>
                                         <h4 class="page-title">All Listing Items of {{$listing->name}}</h4>
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Admin</a></li>
                                             <li class="breadcrumb-item"><a href="{{route('admin.listings.index')}}">Listings</a></li>
                                             <li class="breadcrumb-item active">All Listing Items</li>
                                         </ol>
+
                                     </div><!--end col-->
                                     @if(auth()->user()->can($permissions['create']))
                                      <div class="col-auto align-self-center">
