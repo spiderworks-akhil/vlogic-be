@@ -8,7 +8,7 @@
             </div>
 
             <div class="form-group ">
-                <p>Image size-(width-100px x height-100px)</p>
+                <p>Image size-(width-1440px x height-300px)</p>
                 @php
                 $media_id_banner_image = ($obj->content && isset($obj->content['media_id_banner_image']))?$obj->content['media_id_banner_image']:null;
                 @endphp
@@ -36,7 +36,7 @@
             <label>Short Description</label>
             <textarea name="content[banner_shortdescription]" class="form-control ">@if($obj->content && isset($obj->content['banner_shortdescription'])) {{$obj->content['banner_shortdescription']}} @endif</textarea>
         </div>
-          <p>Image size-(width-700px x height-400px)</p>
+          <p>Image size-(width-550px x height-400px)</p>
         @php
         $media_id_works_first_featured_image =
             $obj->content && isset($obj->content['media_id_works_first_featured_image'])
@@ -122,7 +122,7 @@
             <label>Solutions Heading 1</label>
             <textarea name="content[banner_title2]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title2'])) {{$obj->content['banner_title2']}} @endif</textarea>
         </div>
-        <p>Image size-(width-600px x height-600px)</p>
+        <p>Image size-(width-450px x height-350px)</p>
 
         @php
         $media_id_works_first_featured_image1 = $obj->content['media_id_works_first_featured_image1'] ?? null;
@@ -148,7 +148,7 @@
             <label>Solutions Heading 2</label>
             <textarea name="content[banner_title3]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title3'])) {{$obj->content['banner_title3']}} @endif</textarea>
         </div>
-        <p>Image size-(width-600px x height-600px)</p>
+        <p>Image size-(width-450px x height-350px)</p>
         @php
         $media_id_works_first_featured_image2 = $obj->content['media_id_works_first_featured_image2'] ?? null;
         @endphp
@@ -172,7 +172,7 @@
             <label>Solutions Heading 3</label>
             <textarea name="content[banner_title4]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title4'])) {{$obj->content['banner_title4']}} @endif</textarea>
         </div>
-        <p>Image size-(width-600px x height-600px)</p>
+        <p>Image size-(width-350px x height-480px)</p>
         @php
         $media_id_works_first_featured_image3 = $obj->content['media_id_works_first_featured_image3'] ?? null;
         @endphp

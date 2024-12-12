@@ -51,7 +51,7 @@
             <label>Short Description</label>
             <textarea name="content[banner_title5]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title5'])){{$obj->content['banner_title5']}}@endif</textarea>
         </div>
-        <p>Imagesize-(width-100px x height-100px)</p>
+        <p>Imagesize-(width-350px x height-100px)</p>
         @php
         $media_id_works_first_featured_image = ($obj->content && isset($obj->content['media_id_works_first_featured_image'])) ? $obj->content['media_id_works_first_featured_image'] : null;
         @endphp
@@ -88,7 +88,7 @@
             <label>Facilities Heading 1</label>
             <textarea name="content[banner_title8]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title8'])){{$obj->content['banner_title8']}}@endif</textarea>
         </div>
-        <p>Image size-(width-100px x height-100px)</p>
+        <p>Image size-(width-450px x height-250px)</p>
         @php
         $media_id_works_first_featured_image1 = ($obj->content && isset($obj->content['media_id_works_first_featured_image1'])) ? $obj->content['media_id_works_first_featured_image1'] : null;
         @endphp
@@ -98,7 +98,7 @@
             <label>Facilities Heading 2</label>
             <textarea name="content[banner_title9]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title9'])){{$obj->content['banner_title9']}}@endif</textarea>
         </div>
-        <p>Image size-(width-100px x height-100px)</p>
+        <p>Image size-(width-450px x height-250px)</p>
         @php
         $media_id_works_first_featured_image2 = ($obj->content && isset($obj->content['media_id_works_first_featured_image2'])) ? $obj->content['media_id_works_first_featured_image2'] : null;
         @endphp
@@ -108,7 +108,7 @@
             <label>Facilities Heading 3</label>
             <textarea name="content[banner_title10]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title10'])){{$obj->content['banner_title10']}}@endif</textarea>
         </div>
-        <p>Image size-(width-100px x height-100px)</p>
+        <p>Image size-(width-450px x height-250px)</p>
         @php
         $media_id_works_first_featured_image3 = ($obj->content && isset($obj->content['media_id_works_first_featured_image3'])) ? $obj->content['media_id_works_first_featured_image3'] : null;
         @endphp

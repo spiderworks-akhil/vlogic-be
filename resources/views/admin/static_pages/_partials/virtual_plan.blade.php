@@ -7,7 +7,7 @@
         </div>
 
         <div class="form-group">
-            <p>Image size-(width-100px x height-100px)</p>
+            <p>Image size-(width-1440px x height-300px)</p>
             @php
             $media_id_banner_image = $obj->content['media_id_banner_image'] ?? null;
             @endphp
@@ -53,7 +53,7 @@
                 </textarea>
             </div>
         </div>
-        <p>Image size-(width-2121px x height-1414 px)</p>
+        <p>Image size-(width-450px x height-460 px)</p>
         @php
         $media_id_works_first_featured_image = $obj->content['media_id_works_first_featured_image'] ?? null;
         @endphp
@@ -76,7 +76,7 @@
                 </textarea>
             </div>
         </div>
-        <p>Image size-(width-800px x height-800px)</p>
+        <p>Image size-(width-360px x height-360px)</p>
         @php
         $media_id_works_first_featured_image1 = $obj->content['media_id_works_first_featured_image1'] ?? null;
         @endphp

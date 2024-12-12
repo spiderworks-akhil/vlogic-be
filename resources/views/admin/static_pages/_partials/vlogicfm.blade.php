@@ -31,7 +31,7 @@
             <input type="text" name="content[button_url]" class="form-control" @if($obj->content && isset($obj->content['button_url'])) value="{{$obj->content['button_url']}}" @endif >
 
         </div>
-        <p>Imagesize-(width-600px x height-600px)</p>
+        <p>Imagesize-(width-500px x height-400px)</p>
         @php
             $bannerImage = $obj->content['media_id_works_first_featured_image'] ?? null;
         @endphp

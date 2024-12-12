@@ -12,7 +12,7 @@
             </div>
 
             <div class="form-group">
-                <p>Image size-(width-100px x height-100px)</p>
+                <p>Image size-(width-1440px x height-300px)</p>
                 @php
                     $media_id_banner_image = $obj->content['media_id_banner_image'] ?? null;
                 @endphp
@@ -43,7 +43,7 @@
 
         <h3>Top Section </h3>
         <fieldset>
-            <p>Image size-(width-2200px x height-1050px)</p>
+            <p>Image size-(width-700px x height-450px)</p>
             @php
                 $media_id_works_first_featured_image = $obj->content['media_id_works_first_featured_image'] ?? null;
             @endphp
@@ -63,7 +63,7 @@
                     {{ $obj->content['section_description_first'] ?? '' }}
                 </textarea>
             </div>
-            <p>Image size-(width-800px x height-800px)</p>
+            <p>Image size-(width-300px x height-300px)</p>
             @php
                 $media_id_works_first_featured_image001 = $obj->content['media_id_works_first_featured_image001'] ?? null;
             @endphp
@@ -84,7 +84,7 @@
                 </textarea>
             </div>
 
-            <p>Image size-(width-800px x height-800px)</p>
+            <p>Image size-(width-600px x height-400px)</p>
             @php
             $media_id_works_first_featured_image00 = $obj->content['media_id_works_first_featured_image00'] ?? null;
         @endphp
@@ -100,7 +100,7 @@
 
 
             <div class="form-group">
-                <p>Image size-(width-1000px x height-600px)</p>
+                <p>Image size-(width-500px x height-250px)</p>
                 @php
                     $media_id_works_video = $obj->content['media_id_works_video'] ?? null;
                 @endphp
@@ -137,7 +137,8 @@
                     {{ $obj->content['section_description_first2'] ?? '' }}
                 </textarea>
             </div>
-            <p>Image size-(width-1000px x height-600px)</p>
+            <p>Image size-(width-550px x height-450px)</p>
+
             @php
             $media_id_works_first_featured_image0 = $obj->content['media_id_works_first_featured_image0'] ?? null;
         @endphp
@@ -150,8 +151,8 @@
             'id' => 'media_id_works_first_featured_image0',
             'display' => 'horizontal'
         ])
+            <p>Image size-(width-350px x height-600px)</p>
 
-<p>Image size-(width-1000px x height-600px)</p>
             @php
                 $media_id_works_video = $obj->content['media_id_works_video'] ?? null;
             @endphp
@@ -223,7 +224,7 @@
                     {{ $obj->content['section_description_first04'] ?? '' }}
                 </textarea>
             </div>
-            <p>Image size-(width-1000px x height-600px)</p>
+            <p>Image size-(width-450px x height-350px)</p>
             @php
                 $media_id_works_first_featured_image1 = $obj->content['media_id_works_first_featured_image1'] ?? null;
             @endphp
@@ -269,7 +270,7 @@
             </div>
         </div>
 
-        <p>Image size-(width-1000px x height-600px)</p>
+        <p>Image size-(width-450px x height-350px)</p>
 
         @php
         $media_id_works_first_featured_image01 = $obj->content['media_id_works_first_featured_image01'] ?? null;
@@ -303,7 +304,7 @@
         </div>
     </div>
 
-    <p>Image size-(width-1000px x height-600px)</p>
+    <p>Image size-(width-450px x height-350px)</p>
 
     @php
     $media_id_works_first_featured_image002 = $obj->content['media_id_works_first_featured_image002'] ?? null;
@@ -339,7 +340,7 @@
         </div>
     </div>
 
-
+    <p>Image size-(width-450px x height-350px)</p>
 
     @php
     $media_id_works_first_featured_image03 = $obj->content['media_id_works_first_featured_image03'] ?? null;

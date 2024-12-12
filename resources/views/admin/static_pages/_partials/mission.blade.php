@@ -8,7 +8,7 @@
         </div>
 
         <div class="form-group ">
-            <p>Imagesize-(width-100px x height-100px)</p>
+            <p>Image size-(width-1440px x height-300px)</p>
             @php
             $media_id_banner_image = ($obj->content && isset($obj->content['media_id_banner_image']))?$obj->content['media_id_banner_image']:null;
             @endphp
@@ -30,7 +30,7 @@
             <textarea name="content[banner_title1]" class="form-control editor">@if($obj->content && isset($obj->content['banner_title1'])) {{$obj->content['banner_title1']}} @endif</textarea>
         </div>
         <div class="form-group ">
-            <p>Imagesize-(width-100px x height-100px)</p>
+            <p>Imagesize-(width-250px x height-250px)</p>
             @php
             $media_id_banner_image1 = ($obj->content && isset($obj->content['media_id_banner_image1']))?$obj->content['media_id_banner_image1']:null;
             @endphp
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="form-group ">
-            <p>Imagesize-(width-100px x height-100px)</p>
+            <p>Imagesize-(width-250px x height-250px)</p>
             @php
             $media_id_banner_image2 = ($obj->content && isset($obj->content['media_id_banner_image2']))?$obj->content['media_id_banner_image2']:null;
             @endphp
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="form-group ">
-            <p>Imagesize-(width-100px x height-100px)</p>
+            <p>Imagesize-(width-250px x height-250px)</p>
             @php
             $media_id_banner_image3 = ($obj->content && isset($obj->content['media_id_banner_image3']))?$obj->content['media_id_banner_image3']:null;
             @endphp
