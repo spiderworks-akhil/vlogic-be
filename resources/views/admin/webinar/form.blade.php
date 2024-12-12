@@ -90,7 +90,7 @@
 
                                                             <div class="form-group col-md-6">
                                                                 <label>Published On</label>
-                                                                <input type="text" name="published_on" class="form-control datetimepicker" value="{{$obj->published_on}}" id="published_on">
+                                                                <input type="text" name="published_on" class="form-control datetimepicker" value="{{date('d/m/Y H:i', strtotime($obj->published_on))}} " id="published_on">
 
                                                             </div>
 
