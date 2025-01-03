@@ -86,7 +86,7 @@
                                                         <div data-simplebar>
                                                             <div class="row m-0">
 
-                                                                @if($listing->title == "Yes")
+                                                                @if($listing->youtube_link == "Yes")
                                                                 <div class="form-group col-md-12">
                                                                     <label>Youtube</label>
                                                                     <input type="text" name="youtube_link" class="form-control" value="{{$obj->youtube_link}}">
